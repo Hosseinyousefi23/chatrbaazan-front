@@ -1,0 +1,67 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 107px;
+    z-index: 99;
+}
+.header .navbar-default {
+    z-index: 4;
+    border-bottom: 2px solid #dfdfdf;
+    background-color: #fff;
+    position: relative;
+    height: 100%;
+}
+.header .navbar-default .go-logoCont.container {
+    position: relative;
+    width: 100%;
+}
+.header .navbar-default .go-logoCont {
+    position: relative;
+    background-color: #fff;
+    padding: 13px 25px 0 12px;
+}
+.header .navbar-default .go-logoCont.container {
+    position: relative;
+    width: 100%;
+}
+.header .navbar-default .go-logoCont {
+    position: relative;
+    background-color: #fff;
+    padding: 13px 25px 0 12px;
+}
+.header .navbar-default .go-logoCont ul {
+    position: relative;
+    font-size: 0;
+    width: 100%;
+    margin: 0 0 13px;
+}
+.header .navbar-default .go-logoCont ul li:nth-child(1) {
+    height: 0;
+    margin-top: -4px;
+    margin-left: 15px;
+}
+.header .navbar-default .go-logoCont ul li {
+    font-size: 14px;
+    padding: 0;
+    vertical-align: top;
+}
+.header .navbar-default .go-logoCont ul li:nth-child(1) a {
+    display: inline-block;
+    position: relative;
+  }
+  .header .navbar-default .go-logoCont ul li:nth-child(1) a img {
+    width: 130px;
+}
+:host .list-inline {
+    margin: 0 -6px;
+    font-size: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  :host .list-inline li {
+    padding: 0 6px;
+    font-size: 14px;
+    display: inline-block;
+  }
