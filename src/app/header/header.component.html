@@ -1,17 +1,55 @@
-<div class="header go-smooth">
-  <nav class="navbar navbar-default desktop-view">
-    <div  class="go-logoCont container">
-      <ul class="list-inline go-smooth">
-        <li class="go-smooth">
-          <a [routerLink]="['/']">
-            <img src='assets/image/chatrbaazan-logo.png'>
-          </a>
-        
-        </li>
-        <li class="go-smooth ng-start-inserted">
-  
-        </li>
-      </ul>
+<div class="header">
+  <div class="topheader row">
+    <div class="logo col-2">
+      <a [routerLink]="['/']">
+        <img src='assets/image/chatrbaazan-logo.png'>
+      </a>
     </div>
-  </nav>
+    <div class="search_bar col-8 row">
+      <div class="col-4">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>تهران</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">انزلی</button>
+            <button class="dropdown-item">اهواز</button>
+            <button class="dropdown-item">تبریز</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-8 ">
+        <div class="input-group mb-3">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+          <input type="text" class="form-control" placeholder="جستجوی کد تخفیف ، شرکت‎ها " aria-describedby="basic-addon2">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-2">
+      مجموع چتربازی‌ها : 329,700
+    </div>
+  </div>
+  
+  <div class="menu">
+    <ul>
+      <li>
+        <a href="">
+        سفارش غذا
+        </a>
+      </li>
+      <li><a href="">
+        فروشگاه اینترنتی
+      </a></li>
+      <li><a href="">
+        حمل و نقل 
+      </a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </div>
 </div>
