@@ -92,6 +92,10 @@ col-xs-5ths,
     .header{
         height: 115px;
     }
+    .logo{
+        position: absolute;
+        left: 54%;
+    }
 }
 @media all and (max-width: 575px) { 
     .search_input{
