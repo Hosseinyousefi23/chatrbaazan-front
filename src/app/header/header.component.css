@@ -7,8 +7,10 @@
     z-index: 10;
 }
 .topheader .logo img{
-    width: 10em;
+    width: 125px;
 }
+
+
 .menu{
     border-top: 2px solid #dfdfdf;
     border-bottom: 2px solid #dfdfdf;
@@ -25,6 +27,33 @@
     font-size: 1.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              em;
 }
 
+.city_btn{
+    position: absolute;
+    top: 1px;
+    right: 115px;
+    padding: 9px;
+    background-color: #fff !important;
+    border: 1px solid #0aeaea;
+}
+
+.search_btn{
+    border-radius: 0 1em 1em 0 !important;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    
+}
+
+.search_input{
+    width: 29em;
+    border-radius: 1em 0 0 1em !important;
+}
+
+.sum_charbaz{
+    padding-top: 9px;
+    padding-left: 45px;
+}
 col-xs-5ths,
 .col-sm-5ths,
 .col-md-5ths,
