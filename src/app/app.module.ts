@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OwlModule } from 'ngx-owl-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import {
   MatFormFieldModule } from "@angular/material";
   import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 
@@ -26,7 +28,8 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { HeaderComponent } from './header/header.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    OwlModule
   ],
   providers: [],
   bootstrap: [AppComponent]
