@@ -1,0 +1,7 @@
+.footer {
+  height: 139px;
+  z-index: 99;
+  padding: 15px;
+  background-color: #2d3e50;
+  margin-top: 10px;
+}
