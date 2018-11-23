@@ -17,10 +17,15 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
+  MatTabsModule,
   MatFormFieldModule } from "@angular/material";
-  import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { OfferComponent } from './offer/offer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -29,7 +34,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    CarouselComponent
+    CarouselComponent,
+    OfferComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    // BrowserAnimationsModule,
+    BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
@@ -47,8 +54,10 @@ import { CarouselComponent } from './carousel/carousel.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatTabsModule,
     NgbModule.forRoot(),
-    OwlModule
+    OwlModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
