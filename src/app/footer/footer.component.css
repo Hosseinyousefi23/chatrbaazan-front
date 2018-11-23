@@ -4,4 +4,31 @@
   padding: 15px;
   background-color: #2d3e50;
   margin-top: 10px;
+  color: #ffffff;
+}
+.footer .logo{
+  width: 7em;
+}
+.footer li{
+  float: right;
+  list-style: none;
+}
+.footer_content ul{
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+}
+.footer_content li{
+  padding: 1em;
+  font-weight: 700;
+}
+.footer .line{
+  border-color: #ffffff;
+  margin: 0 20em;
+}
+.footer .footer_logo{
+  padding-top: 1em;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
 }
