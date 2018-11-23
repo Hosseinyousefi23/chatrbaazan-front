@@ -7,14 +7,20 @@
     </div>
     <div class="search_bar col-8 row">
       <div class="col-4">
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>تهران</button>
+        <!-- <div ngbDropdown class="d-inline-block" (change)="selectChangeHandler($event)">
+          <button class="btn btn-outline-primary" id="dropdownBasic1"  ngbDropdownToggle *ngIf="selectedDay">{{selectedDay}}</button>
+          <button class="btn btn-outline-primary" id="dropdownBasic1"  ngbDropdownToggle *ngIf="!selectedDay">تهران</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button class="dropdown-item">انزلی</button>
-            <button class="dropdown-item">اهواز</button>
-            <button class="dropdown-item">تبریز</button>
+            <button class="dropdown-item" value="انزلی ">انزلی</button>
+            <button class="dropdown-item" value="اهواز">اهواز</button>
+            <button class="dropdown-item" value="تبریز">تبریز</button>
           </div>
-        </div>
+        </div> -->
+        <form [formGroup]="countryForm">
+          <select formControlName="countryControl" class="btn ">
+            <option [value]="country" *ngFor="let country of countries">             {{country}}</option>
+          </select>
+         </form>
       </div>
 
       <div class="col-xs-8 ">
