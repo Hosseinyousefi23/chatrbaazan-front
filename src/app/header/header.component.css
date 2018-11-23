@@ -21,19 +21,24 @@
     list-style: none;
     height: 100%;
 }                                                                                                                                                       
+
 .menu ul li{
     float: right;
-    padding: 0 1em;
-    font-size: 1.1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              em;
+}
+.menu ul li:first-child{
+    margin-right: 1em;
+}
+.menu ul li a{
+    height: 100%;
+    padding: .6em;
+    font-weight: 700;
 }
 
+
 .city_btn{
-    position: absolute;
-    top: 1px;
-    right: 115px;
-    padding: 9px;
+    padding: 6px;
     background-color: #fff !important;
-    border: 1px solid #0aeaea;
+    border: 1px solid #CECECE;
 }
 
 .search_btn{
@@ -42,6 +47,7 @@
     border-top-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
+    border: 1px solid #000;
     
 }
 
@@ -69,8 +75,32 @@ col-xs-5ths,
     .menu{
         display: none;
     }
+    .sum_charbaz p{
+        display: none;
+    }
+    .search_input{
+        width: 14em;
+    }
+    .countryForm_bar{
+        display: none; 
+    }
+    .search_bar{
+        position: absolute;
+        top: 5em;
+        right: 19%;
+    }
+    .header{
+        height: 115px;
+    }
 }
-
+@media all and (max-width: 575px) { 
+    .search_input{
+        width: 9em;
+    }
+    .header{
+        height: 115px;
+    }
+}
 @media (max-width: 992px) {
 
 }

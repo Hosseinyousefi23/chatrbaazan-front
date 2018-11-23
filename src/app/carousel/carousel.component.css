@@ -1,14 +1,45 @@
 .owl-carousel-holder {
   width: 100%;
   float: right;
-  height: 33em;
-  padding: .5em;
+  padding: 0 .5em;
+}
+@media (min-width: 992px) {
+  .owl-carousel-holder {
+    padding-left: 1em;
+  }
 }
 
 .item img {
-  height: 33em;
+  height: 35.5em;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 41px -6px rgba(135, 130, 135, 1);
   -moz-box-shadow: 0px 0px 41px -6px rgba(135, 130, 135, 1);
   box-shadow: 0px 0px 41px -6px rgba(135, 130, 135, 1);
+}
+
+@media (max-width: 500px) {
+  .item img {
+    height: 12em;
+  }
+}
+@media (max-width: 993px) {
+  .item img {
+    height: 20em;
+  }
+}
+@media all and (max-width: 1199px) { } 
+@media all and (max-width: 991px) { 
+  .item img {
+    height: 20em;
+  }
+ } 
+@media all and (max-width: 768px) { 
+  .item img {
+  height: 20em;
+} 
+} 
+@media all and (max-width: 575px) { 
+  .item img {
+    height: 12em;
+  } 
 }
