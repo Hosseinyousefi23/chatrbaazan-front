@@ -28,6 +28,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { OfferComponent } from './offer/offer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 
@@ -38,7 +40,9 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     CarouselComponent,
     OfferComponent,
-    FooterComponent
+    FooterComponent,
+    ContactusComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
