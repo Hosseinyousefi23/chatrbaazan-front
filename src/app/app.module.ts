@@ -20,6 +20,8 @@ import {
   MatTabsModule,
   MatFormFieldModule } from "@angular/material";
 
+import { FlipModule } from 'ngx-flip';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -57,7 +59,8 @@ import { FooterComponent } from './footer/footer.component';
     MatTabsModule,
     NgbModule.forRoot(),
     OwlModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
