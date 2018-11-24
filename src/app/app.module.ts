@@ -18,6 +18,8 @@ import {
   MatButtonModule,
   MatCardModule,
   MatTabsModule,
+  MatSidenavModule,
+  MatRadioModule,
   MatFormFieldModule } from "@angular/material";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 
@@ -40,7 +43,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     OfferComponent,
     FooterComponent,
     ContactusComponent,
-    AboutusComponent
+    AboutusComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     MatCardModule,
     MatFormFieldModule,
     MatTabsModule,
+    MatSidenavModule,
+    MatRadioModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule

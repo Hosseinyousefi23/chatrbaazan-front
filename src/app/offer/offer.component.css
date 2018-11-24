@@ -107,5 +107,9 @@
   line-height: 16px;
   font-weight: 600;
 }
-
+@media (max-width: 768px) {
+  .offer .offer_box {
+    width: 50%;
+  }
+}
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -18,5 +18,9 @@ ngOnInit() {
 }
  
 
+@Output() navToggle = new EventEmitter<boolean>();
+navOpen() {
+  this.navToggle.emit(true);
+}
 
 }
