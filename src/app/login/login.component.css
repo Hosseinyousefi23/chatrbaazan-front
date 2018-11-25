@@ -1,18 +1,27 @@
 a{
     color: #1ca2bd;
 }
-
+.logo img{
+    width: 100px;
+}
+.background{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../assets/image/background.png')
+}
 p{
     text-align: right;
 }
 .login {
     background-color: #ffffff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -200px 0 0 -200px;
-  width: 350px;
-  height: 350px;
+    margin: 6em auto;
+    width: 25em;
+  height: 400px;
   padding: 2em;
 }
 
@@ -45,4 +54,14 @@ input {
 
 input:focus {
   box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+@media all and (max-width: 575px) {
+    .login {
+        background-color: #ffffff;
+        margin: 3em auto;
+        width: 18em;
+    }
+    .login h1 {
+        font-size: 2em;
+    }
 }
