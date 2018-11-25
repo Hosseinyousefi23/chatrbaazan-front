@@ -111,5 +111,12 @@
   .offer .offer_box {
     width: 50%;
   }
+  .mat-tab-label{
+    width: 100px;
+  }
 }
-
+@media (max-width: 559px) {
+  .mat-tab-label {
+    width: 90px !important;
+  }
+}
