@@ -22,20 +22,20 @@
 
 .offer .offer_box {
   position: relative;
-  padding: 5px 15px 28px;
+  padding: 5px 15px 38px;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
   width: 20%;
+  height: 20em;
 }
-.offer .offer_box a{
+.offer .offer_box  .offer_box_link{
   height: 100%;
   width: 100%;
 }
 
 .offer .offer_box .offer_image {
   position: relative;
-  width: 70%;
-  padding-top: 70%;
-  max-height: 200px;
+  width: 11em;
+  height: 10em;
   display: block;
   margin: auto;
 }
@@ -50,10 +50,9 @@
 }
 
 .offer .offer_box .offer_title {
-  width: 70%;
+  width: 50%;
   margin: 5px auto;
   text-align: right;
-  overflow: hidden;
   display: flex;
   color: #4c4c4c;
   height: 45px;
@@ -63,11 +62,10 @@
 .offer .offer_box .offer_company {
   text-align: right;
   margin: auto;
-  width: 70%;
+  width: 50%;
   height: 10%;
   align-items: center;
   display: flex;
-  overflow: hidden;
 }
 .offer .offer_box .offer_company a {
   color: #828c99;
@@ -84,7 +82,7 @@
   text-decoration: none;
   text-align: center;
   padding: 8px 12px;
-  margin: 12px auto 0;
+  margin: 6px auto 0;
   border-radius: 6px;
   font-weight: 400;
   line-height: 16px;
@@ -99,10 +97,10 @@
   z-index: 4;
   background-color: #ec2b54;
   color: #fff;
-  padding: 6px 12px;
+  padding: 6px 8px;
   border-radius: 4px;
   top: 12px;
-  left: -3.5px;
+  left: -0.5px;
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
@@ -114,9 +112,91 @@
   .mat-tab-label{
     width: 100px;
   }
+
 }
 @media (max-width: 559px) {
   .mat-tab-label {
     width: 90px !important;
   }
+  .offer .offer_box .offer_title {
+    font-size: 10px;
+  }
+  .offer .offer_box .offer_image {
+    width: 8em;
+    height: 8em;
+  }
+  .offer_off{
+    font-size: 10px;
+    padding: 3px 4px;
+  }
+}
+
+
+label {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: block;
+  width: 96%;
+  height: 96%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 2px;
+}
+
+.card .back {
+  z-index: 5;
+  background: #0E1F3C;
+  color: #FFFFFF;
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.card .back p{
+  color: #FFFFFF;
+}
+label:hover .card {
+  -webkit-transform: rotateX(20deg);
+  transform: rotateX(20deg);
+  box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
+}
+
+input {
+  display: none;
+}
+
+:checked + .card {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+  transform: rotateX(160deg);
+  -webkit-transform: rotateX(160deg);
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
 }
