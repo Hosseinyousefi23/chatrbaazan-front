@@ -15,24 +15,75 @@
       <div class="banner">
         <img src="assets/image/contactusbanner.png" alt="">
         <span class="title">تماس با ما</span>
-        
+
       </div>
     </div>
     <div class="container contact_body">
       <div class="contact_inner">
         <div class="row">
-          <div class="col-xs-12 col-md-3 contact email"></div>
-          <div class="col-xs-12 col-md-3 contact telegram"></div>
-          <div class="col-xs-12 col-md-3 contact instagram"></div>
+          <div class="col-xs-12 col-md-2 contact email box">
+              <span>
+                <i   class="fa fa-telegram"></i>
+              </span>
+              <p>
+                کانال تلگرامی : <a href="https://t.me/linuxkhan">@linuxkhan</a>
+              </p>
+              
+          </div>
+
+          <div class="col-xs-12 col-md-2 contact telegram box">
+              <span >
+                  <i class="fa fa-phone"></i>
+                </span>
+                <p>
+                  کانال تلگرامی : <a href="https://t.me/linuxkhan">@linuxkhan</a>
+                </p>
+          </div>
+
+          <div class="col-xs-12 col-md-2 contact telegram box">
+              <span >
+                  <i class="fa fa-envelope"></i>
+                </span>
+                <p>
+                <a href="surena_project@gmail.com">surena-project@gmail.com</a>
+                </p>
+          </div>
+          <div class="col-xs-12 col-md-2 contact instagram box">
+              <span  >
+                  <i   class="fa fa-instagram"></i>
+                </span>
+                <p>
+                  کانال تلگرامی : <a href="https://t.me/linuxkhan">@linuxkhan</a>
+                </p>
+          </div>
+
         </div>
+
+        <hr>
         <div class="row">
-          <div class=" col-md-5 contact email">
+          <div class=" col-md-6">
+              <!-- map tut : https://angular-maps.com/guides/getting-started/ -->
             <agm-map [latitude]="lat" [longitude]="lng">
               <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
             </agm-map>
-            
+
           </div>
-          <div class=" col-md-5 contact email"></div>
+          <div class=" col-md-6">
+
+
+            <form [formGroup]="contactus" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input type="text" name="u" class="form-control" placeholder="نام" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="email" name="p" class="form-control" placeholder="ایمیل" required="required" />
+             </div>
+             <div class="form-group">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="8">متن خود را وارد کنید</textarea>
+            </div>
+              <button type="submit" class="btn btn-primary btn_send ">ارسال</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
