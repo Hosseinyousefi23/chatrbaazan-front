@@ -107,6 +107,7 @@
   line-height: 16px;
   font-weight: 600;
 }
+<<<<<<< HEAD
 
 
 #---------------------
@@ -144,4 +145,18 @@
   color: white;
   text-align: center;
   background-color: #aaa;
+=======
+@media (max-width: 768px) {
+  .offer .offer_box {
+    width: 50%;
+  }
+  .mat-tab-label{
+    width: 100px;
+  }
+}
+@media (max-width: 559px) {
+  .mat-tab-label {
+    width: 90px !important;
+  }
+>>>>>>> d0083f61b35569945ba419b03a20cdd940915705
 }

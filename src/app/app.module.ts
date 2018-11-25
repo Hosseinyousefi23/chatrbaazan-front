@@ -18,6 +18,8 @@ import {
   MatButtonModule,
   MatCardModule,
   MatTabsModule,
+  MatSidenavModule,
+  MatRadioModule,
   MatFormFieldModule } from "@angular/material";
 
 import { FlipModule } from 'ngx-flip';
@@ -30,6 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -42,7 +47,10 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     OfferComponent,
     FooterComponent,
     ContactusComponent,
-    AboutusComponent
+    AboutusComponent,
+    LoginComponent,
+    SignupComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +69,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     MatCardModule,
     MatFormFieldModule,
     MatTabsModule,
+    MatSidenavModule,
+    MatRadioModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,

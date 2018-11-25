@@ -6,56 +6,82 @@ body {
   direction: rtl;
 }
 
+.row {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: IRANSans;
   background-color: #F5F5F5;
 }
-a{
+
+a {
   cursor: pointer;
 }
-ul{
+
+ul {
   padding: 0;
   margin: 0;
   text-decoration: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-col-xs-5ths,
-.col-sm-5ths,
-.col-md-5ths,
-.col-lg-5ths {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+html,
+body {
+  height: 100%;
 }
 
-.col-xs-5ths {
-    width: 20%;
-    float: left;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-@media (min-width: 768px) {
-    .col-sm-5ths {
-        width: 20%;
-        float: left;
+.example-container {
+  /* z-index: 10; */
+}
+
+.example-radio-group {
+  display: block;
+  border: 1px solid #555;
+  margin: 20px;
+  padding: 10px;
+}
+
+.mat-drawer-content {
+  overflow: hidden !important;
+}
+
+.menu_content {
+  width: 270px;
+  ;
+}
+
+@media (max-width: 559px) {
+    .mat-tab-label {
+      width: 80px !important;
+      font-size: .8em;
     }
+  }
+@media (min-width: 768px) {
+
+  .mat-tab-label {
+    width: 100px !important;
+    font-size: .9em;
+  }
 }
 
 @media (min-width: 992px) {
-    .col-md-5ths {
-        width: 20%;
-        float: left;
-    }
+
 }
 
 @media (min-width: 1200px) {
-    .col-lg-5ths {
-        width: 20%;
-        float: left;
-    }
+  .col-lg-5ths {
+    width: 20%;
+    float: left;
+  }
+
 }
+
+

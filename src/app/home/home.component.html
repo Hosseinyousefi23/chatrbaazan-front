@@ -1,21 +1,36 @@
-<app-header></app-header>
-<div class="row content">
-  <div class="col-md-4 col-xs-12 banner px-0">
-    <div class="banner_content">
-      <div class="banner_image">
-        <img  src="http://chatrbaazan.ir/media/banner/changal.jpg" alt="">
+<mat-sidenav-container class="example-container">
+  
+  <mat-sidenav #sidenav [mode]="mode.value"  position="end">
+    <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-window-close-o" aria-hidden="true"></i>
+    </button></p>
+    <div class="menu_content">
+      farid
+    </div>    
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    
+    <app-header (navToggle)="sidenav.toggle()"></app-header>
+    <div class="row content">
+      <div class="col-md-4 col-xs-12 banner px-0">
+        <div class="banner_content">
+          <div class="banner_image">
+            <img src="http://chatrbaazan.ir/media/banner/changal.jpg" alt="">
+          </div>
+          <div class="banner_image">
+            <img src="http://chatrbaazan.ir/media/banner/mrbilit.jpg" alt="">
+          </div>
+          <div class="banner_image">
+            <img src="http://chatrbaazan.ir/media/banner/changal.jpg" alt="">
+          </div>
+        </div>
       </div>
-      <div class="banner_image">
-        <img src="http://chatrbaazan.ir/media/banner/mrbilit.jpg" alt="">
-      </div>
-      <div class="banner_image">
-        <img  src="http://chatrbaazan.ir/media/banner/changal.jpg" alt="">
+      <div class="col-md-8 col-xs-12 slider px-0">
+        <app-carousel></app-carousel>
       </div>
     </div>
-  </div>
-  <div class="col-md-8 col-xs-12 slider px-0">
-    <app-carousel></app-carousel>
-  </div>
-</div>
-<app-offer></app-offer>
-<app-footer></app-footer>
+    <app-offer></app-offer>
+    <app-footer></app-footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <app-header></app-header>
 <div class="row content">
   <div class="banner">
@@ -20,8 +21,38 @@
       <div class="col-xs-12 col-md-3 contact telegram"></div>
       <div class="col-xs-12 col-md-3 contact instagram"></div>
       
-    </div>
-  </div>
-</div>
+=======
+<mat-sidenav-container class="example-container">
 
-<app-footer></app-footer>
+  <mat-sidenav #sidenav [mode]="mode.value" position="end">
+    <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-window-close-o" aria-hidden="true"></i>
+      </button></p>
+    <div class="menu_content">
+      farid
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <app-header (navToggle)="sidenav.toggle()"></app-header>
+    <div class="row content">
+      <div class="banner">
+        <img src="assets/image/contactusbanner.png" alt="">
+        <span class="title">تماس با ما</span>
+      </div>
+    </div>
+    <div class="container contact_body">
+      <div class="contact_inner">
+        <div class="row">
+          <div class="col-xs-12 col-md-3 contact email"></div>
+          <div class="col-xs-12 col-md-3 contact telegram"></div>
+          <div class="col-xs-12 col-md-3 contact instagram"></div>
+        </div>
+      </div>
+>>>>>>> d0083f61b35569945ba419b03a20cdd940915705
+    </div>
+
+    <app-footer></app-footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

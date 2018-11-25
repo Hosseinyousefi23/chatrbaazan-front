@@ -1,6 +1,7 @@
 import { Component, OnInit, Type } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ServerResponse } from '../ServerResponse';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { ServerResponse } from '../ServerResponse';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  mode = new FormControl('over');
   mySlideImages = [1,2,3].map((i)=> `https://picsum.photos/640/480?image=${i}`);
 
   myCarouselImages =[1,2,3,4,5,6].map((i)=>`https://picsum.photos/640/480?image=${i}`);
