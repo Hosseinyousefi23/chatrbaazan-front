@@ -36,7 +36,18 @@
     float: right;
     border: 1px solid #e0e0e0;
 }
+hr{
+    display: block;
+    margin-bottom: 52px;
+    margin-left: 63px;
+    border-right-width: 1px;
+    margin-right: 63px;
+    border-style: inset;
+    border-width: 1px;
+} 
 
+
+/* map css */
 agm-map {
     height: 311px;
   }
