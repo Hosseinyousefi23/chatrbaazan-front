@@ -31,3 +31,7 @@
     height: 15em;
     margin: 3em;
 }
+
+agm-map {
+    height: 208px;
+  }

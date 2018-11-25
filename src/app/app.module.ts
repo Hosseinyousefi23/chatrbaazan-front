@@ -35,6 +35,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -74,7 +75,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
-    FlipModule
+    FlipModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
