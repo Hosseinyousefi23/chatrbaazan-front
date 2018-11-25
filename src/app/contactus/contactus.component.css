@@ -9,6 +9,9 @@
     width: 100%;
     height: 14em;
 }
+.banner img{
+    filter: blur(1px);
+}
 .title{
     position: absolute;
     top: 6.5em;
