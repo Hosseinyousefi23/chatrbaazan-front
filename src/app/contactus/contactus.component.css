@@ -45,7 +45,24 @@ hr{
     border-style: inset;
     border-width: 1px;
 } 
+.box {
+    text-align: center;
+}
 
+.box:hover {
+    background-color:#fdfdfd;
+    border-color: #d7263d;
+    box-shadow: 0 0 0 2px #d7263d inset;
+}
+.box span{
+    font-size: 7em;
+    color:black;
+}
+
+.box span:hover{
+    font-size: 7em;
+    color:#d7263d;
+}
 
 /* map css */
 agm-map {
