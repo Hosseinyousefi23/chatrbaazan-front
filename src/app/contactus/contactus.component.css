@@ -32,6 +32,11 @@
     margin: 3em;
 }
 
+.btn_send {
+    float: right;
+    border: 1px solid #e0e0e0;
+}
+
 agm-map {
-    height: 208px;
+    height: 311px;
   }

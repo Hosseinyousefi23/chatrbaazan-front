@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-contactus',
@@ -15,5 +16,16 @@ export class ContactusComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+   contactus = new FormGroup({
+     name : new FormControl(''),
+     email : new  FormControl(''),
+     text : new FormControl(''),
+   })
+  
+   onSubmit() {
+     // TODO: Use EventEmitter with form value
+     console.warn(this.contactus.value);
+   }
 
 }
