@@ -13,6 +13,7 @@ export class PageService {
   constructor(private http: HttpClient) { }
 
   getcities(): Observable<Cities[]>{
+    // console.log(this.http.get<Cities[]>(this.baseUrl+'api/v1/city/'))
     return this.http.get<Cities[]>(this.baseUrl+'api/v1/city/')
   }
 }

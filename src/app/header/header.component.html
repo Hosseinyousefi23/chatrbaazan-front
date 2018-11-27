@@ -10,7 +10,7 @@
        
         <form [formGroup]="countryForm">
           <select formControlName="countryControl" class="city_btn btn">
-            <option [value]="country" *ngFor="let country of countries">{{country}}</option>
+            <option [value]="country" *ngFor="let country of cities">{{country.name}}</option>
           </select>
          </form>
       </div>
