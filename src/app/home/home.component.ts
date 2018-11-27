@@ -23,15 +23,15 @@ export class HomeComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getHomeDetails()
-    .subscribe((res: any) => {
-      this.data = res.data;
-      console.log(typeof(res.data));
-      this.isLoadingResults = false;
-    }, err => {
-      console.log(err);
-      this.isLoadingResults = false;
-    });
+    // this.api.getHomeDetails()
+    // .subscribe((res: any) => {
+    //   this.data = res.data;
+    //   console.log(typeof(res.data));
+    //   this.isLoadingResults = false;
+    // }, err => {
+    //   console.log(err);
+    //   this.isLoadingResults = false;
+    // });
   }
 
 }
