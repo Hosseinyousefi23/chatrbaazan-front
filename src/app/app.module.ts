@@ -20,7 +20,10 @@ import {
   MatTabsModule,
   MatSidenavModule,
   MatRadioModule,
-  MatFormFieldModule } from "@angular/material";
+  MatFormFieldModule, 
+  } from "@angular/material";
+
+import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog";
 
 import { FlipModule } from 'ngx-flip';
 
@@ -36,6 +39,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AgmCoreModule } from '@agm/core';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 
 
 
@@ -52,6 +56,7 @@ import { AgmCoreModule } from '@agm/core';
     LoginComponent,
     SignupComponent,
     ForgotPasswordComponent,
+    LoginModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +76,7 @@ import { AgmCoreModule } from '@agm/core';
     MatFormFieldModule,
     MatTabsModule,
     MatSidenavModule,
+    MatDialogModule,
     MatRadioModule,
     NgbModule.forRoot(),
     OwlModule,
@@ -82,6 +88,7 @@ import { AgmCoreModule } from '@agm/core';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginModalComponent]
 })
 export class AppModule { }

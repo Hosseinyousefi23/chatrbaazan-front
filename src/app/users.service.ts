@@ -19,5 +19,13 @@ export class UsersService {
   login(userdata): Observable<any>{
     return this.http.post(this.baseUrl+'auth/login/',userdata)
   }
+//TODO: check token by sending to server
+  logged(){
+    return localStorage.getItem("userToken");
+  }
+
+  logout() {
+    localStorage.removeItem("userToken");
+  }
 
 }

@@ -5,7 +5,7 @@
         <img src='assets/image/chatrbaazan-logo.png'>
       </a>
     </div>
-    <div class="search_bar col-md-8 col-xs-12 row">
+    <div class="search_bar col-md-7 col-xs-12 row">
       <div class="col-md-3 countryForm_bar ">
        
         <form [formGroup]="countryForm">
@@ -27,9 +27,21 @@
       </div>
 
     </div>
-    <div class="col-2 sum_charbaz">
+    <div class="col-3 sum_charbaz">
       <p>
-      مجموع چتربازی‌ها : 329,700
+          <span *ngIf="!user.logged()">
+          <a class="link" (click)="openDialog()">ورود</a>
+          /
+          <a class="link"  [routerLink]="['/signup']">عضویت</a>
+        </span>
+        <span *ngIf="user.logged()">
+          <a class="link"  [routerLink]="['/']">حساب کاربری</a>
+          /
+          <a class="link"  (click)="user.logout()">خروج</a>
+        </span>
+          <span class="sum_charbaz_content">
+              مجموع چتربازی‌ها : 329,700
+          </span>
       </p>
     </div>
   </div>

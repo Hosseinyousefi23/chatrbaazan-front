@@ -83,7 +83,13 @@ col-xs-5ths,
 .toggler i{
     font-size: 1.7em;
 }
+.link{
+  padding: 2px;
+}
 
+.sum_charbaz_content{
+  padding: 10px;
+}
 @media (max-width: 768px) {
   .menu {
     display: none;
