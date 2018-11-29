@@ -16,4 +16,8 @@ export class PageService {
     // console.log(this.http.get<Cities[]>(this.baseUrl+'api/v1/city/'))
     return this.http.get<Cities[]>(this.baseUrl+'api/v1/city/')
   }
+
+  getbanner(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl+'api/v1/banner/')
+  }
 }
