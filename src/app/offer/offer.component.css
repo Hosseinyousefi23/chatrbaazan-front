@@ -265,7 +265,16 @@ input {
   display: none;
 }
 
+.btn_sm {
+  width: 7em !important;
+  font-size: .9em;
+  border-radius: 5px;
+  margin: .5em;
+  padding: .5em;
+}
 
-.opend{
-  color: #ec2b54;
+.input_cupon{
+  display: inline;
+  width: 100px;
+  border-radius: 10px 0 0 10px;
 }

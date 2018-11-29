@@ -12,52 +12,64 @@
       <mat-tab label="محبوب ترین‎ها">
         <div class="row inner_content" >
 <!-- start of offer -->
-          <div class="offer_box" > 
-              <label>
-                <input type="checkbox" />
-
-                <div class="card " >
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
-
-                    <a class="btn btn-danger">
-                      اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                    <button class="btn offer_btn back_voted">
-                    بازگشت
-                    </button>
-                  </div>
-                </div>
-
-              </label>
+<div class="offer_box" >
+            
+            
+    <label>
+      <input type="checkbox" />
+      <div class="card front_offer "  >
+        <div class="front">
+          <a class="offer_box_link">
+            <span class="offer_off">8000<span>چتر بازی </span></span>
+            <div class="offer_image">
+              <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+            </div>
+            <div class="offer_title">
+              کد تخفیف 20درصد سفارش غذا
+            </div>
+            <div class="offer_company">
+              <a href="">اسنپ</a>
+            </div>
+            <a class="btn offer_btn" ngbButton>
+              مشاهده
+            </a>
+          </a>
+        </div>
+        <div class="back ">
+            
+          <p>کد تخفیف 20درصد سفارش غذا</p>
+          <div #container>
+                      
+              <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
+  
+              <input class=" btn input_cupon" type="text" value="code">
             
           </div>
+          <div class="">
+          <button class="btn btn-danger btn_sm">
+            اعلام خرابی
+          </button>
+          <button class="btn btn-success btn_sm ">
+            خرید
+          </button>
+        </div>
+        <div class="">
+          <button class="btn  btn-warning btn_sm ">
+            اشتراک گذاری
+          </button>
+          <button class="btn btn-primary btn_sm">
+            توضیح بیشتر
+          </button>
+        </div>
+          <button class="btn offer_btn back_voted">
+            بازگشت
+            </button>
+        </div>
+      </div>
+      
+    </label>
+  
+  </div>
 <!-- end of offer -->
 <!-- start of offer -->
 <div class="offer_box" >
@@ -83,21 +95,32 @@
           </a>
         </a>
       </div>
-      <div class="back">
+      <div class="back ">
+          
         <p>کد تخفیف 20درصد سفارش غذا</p>
+        <div #container>
+                    
+            <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
 
-        <button class="btn btn-danger">
+            <input class=" btn input_cupon" type="text" value="code">
+          
+        </div>
+        <div class="">
+        <button class="btn btn-danger btn_sm">
           اعلام خرابی
         </button>
-        <button class="btn btn-success">
+        <button class="btn btn-success btn_sm ">
           خرید
         </button>
-        <button class="btn  btn-warning">
+      </div>
+      <div class="">
+        <button class="btn  btn-warning btn_sm ">
           اشتراک گذاری
         </button>
-        <button class="btn btn-primary ">
+        <button class="btn btn-primary btn_sm">
           توضیح بیشتر
         </button>
+      </div>
         <button class="btn offer_btn back_voted">
           بازگشت
           </button>
@@ -548,23 +571,15 @@
                 مشاهده
               </button>
             </a></div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"><a>vds</a></div>
+          
         </div>
       </mat-tab>
 
     </mat-tab-group>
-    <li><i class="fa fa-location-arrow" aria-hidden="true" (click)="showDiv(1)"></i>Locator</li>
-<li><i class="fa fa-gift" aria-hidden="true" (click)="showDiv(2)"></i>Offer</li>
-<li><i class="fa fa-phone" aria-hidden="true" (click)="showDiv(3)"></i> Contact</li>
-<li><i class="fa fa-calendar" aria-hidden="true" (click)="showDiv(4)"></i>Holiday</li>
-<li><i class="fa fa-question-circle-o" aria-hidden="true" (click)="showDiv(4)"></i>FAQ</li>
+    
+    
+    
+    
 
-<div id="div1" (click)="menuToggle($event)" >Lorum Ipsum</div>
-<div id="div2" *ngIf="selectedIndex === 2">Lorum Ipsum</div>
-<div id="div3" *ngIf="selectedIndex === 3">Lorum Ipsum</div>
-<div id="div4" *ngIf="selectedIndex === 4">Lorum Ipsum</div>
   </div>
 </div>
