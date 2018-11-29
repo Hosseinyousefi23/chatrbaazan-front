@@ -16,6 +16,9 @@
     <p>کاربر جدید هستید؟ <a routerLink="/signup">
         ثبت‌نام در چتر بازان
       </a></p>
+      <p *ngIf="isLoginError">
+        رمز عبور یا کد کاربری اشتباه است
+      </p>
   </div>
 </mat-dialog-content>
 

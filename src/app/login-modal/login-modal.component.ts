@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-modal',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LoginModalComponent implements OnInit {
   user;
+  isLoginError :boolean = false;
   form: FormGroup;
   description:string;
 
@@ -39,8 +41,8 @@ export class LoginModalComponent implements OnInit {
         this.dialogRef.close();
         this.router.navigate(['/'])
       },
-      error =>{
-        console.log('error', error);
+      (err : HttpErrorResponse) => {
+        this.isLoginError = true;
       }
     );
   }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 
@@ -9,19 +9,25 @@ import { environment } from '../environments/environment';
 export class UsersService {
 
   baseUrl = environment.baseUrl;
-
+  private token = localStorage.getItem("userToken");
   constructor(private http: HttpClient) { }
 
-  register(userdata): Observable<any>{
-    return this.http.post(this.baseUrl+'auth/registration/',userdata)
+  register(userdata): Observable<any> {
+    return this.http.post(this.baseUrl + 'auth/registration/', userdata)
   }
 
-  login(userdata): Observable<any>{
-    return this.http.post(this.baseUrl+'auth/login/',userdata)
+  login(userdata): Observable<any> {
+    return this.http.post(this.baseUrl + 'auth/login/', userdata)
   }
-//TODO: check token by sending to server
-  logged(){
-    return localStorage.getItem("userToken");
+  //TODO: check token by sending to server
+  // getstatus(){
+  //   return this.http.post(this.baseUrl + '/auth/verify/', {headers : new HttpHeaders({'Token': this.token})}).subscribe(
+  //     res => console.log(res)
+  //   );
+  // }
+  logged() {
+    if (!this.token) { return false; }
+    return true;
   }
 
   logout() {
