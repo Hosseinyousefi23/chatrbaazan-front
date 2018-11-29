@@ -13,7 +13,6 @@ export class OfferComponent implements OnInit {
   constructor() { }
   ngOnInit() {
       $(document).ready(function(){
-        
       $(".card").click(function(){
         console.log("front")
         $(".card").removeClass("voted");
