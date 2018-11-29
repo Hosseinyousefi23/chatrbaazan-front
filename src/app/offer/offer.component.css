@@ -8,7 +8,7 @@
   transform-style: preserve-3d; 
   transition: .6s;
 }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 .offer .offer_header .title {
   text-align: right;
 }
@@ -17,7 +17,7 @@
 .offer .inner_content {
   text-align: right;
   margin: 0;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+  
 }
 
 .offer .offer_box {
@@ -132,7 +132,7 @@
 }
 
 
-label {
+/* label {
   -webkit-perspective: 1000px;
   perspective: 1000px;
   -webkit-transform-style: preserve-3d;
@@ -172,17 +172,17 @@ label {
 
 .card .back {
   z-index: 5;
-  background: #0E1F3C;
+  background: rgb(21, 44, 83);
   color: #FFFFFF;
-  -webkit-transform: rotateX(180deg);
-  transform: rotateX(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .card .back p{
   color: #FFFFFF;
 }
 label:hover .card {
-  -webkit-transform: rotateX(20deg);
-  transform: rotateX(20deg);
+  -webkit-transform: rotateY(10deg);
+  transform: rotateY(10deg);
   box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
 }
 
@@ -190,13 +190,82 @@ input {
   display: none;
 }
 
-:checked + .card {
-  transform: rotateX(180deg);
-  -webkit-transform: rotateX(180deg);
+.card.voted {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+} */
+
+
+/* :checked + .card {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+} */
+
+/* label:hover :checked + .card {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
+} */
+label {
+  /* -webkit-perspective: 1000px;
+  perspective: 1000px; */
+  /* -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; */
+  display: block;
+  width: 96%;
+  height: 96%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
-label:hover :checked + .card {
-  transform: rotateX(160deg);
-  -webkit-transform: rotateX(160deg);
-  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
+
+.card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; 
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  /* z-index: 20; */
+}
+
+.card .front,
+.card .back {
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 2px;
+}
+
+.card .back {
+  z-index: 5;
+  background: rgb(21, 44, 83);
+  color: #FFFFFF;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.card .back p{
+  color: #FFFFFF;
+}
+
+.voted {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+} 
+input {
+  display: none;
+}
+
+
+.opend{
+  color: #ec2b54;
 }
