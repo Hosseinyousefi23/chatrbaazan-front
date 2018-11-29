@@ -25,7 +25,9 @@ import {
 
 import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog";
 
-import { FlipModule } from 'ngx-flip';
+import { ClipboardModule } from 'ngx-clipboard';
+
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
@@ -81,7 +83,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
-    FlipModule,
+    ClipboardModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     })
