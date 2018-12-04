@@ -68,7 +68,7 @@
             </agm-map>
 
           </div>
-          <hr>
+          
           <div class=" col-md-6 contact_form">
              <form  (ngSubmit)="save(tryForm_)" #tryForm_="ngForm" class="ui form">
 
@@ -90,7 +90,9 @@
 
                 <div class="form-group">
                  
-                  <input class="ng-valid form-control" type="text" [(ngModel)]="contactus.contact" name="contact" placeholder="متن خود را وارد نمایید" >
+                  <!-- <input class="ng-valid form-control" type="text" [(ngModel)]="contactus.contact" name="contact" placeholder="متن خود را وارد نمایید" > -->
+                  <textarea class="form-control" name="contact"  [(ngModel)]="contactus.contact" cols="65" rows="5"></textarea>
+
                 </div>
               
           

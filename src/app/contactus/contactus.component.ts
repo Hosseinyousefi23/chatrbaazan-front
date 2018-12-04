@@ -42,6 +42,8 @@ export class ContactusComponent implements OnInit {
       );
 
 	}
+//TODO: validate email and  clean form and show  sucess maessage
+
 
 //   this.contact = new FormGroup({
 //     name: new FormControl(),
