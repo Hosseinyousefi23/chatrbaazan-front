@@ -17,13 +17,14 @@ export class HeaderComponent implements OnInit {
 
   // countryForm: FormGroup;
   public cities: Cities[] = [];
+  public categories: any[] = [];
   countries = ['USA', 'Canada', 'Uk', 'kashan']
 
   constructor( private data: PageService ,private dialog: MatDialog , private user: UsersService ) { }
 
   ngOnInit() {
-    this.data.getcities().subscribe((data :any) => {this.cities = data.data;
-    });
+    this.data.getcities().subscribe((data :any) => {this.cities = data.data;});
+    this.data.getCategories().subscribe((data :any) => {this.categories = data.data;});
     // this.countryForm = this.fb.group({
     //   countryControl: ['تهران']
     // });
