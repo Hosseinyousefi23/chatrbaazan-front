@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageService } from '../page.service';
 //import * from 'jquery';
 
 declare var $: any;
@@ -9,10 +10,20 @@ declare var $: any;
 })
 
 export class OfferComponent implements OnInit {
-
-  constructor() { }
+  public mostseen: any[] = [];
+  public newest: any[] = [];
+  public mostDiscount: any[] = [];
+  constructor(private offer : PageService) { }
   ngOnInit() {
-      $(document).ready(function(){
+
+    this.offer.getMostSeenOffer().subscribe((data :any) => {this.mostseen = data.data;});
+    this.offer.getnewestOffer().subscribe((data :any) => {this.newest = data.data;});
+    this.offer.getmostDiscountOffer().subscribe((data :any) => {this.mostDiscount = data.data; this.addeventlister();});
+
+  }
+
+  addeventlister(){
+    $(document).ready(function(){
       $(".card").click(function(){
         console.log("front")
         $(".card").removeClass("voted");
@@ -28,5 +39,4 @@ export class OfferComponent implements OnInit {
 
     });
   }
-
 }
