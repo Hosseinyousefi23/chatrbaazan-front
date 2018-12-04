@@ -7,7 +7,7 @@
     </div>
     <h1>ورود به چتر بازان</h1>
       <input type="email" [(ngModel)] = "user.email" placeholder="ایمیل" required="required" />
-      <input type="password"  [(ngModel)] = "user.password"placeholder="رمز عبور" required="required" />
+      <input type="password"  [(ngModel)] = "user.password" placeholder="رمز عبور" required="required" />
       <p><a routerLink="/forgetpassword">رمز عبور خود را فراموش کرده ام</a></p>
       <button (click)="LoginUser()" type="submit" class="btn btn-primary btn-block btn-large">ورود</button>
       <p>کاربر جدید هستید؟ <a routerLink="/signup">

@@ -61,27 +61,49 @@
 
         <hr>
         <div class="row">
-          <div class=" col-md-6">
+          <div class="map col-md-6">
               <!-- map tut : https://angular-maps.com/guides/getting-started/ -->
             <agm-map [latitude]="lat" [longitude]="lng">
               <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
             </agm-map>
 
           </div>
-          <div class=" col-md-6">
+          <hr>
+          <div class=" col-md-6 contact_form">
+             <form  (ngSubmit)="save(tryForm_)" #tryForm_="ngForm" class="ui form">
 
-
-            <form [formGroup]="contactus" (ngSubmit)="onSubmit()">
               <div class="form-group">
-                <input type="text" name="u" class="form-control" placeholder="نام" required="required" />
+                <input class="ng-valid form-control" type="text" [(ngModel)]="contactus.name" name="name" placeholder="نام" required>
               </div>
+          
+                <!-- <div class="field">
+                  <label>Country</label>
+                  <select [(ngModel)]="user.country" name="country">
+                    <option value="">Select your country</option>
+                    <option *ngFor="let x of countries" value="{{x.id}}">{{x.name}}</option>
+                  </select>
+                </div> -->
+          
               <div class="form-group">
-                <input type="email" name="p" class="form-control" placeholder="ایمیل" required="required" />
-             </div>
-             <div class="form-group">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="8">متن خود را وارد کنید</textarea>
-            </div>
-              <button type="submit" class="btn btn-primary btn_send ">ارسال</button>
+                <input class="ng-valid form-control" type="text" [(ngModel)]="contactus.email" name="email"  placeholder="ایمیل" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+              </div>
+
+                <div class="form-group">
+                 
+                  <input class="ng-valid form-control" type="text" [(ngModel)]="contactus.contact" name="contact" placeholder="متن خود را وارد نمایید" >
+                </div>
+              
+          
+          
+              <div class="ui center aligned three column grid">
+                
+                <div class="row">
+                  <div class="column">
+                    <button class="btn btn-danger" type="submit">ارسال</button>
+                  </div>
+                </div>
+              </div>
+          
             </form>
           </div>
         </div>

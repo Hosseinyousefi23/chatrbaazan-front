@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   providers: [UsersService]
 })
 export class LoginComponent implements OnInit {
-  isLoginerror :boolean
-  user
+  isLoginerror :boolean;
+  user;
   constructor(private userservice: UsersService,private router :Router) { }
 
   ngOnInit() {

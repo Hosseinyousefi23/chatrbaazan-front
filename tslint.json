@@ -23,7 +23,7 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "tabs"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -115,7 +115,7 @@
       "check-decl",
       "check-operator",
       "check-separator",
-      "check-type"
+      // "check-type"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,

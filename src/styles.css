@@ -102,6 +102,10 @@ body {
 
 
 
+.owl-carousel {
+  /* margin: 2em auto; */
+  margin:7px 0 2em 0;
+}
 
 .owl-carousel .owl-nav .owl-prev,
 .owl-carousel .owl-nav .owl-next {
