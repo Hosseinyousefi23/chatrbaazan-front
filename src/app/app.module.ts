@@ -42,6 +42,9 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AgmCoreModule } from '@agm/core';
 import { LoginModalComponent } from './login-modal/login-modal.component';
+import { SearchComponent } from './search/search.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 
 
 
@@ -59,6 +62,9 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     SignupComponent,
     ForgotPasswordComponent,
     LoginModalComponent,
+    SearchComponent,
+    ProductDetailComponent,
+    ShoppingCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,11 @@ import { environment } from '../environments/environment';
 })
 export class UsersService {
 
+  public headers: Headers = new Headers({
+    'content-type': 'application/json',
+    'Token': localStorage.getItem("userToken")
+  })  	
+
   baseUrl = environment.baseUrl;
   private token = localStorage.getItem("userToken");
   constructor(private http: HttpClient) { }
