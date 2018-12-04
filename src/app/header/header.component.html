@@ -8,11 +8,19 @@
     <div class="search_bar col-md-7 col-xs-12 row">
       <div class="col-md-3 countryForm_bar ">
        
-        <form [formGroup]="countryForm">
-          <select formControlName="countryControl" class="city_btn btn">
+        <!-- <form [formGroup]="countryForm"> -->
+          <select formControlName="countryControl" class="city_btn btn" value="شهرها">
+              <option  selected="selected" >شهرها</option>
+
             <option [value]="country" *ngFor="let country of cities">{{country.name}}</option>
           </select>
-         </form>
+        <!-- </form> -->
+
+         <!-- <mat-autocomplete #auto="matAutocomplete">
+            <mat-option [value]="city" *ngFor="let city of cities" >{{city.name}}</mat-option>
+          </mat-autocomplete> -->
+          
+         
       </div>
 
       <div class="col-md-9 col-xs-12">
