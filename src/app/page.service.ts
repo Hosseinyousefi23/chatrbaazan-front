@@ -13,11 +13,30 @@ export class PageService {
   constructor(private http: HttpClient) { }
 
   getcities(): Observable<Cities[]>{
-    // console.log(this.http.get<Cities[]>(this.baseUrl+'api/v1/city/'))
     return this.http.get<Cities[]>(this.baseUrl+'api/v1/city/')
   }
 
   getbanner(): Observable<any[]>{
     return this.http.get<any[]>(this.baseUrl+'api/v1/banner/')
   }
+
+  getCategories(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl+'api/v1/category')
+  }
+
+  
+  getMostSeenOffer(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl+'api/v1/offer?limits=10&ordering=created_at')
+  }
+
+  getnewestOffer(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl+'api/v1/offer?limits=10&ordering=created_at')
+  }
+
+  getmostDiscountOffer(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl+'api/v1/offer?limits=10&ordering=created_at')
+  }
+
+
+
 }

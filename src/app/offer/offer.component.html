@@ -8,578 +8,386 @@
     </div>
   </div>
   <div class="offer_content">
-    <mat-tab-group animationDuration="0ms">
+    <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
       <mat-tab label="محبوب ترین‎ها">
-        <div class="row inner_content" >
-<!-- start of offer -->
-<div class="offer_box" >
-            
-            
-    <label>
-      <input type="checkbox" />
-      <div class="card front_offer "  >
-        <div class="front">
-          <a class="offer_box_link">
-            <span class="offer_off">8000<span>چتر بازی </span></span>
-            <div class="offer_image">
-              <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-            </div>
-            <div class="offer_title">
-              کد تخفیف 20درصد سفارش غذا
-            </div>
-            <div class="offer_company">
-              <a href="">اسنپ</a>
-            </div>
-            <a class="btn offer_btn" ngbButton>
-              مشاهده
-            </a>
-          </a>
-        </div>
-        <div class="back ">
-            
-          <p>کد تخفیف 20درصد سفارش غذا</p>
-          <div #container>
-                      
-              <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
-  
-              <input class=" btn input_cupon" type="text" value="code">
-            
-          </div>
-          <div class="">
-          <button class="btn btn-danger btn_sm">
-            اعلام خرابی
-          </button>
-          <button class="btn btn-success btn_sm ">
-            خرید
-          </button>
-        </div>
-        <div class="">
-          <button class="btn  btn-warning btn_sm ">
-            اشتراک گذاری
-          </button>
-          <button class="btn btn-primary btn_sm">
-            توضیح بیشتر
-          </button>
-        </div>
-          <button class="btn offer_btn back_voted">
-            بازگشت
-            </button>
-        </div>
-      </div>
-      
-    </label>
-  
-  </div>
-<!-- end of offer -->
-<!-- start of offer -->
-<div class="offer_box" >
-            
-            
-  <label>
-    <input type="checkbox" />
-    <div class="card front_offer "  >
-      <div class="front">
-        <a class="offer_box_link">
-          <span class="offer_off">8000<span>چتر بازی </span></span>
-          <div class="offer_image">
-            <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-          </div>
-          <div class="offer_title">
-            کد تخفیف 20درصد سفارش غذا
-          </div>
-          <div class="offer_company">
-            <a href="">اسنپ</a>
-          </div>
-          <a class="btn offer_btn" ngbButton>
-            مشاهده
-          </a>
-        </a>
-      </div>
-      <div class="back ">
-          
-        <p>کد تخفیف 20درصد سفارش غذا</p>
-        <div #container>
-                    
-            <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
-
-            <input class=" btn input_cupon" type="text" value="code">
-          
-        </div>
-        <div class="">
-        <button class="btn btn-danger btn_sm">
-          اعلام خرابی
-        </button>
-        <button class="btn btn-success btn_sm ">
-          خرید
-        </button>
-      </div>
-      <div class="">
-        <button class="btn  btn-warning btn_sm ">
-          اشتراک گذاری
-        </button>
-        <button class="btn btn-primary btn_sm">
-          توضیح بیشتر
-        </button>
-      </div>
-        <button class="btn offer_btn back_voted">
-          بازگشت
-          </button>
-      </div>
-    </div>
-    
-  </label>
-
-</div>
-<!-- end of offer -->
-<!-- start of offer -->
+        <div class="row inner_content">
+          <!-- start of offer -->
           <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
+            <label>
+              <input type="checkbox" />
+              <div class="card front_offer ">
+                <div class="front">
+                  <a class="offer_box_link">
+                    <span class="offer_off">8000<span>چتر بازی </span></span>
+                    <div class="offer_image">
+                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+                    </div>
+                    <div class="offer_title">
+                      کد تخفیف 20درصد سفارش غذا
+                    </div>
+                    <div class="offer_company">
+                      <a href="">اسنپ</a>
+                    </div>
+                    <a class="btn offer_btn" ngbButton>
+                      مشاهده
                     </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
-
-                    <a class="btn btn-danger">
-                      اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                  </div>
+                  </a>
                 </div>
-              </label>
-            </a>
-          </div>
-<!-- end of offer -->
-<!-- start of offer -->
-          <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
+                <div class="back ">
 
-                    <a class="btn btn-danger">
-                      اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                  </div>
-                </div>
-              </label>
-            </a>
-          </div>
-<!-- end of offer -->
-<!-- start of offer -->
-          <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
+                  <p>کد تخفیف 20درصد سفارش غذا</p>
+                  <div #container>
 
-                    <a class="btn btn-danger">
-                      اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                  </div>
-                </div>
-              </label>
-            </a>
-          </div>
-<!-- end of offer -->
-<!-- start of offer -->
-          <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
+                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
 
-                    <a class="btn btn-danger">
-                      اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                  </div>
-                </div>
-              </label>
-            </a>
-          </div>
-<!-- end of offer -->
-<!-- start of offer -->
-          <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
+                    <input class=" btn input_cupon" type="text" value="code">
 
-                    <a class="btn btn-danger">
+                  </div>
+                  <div class="">
+                    <button class="btn btn-danger btn_sm">
                       اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
+                    </button>
+                    <button class="btn btn-success btn_sm ">
                       خرید
-                    </a>
-                    <a class="btn  btn-warning">
+                    </button>
+                  </div>
+                  <div class="">
+                    <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
+                    </button>
+                    <button class="btn btn-primary btn_sm">
                       توضیح بیشتر
-                    </a>
+                    </button>
                   </div>
+                  <button class="btn offer_btn back_voted">
+                    بازگشت
+                  </button>
                 </div>
-              </label>
-            </a>
-          </div>
-<!-- end of offer -->
-<!-- start of offer -->
-          <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
+              </div>
 
-                    <a class="btn btn-danger">
-                      اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                  </div>
-                </div>
-              </label>
-            </a>
-          </div>
-<!-- end of offer -->
-<!-- start of offer -->
-          <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
+            </label>
 
-                    <a class="btn btn-danger">
-                      اعلام خرابی
-                    </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                  </div>
-                </div>
-              </label>
-            </a>
           </div>
-<!-- end of offer -->
-<!-- start of offer -->
-          <div class="offer_box">
-            <a>
-              <label>
-                <input type="checkbox" />
-                <div class="card">
-                  <div class="front">
-                    <a class="offer_box_link">
-                      <span class="offer_off">8000<span>چتر بازی </span></span>
-                      <div class="offer_image">
-                        <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                      </div>
-                      <div class="offer_title">
-                        کد تخفیف 20درصد سفارش غذا
-                      </div>
-                      <div class="offer_company">
-                        <a href="">اسنپ</a>
-                      </div>
-                      <a class="btn offer_btn">
-                        مشاهده
-                      </a>
-                    </a>
-                  </div>
-                  <div class="back">
-                    <p>کد تخفیف 20درصد سفارش غذا</p>
+          <!-- end of offer -->
+          <!-- start of offer -->
+          <div class="offer_box" *ngFor="let item of mostseen.results;">
 
-                    <a class="btn btn-danger">
-                      اعلام خرابی
+
+            <label>
+              <input type="checkbox" />
+              <div class="card front_offer ">
+                <div class="front">
+                  <a class="offer_box_link">
+                    <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
+                    <div class="offer_image">
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div class="offer_title">
+                      {{item.name}}
+                    </div>
+                    <div class="offer_company">
+                      <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                    </div>
+                    <a class="btn offer_btn" ngbButton>
+                      مشاهده
                     </a>
-                    <a class="btn btn-success">
-                      خرید
-                    </a>
-                    <a class="btn  btn-warning">
-                      اشتراک گذاری
-                    </a>
-                    <a class="btn btn-primary ">
-                      توضیح بیشتر
-                    </a>
-                  </div>
+                  </a>
                 </div>
-              </label>
-            </a>
+                <div class="back ">
+
+                  <p>{{item.name}}</p>
+                  <div #container>
+
+                    <button class="btn" ngxClipboard cbContent={{item.discount}} [container]="container">Copy</button>
+
+                    <input class=" btn input_cupon" type="text" value="{{item.discount}}">
+
+                  </div>
+                  <div class="">
+                    <button class="btn btn-danger btn_sm">
+                      اعلام خرابی
+                    </button>
+                    <button class="btn btn-success btn_sm ">
+                      خرید
+                    </button>
+                  </div>
+                  <div class="">
+                    <button class="btn  btn-warning btn_sm ">
+                      اشتراک گذاری
+                    </button>
+                    <button class="btn btn-primary btn_sm">
+                      توضیح بیشتر
+                    </button>
+                  </div>
+                  <button class="btn offer_btn back_voted">
+                    بازگشت
+                  </button>
+                </div>
+              </div>
+
+            </label>
+
           </div>
-<!-- end of offer -->
+          <!-- end of offer -->
 
         </div>
       </mat-tab>
 
       <mat-tab label="بیشترین تخفیف">
         <div class="row inner_content">
-          <div class=" offer_box">
-            <a>
-              <span class="offer_off">
-                8000
-                <span>
-                  چتر بازی
-                </span>
-              </span>
-              <div class="offer_image">
-                <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+          <!-- start of offer -->
+          <div class="offer_box">
+            <label>
+              <input type="checkbox" />
+              <div class="card front_offer ">
+                <div class="front">
+                  <a class="offer_box_link">
+                    <span class="offer_off">8000<span>چتر بازی </span></span>
+                    <div class="offer_image">
+                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+                    </div>
+                    <div class="offer_title">
+                      کد تخفیف 20درصد سفارش غذا
+                    </div>
+                    <div class="offer_company">
+                      <a href="">اسنپ</a>
+                    </div>
+                    <a class="btn offer_btn" ngbButton>
+                      مشاهده
+                    </a>
+                  </a>
+                </div>
+                <div class="back ">
+
+                  <p>کد تخفیف 20درصد سفارش غذا</p>
+                  <div #container>
+
+                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
+
+                    <input class=" btn input_cupon" type="text" value="code">
+
+                  </div>
+                  <div class="">
+                    <button class="btn btn-danger btn_sm">
+                      اعلام خرابی
+                    </button>
+                    <button class="btn btn-success btn_sm ">
+                      خرید
+                    </button>
+                  </div>
+                  <div class="">
+                    <button class="btn  btn-warning btn_sm ">
+                      اشتراک گذاری
+                    </button>
+                    <button class="btn btn-primary btn_sm">
+                      توضیح بیشتر
+                    </button>
+                  </div>
+                  <button class="btn offer_btn back_voted">
+                    بازگشت
+                  </button>
+                </div>
               </div>
-              <div class="offer_title">
-                کد تخفیف 20درصد سفارش غذا
-              </div>
-              <div class="offer_company">
-                <a href="">
-                  اسنپ
-                </a>
-              </div>
-              <button class="btn offer_btn">
-                مشاهده
-              </button>
-            </a></div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"> <a>
-              <span class="offer_off">
-                8000
-                <span>
-                  چتر بازی
-                </span>
-              </span>
-              <div class="offer_image">
-                <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-              </div>
-              <div class="offer_title">
-                کد تخفیف 20درصد سفارش غذا
-              </div>
-              <div class="offer_company">
-                <a href="">
-                  اسنپ
-                </a>
-              </div>
-              <button class="btn offer_btn">
-                مشاهده
-              </button>
-            </a>
-            <</div> <div class="offer_box"><a>vds</a>
+
+            </label>
+
           </div>
-          <div class="offer_box"><a>vds</a></div>
-          <div class="offer_box"><a>vds</a></div>
+          <!-- end of offer -->
+
+          <!-- start of offer -->
+          <div class="offer_box" *ngFor="let item of newest.results;">
+
+
+            <label>
+              <input type="checkbox" />
+              <div class="card front_offer ">
+                <div class="front">
+                  <a class="offer_box_link">
+                    <span class="offer_off">8000<span>چتر بازی </span></span>
+                    <div class="offer_image">
+                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+                    </div>
+                    <div class="offer_title">
+                      {{item.name}}
+                    </div>
+                    <div class="offer_company">
+                      <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                    </div>
+                    <a class="btn offer_btn" ngbButton>
+                      مشاهده
+                    </a>
+                  </a>
+                </div>
+                <div class="back ">
+
+                  <p>کد تخفیف 20درصد سفارش غذا</p>
+                  <div #container>
+
+                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
+
+                    <input class=" btn input_cupon" type="text" value="code">
+
+                  </div>
+                  <div class="">
+                    <button class="btn btn-danger btn_sm">
+                      اعلام خرابی
+                    </button>
+                    <button class="btn btn-success btn_sm ">
+                      خرید
+                    </button>
+                  </div>
+                  <div class="">
+                    <button class="btn  btn-warning btn_sm ">
+                      اشتراک گذاری
+                    </button>
+                    <button class="btn btn-primary btn_sm">
+                      توضیح بیشتر
+                    </button>
+                  </div>
+                  <button class="btn offer_btn back_voted">
+                    بازگشت
+                  </button>
+                </div>
+              </div>
+
+            </label>
+
+          </div>
+          <!-- end of offer -->
+
         </div>
       </mat-tab>
 
 
-      <mat-tab label="تازه ترین‎ها">
+      <mat-tab label="تازه ترین‎ها" (click)="addeventlister()">
         <div class="row inner_content">
-          <div class=" offer_box">
-            <a>
-              <span class="offer_off">
-                8000
-                <span>
-                  چتر بازی
-                </span>
-              </span>
-              <div class="offer_image">
-                <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+          <!-- start of offer -->
+          <div class="offer_box">
+            <label>
+              <input type="checkbox" />
+              <div class="card front_offer ">
+                <div class="front">
+                  <a class="offer_box_link">
+                    <span class="offer_off">8000<span>چتر بازی </span></span>
+                    <div class="offer_image">
+                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+                    </div>
+                    <div class="offer_title">
+                      کد تخفیف 20درصد سفارش غذا
+                    </div>
+                    <div class="offer_company">
+                      <a href="">اسنپ</a>
+                    </div>
+                    <a class="btn offer_btn" ngbButton>
+                      مشاهده
+                    </a>
+                  </a>
+                </div>
+                <div class="back ">
+
+                  <p>کد تخفیف 20درصد سفارش غذا</p>
+                  <div #container>
+
+                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
+
+                    <input class=" btn input_cupon" type="text" value="code">
+
+                  </div>
+                  <div class="">
+                    <button class="btn btn-danger btn_sm">
+                      اعلام خرابی
+                    </button>
+                    <button class="btn btn-success btn_sm ">
+                      خرید
+                    </button>
+                  </div>
+                  <div class="">
+                    <button class="btn  btn-warning btn_sm ">
+                      اشتراک گذاری
+                    </button>
+                    <button class="btn btn-primary btn_sm">
+                      توضیح بیشتر
+                    </button>
+                  </div>
+                  <button class="btn offer_btn back_voted">
+                    بازگشت
+                  </button>
+                </div>
               </div>
-              <div class="offer_title">
-                کد تخفیف 20درصد سفارش غذا
+
+            </label>
+
+          </div>
+          <!-- end of offer -->
+          <!-- start of offer -->
+          <div class="offer_box" *ngFor="let item of mostseen.results;">
+
+
+            <label>
+              <input type="checkbox" />
+              <div class="card front_offer ">
+                <div class="front">
+                  <a class="offer_box_link">
+                    <span class="offer_off">8000<span>چتر بازی </span></span>
+                    <div class="offer_image">
+                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+                    </div>
+                    <div class="offer_title">
+                      {{item.name}}
+                    </div>
+                    <div class="offer_company">
+                      <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                    </div>
+                    <a class="btn offer_btn" ngbButton>
+                      مشاهده
+                    </a>
+                  </a>
+                </div>
+                <div class="back ">
+
+                  <p>کد تخفیف 20درصد سفارش غذا</p>
+                  <div #container>
+
+                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
+
+                    <input class=" btn input_cupon" type="text" value="code">
+
+                  </div>
+                  <div class="">
+                    <button class="btn btn-danger btn_sm">
+                      اعلام خرابی
+                    </button>
+                    <button class="btn btn-success btn_sm ">
+                      خرید
+                    </button>
+                  </div>
+                  <div class="">
+                    <button class="btn  btn-warning btn_sm ">
+                      اشتراک گذاری
+                    </button>
+                    <button class="btn btn-primary btn_sm">
+                      توضیح بیشتر
+                    </button>
+                  </div>
+                  <button class="btn offer_btn back_voted">
+                    بازگشت
+                  </button>
+                </div>
               </div>
-              <div class="offer_company">
-                <a href="">
-                  اسنپ
-                </a>
-              </div>
-              <button class="btn offer_btn">
-                مشاهده
-              </button>
-            </a></div>
-          
+
+            </label>
+
+          </div>
+          <!-- end of offer -->
+
         </div>
       </mat-tab>
 
     </mat-tab-group>
-    
-    
-    
-    
+
+
+
+
 
   </div>
 </div>
