@@ -19,10 +19,7 @@
   margin: 0 auto;
   display: flex;
 }
-.footer span{
-  margin-top: 13px;
-  margin-right: 9px;
-}
+
 .footer_content li{
   padding: 1em;
   font-weight: 700;
@@ -36,4 +33,23 @@
   width: 50%;
   margin: 0 auto;
   display: flex;
+}
+
+.text_footer{
+  margin-top: 13px;
+  margin-right: 9px;
+  font-size: 13.1px;
+
+}
+
+@media (max-width: 991px) {
+  .text_footer{
+      direction: rtl;
+      font-size: 12.6px;
+      text-align: justify;
+      margin-top: 0;
+  }
+  .list_box{
+    display:none;
+  }
 }
