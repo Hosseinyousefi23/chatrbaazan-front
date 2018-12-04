@@ -15,18 +15,18 @@ import { UsersService } from '../users.service';
 })
 export class HeaderComponent implements OnInit {
 
-  countryForm: FormGroup;
+  // countryForm: FormGroup;
   public cities: Cities[] = [];
   countries = ['USA', 'Canada', 'Uk', 'kashan']
 
-  constructor(private fb: FormBuilder, private data: PageService ,private dialog: MatDialog , private user: UsersService ) { }
+  constructor( private data: PageService ,private dialog: MatDialog , private user: UsersService ) { }
 
   ngOnInit() {
     this.data.getcities().subscribe((data :any) => {this.cities = data.data;
     });
-    this.countryForm = this.fb.group({
-      countryControl: ['تهران']
-    });
+    // this.countryForm = this.fb.group({
+    //   countryControl: ['تهران']
+    // });
   }
 
 
