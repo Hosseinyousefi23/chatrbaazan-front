@@ -6,6 +6,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SearchComponent } from './search/search.component';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -32,6 +35,18 @@ const routes: Routes = [
   {
     path: 'forgetpassword',
     component: ForgotPasswordComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
+  },
+  {
+    path: 'product',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'basket',
+    component: ShoppingCardComponent
   },
 ];
 

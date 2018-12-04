@@ -16,6 +16,8 @@
   border-top: 2px solid #dfdfdf;
   border-bottom: 2px solid #dfdfdf;
   height: 3em;
+  font-size: .92em;
+  font-weight: 700;
 }
 
 .menu ul {
@@ -57,11 +59,13 @@
 .search_input {
   width: 29em;
   border-radius: 1em 0 0 1em !important;
+  font-size: .88em;
 }
 
 .sum_charbaz {
   padding-top: 9px;
   padding-left: 45px;
+  font-size: .95em;
 }
 
 col-xs-5ths,
