@@ -1,0 +1,12 @@
+.content{
+
+    margin-top: 8.8em;
+    margin-right:  2em;
+    margin-left:  2em;
+}
+.product{
+    background-color: #ffffff;
+    padding: 1em .5em;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    height: 400px;
+}

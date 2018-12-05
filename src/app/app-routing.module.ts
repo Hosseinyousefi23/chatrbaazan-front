@@ -41,7 +41,7 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
-    path: 'product',
+    path: 'product/:slug',
     component: ProductDetailComponent
   },
   {

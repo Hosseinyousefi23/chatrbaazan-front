@@ -24,7 +24,7 @@ export class PageService {
     return this.http.get<any[]>(this.baseUrl+'api/v1/category')
   }
 
-  
+
   getMostSeenOffer(): Observable<any[]>{
     return this.http.get<any[]>(this.baseUrl+'api/v1/offer?limits=10&ordering=created_at')
   }
@@ -36,6 +36,14 @@ export class PageService {
   getmostDiscountOffer(): Observable<any[]>{
     return this.http.get<any[]>(this.baseUrl+'api/v1/offer?limits=10&ordering=created_at')
   }
+
+
+  getproductByslug(slug): Observable<any[]>{
+    console.log(slug)
+    console.log(this.http.get<any[]>(this.baseUrl+'/api/v1/offer/'+slug))
+    return this.http.get<any[]>(this.baseUrl+'/api/v1/offer/'+slug)
+  }
+
 
 
 

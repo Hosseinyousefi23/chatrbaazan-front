@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PageService } from '../page.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,9 +10,17 @@ import {FormControl} from '@angular/forms';
 })
 export class ProductDetailComponent implements OnInit {
   mode = new FormControl('over');
-  constructor() { }
+  slug: string;
+  constructor(private route: ActivatedRoute , private router : Router,private service :PageService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {this.slug = params['slug'];
+    if (!this.service.getproductByslug(this.slug)){
+      console.log("hi")
+      this.router.navigate(['/']);
+    }
+  })
+    
   }
 
 }
