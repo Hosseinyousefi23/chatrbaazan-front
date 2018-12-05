@@ -16,12 +16,12 @@
 
   <div class="profile-sidebar">
       <!-- SIDEBAR USERPIC -->
-      <div class="profile-userpic">
+      <div class="profile-userpic" *ngIf="user.logged()">
         <img src="assets/image/paratrooper.png" class="img-responsive" alt="">
       </div>
       <!-- END SIDEBAR USERPIC -->
       <!-- SIDEBAR USER TITLE -->
-      <div class="profile-usertitle">
+      <div class="profile-usertitle" *ngIf="user.logged()">
         <div class="profile-usertitle-name">
           ممد چتر باز
         </div>
@@ -31,28 +31,29 @@
       </div>
       <!-- END SIDEBAR USER TITLE -->
       <!-- SIDEBAR BUTTONS -->
-      <div class="profile-userbuttons">
+      <div class="profile-userbuttons" *ngIf="!user.logged()">
         <button type="button" class="btn btn-success btn-sm btn_sm">ورود</button>
         <button type="button" class="btn btn-danger btn-sm btn_sm">ثبت نام!</button>
       </div>
+      <div class="profile-userbuttons" *ngIf="user.logged()">
+          <button type="button" class="btn btn-success btn-sm btn_sm">پروفایل</button>
+          <button type="button" class="btn btn-danger btn-sm btn_sm">خروج</button>
+        </div>
       <!-- END SIDEBAR BUTTONS -->
       <div class="navbar_loc">
       <ul class="navbar-nav">
-          <div class="div_nav">
-          <li class="nav-item nav-loc">
-            <a class="nav-link" href="#">Link 1</a>
-          </li>
+          <div  class="div_nav" *ngFor="let category of categories" >  
+              <li class="nav-item nav-loc" >
+                  <a class="nav-link" href="">
+                      {{category.name}}
+                  </a>
+                </li>
         </div>
         <div class="div_nav">
             <li class="nav-item nav-loc">
               <a class="nav-link" href="#">Link 1</a>
             </li>
-          </div>
-          <div class="div_nav">
-              <li class="nav-item nav-loc">
-                <a class="nav-link" href="#">Link 1</a>
-              </li>
-            </div>
+        </div>
         </ul>
       </div>
     </div>
