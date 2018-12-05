@@ -37,7 +37,7 @@
       </div>
       <div class="profile-userbuttons" *ngIf="user.logged()">
           <button type="button" class="btn btn-success btn-sm btn_sm">پروفایل</button>
-          <button type="button" class="btn btn-danger btn-sm btn_sm">خروج</button>
+          <button type="button" class="btn btn-danger btn-sm btn_sm" (click)="user.logout()" >خروج</button>
         </div>
       <!-- END SIDEBAR BUTTONS -->
       <div class="navbar_loc">
