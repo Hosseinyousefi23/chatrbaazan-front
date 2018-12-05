@@ -62,15 +62,11 @@
         سفارش غذا
         </a>
       </li>
-      <li><a href="">
-        فروشگاه اینترنتی
-      </a></li>
-      <li><a href="">
-        حمل و نقل 
-      </a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
+      <li *ngFor="let category of categories">
+        <a href="">
+            {{category.name}}
+        </a>
+      </li>
     </ul>
   </div>
 </div>

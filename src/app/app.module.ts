@@ -45,6 +45,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SearchComponent } from './search/search.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 
@@ -65,6 +66,7 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
     SearchComponent,
     ProductDetailComponent,
     ShoppingCardComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

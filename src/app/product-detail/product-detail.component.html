@@ -11,19 +11,34 @@
   <mat-sidenav-content>
 
     <app-header (navToggle)="sidenav.toggle()"></app-header>
-    <div class="row content">
-      <div class="banner">
-        <img class="img-fluid" src="assets/image/contact-us-bg-banner.jpg" alt="aboutus">
-        <span class="title">درباره ما</span>
-      </div>
-    </div>
-    <div class="container about_body">
-      <div class="about_inner">
-        <div class="row">
-          <div class="col-xs-12 col-md-8 ">
-
-          </div>
-          <div class="col-xs-12 col-md-4"></div>
+    <div class="content">
+      <div class=" row product">
+        <div class="product_image col-md-6 col-xs-12">
+          <img src="{{pro.image}}" alt="">
+        </div>
+        <div class="product_about col-md-6 col-xs-12">
+              <div class="product_name">
+                  {{pro.name}}
+              </div>
+              
+              <br>
+              {{pro.explanation}}
+              <br>
+              {{pro.expiration_date}}
+              <br>
+              {{pro.price}}
+              <br>
+              <div class="product_chatr">
+                  {{pro.chatrbazi}} چتربازی
+              </div>
+              <p *ngFor="let category of pro.category;">
+              {{category.name}}
+              </p>
+              <p *ngFor="let city of pro.city;">
+              {{city.name}}
+              </p>
+              {{pro.discount}}
+              <br>
         </div>
       </div>
     </div>
