@@ -19,7 +19,7 @@ export class OfferComponent implements OnInit {
     this.offer.getMostSeenOffer().subscribe((data :any) => {this.mostseen = data.data;});
     this.offer.getnewestOffer().subscribe((data :any) => {this.newest = data.data;});
     this.offer.getmostDiscountOffer().subscribe((data :any) => {this.mostDiscount = data.data; this.addeventlister();});
-
+    
   }
 
   addeventlister(){

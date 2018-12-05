@@ -39,9 +39,7 @@ export class PageService {
 
 
   getproductByslug(slug): Observable<any[]>{
-    console.log(slug)
-    console.log(this.http.get<any[]>(this.baseUrl+'/api/v1/offer/'+slug))
-    return this.http.get<any[]>(this.baseUrl+'/api/v1/offer/'+slug)
+    return this.http.get<any[]>(this.baseUrl+'api/v1/offer/'+slug);
   }
 
 

@@ -10,17 +10,19 @@ import { PageService } from '../page.service';
 })
 export class ProductDetailComponent implements OnInit {
   mode = new FormControl('over');
+  pro : string = '';
   slug: string;
   constructor(private route: ActivatedRoute , private router : Router,private service :PageService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {this.slug = params['slug'];
-    if (!this.service.getproductByslug(this.slug)){
-      console.log("hi")
+    this.route.params.subscribe(params => {this.slug = params['slug'];})
+    this.service.getproductByslug(this.slug).subscribe(param => { 
+      if(param['data']){
+        this.pro = param['data']
+      }else{
       this.router.navigate(['/']);
     }
-  })
-    
+    });
   }
 
 }

@@ -3,10 +3,33 @@
     margin-top: 8.8em;
     margin-right:  2em;
     margin-left:  2em;
+    margin-bottom: 4em;
 }
 .product{
+    font-size: 1.5em;
+    position: relative;
+    text-align: right;
     background-color: #ffffff;
     padding: 1em .5em;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-    height: 400px;
+    height: 450px;
+}
+.product_image{
+    width: 10em;
+}
+.product_image img{
+    width: 100%;
+}
+.product_name{
+    font-size: 1.5em;
+    color: #FF003C;
+}
+.product_chatr{
+    position: absolute;
+    top: 0;
+    left: -0.5em;
+    padding: 2px;
+    background-color: #FF003C;
+    color: #ffffff;
+    border-radius: 0 5px 5px 0;
 }

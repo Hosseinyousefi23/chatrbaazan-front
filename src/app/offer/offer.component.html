@@ -36,7 +36,7 @@
                 <div class="back ">
 
                   <p>کد تخفیف 20درصد سفارش غذا</p>
-                  <div #container>
+                  <div   #container>
 
                     <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
 
@@ -96,7 +96,7 @@
                 <div class="back ">
 
                   <p>{{item.name}}</p>
-                  <div #container>
+                  <div *ngIf="item.is_free" #container>
 
                     <button class="btn" ngxClipboard cbContent={{item.discount}} [container]="container">Copy</button>
 
@@ -104,9 +104,13 @@
 
                   </div>
                   <div class="">
+                      <a [routerLink]="['/contact']">
                     <button class="btn btn-danger btn_sm">
+                      
                       اعلام خرابی
+                      
                     </button>
+                    </a>
                     <button class="btn btn-success btn_sm ">
                       خرید
                     </button>
@@ -115,9 +119,12 @@
                     <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
+                    
+                    <a [routerLink]="['/product' , item.slug]">
                     <button class="btn btn-primary btn_sm">
                       توضیح بیشتر
                     </button>
+                    </a>
                   </div>
                   <button class="btn offer_btn back_voted">
                     بازگشت
