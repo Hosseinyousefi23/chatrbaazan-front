@@ -42,6 +42,10 @@ export class PageService {
     return this.http.get<any[]>(this.baseUrl+'api/v1/offer/'+slug);
   }
 
+  getabout(): Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl+'api/v1/about/')
+  }
+
 
 
 
