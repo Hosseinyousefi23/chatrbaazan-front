@@ -5,6 +5,7 @@ import { Cities } from '../cities';
 import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { UsersService } from '../users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
   public categories: any[] = [];
   countries = ['USA', 'Canada', 'Uk', 'kashan']
 
-  constructor( private data: PageService ,private dialog: MatDialog , private user: UsersService ) { }
+  constructor( private data: PageService ,private dialog: MatDialog , private user: UsersService,private router :Router ) { }
 
   ngOnInit() {
     this.data.getcities().subscribe((data :any) => {this.cities = data.data;});
@@ -32,6 +33,10 @@ export class HeaderComponent implements OnInit {
     return localStorage.getItem("userToken");
   }
 
+  logout(){
+    this.user.logout()
+    this.router.navigate(['/'])
+  }
   @Output() navToggle = new EventEmitter<boolean>();
   navOpen() {
     this.navToggle.emit(true);
