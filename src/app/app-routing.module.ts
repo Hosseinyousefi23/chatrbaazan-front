@@ -9,6 +9,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { SearchComponent } from './search/search.component';
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -46,7 +47,8 @@ const routes: Routes = [
   },
   {
     path: 'basket',
-    component: ShoppingCardComponent
+    component: ShoppingCardComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

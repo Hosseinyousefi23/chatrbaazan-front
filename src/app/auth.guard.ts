@@ -9,9 +9,10 @@ import {  CanActivate,Router } from '@angular/router';
 export class AuthGuard implements CanActivate {
 
   constructor(private userservice : UsersService ,private router :Router){}
-
+  logged : boolean;
   canActivate() :boolean{
-    if(this.userservice.logged()){
+    this.userservice.logged().subscribe(data => { console.log(data['token']); if(data['token']){this.logged = true}else{this.logged = false}} );
+    if(this.logged){
       return true
     }else{
       this.router.navigate(['/login'])

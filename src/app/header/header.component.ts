@@ -25,11 +25,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.data.getcities().subscribe((data :any) => {this.cities = data.data;});
     this.data.getCategories().subscribe((data :any) => {this.categories = data.data;});
-    // this.countryForm = this.fb.group({
-    //   countryControl: ['تهران']
-    // });
+    // this.user.logged().subscribe(data => { if(data['token']){this.logged = true}} );
   }
 
+  loggedin(){
+    return localStorage.getItem("userToken");
+  }
 
   @Output() navToggle = new EventEmitter<boolean>();
   navOpen() {

@@ -37,12 +37,12 @@
     </div>
     <div class="col-3 sum_charbaz">
       <p>
-          <span *ngIf="!user.logged()">
+          <span *ngIf="!loggedin()">
           <a class="link" (click)="openDialog()">ورود</a>
           /
           <a class="link"  [routerLink]="['/signup']">عضویت</a>
         </span>
-        <span *ngIf="user.logged()">
+        <span *ngIf="loggedin()">
           <a class="link"  [routerLink]="['/']">حساب کاربری</a>
           /
           <a class="link"  (click)="user.logout()">خروج</a>
