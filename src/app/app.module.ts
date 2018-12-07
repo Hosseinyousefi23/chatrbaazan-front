@@ -47,6 +47,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
+import { NgxGalleryModule } from 'ngx-gallery';
+
 
 
 @NgModule({
@@ -94,8 +96,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     ClipboardModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
-    })
-
+    }),
+    NgxGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent],

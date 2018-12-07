@@ -11,22 +11,38 @@
   <mat-sidenav-content>
 
     <app-header (navToggle)="sidenav.toggle()"></app-header>
-    <div class="content">
+    <div class="content ">
       <div class=" row product">
         <div class="product_image col-md-6 col-xs-12">
-          <img src="{{pro.image}}" alt="">
+          <!-- <img src="{{pro.image}}" alt=""> -->
+          <ngx-gallery  class="ngx_gallery"[options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
         </div>
+
         <div class="product_about col-md-6 col-xs-12">
               <div class="product_name">
                   {{pro.name}}
               </div>
-              
+              <hr size="30">
+
               <br>
+              <div>
               {{pro.explanation}}
+              </div>
+              <hr size="30">
               <br>
               {{pro.expiration_date}}
               <br>
-              {{pro.price}}
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="text_pay"><span>{{pro.price}}</span> ریال</p>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary">افزودن به سبد خرید</button>    
+                </div>
+              </div>
+              <hr size="30">
+              
               <br>
               <div class="product_chatr">
                   {{pro.chatrbazi}} چتربازی
