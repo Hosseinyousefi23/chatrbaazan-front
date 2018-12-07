@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-shopping-card',
@@ -8,9 +9,11 @@ import {FormControl} from '@angular/forms';
 })
 export class ShoppingCardComponent implements OnInit {
   mode = new FormControl('over');
-  constructor() { }
+  cart;
+  constructor(private user : UsersService) { }
 
   ngOnInit() {
+    this.user.getDatacart().subscribe((data :any) => {this.cart = data.data;});
   }
 
 }

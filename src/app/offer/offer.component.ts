@@ -39,4 +39,9 @@ export class OfferComponent implements OnInit {
 
     });
   }
+
+  addtocart(id){
+    this.offer.addtocart(id).subscribe(data => console.log(data))
+  }
+
 }
