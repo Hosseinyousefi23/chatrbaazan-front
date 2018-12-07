@@ -39,4 +39,8 @@ export class UsersService {
     localStorage.removeItem("userToken");
   }
 
+  getDatacart(){
+    return this.http.get(this.baseUrl + 'api/v1/cart/' , this.setRequestOptions());
+  }
+
 }
