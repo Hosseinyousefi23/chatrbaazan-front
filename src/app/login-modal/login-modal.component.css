@@ -3,6 +3,12 @@ a{
 }
 .logo img{
     width: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.logo{
+    height: 50px;
 }
 .background{
     position: absolute; 
@@ -16,16 +22,18 @@ a{
 }
 p{
     text-align: right;
+     
+}
+a{
+    font-size: .78em;
 }
 .login {
     background-color: #ffffff;
-  padding: 2em;
+  padding: 1.5em 2em;
 }
 
-.login h1 {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
+h1 {
+    font-size: 2em;
   text-align: center;
 }
 
@@ -55,10 +63,10 @@ input:focus {
 @media all and (max-width: 575px) {
     .login {
         background-color: #ffffff;
-        margin: 3em auto;
+        margin: 1em auto;
         width: 18em;
     }
-    .login h1 {
-        font-size: 2em;
+     h1 {
+        font-size: 1em;
     }
 }

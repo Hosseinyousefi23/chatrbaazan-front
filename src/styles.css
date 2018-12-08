@@ -110,7 +110,9 @@ body {
 .owl-carousel .owl-nav .owl-prev,
 .owl-carousel .owl-nav .owl-next {
   position: absolute;
-  top: 45%;
+  top: 50%;
+  background: rgba(212, 200, 200, 0.267) !important;
+  transform: translate(0, -50%);
 }
 
 .owl-carousel .owl-nav {
@@ -129,8 +131,9 @@ body {
 
 .owl-carousel .owl-dots {
   position: absolute;
-  bottom: 1%;
-  right: 45%;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 .owl-dot {
   border-radius: 50px;
@@ -150,4 +153,7 @@ body {
 
 .ngx-gallery-image {
   z-index: 0 !important;
+}
+.mat-tab-body-content{
+  overflow: hidden !important;
 }

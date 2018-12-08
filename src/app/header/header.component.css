@@ -57,6 +57,12 @@
 
 }
 
+form{
+  width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
 .search_input {
   width: 40em;
   border-radius: 1em 0 0 1em !important;
@@ -109,7 +115,7 @@ col-xs-5ths,
   }
 
   .search_input {
-    width: 14em;
+    width: 85%;
   }
 
   .countryForm_bar {
@@ -138,7 +144,7 @@ col-xs-5ths,
 
 @media all and (max-width: 575px) {
   .search_input {
-    width: 9em;
+    width: 80%;
   }
 
   .header {
