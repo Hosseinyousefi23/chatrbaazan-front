@@ -48,6 +48,7 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 import { NgxGalleryModule } from 'ngx-gallery';
+import { JalaliPipe } from './pipe/jalali.pipe';
 
 
 
@@ -69,6 +70,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
     ProductDetailComponent,
     ShoppingCardComponent,
     SidenavComponent,
+    JalaliPipe,
   ],
   imports: [
     BrowserModule,
