@@ -7,64 +7,92 @@
     </div>
     <div class="search_bar col-md-7 col-xs-12 row">
       <div class="col-md-3 countryForm_bar ">
-       
-        <!-- <form [formGroup]="countryForm"> -->
-          <select  class="city_btn btn" value="شهرها">
-              <option  selected="selected" >شهرها</option>
 
-            <option [value]="country" *ngFor="let country of cities">{{country.name}}</option>
-          </select>
+        <!-- <form [formGroup]="countryForm"> -->
+        <select class="city_btn btn" value="شهرها">
+          <option selected="selected">شهرها</option>
+
+          <option [value]="country" *ngFor="let country of cities">{{country.name}}</option>
+        </select>
         <!-- </form> -->
 
-         <!-- <mat-autocomplete #auto="matAutocomplete">
+        <!-- <mat-autocomplete #auto="matAutocomplete">
             <mat-option [value]="city" *ngFor="let city of cities" >{{city.name}}</mat-option>
           </mat-autocomplete> -->
-          
-         
+
+
+
       </div>
+
+      <!-- <div class="col-md-9 col-xs-12">
+        <div class="input-group mb-3">
+          <form>
+            <mat-form-field class="container">
+                <input type="text" placeholder="Search books ..."  matInput [formControl]="searchTerm" 
+                    [matAutocomplete]="auto" >  
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let books of myBooks" [value]="books.BookName">
+                    {{ books.name }}
+                  </mat-option>
+                </mat-autocomplete>
+      
+            </mat-form-field>
+        </form>  
+                 
+        </div>
+    </div> -->
 
       <div class="col-md-9 col-xs-12">
         <div class="input-group mb-3">
-          <div class="input-group-append">
-            <button class="btn search_btn" type="button">
-              <i class="fa fa-search " aria-hidden="true"></i>
-            </button>
-          </div>
-          <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها " aria-describedby="basic-addon2">
+          <form (ngSubmit)="formsubmit()" (onSelectionChange)="formsubmit(books.name)">
+            <!-- <mat-form-field class="container"> -->
+                <button class="btn search_btn" type="button" (click)="formsubmit()">
+                  <i class="fa fa-search " aria-hidden="true"></i>
+                </button>
+              <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
+                 [formControl]="searchTerm" [matAutocomplete]="auto"  >
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option  *ngFor="let books of myBooks" [value]="books.name">
+                  {{ books.name }}
+                </mat-option>
+              </mat-autocomplete>
+<!-- 
+            </mat-form-field> -->
+          </form>
         </div>
       </div>
 
     </div>
     <div class="col-3 sum_charbaz">
       <p>
-          <span *ngIf="!loggedin()">
+        <span *ngIf="!loggedin()">
           <a class="link" (click)="openDialog()">ورود</a>
           /
-          <a class="link"  [routerLink]="['/signup']">عضویت</a>
+          <a class="link" [routerLink]="['/signup']">عضویت</a>
         </span>
         <span *ngIf="loggedin()">
-          <a class="link"  [routerLink]="['/']">حساب کاربری</a>
+          <a class="link" [routerLink]="['/']">حساب کاربری</a>
           /
-          <a class="link"   (click)="logout()">خروج</a>
+          <a class="link" (click)="logout()">خروج</a>
         </span>
-          <span class="sum_charbaz_content">
-              مجموع چتربازی‌ها : 329,700
-          </span>
+        <span class="sum_charbaz_content">
+          مجموع چتربازی‌ها : 329,700
+        </span>
       </p>
     </div>
   </div>
   <p class="toggler"><button mat-button (click)="navOpen()"><i class="fa fa-bars" aria-hidden="true"></i>
-  </button></p>
+    </button></p>
   <div class="menu">
     <ul>
       <li>
         <a href="">
-        سفارش غذا
+          سفارش غذا
         </a>
       </li>
       <li *ngFor="let category of categories">
         <a href="">
-            {{category.name}}
+          {{category.name}}
         </a>
       </li>
     </ul>

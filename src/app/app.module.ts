@@ -21,6 +21,7 @@ import {
   MatSidenavModule,
   MatRadioModule,
   MatFormFieldModule, 
+  MatAutocompleteModule
   } from "@angular/material";
 
 import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog";
@@ -92,6 +93,7 @@ import { JalaliPipe } from './pipe/jalali.pipe';
     MatSidenavModule,
     MatDialogModule,
     MatRadioModule,
+    MatAutocompleteModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
