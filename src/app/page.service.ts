@@ -60,9 +60,6 @@ export class PageService {
 
 
   search(term) {
-    let pid: object = {
-      search: term
-    }
     var listOfBooks = this.http.get(this.baseUrl+'api/v1/offer/?search='+term)
     .pipe(
         debounceTime(500),  
@@ -76,5 +73,11 @@ export class PageService {
 
     return listOfBooks;  
 } 
+
+
+
+searchbyCategory(term) {
+  return this.http.get(this.baseUrl+'api/v1/offer/?category='+term)
+}
 
 }

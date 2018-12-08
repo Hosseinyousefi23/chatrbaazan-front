@@ -147,3 +147,7 @@ body {
 .owl-dot:hover {
   background: rgba(255, 255, 12, 0.959) !important;
 }
+
+.ngx-gallery-image {
+  z-index: 0 !important;
+}

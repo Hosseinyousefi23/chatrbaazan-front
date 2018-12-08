@@ -42,6 +42,10 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
+    path: 'category/:id',
+    component: SearchComponent
+  },
+  {
     path: 'product/:slug',
     component: ProductDetailComponent
   },
@@ -50,6 +54,7 @@ const routes: Routes = [
     component: ShoppingCardComponent,
     canActivate: [AuthGuard],
   },
+  {path: '**',  redirectTo: '/'}
 ];
 
 @NgModule({
