@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Cities } from './cities';
 import { pipeDef } from '@angular/core/src/view';
+import {  debounceTime, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +57,24 @@ export class PageService {
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.token_string }
     });
   }
+
+
+  search(term) {
+    let pid: object = {
+      search: term
+    }
+    var listOfBooks = this.http.get(this.baseUrl+'api/v1/offer/?search='+term)
+    .pipe(
+        debounceTime(500),  
+        map(
+            (data: any) => {
+                return (
+                    data.length != 0 ? data.data : [{"BookName": "No Record Found"} as any]
+                );
+            }
+    ));
+
+    return listOfBooks;  
+} 
 
 }

@@ -21,6 +21,7 @@ import {
   MatSidenavModule,
   MatRadioModule,
   MatFormFieldModule, 
+  MatAutocompleteModule
   } from "@angular/material";
 
 import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog";
@@ -88,6 +89,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatSidenavModule,
     MatDialogModule,
     MatRadioModule,
+    MatAutocompleteModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,

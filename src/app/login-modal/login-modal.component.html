@@ -9,20 +9,22 @@
 
 <mat-dialog-content>
   <div class="login">
-
-    <input type="email" [(ngModel)]="user.email" placeholder="ایمیل" required="required" />
-    <input type="password" [(ngModel)]="user.password" placeholder="رمز عبور" required="required" />
-    <p><a routerLink="/forgetpassword">رمز عبور خود را فراموش کرده ام</a></p>
-    <p>کاربر جدید هستید؟ <a routerLink="/signup">
+    <form (ngSubmit)="LoginUser()" >
+    <input type="email"  placeholder="ایمیل" required="required" [(ngModel)]="user.email" name="email" />
+    <input type="password" placeholder="رمز عبور" required="required" [(ngModel)]="user.password" name="password" />
+    <p><a (click)="forgetpassword()">رمز عبور خود را فراموش کرده ام</a></p>
+    <p>کاربر جدید هستید؟ <a (click)="signup()">
         ثبت‌نام در چتر بازان
       </a></p>
       <p *ngIf="isLoginError">
         رمز عبور یا کد کاربری اشتباه است
       </p>
+      <mat-dialog-actions>
+        <button class="mat-raised-button" (click)="close()">Close</button>
+        <button  (click)="LoginUser()" type="submit" class="mat-raised-button">ورود</button>
+      </mat-dialog-actions>
+    </form>
   </div>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-  <button class="mat-raised-button" (click)="close()">Close</button>
-  <button  (click)="LoginUser()" type="submit" class="mat-raised-button">ورود</button>
-</mat-dialog-actions>
+
