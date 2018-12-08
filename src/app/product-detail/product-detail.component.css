@@ -3,7 +3,7 @@
     margin-top: 8.8em;
     margin-right:  2em;
     margin-left:  2em;
-    margin-bottom: 4em;
+    margin-bottom: 3em;
 }
 .product{
     font-size: 1.5em;
@@ -12,10 +12,10 @@
     background-color: #ffffff;
     padding: 1em .5em;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-    height: 450px;
+    /* height: 450px; */
 }
 .product_image{
-    width: 10em;
+    /* width: 10em; */
 }
 .product_image img{
     width: 100%;
@@ -32,4 +32,11 @@
     background-color: #FF003C;
     color: #ffffff;
     border-radius: 0 5px 5px 0;
+}
+
+.ngx_gallery{
+    z-index: 0 !important;
+}
+.text_pay{
+    color: #FF003C;
 }
