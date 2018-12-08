@@ -11,9 +11,13 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 })
 export class ProductDetailComponent implements OnInit {
   mode = new FormControl('over');
-  pro : string = '';galleryOptions: NgxGalleryOptions[];
+  pro : string = '';
+  galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   slug: string;
+  address:object;
+  number =0;
+  image_gallery:NgxGalleryImage[]=[];
 
   constructor(private route: ActivatedRoute , private router : Router,private service :PageService) { }
 
@@ -22,6 +26,13 @@ export class ProductDetailComponent implements OnInit {
     this.service.getproductByslug(this.slug).subscribe(param => { 
       if(param['data']){
         this.pro = param['data']
+        for (let entry of this.pro['gallery']) {
+           this.address={small:entry.image,medium: entry.image,big: entry.image};
+          this.image_gallery.push(this.address)
+          
+          
+        }
+        
       }else{
       this.router.navigate(['/']);
     }
@@ -50,18 +61,28 @@ export class ProductDetailComponent implements OnInit {
           preview: false
       }
   ];
-  this.galleryImages = [
-    {
-        small: 'assets/image/contact-us-bg-banner.jpg',
-        medium: 'assets/image/contact-us-bg-banner.jpg',
-        big: 'assets/image/contact-us-bg-banner.jpg'
-    },
-    {
-      small: 'assets/image/contact-us-bg-banner.jpg',
-      medium: 'assets/image/contact-us-bg-banner.jpg',
-      big: 'assets/image/contact-us-bg-banner.jpg'
-  }
-  ]
+  // this.galleryImages = [
+  //   {
+  //       small: 'assets/image/contact-us-bg-banner.jpg',
+  //       medium: 'assets/image/contact-us-bg-banner.jpg',
+  //       big: 'assets/image/contact-us-bg-banner.jpg'
+  //   },
+  //   {
+  //     small: 'assets/image/contact-us-bg-banner.jpg',
+  //     medium: 'assets/image/contact-us-bg-banner.jpg',
+  //     big: 'assets/image/contact-us-bg-banner.jpg'
+  // }
+  // ]
+  // console.log(this.galleryImages)
   }
 
 }
+
+
+// (2) [{…}, {…}]
+// 0:
+// big: "assets/image/contact-us-bg-banner.jpg"
+// medium: "assets/image/contact-us-bg-banner.jpg"
+// small: "assets/image/contact-us-bg-banner.jpg"
+// __proto__: Object
+

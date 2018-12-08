@@ -40,3 +40,12 @@
 .text_pay{
     color: #FF003C;
 }
+.border_input{
+    border: 1px solid #e2eeee;
+    border-radius: 6px 0 0 6px;
+    width: 180px;
+}
+.border_btn{
+    border: 1px solid #e2eeee;
+    border-radius: 0 6px 6px 0;
+}

@@ -4,61 +4,77 @@
     <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-window-close-o" aria-hidden="true"></i>
       </button></p>
     <div class="menu_content">
-        <app-sidenav></app-sidenav>
+      <app-sidenav></app-sidenav>
     </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
-
+  
     <app-header (navToggle)="sidenav.toggle()"></app-header>
     <div class="content ">
       <div class=" row product">
         <div class="product_image col-md-6 col-xs-12">
           <!-- <img src="{{pro.image}}" alt=""> -->
-          <ngx-gallery  class="ngx_gallery"[options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-
+          <ngx-gallery class="ngx_gallery" [options]="galleryOptions" [images]="image_gallery"></ngx-gallery>
+  
         </div>
-
+  
         <div class="product_about col-md-6 col-xs-12">
-              <div class="product_name">
-                  {{pro.name}}
-              </div>
-              <hr size="30">
-
-              <br>
-              <div>
-              {{pro.explanation}}
-              </div>
-              <hr size="30">
-              <br>
-              {{pro.expiration_date}}
-              <br>
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="text_pay"><span>{{pro.price}}</span> ریال</p>
-                </div>
-                <div class="col-md-6">
-                    <button class="btn btn-primary">افزودن به سبد خرید</button>    
-                </div>
-              </div>
-              <hr size="30">
-              
-              <br>
-              <div class="product_chatr">
-                  {{pro.chatrbazi}} چتربازی
-              </div>
-              <p *ngFor="let category of pro.category;">
-              {{category.name}}
+          <div class="product_name">
+            {{pro.name}}
+          </div>
+          <hr size="30">
+          <!-- citeis -->
+          <div class="row">
+            <div class="col-md-3 col-xs-6" *ngFor="let city of pro.city;">
+              <p>
+                <img src="assets/image/map.png" class="" alt="چتربازی">
+                {{city.name}}
               </p>
-              <p *ngFor="let city of pro.city;">
-              {{city.name}}
-              </p>
-              {{pro.discount}}
-              <br>
+            </div>
+          </div>
+          <!-- end cites -->
+          <!-- tags -->
+          <div class="row">
+            <div class="col-md-2 col-xs-4" *ngFor="let label of pro.label;">
+              <a href="#" class="badge badge-pill badge-light">{{label.name}}</a>
+            </div>
+          </div>
+          <!-- end tags -->
+  
+          <hr size="30">
+          <br>
+          <div class="row">
+            <div class="col-md-6 col-xs-12" #container>
+              <button class="btn border_btn" ngxClipboard cbContent={{pro.discount}} [container]="container">کپی</button>
+              <input class="btn border_input" type="text" value="{{pro.discount}}">
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <!-- {{pro.expiration_date|date:'yyyy/MM/dd'}} -->
+              <p>مهلت استفاده:{{pro.expiration_date|jalali}}</p>
+            </div>
+          </div>
+          <div *ngIf="!pro.is_free" class="row" >
+            <div class="col-md-6">
+              <p class="text_pay"><span>{{pro.price}}</span> ریال</p>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary">افزودن به سبد خرید</button>
+            </div>
+          </div>
+          <hr size="30">
+          <div>
+            {{pro.explanation}}
+          </div>
+          <div class="product_chatr">
+            {{pro.chatrbazi}} چتربازی
+          </div>
+  
+  
         </div>
       </div>
     </div>
     <app-footer></app-footer>
-
+  
   </mat-sidenav-content>
 </mat-sidenav-container>
