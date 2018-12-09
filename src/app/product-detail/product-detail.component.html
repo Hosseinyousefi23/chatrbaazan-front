@@ -9,24 +9,19 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-  
+
     <app-header (navToggle)="sidenav.toggle()"></app-header>
     <div class="content ">
       <div class=" row product">
-        <div class="product_image col-md-6 col-xs-12">
-          <!-- <img src="{{pro.image}}" alt=""> -->
-          <ngx-gallery class="ngx_gallery" [options]="galleryOptions" [images]="image_gallery"></ngx-gallery>
-  
-        </div>
-  
-        <div class="product_about col-md-6 col-xs-12">
+
+        <div class="product_about col-md-6 order-xs-2 col-xs-12">
           <div class="product_name">
             {{pro.name}}
           </div>
           <hr size="30">
           <!-- citeis -->
           <div class="row">
-            <div class="col-md-3 col-xs-6" *ngFor="let city of pro.city;">
+            <div class="col-md-4 col-xs-6" *ngFor="let city of pro.city;">
               <p>
                 <img src="assets/image/map.png" class="" alt="چتربازی">
                 {{city.name}}
@@ -41,7 +36,7 @@
             </div>
           </div>
           <!-- end tags -->
-  
+
           <hr size="30">
           <br>
           <div class="row">
@@ -54,7 +49,7 @@
               <p>مهلت استفاده:{{pro.expiration_date|jalali}}</p>
             </div>
           </div>
-          <div *ngIf="!pro.is_free" class="row" >
+          <div *ngIf="!pro.is_free" class="row">
             <div class="col-md-6">
               <p class="text_pay"><span>{{pro.price}}</span> ریال</p>
             </div>
@@ -63,18 +58,25 @@
             </div>
           </div>
           <hr size="30">
-          <div>
-            {{pro.explanation}}
-          </div>
           <div class="product_chatr">
             {{pro.chatrbazi}} چتربازی
           </div>
-  
-  
+        </div>
+
+        <div class="product_image col-md-6 order-xs-1 col-xs-12">
+          <!-- <img src="{{pro.image}}" alt=""> -->
+          <ngx-gallery class="ngx_gallery" [options]="galleryOptions" [images]="image_gallery"></ngx-gallery>
+
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="product_desc ">
+        <p>توضیحات</p>
+        {{pro.explanation}}
+      </div>
+    </div>
     <app-footer></app-footer>
-  
+
   </mat-sidenav-content>
 </mat-sidenav-container>

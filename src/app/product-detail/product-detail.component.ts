@@ -26,6 +26,8 @@ export class ProductDetailComponent implements OnInit {
     this.service.getproductByslug(this.slug).subscribe(param => { 
       if(param['data']){
         this.pro = param['data']
+        let address={small:this.pro['image'],medium:this.pro['image'],big: this.pro['image']};
+        this.image_gallery.push(address)
         for (let entry of this.pro['gallery']) {
            this.address={small:entry.image,medium: entry.image,big: entry.image};
           this.image_gallery.push(this.address)
@@ -40,7 +42,7 @@ export class ProductDetailComponent implements OnInit {
     this.galleryOptions = [
       {
           width: '600px',
-          height: '400px',
+          // height: '400px',
           
           thumbnailsColumns: 4,
           imageAnimation: NgxGalleryAnimation.Slide
@@ -49,7 +51,7 @@ export class ProductDetailComponent implements OnInit {
       {
           breakpoint: 800,
           width: '100%',
-          height: '400px',
+          height: '15em',
           imagePercent: 80,
           thumbnailsPercent: 20,
           thumbnailsMargin: 20,
@@ -58,6 +60,7 @@ export class ProductDetailComponent implements OnInit {
       // max-width 400
       {
           breakpoint: 400,
+          height: '10em',
           preview: false
       }
   ];
