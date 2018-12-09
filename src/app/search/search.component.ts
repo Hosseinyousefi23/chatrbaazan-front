@@ -10,17 +10,17 @@ import { PageService } from '../page.service';
 })
 export class SearchComponent implements OnInit{
   Categoryid;
-  pro;
+  pro = null;
   companies :any[] =[];
   categories :any[] =[];
-  mode = new FormControl('over');
+  mode = new FormControl('over');                                                                                                                                                                                                                                                    
   constructor(private router: Router ,private route: ActivatedRoute,private data: PageService) {
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
    }
 
    this.router.events.subscribe((evt) => {
-      if (evt instanceof NavigationEnd) {
+      if (evt instanceof NavigationEnd){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
          this.router.navigated = false;
          this.detectUrl()
       }
@@ -44,15 +44,17 @@ export class SearchComponent implements OnInit{
       }
       });
     }
-    else if(url.slice(1,8)=='search'){
-      this.route.params.subscribe(params => { this.Categoryid = params['id'];})
-      this.data.searchbyCompany(this.Categoryid).subscribe(param => { 
-        if(param['data']){
-          this.pro = param['data']
+    else if(url.slice(1,7)=='search'){
+      let sea = this.route.snapshot.queryParams['search']
+      this.data.search(sea).subscribe(param => { 
+        // console.log(param)
+        if(param['count']){
+          console.log(param)
+          this.pro = param
           // this.companies =[]
           // this.companies.push(this.pro.results[0].city)
         }else{
-        this.router.navigate(['/']);
+          this.pro =null;
       }
       });
     }

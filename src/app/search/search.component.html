@@ -26,9 +26,9 @@
       </div>
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">
-          <mat-tab-group animationDuration="0ms">
-            <mat-tab label="محبوب ترین‎ها">
-              <div class="row inner_content" *ngIf="pro" >
+          <mat-tab-group animationDuration="0ms" *ngIf="pro">
+            <mat-tab label="محبوب ترین‎ها" >
+              <div class="row inner_content"  >
                 <!-- start of offer -->
                
                 <div class="offer_box" *ngFor="let item of pro.results;">
@@ -178,6 +178,10 @@
           </mat-tab-group>
 
 
+        </div>
+
+        <div *ngIf="!pro" class="notfound">
+          موردی یافت نشد
         </div>
       </div>
 
