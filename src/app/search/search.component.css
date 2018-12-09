@@ -8,6 +8,7 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
     transform-style: preserve-3d; 
     transition: .6s;
+    min-height:30em;
   }
     
   .offer .inner_content {
