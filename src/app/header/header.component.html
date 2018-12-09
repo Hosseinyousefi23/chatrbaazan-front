@@ -91,7 +91,7 @@
         </a>
       </li>
       <li *ngFor="let category of categories">
-        <a href="">
+        <a [routerLink]="['/category' , category.id]">
           {{category.name}}
         </a>
       </li>

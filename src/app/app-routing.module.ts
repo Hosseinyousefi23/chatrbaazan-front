@@ -10,6 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AuthGuard } from './auth.guard';
+import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
+    path: 'company/:id',
+    component: SearchComponent
+  },
+  {
     path: 'product/:slug',
     component: ProductDetailComponent
   },
@@ -54,7 +59,7 @@ const routes: Routes = [
     component: ShoppingCardComponent,
     canActivate: [AuthGuard],
   },
-  {path: '**',  redirectTo: '/'}
+  {path: '**',  component: Page404Component}
 ];
 
 @NgModule({

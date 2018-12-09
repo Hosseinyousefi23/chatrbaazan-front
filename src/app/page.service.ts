@@ -80,4 +80,8 @@ searchbyCategory(term) {
   return this.http.get(this.baseUrl+'api/v1/offer/?category='+term)
 }
 
+searchbyCompany(term) {
+  return this.http.get(this.baseUrl+'api/v1/offer/?company='+term)
+}
+
 }

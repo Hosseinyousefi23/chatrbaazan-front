@@ -50,6 +50,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 
 import { NgxGalleryModule } from 'ngx-gallery';
 import { JalaliPipe } from './pipe/jalali.pipe';
+import { Page404Component } from './page404/page404.component';
 
 
 
@@ -72,6 +73,7 @@ import { JalaliPipe } from './pipe/jalali.pipe';
     ShoppingCardComponent,
     SidenavComponent,
     JalaliPipe,
+    Page404Component,
   ],
   imports: [
     BrowserModule,

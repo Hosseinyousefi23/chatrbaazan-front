@@ -3,6 +3,8 @@
     <owl-carousel [options]="myCarouselOptions" [items]="images">
       <div class="item" *ngFor="let image of myCarouselImages;let i = index">
           <img src={{image}} />
+          <!-- <div class="item" *ngFor="let image of slider;let i = index">
+              <img src={{image.image}} /> -->
       </div>
     </owl-carousel>
   </div>

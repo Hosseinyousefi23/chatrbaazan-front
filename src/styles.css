@@ -157,3 +157,6 @@ body {
 .mat-tab-body-content{
   overflow: hidden !important;
 }
+.mat-option-text {
+  text-align: right;
+}

@@ -16,5 +16,6 @@ export class CarouselComponent implements OnInit {
   }
 
   myCarouselImages = [1,2,3,4,5,6].map((i)=> `https://picsum.photos/640/480?image=${i}`);
-  myCarouselOptions={items: 1, dots: true, nav: true,rtl:true,};
+  myCarouselOptions={items: 1, dots: true, nav: true,rtl:true, autoplay:true, autoplayTimeout:3000,
+    autoplayHoverPause:true ,loop:true};
 }
