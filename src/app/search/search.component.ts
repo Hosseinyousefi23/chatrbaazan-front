@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit{
    }
 
   ngOnInit() {
-    this.detectUrl()
+    // this.detectUrl()
   }
 
 
@@ -44,11 +44,12 @@ export class SearchComponent implements OnInit{
       }
       });
     }
-    else if(url.slice(1,8)=='search'){
-      this.route.params.subscribe(params => { this.Categoryid = params['id'];})
-      this.data.searchbyCompany(this.Categoryid).subscribe(param => { 
-        if(param['data']){
-          this.pro = param['data']
+    else if(url.slice(1,7)=='search'){
+      let sea = this.route.snapshot.queryParams['search']
+      this.data.search(sea).subscribe(param => { 
+        // console.log(param)
+        if(param){
+          this.pro = param
           // this.companies =[]
           // this.companies.push(this.pro.results[0].city)
         }else{

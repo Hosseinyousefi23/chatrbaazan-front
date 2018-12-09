@@ -66,8 +66,8 @@ export class HeaderComponent implements OnInit {
 
   formsubmit(search) {
     if (this.searchTerm.value) {
-      console.log(this.searchTerm.value)
-      this.router.navigate(['/search'])
+      // console.log(this.searchTerm.value)
+      this.router.navigate(['/search'],{ queryParams: { search: this.searchTerm.value }})
     }
   }
 }
