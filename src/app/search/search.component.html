@@ -17,16 +17,24 @@
           <p>شرکت ها</p>
           <hr>
           <div class="filter_options">
-            <a *ngFor="let company of companies;">{{company.name}}</a> 
+              <mat-radio-group [(ngModel)] = "selectedcompany">
+                  <mat-radio-button *ngFor="let company of companies;" value="{{company.name}}">{{company.name}}</mat-radio-button>
+                </mat-radio-group>
+            <!-- <a *ngFor="let company of companies;">{{company.name}}</a>  -->
           </div>
         </div>
         <div class="category filter_box">
           <p>دسته‎بندی‎ها</p>
           <hr>
           <div class="filter_options">
-            <a *ngFor="let category of categories;">{{category.name}}</a> 
+            <!-- <a *ngFor="let category of categories;">{{category.name}}</a>  -->
+            <mat-radio-group [(ngModel)] = "selectedcategory">
+                <mat-radio-button *ngFor="let category of categories;" value="{{category.name}}">{{category.name}}</mat-radio-button>
+              </mat-radio-group>
+              
           </div>
         </div>
+        <button class="btn filter_btn" (click)="filter()">اعمال فیلتر</button>
       </div>
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">

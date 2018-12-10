@@ -10,6 +10,8 @@ import { FormControl } from '@angular/forms';
 })
 export class CategoriesComponent implements OnInit {
   pro;
+  selectedcompany;
+  companies : any[] =[];
   Categoryid :any[] =[];
   mode = new FormControl('over');
   constructor(private route: ActivatedRoute , private router : Router,private data :PageService) {
@@ -27,12 +29,30 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     
-    this.route.params.subscribe(params => {console.log(params['slug']); this.Categoryid = params['slug'];})
-    this.data.searchbyCategory(this.Categoryid).subscribe(param => { 
-      if(param['data']){
-        this.pro = param['data']
+    this.route.params.subscribe(params => {this.Categoryid = params['slug'];})
+    this.data.search(this.Categoryid).subscribe(param => { 
+      if(param['count']){
+        this.pro = param
+        this.companies =[]
+        for(let i of param.results){
+        this.companies = this.companies.concat(i.company); 
+        }
       }else{
-      // this.router.navigate(['/']);
+      this.router.navigate(['/']);
+    }
+    });
+  }
+
+  filter(){
+    this.data.search(null,this.selectedcompany,this.Categoryid).subscribe(param => { 
+      if(param['count']){
+        this.pro = param
+        this.companies =[]
+        for(let i of param.results){
+        this.companies = this.companies.concat(i.company); 
+        }
+      }else{
+        this.pro =null;
     }
     });
   }

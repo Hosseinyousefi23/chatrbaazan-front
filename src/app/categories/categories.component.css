@@ -107,6 +107,9 @@
     font-size: 2em;
     font-weight: 600;
   }
+  .filter_btn{
+    float: right;
+  }
   @media (max-width: 768px) {
     .offer .offer_box {
       width: 33%;

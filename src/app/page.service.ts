@@ -59,8 +59,9 @@ export class PageService {
   }
 
 
-  search(term,company=null,category=null) {
-    let  search_url = 'api/v1/offer/?search='+term
+  search(term=null,company=null,category=null) {
+    let  search_url = 'api/v1/offer/?'
+    if(term){search_url = search_url+'search='+term}
     if(company){search_url = search_url+'&company_slug='+company}
     if(category){search_url = search_url+'&category_slug='+category}
     var listOfBooks = this.http.get(this.baseUrl+search_url)

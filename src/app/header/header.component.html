@@ -52,8 +52,9 @@
               <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
                  [formControl]="searchTerm" [matAutocomplete]="auto"  >
               <mat-autocomplete #auto="matAutocomplete">
-                <mat-option  *ngFor="let books of myBooks" [value]="books.name">
-                  {{ books.name }}
+                <mat-option  *ngFor="let search of myBooks" [value]="search.name">
+                  {{ search.name }}
+                  <img src="{{search.image}}" class="search_image" alt="">
                 </mat-option>
               </mat-autocomplete>
 <!-- 

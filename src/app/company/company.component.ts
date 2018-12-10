@@ -12,15 +12,35 @@ export class CompanyComponent implements OnInit {
 
   constructor(private route: ActivatedRoute , private router : Router,private data :PageService) { }
   pro;
+  selectedcategory;
+  categories : any[] =[];
   Companyid :any[] =[];
   mode = new FormControl('over');
   ngOnInit() {
-    this.route.params.subscribe(params => { console.log(params['slug']); this.Companyid = params['slug'];})
-    this.data.searchbyCompany(this.Companyid).subscribe(param => { 
-      if(param['data']){
-        this.pro = param['data']
+    this.route.params.subscribe(params => { this.Companyid = params['slug'];})
+    this.data.search(this.Companyid).subscribe(param => { 
+      if(param['count']){
+        this.pro = param
+        this.categories =[]
+        for(let i of param.results){
+        this.categories = this.categories.concat(i.category); 
+        }
       }else{
       this.router.navigate(['/']);
+    }
+    });
+  }
+
+  filter(){
+    this.data.search(null,,this.Companyid,this.selectedcategory).subscribe(param => { 
+      if(param['count']){
+        this.pro = param
+        this.categories =[]
+        for(let i of param.results){
+        this.categories = this.categories.concat(i.category); 
+        }
+      }else{
+        this.pro =null;
     }
     });
   }

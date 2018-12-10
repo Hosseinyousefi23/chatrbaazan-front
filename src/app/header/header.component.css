@@ -102,6 +102,11 @@ col-xs-5ths,
 .sum_charbaz_content{
   padding: 10px;
 }
+.search_image{
+  width: 30px;
+  height: 30px;
+  margin-left: 11px;
+}
 @media (max-width: 768px) {
   .menu {
     display: none;

@@ -4,7 +4,7 @@
     <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-window-close-o" aria-hidden="true"></i>
       </button></p>
     <div class="menu_content">
-        <app-sidenav></app-sidenav>
+      <app-sidenav></app-sidenav>
     </div>
   </mat-sidenav>
 
@@ -12,29 +12,25 @@
 
     <app-header (navToggle)="sidenav.toggle()"></app-header>
     <div class="row content">
-      <div class="col-xs-12 col-md-3"                                                                                                                                                                                             >
+      <div class="col-xs-12 col-md-3">
         <div class="company filter_box">
           <p>شرکت ها</p>
           <hr>
           <div class="filter_options">
-            <a *ngFor="let company of companies;">{{company.name}}</a> 
+            <mat-radio-group [(ngModel)]="selectedcompany">
+              <mat-radio-button *ngFor="let company of companies;" value="{{company.slug}}">{{company.name}}</mat-radio-button>
+            </mat-radio-group>
           </div>
         </div>
-        <div class="category filter_box">
-          <p>دسته‎بندی‎ها</p>
-          <hr>
-          <div class="filter_options">
-            <a *ngFor="let category of categories;">{{category.name}}</a> 
-          </div>
-        </div>
+        <button class="btn filter_btn" (click)="filter()">اعمال فیلتر</button>
       </div>
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">
           <mat-tab-group animationDuration="0ms" *ngIf="pro">
-            <mat-tab label="محبوب ترین‎ها" >
-              <div class="row inner_content"  >
+            <mat-tab label="محبوب ترین‎ها">
+              <div class="row inner_content">
                 <!-- start of offer -->
-               
+
                 <div class="offer_box" *ngFor="let item of pro.results;">
 
 
@@ -53,7 +49,7 @@
                           <div class="offer_company">
                             <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
                           </div>
-                          <a  class="btn offer_btn" [routerLink]="['/product' , item.slug]">
+                          <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
                             مشاهده
                           </a>
                         </a>
@@ -63,37 +59,6 @@
                   </label>
                 </div>
                 <!-- end of offer -->
-                <!-- start of offer -->
-                <div class="offer_box">
-
-
-                  <label>
-
-                    <div class="card front_offer ">
-                      <div class="front">
-                        <a class="offer_box_link">
-                          <span class="offer_off">8000<span>چتر بازی </span></span>
-                          <div class="offer_image">
-                            <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                          </div>
-                          <div class="offer_title">
-                            کد تخفیف 20درصد سفارش غذا
-                          </div>
-                          <div class="offer_company">
-                            <a href="">اسنپ</a>
-                          </div>
-                          <a class="btn offer_btn" ngbButton>
-                            مشاهده
-                          </a>
-                        </a>
-                      </div>
-                    </div>
-
-                  </label>
-
-                </div>
-                <!-- end of offer -->
- 
 
               </div>
             </mat-tab>
@@ -145,7 +110,7 @@
                       مشاهده
                     </button>
                   </a>
-                  </div> 
+                </div>
               </div>
             </mat-tab>
 
