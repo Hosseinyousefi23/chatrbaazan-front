@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ShareButtonModule } from '@ngx-share/button';
+
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -103,7 +105,8 @@ import { Page404Component } from './page404/page404.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     }),
-    NgxGalleryModule
+    NgxGalleryModule,
+    ShareButtonModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
