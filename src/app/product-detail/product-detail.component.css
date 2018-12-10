@@ -47,7 +47,7 @@
   width: 100%;
 }
 
-.product_desc p {
+.product_desc_title {
   color: #C7C8C8;
   font-size: 1.2em;
   font-weight: bolder;
@@ -76,6 +76,12 @@
   border: 1px solid #e2eeee;
   border-radius: 6px 0 0 6px;
   width: 50%;
+}
+.explanation_product{
+  text-align: justify;
+  white-space: pre-line;
+  white-space: pre-wrap;
+  
 }
 
 .border_btn {
