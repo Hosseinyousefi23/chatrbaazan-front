@@ -1,11 +1,13 @@
 <div class="owl-carousel-holder">
   <div class="carousel-section">
-    <owl-carousel [options]="myCarouselOptions" [items]="images">
+    <owl-carousel [options]="myCarouselOptions" [items]="myCarouselImages">
       <div class="item" *ngFor="let image of myCarouselImages;let i = index">
           <img src={{image}} />
           <!-- <div class="item" *ngFor="let image of slider;let i = index">
               <img src={{image.image}} /> -->
       </div>
     </owl-carousel>
+
+    
   </div>
 </div>
