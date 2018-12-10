@@ -12,10 +12,16 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit() {
     this.data.getbanner().subscribe((data :any) => {this.slider = data.data;
+      for (let i of this.slider){ 
+        console.log(i)
+      // this.myCarouselImages.push()
+      }  
     });
   }
 
-  myCarouselImages = [1,2,3,4,5,6].map((i)=> `https://picsum.photos/640/480?image=${i}`);
+  // myCarouselImages = this.slider;
+  myCarouselImages = [1,2,3,4,5,6].map((i)=> this.slider[i]);
   myCarouselOptions={items: 1, dots: true, nav: true,rtl:true, autoplay:true, autoplayTimeout:3000,
     autoplayHoverPause:true ,loop:true};
+
 }
