@@ -2,6 +2,7 @@ import { Component, OnInit, Type } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ServerResponse } from '../ServerResponse';
 import {FormControl} from '@angular/forms';
+import { PageService } from '../page.service';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,10 @@ export class HomeComponent implements OnInit {
 
 
   displayedColumns: string[] = ['prod_name', 'prod_price'];
-  data: any[] = [];
+  slider: any[] = [];
+  banner: any[] = [];
   isLoadingResults = true;
-  constructor(private api: ApiService) { }
+  constructor(private data: PageService) { }
 
   ngOnInit() {
     // this.api.getHomeDetails()
@@ -27,6 +29,14 @@ export class HomeComponent implements OnInit {
     //   console.log(err);
     //   this.isLoadingResults = false;
     // });
+    this.data.getbanner().subscribe((data :any) => {this.slider = data.data;
+      for (let i of this.slider){ 
+        if(!i.is_slider){
+        // console.log(i.image)
+      this.banner.push(i.image);
+        }
+      }  
+    });
   }
 
 }

@@ -9,13 +9,19 @@ import { PageService } from '../page.service';
 export class CarouselComponent implements OnInit {
   public slider: any[] = [];
   constructor( private data: PageService ) { }
-
+  myCarouselImages :any[] = [];
   ngOnInit() {
     this.data.getbanner().subscribe((data :any) => {this.slider = data.data;
+      for (let i of this.slider){ 
+        if(i.is_slider){
+        console.log(i.image)
+      this.myCarouselImages.push(i.image);
+        }
+      }  
     });
   }
 
-  myCarouselImages = [1,2,3,4,5,6].map((i)=> `https://picsum.photos/640/480?image=${i}`);
   myCarouselOptions={items: 1, dots: true, nav: true,rtl:true, autoplay:true, autoplayTimeout:3000,
     autoplayHoverPause:true ,loop:true};
+
 }

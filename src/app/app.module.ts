@@ -53,6 +53,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { JalaliPipe } from './pipe/jalali.pipe';
 import { Page404Component } from './page404/page404.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CompanyComponent } from './company/company.component';
 
 
 
@@ -76,6 +78,8 @@ import { Page404Component } from './page404/page404.component';
     SidenavComponent,
     JalaliPipe,
     Page404Component,
+    CategoriesComponent,
+    CompanyComponent,
   ],
   imports: [
     BrowserModule,

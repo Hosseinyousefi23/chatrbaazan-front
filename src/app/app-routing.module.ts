@@ -11,6 +11,8 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AuthGuard } from './auth.guard';
 import { Page404Component } from './page404/page404.component';
+import { CompanyComponent } from './company/company.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
   {
@@ -43,12 +45,12 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
-    path: 'category/:id',
-    component: SearchComponent
+    path: 'category/:slug',
+    component: CategoriesComponent
   },
   {
-    path: 'company/:id',
-    component: SearchComponent
+    path: 'company/:slug',
+    component: CompanyComponent
   },
   {
     path: 'product/:slug',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cities } from './cities';
 import { pipeDef } from '@angular/core/src/view';
 import {  debounceTime, map } from 'rxjs/operators';
@@ -49,18 +49,22 @@ export class PageService {
   }
 
   addtocart(productId) {
-    console.log(productId)
-    let pid: object = {
-      product: productId
-    }
-    return this.http.post(this.baseUrl + 'api/v1/cart/'  ,{'product': 1},{
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.token_string }
-    });
+    // console.log(productId)
+    // let pid: object = {
+    //   product: productId
+    // }
+    return this.http.get(this.baseUrl + 'api/v1/cart/' , {
+      headers: new HttpHeaders( { 'Content-Type':  'application/json','Authorization': 'Bearer '+this.token_string})
+   });
   }
 
 
-  search(term) {
-    var listOfBooks = this.http.get(this.baseUrl+'api/v1/offer/?search='+term)
+  search(term=null,company=null,category=null) {
+    let  search_url = 'api/v1/offer/?'
+    if(term){search_url = search_url+'search='+term}
+    if(company){search_url = search_url+'&company_slug='+company}
+    if(category){search_url = search_url+'&category_slug='+category}
+    var listOfBooks = this.http.get(this.baseUrl+search_url)
     .pipe(
         debounceTime(500),  
         map(
@@ -77,11 +81,11 @@ export class PageService {
 
 
 searchbyCategory(term) {
-  return this.http.get(this.baseUrl+'api/v1/offer/?category='+term)
+  return this.http.get(this.baseUrl+'api/v1/offer/?category_slug='+term)
 }
 
 searchbyCompany(term) {
-  return this.http.get(this.baseUrl+'api/v1/offer/?company='+term)
+  return this.http.get(this.baseUrl+'api/v1/offer/?company_slug='+term)
 }
 
 }

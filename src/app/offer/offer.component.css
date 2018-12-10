@@ -105,6 +105,14 @@
   line-height: 16px;
   font-weight: 600;
 }
+.Copy_btn{
+  border-radius: 0;
+  border-top-right-radius: 5px; 
+  border-bottom-right-radius: 5px;
+}
+.btn-groups{
+  margin: 1.2em auto;
+}
 @media (max-width: 768px) {
   .offer .offer_box {
     width: 50%;

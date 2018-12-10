@@ -13,7 +13,8 @@ export class ShoppingCardComponent implements OnInit {
   constructor(private user : UsersService) { }
 
   ngOnInit() {
-    this.user.getDatacart().subscribe((data :any) => {this.cart = data.data;});
+    
+    this.user.getDatacart().subscribe((data :any) => { console.log(data);this.cart = data.data;});
   }
 
 }
