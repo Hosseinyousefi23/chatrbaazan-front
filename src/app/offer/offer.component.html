@@ -11,8 +11,8 @@
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
       <mat-tab label="محبوب ترین‎ها">
         <div class="row inner_content">
-          <!-- start of offer -->
-          <div class="offer_box">
+          <!-- start of offer --> 
+          <!-- <div class="offer_box">
             <label>
               <input type="checkbox" />
               <div class="card front_offer ">
@@ -67,8 +67,8 @@
 
             </label>
 
-          </div>
-          <!-- end of offer -->
+          </div> -->
+          <!-- end of offer
           <!-- start of offer -->
           <div class="offer_box" *ngFor="let item of mostseen.results;">
 
@@ -112,9 +112,11 @@
                       
                     </button>
                     </a>
-                    <button (click)="addtocart(item.id)" class="btn btn-success btn_sm ">
+                    <a (click)="addtocart(item.id)">
+                    <button  class="btn btn-success btn_sm ">
                       خرید
                     </button>
+                  </a>
                   </div>
                     <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
@@ -228,7 +230,7 @@
                 <div class="back ">
 
                   <p>کد تخفیف 20درصد سفارش غذا</p>
-                  <div #container>
+                  <div #container >
 
                     <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
 

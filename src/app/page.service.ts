@@ -49,11 +49,11 @@ export class PageService {
   }
 
   addtocart(productId) {
-    // console.log(productId)
-    // let pid: object = {
-    //   product: productId
-    // }
-    return this.http.get(this.baseUrl + 'api/v1/cart/' , {
+    console.log(productId)
+    let pid: object = {
+      product: productId
+    }
+    return this.http.post(this.baseUrl + 'api/v1/cart/' ,pid, {
       headers: new HttpHeaders( { 'Content-Type':  'application/json','Authorization': 'Bearer '+this.token_string})
    });
   }

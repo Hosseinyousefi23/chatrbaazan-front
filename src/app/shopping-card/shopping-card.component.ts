@@ -14,7 +14,7 @@ export class ShoppingCardComponent implements OnInit {
 
   ngOnInit() {
     
-    this.user.getDatacart().subscribe((data :any) => { console.log(data);this.cart = data.data;});
+    this.user.getDatacart().subscribe((data :any) => { console.log(data);this.cart = data; });
   }
 
 }

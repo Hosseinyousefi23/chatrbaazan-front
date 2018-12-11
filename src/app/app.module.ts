@@ -55,6 +55,7 @@ import { JalaliPipe } from './pipe/jalali.pipe';
 import { Page404Component } from './page404/page404.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CompanyComponent } from './company/company.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 
@@ -80,6 +81,7 @@ import { CompanyComponent } from './company/company.component';
     Page404Component,
     CategoriesComponent,
     CompanyComponent,
+    UserprofileComponent,
   ],
   imports: [
     BrowserModule,

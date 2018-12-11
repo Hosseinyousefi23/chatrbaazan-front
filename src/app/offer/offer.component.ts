@@ -25,14 +25,12 @@ export class OfferComponent implements OnInit {
   addeventlister(){
     $(document).ready(function(){
       $(".card").click(function(){
-        console.log("front")
         $(".card").removeClass("voted");
         $(this).addClass("voted");
 
       });
 
       $(".back_voted").click(function(e){
-        console.log("back")
         e.stopPropagation();
         $(".card").removeClass("voted");
       });
@@ -41,6 +39,7 @@ export class OfferComponent implements OnInit {
   }
 
   addtocart(id){
+    console.log(id)
     this.offer.addtocart(id).subscribe(data => console.log(data))
   }
 
