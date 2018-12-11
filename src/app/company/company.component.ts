@@ -13,6 +13,8 @@ export class CompanyComponent implements OnInit {
   constructor(private route: ActivatedRoute , private router : Router,private data :PageService) { }
   pro;
   selectedcategory;
+  selectedtab: string;
+
   categories : any[] =[];
   Companyid :any[] =[];
   mode = new FormControl('over');
@@ -20,6 +22,7 @@ export class CompanyComponent implements OnInit {
     this.route.params.subscribe(params => { this.Companyid = params['slug'];})
     this.data.search(this.Companyid).subscribe(param => { 
       if(param['count']){
+        
         this.pro = param
         this.categories =[]
         for(let i of param.results){
@@ -31,8 +34,15 @@ export class CompanyComponent implements OnInit {
     });
   }
 
+  changeTab($event){
+    let tab = ['favorites','topchatrbazi','created_at']
+    console.log($event.index)
+    this.selectedtab =tab[$event.index];
+    this.filter();
+}
+
   filter(){
-    this.data.search(null,,this.Companyid,this.selectedcategory).subscribe(param => { 
+    this.data.search(null,this.Companyid,this.selectedcategory,this.selectedtab).subscribe(param => { 
       if(param['count']){
         this.pro = param
         this.categories =[]

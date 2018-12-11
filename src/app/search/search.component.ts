@@ -14,6 +14,8 @@ export class SearchComponent implements OnInit{
   selectedcompany;
   selectedcategory;
 
+  selectedtab: string;
+
   companies :any[] =[];
   categories :any[] =[];
   mode = new FormControl('over');                                                                                                                                                                                                                                                    
@@ -38,14 +40,14 @@ export class SearchComponent implements OnInit{
           // this.companies =[]
           this.companies = this.companies.concat(i.company); 
           
-          console.log(this.companies)
+          // console.log(this.companies)
           }
           for(let i of param.results){
           
           // this.companies =[]
           this.categories = this.categories.concat(i.category); 
           
-          console.log(this.companies)
+          // console.log(this.companies)
           }
           // console.log(this.companies)
         }else{
@@ -53,12 +55,18 @@ export class SearchComponent implements OnInit{
       }
       });
   }
+  changeTab($event){
+    let tab = ['favorites','topchatrbazi','created_at']
+    console.log($event.index)
+    this.selectedtab =tab[$event.index];
+    this.filter();
+}
 
 
   filter(){
-    this.data.search(this.searched,this.selectedcompany,this.selectedcategory).subscribe(param => { 
+    this.data.search(this.searched,this.selectedcompany,this.selectedcategory,this.selectedtab).subscribe(param => { 
       if(param['count']){
-        // console.log(param)
+        
         this.pro = param
         this.companies =[]
         this.categories =[]
@@ -67,14 +75,14 @@ export class SearchComponent implements OnInit{
         // this.companies =[]
         this.companies = this.companies.concat(i.company); 
         
-        console.log(this.companies)
+        
         }
         for(let i of param.results){
         
         // this.companies =[]
         this.categories = this.categories.concat(i.category); 
         
-        console.log(this.companies)
+        
         }
         // console.log(this.companies)
       }else{

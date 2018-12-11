@@ -11,6 +11,7 @@ import { FormControl } from '@angular/forms';
 export class CategoriesComponent implements OnInit {
   pro;
   selectedcompany;
+  selectedtab: string;
   companies : any[] =[];
   Categoryid :any[] =[];
   mode = new FormControl('over');
@@ -43,8 +44,14 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
+  changeTab($event){
+    let tab = ['favorites','topchatrbazi','created_at']
+    this.selectedtab =tab[$event.index];
+    this.filter();
+}
+
   filter(){
-    this.data.search(null,this.selectedcompany,this.Categoryid).subscribe(param => { 
+    this.data.search(null,this.selectedcompany,this.Categoryid,this.selectedtab).subscribe(param => { 
       if(param['count']){
         this.pro = param
         this.companies =[]
