@@ -10,7 +10,7 @@
 
   <mat-sidenav-content>
 
-    <app-header (navToggle)="sidenav.toggle()"  (cityevent)="citychangedinheader($event)"></app-header>
+    <app-header (navToggle)="sidenav.toggle()" (cityevent)="citychangedinheader($event)"></app-header>
     <div class="row content">
       <div class="col-xs-12 col-md-3">
         <div class="company filter_box">
@@ -39,7 +39,7 @@
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">
           <mat-tab-group animationDuration="0ms" (selectedTabChange)="changeTab($event)" *ngIf="pro">
-            <mat-tab label="محبوب ترین‎ها" >
+            <mat-tab label="محبوب ترین‎ها">
               <div class="row inner_content">
                 <!-- start of offer -->
 
@@ -59,7 +59,9 @@
                             {{item.name}}
                           </div>
                           <div class="offer_company">
-                            <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                            <span *ngFor="let i of item.company;">
+                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                            </span>
                           </div>
                           <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
                             مشاهده
@@ -71,37 +73,6 @@
                   </label>
                 </div>
                 <!-- end of offer -->
-                <!-- start of offer -->
-                <div class="offer_box">
-
-
-                  <label>
-
-                    <div class="card front_offer ">
-                      <div class="front">
-                        <a class="offer_box_link">
-                          <span class="offer_off">8000<span>چتر بازی </span></span>
-                          <div class="offer_image">
-                            <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                          </div>
-                          <div class="offer_title">
-                            کد تخفیف 20درصد سفارش غذا
-                          </div>
-                          <div class="offer_company">
-                            <a href="">اسنپ</a>
-                          </div>
-                          <a class="btn offer_btn" ngbButton>
-                            مشاهده
-                          </a>
-                        </a>
-                      </div>
-                    </div>
-
-                  </label>
-
-                </div>
-                <!-- end of offer -->
-
 
               </div>
             </mat-tab>
@@ -126,7 +97,9 @@
                             {{item.name}}
                           </div>
                           <div class="offer_company">
-                            <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                            <span *ngFor="let i of item.company;">
+                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                            </span>
                           </div>
                           <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
                             مشاهده
@@ -142,7 +115,7 @@
             </mat-tab>
 
 
-            <mat-tab label="تازه ترین‎ها" >
+            <mat-tab label="تازه ترین‎ها">
               <div class="row inner_content">
                 <!-- start of offer -->
 
@@ -162,7 +135,9 @@
                             {{item.name}}
                           </div>
                           <div class="offer_company">
-                            <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                            <span *ngFor="let i of item.company;">
+                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                            </span>
                           </div>
                           <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
                             مشاهده

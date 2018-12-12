@@ -11,7 +11,7 @@
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
       <mat-tab label="محبوب ترین‎ها">
         <div class="row inner_content">
-          <!-- start of offer --> 
+          <!-- start of offer -->
           <!-- <div class="offer_box">
             <label>
               <input type="checkbox" />
@@ -86,7 +86,9 @@
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                      <span *ngFor="let i of item.company;">
+                        <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                      </span>
                     </div>
                     <a class="btn offer_btn" ngbButton>
                       مشاهده
@@ -106,26 +108,26 @@
                   <div class="btn-groups">
                     <div>
                       <a [routerLink]="['/contact']">
-                    <button class="btn btn-danger btn_sm">
-                      
-                      اعلام خرابی
-                      
-                    </button>
-                    </a>
-                    <a (click)="addtocart(item.id)">
-                    <button  class="btn btn-success btn_sm ">
-                      خرید
-                    </button>
-                  </a>
-                  </div>
+                        <button class="btn btn-danger btn_sm">
+
+                          اعلام خرابی
+
+                        </button>
+                      </a>
+                      <a (click)="addtocart(item.id)">
+                        <button class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                    </div>
                     <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
-                    
+
                     <a [routerLink]="['/product' , item.slug]">
-                    <button class="btn btn-primary btn_sm">
-                      توضیح بیشتر
-                    </button>
+                      <button class="btn btn-primary btn_sm">
+                        توضیح بیشتر
+                      </button>
                     </a>
                   </div>
                   <button class="btn offer_btn back_voted">
@@ -146,8 +148,8 @@
         <div class="row inner_content">
 
 
-           <!-- start of offer -->
-           <div class="offer_box" *ngFor="let item of mostDiscount.results;">
+          <!-- start of offer -->
+          <div class="offer_box" *ngFor="let item of mostDiscount.results;">
 
 
             <label>
@@ -163,7 +165,9 @@
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                      <span *ngFor="let i of item.company;">
+                        <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                      </span>
                     </div>
                     <a class="btn offer_btn" ngbButton>
                       مشاهده
@@ -183,26 +187,26 @@
                   <div class="btn-groups">
                     <div>
                       <a [routerLink]="['/contact']">
-                    <button class="btn btn-danger btn_sm">
-                      
-                      اعلام خرابی
-                      
-                    </button>
-                    </a>
-                    <a (click)="addtocart(item.id)">
-                    <button  class="btn btn-success btn_sm ">
-                      خرید
-                    </button>
-                  </a>
-                  </div>
+                        <button class="btn btn-danger btn_sm">
+
+                          اعلام خرابی
+
+                        </button>
+                      </a>
+                      <a (click)="addtocart(item.id)">
+                        <button class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                    </div>
                     <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
-                    
+
                     <a [routerLink]="['/product' , item.slug]">
-                    <button class="btn btn-primary btn_sm">
-                      توضیح بیشتر
-                    </button>
+                      <button class="btn btn-primary btn_sm">
+                        توضیح بیشتر
+                      </button>
                     </a>
                   </div>
                   <button class="btn offer_btn back_voted">
@@ -221,8 +225,8 @@
 
       <mat-tab label="تازه ترین‎ها" (click)="addeventlister()">
         <div class="row inner_content">
-           <!-- start of offer -->
-           <div class="offer_box" *ngFor="let item of newest.results;">
+          <!-- start of offer -->
+          <div class="offer_box" *ngFor="let item of newest.results;">
 
 
             <label>
@@ -238,7 +242,9 @@
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                      <span *ngFor="let i of item.company;">
+                        <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                      </span>
                     </div>
                     <a class="btn offer_btn" ngbButton>
                       مشاهده
@@ -258,26 +264,26 @@
                   <div class="btn-groups">
                     <div>
                       <a [routerLink]="['/contact']">
-                    <button class="btn btn-danger btn_sm">
-                      
-                      اعلام خرابی
-                      
-                    </button>
-                    </a>
-                    <a (click)="addtocart(item.id)">
-                    <button  class="btn btn-success btn_sm ">
-                      خرید
-                    </button>
-                  </a>
-                  </div>
+                        <button class="btn btn-danger btn_sm">
+
+                          اعلام خرابی
+
+                        </button>
+                      </a>
+                      <a (click)="addtocart(item.id)">
+                        <button class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                    </div>
                     <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
-                    
+
                     <a [routerLink]="['/product' , item.slug]">
-                    <button class="btn btn-primary btn_sm">
-                      توضیح بیشتر
-                    </button>
+                      <button class="btn btn-primary btn_sm">
+                        توضیح بیشتر
+                      </button>
                     </a>
                   </div>
                   <button class="btn offer_btn back_voted">

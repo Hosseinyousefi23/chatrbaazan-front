@@ -10,7 +10,7 @@
 
   <mat-sidenav-content>
 
-    <app-header (navToggle)="sidenav.toggle()"  (cityevent)="citychangedinheader($event)"></app-header>
+    <app-header (navToggle)="sidenav.toggle()" (cityevent)="citychangedinheader($event)"></app-header>
     <div class="row content">
       <div class="col-xs-12 col-md-3">
         <div class="company filter_box">
@@ -47,7 +47,9 @@
                             {{item.name}}
                           </div>
                           <div class="offer_company">
-                            <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                            <span *ngFor="let i of item.company;">
+                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                            </span>
                           </div>
                           <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
                             مشاهده
@@ -65,36 +67,38 @@
 
             <mat-tab label="بیشترین تخفیف">
               <div class="row inner_content">
-              <!-- start of offer -->
+                <!-- start of offer -->
 
-              <div class="offer_box" *ngFor="let item of pro.results;">
+                <div class="offer_box" *ngFor="let item of pro.results;">
 
 
-                <label>
+                  <label>
 
-                  <div class="card front_offer ">
-                    <div class="front">
-                      <a class="offer_box_link">
-                        <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
-                        <div class="offer_image">
-                          <img src="{{item.image}}" alt="">
-                        </div>
-                        <div class="offer_title">
-                          {{item.name}}
-                        </div>
-                        <div class="offer_company">
-                          <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
-                        </div>
-                        <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
-                          مشاهده
+                    <div class="card front_offer ">
+                      <div class="front">
+                        <a class="offer_box_link">
+                          <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
+                          <div class="offer_image">
+                            <img src="{{item.image}}" alt="">
+                          </div>
+                          <div class="offer_title">
+                            {{item.name}}
+                          </div>
+                          <div class="offer_company">
+                            <span *ngFor="let i of item.company;">
+                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                            </span>
+                          </div>
+                          <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
+                            مشاهده
+                          </a>
                         </a>
-                      </a>
+                      </div>
                     </div>
-                  </div>
 
-                </label>
-              </div>
-              <!-- end of offer -->
+                  </label>
+                </div>
+                <!-- end of offer -->
               </div>
             </mat-tab>
 
@@ -119,7 +123,9 @@
                             {{item.name}}
                           </div>
                           <div class="offer_company">
-                            <a href="" *ngFor="let i of item.company;">{{i.name}}</a>
+                            <span *ngFor="let i of item.company;">
+                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                            </span>
                           </div>
                           <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
                             مشاهده
