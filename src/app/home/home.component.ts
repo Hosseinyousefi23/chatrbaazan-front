@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit {
   }
 
   citychangedinheader(a){
-    console.log(a)
     this.cityHeaderinhome =a;
   }
 

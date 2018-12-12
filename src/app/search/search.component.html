@@ -10,7 +10,7 @@
 
   <mat-sidenav-content>
 
-    <app-header (navToggle)="sidenav.toggle()"></app-header>
+    <app-header (navToggle)="sidenav.toggle()"  (cityevent)="citychangedinheader($event)"></app-header>
     <div class="row content">
       <div class="col-xs-12 col-md-3">
         <div class="company filter_box">

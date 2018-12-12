@@ -12,6 +12,8 @@ export class CategoriesComponent implements OnInit {
   pro;
   selectedcompany;
   selectedtab: string;
+  cityHeader = '';
+
   companies : any[] =[];
   Categoryid :any[] =[];
   mode = new FormControl('over');
@@ -28,6 +30,7 @@ export class CategoriesComponent implements OnInit {
   });
 }
 
+
   ngOnInit() {
     
     this.route.params.subscribe(params => {this.Categoryid = params['slug'];})
@@ -43,7 +46,13 @@ export class CategoriesComponent implements OnInit {
     }
     });
   }
+  citychangedinheader(a) {
+    console.log(a)
+    this.cityHeader = a;
+    this.filter();
+  }
 
+  
   changeTab($event){
     let tab = ['favorites','topchatrbazi','created_at']
     this.selectedtab =tab[$event.index];
@@ -51,7 +60,8 @@ export class CategoriesComponent implements OnInit {
 }
 
   filter(){
-    this.data.search(null,this.selectedcompany,this.Categoryid,this.selectedtab).subscribe(param => { 
+    this.data.search(null,this.selectedcompany,this.Categoryid,this.selectedtab,this.cityHeader).subscribe(param => { 
+      console.log(param)
       if(param['count']){
         this.pro = param
         this.companies =[]

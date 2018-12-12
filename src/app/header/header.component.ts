@@ -46,9 +46,12 @@ export class HeaderComponent implements OnInit {
   }
 
   CityChange(a){
-    console.log(a)
-    // this.city = a;
-    this.cityevent.emit(a)
+    if(a=='شهرها'){
+     this.cityevent.emit('')
+    }
+    else{
+      this.cityevent.emit(a)
+    }
   }
 
   loggedin() {
