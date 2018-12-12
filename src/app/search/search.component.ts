@@ -13,7 +13,6 @@ export class SearchComponent implements OnInit{
   searched :string;
   selectedcompany;
   selectedcategory;
-
   selectedtab: string;
 
   companies :any[] =[];

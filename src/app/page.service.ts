@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Cities } from './cities';
 import { pipeDef } from '@angular/core/src/view';
 import {  debounceTime, map } from 'rxjs/operators';
@@ -53,18 +53,21 @@ export class PageService {
     let pid: object = {
       product: productId
     }
-    return this.http.post(this.baseUrl + 'api/v1/cart/' ,pid, {
-      headers: new HttpHeaders( { 'Content-Type':  'application/json','Authorization': 'Bearer '+this.token_string})
+    const body = new HttpParams()
+    .set('product', productId)
+    return this.http.post(this.baseUrl + 'api/v1/cart/' ,body, {
+      headers: new HttpHeaders( { 'Content-Type':  'application/x-www-form-urlencoded','Authorization': 'Bearer '+this.token_string})
    });
   }
 
 
-  search(term=null,company=null,category=null,ordering=null) {
+  search(term=null,company=null,category=null,ordering=null,city=null) {
     let  search_url = 'api/v1/offer/?'
     if(term){search_url = search_url+'search='+term}
     if(company){search_url = search_url+'&company_slug='+company}
     if(category){search_url = search_url+'&category_slug='+category}
-    if(ordering){search_url = search_url+'&ordering='+ordering}
+    if(ordering){search_url = search_url+'ordering='+ordering}
+    if(city){search_url = search_url+'&city='+city}
     var listOfBooks = this.http.get(this.baseUrl+search_url)
     .pipe(
         debounceTime(500),  

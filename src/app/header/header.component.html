@@ -9,10 +9,10 @@
       <div class="col-md-3 countryForm_bar ">
 
         <!-- <form [formGroup]="countryForm"> -->
-        <select class="city_btn btn" value="شهرها">
+        <select class="city_btn btn"  (change)="CityChange($event.target.value)" value="شهرها">
           <option selected="selected">شهرها</option>
 
-          <option [value]="country" *ngFor="let country of cities">{{country.name}}</option>
+          <option [value]="country.id" *ngFor="let country of cities">{{country.name}}</option>
         </select>
         <!-- </form> -->
 
@@ -72,7 +72,7 @@
           <a class="link" [routerLink]="['/signup']">عضویت</a>
         </span>
         <span *ngIf="loggedin()">
-          <a class="link" [routerLink]="['/']">حساب کاربری</a>
+          <a class="link" [routerLink]="['/profile']">حساب کاربری</a>
           /
           <a class="link" (click)="logout()">خروج</a>
         </span>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PageService } from '../page.service';
 //import * from 'jquery';
 
@@ -13,15 +13,17 @@ export class OfferComponent implements OnInit {
   public mostseen: any[] = [];
   public newest: any[] = [];
   public mostDiscount: any[] = [];
+
+  @Input() cityHeader :string;
   constructor(private offer : PageService) { }
   ngOnInit() {
-
-    this.offer.getMostSeenOffer().subscribe((data :any) => {this.mostseen = data.data;});
-    this.offer.getnewestOffer().subscribe((data :any) => {this.newest = data.data;});
-    this.offer.getmostDiscountOffer().subscribe((data :any) => {this.mostDiscount = data.data; this.addeventlister();});
-    
+    this.searchoffer();
   }
 
+  ngOnChanges() {
+    console.log(this.cityHeader);
+    this.searchoffer();
+  }
   addeventlister(){
     $(document).ready(function(){
       $(".card").click(function(){
@@ -37,7 +39,12 @@ export class OfferComponent implements OnInit {
 
     });
   }
-
+  searchoffer(){
+    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {console.log(data);this.mostseen = data;});
+    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data;});
+    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data; this.addeventlister();});
+    
+  }
   addtocart(id){
     console.log(id)
     this.offer.addtocart(id).subscribe(data => console.log(data))

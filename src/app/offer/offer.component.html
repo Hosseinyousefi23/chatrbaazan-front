@@ -3,7 +3,7 @@
     <div class="col-7 title"> منتخب کدهای تخفیف </div>
     <div class="col-5">
       <a href="#">
-        مشاهده همه
+        مشاهده همه{{cityHeader}}
       </a>
     </div>
   </div>
@@ -144,67 +144,10 @@
 
       <mat-tab label="بیشترین تخفیف">
         <div class="row inner_content">
-          <!-- start of offer -->
-          <div class="offer_box">
-            <label>
-              <input type="checkbox" />
-              <div class="card front_offer ">
-                <div class="front">
-                  <a class="offer_box_link">
-                    <span class="offer_off">8000<span>چتر بازی </span></span>
-                    <div class="offer_image">
-                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                    </div>
-                    <div class="offer_title">
-                      کد تخفیف 20درصد سفارش غذا
-                    </div>
-                    <div class="offer_company">
-                      <a href="">اسنپ</a>
-                    </div>
-                    <a class="btn offer_btn" ngbButton>
-                      مشاهده
-                    </a>
-                  </a>
-                </div>
-                <div class="back ">
 
-                  <p>کد تخفیف 20درصد سفارش غذا</p>
-                  <div #container>
 
-                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
-
-                    <input class=" btn input_cupon" type="text" value="code">
-
-                  </div>
-                  <div class="">
-                    <button class="btn btn-danger btn_sm">
-                      اعلام خرابی
-                    </button>
-                    <button class="btn btn-success btn_sm ">
-                      خرید
-                    </button>
-                  </div>
-                  <div class="">
-                    <button class="btn  btn-warning btn_sm ">
-                      اشتراک گذاری
-                    </button>
-                    <button class="btn btn-primary btn_sm">
-                      توضیح بیشتر
-                    </button>
-                  </div>
-                  <button class="btn offer_btn back_voted">
-                    بازگشت
-                  </button>
-                </div>
-              </div>
-
-            </label>
-
-          </div>
-          <!-- end of offer -->
-
-          <!-- start of offer -->
-          <div class="offer_box" *ngFor="let item of newest.results;">
+           <!-- start of offer -->
+           <div class="offer_box" *ngFor="let item of mostDiscount.results;">
 
 
             <label>
@@ -212,9 +155,9 @@
               <div class="card front_offer ">
                 <div class="front">
                   <a class="offer_box_link">
-                    <span class="offer_off">8000<span>چتر بازی </span></span>
+                    <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div class="offer_image">
-                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+                      <img src="{{item.image}}" alt="">
                     </div>
                     <div class="offer_title">
                       {{item.name}}
@@ -229,29 +172,38 @@
                 </div>
                 <div class="back ">
 
-                  <p>کد تخفیف 20درصد سفارش غذا</p>
-                  <div #container >
+                  <p>{{item.name}}</p>
+                  <div *ngIf="item.is_free" #container>
 
-                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
+                    <button class="btn Copy_btn" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="code">
+                    <input class=" btn input_cupon" type="text" value="{{item.discount}}">
 
                   </div>
-                  <div class="">
+                  <div class="btn-groups">
+                    <div>
+                      <a [routerLink]="['/contact']">
                     <button class="btn btn-danger btn_sm">
+                      
                       اعلام خرابی
+                      
                     </button>
-                    <button class="btn btn-success btn_sm ">
+                    </a>
+                    <a (click)="addtocart(item.id)">
+                    <button  class="btn btn-success btn_sm ">
                       خرید
                     </button>
+                  </a>
                   </div>
-                  <div class="">
                     <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
+                    
+                    <a [routerLink]="['/product' , item.slug]">
                     <button class="btn btn-primary btn_sm">
                       توضیح بیشتر
                     </button>
+                    </a>
                   </div>
                   <button class="btn offer_btn back_voted">
                     بازگشت
@@ -263,73 +215,14 @@
 
           </div>
           <!-- end of offer -->
-
         </div>
       </mat-tab>
 
 
       <mat-tab label="تازه ترین‎ها" (click)="addeventlister()">
         <div class="row inner_content">
-          <!-- start of offer -->
-          <div class="offer_box">
-            <label>
-              <input type="checkbox" />
-              <div class="card front_offer ">
-                <div class="front">
-                  <a class="offer_box_link">
-                    <span class="offer_off">8000<span>چتر بازی </span></span>
-                    <div class="offer_image">
-                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                    </div>
-                    <div class="offer_title">
-                      کد تخفیف 20درصد سفارش غذا
-                    </div>
-                    <div class="offer_company">
-                      <a href="">اسنپ</a>
-                    </div>
-                    <a class="btn offer_btn" ngbButton>
-                      مشاهده
-                    </a>
-                  </a>
-                </div>
-                <div class="back ">
-
-                  <p>کد تخفیف 20درصد سفارش غذا</p>
-                  <div #container>
-
-                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
-
-                    <input class=" btn input_cupon" type="text" value="code">
-
-                  </div>
-                  <div class="">
-                    <button class="btn btn-danger btn_sm">
-                      اعلام خرابی
-                    </button>
-                    <button class="btn btn-success btn_sm ">
-                      خرید
-                    </button>
-                  </div>
-                  <div class="">
-                    <button class="btn  btn-warning btn_sm ">
-                      اشتراک گذاری
-                    </button>
-                    <button class="btn btn-primary btn_sm">
-                      توضیح بیشتر
-                    </button>
-                  </div>
-                  <button class="btn offer_btn back_voted">
-                    بازگشت
-                  </button>
-                </div>
-              </div>
-
-            </label>
-
-          </div>
-          <!-- end of offer -->
-          <!-- start of offer -->
-          <div class="offer_box" *ngFor="let item of mostseen.results;">
+           <!-- start of offer -->
+           <div class="offer_box" *ngFor="let item of newest.results;">
 
 
             <label>
@@ -337,9 +230,9 @@
               <div class="card front_offer ">
                 <div class="front">
                   <a class="offer_box_link">
-                    <span class="offer_off">8000<span>چتر بازی </span></span>
+                    <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div class="offer_image">
-                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
+                      <img src="{{item.image}}" alt="">
                     </div>
                     <div class="offer_title">
                       {{item.name}}
@@ -354,29 +247,38 @@
                 </div>
                 <div class="back ">
 
-                  <p>کد تخفیف 20درصد سفارش غذا</p>
-                  <div #container>
+                  <p>{{item.name}}</p>
+                  <div *ngIf="item.is_free" #container>
 
-                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
+                    <button class="btn Copy_btn" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="code">
+                    <input class=" btn input_cupon" type="text" value="{{item.discount}}">
 
                   </div>
-                  <div class="">
+                  <div class="btn-groups">
+                    <div>
+                      <a [routerLink]="['/contact']">
                     <button class="btn btn-danger btn_sm">
+                      
                       اعلام خرابی
+                      
                     </button>
-                    <button class="btn btn-success btn_sm ">
+                    </a>
+                    <a (click)="addtocart(item.id)">
+                    <button  class="btn btn-success btn_sm ">
                       خرید
                     </button>
+                  </a>
                   </div>
-                  <div class="">
                     <button class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
+                    
+                    <a [routerLink]="['/product' , item.slug]">
                     <button class="btn btn-primary btn_sm">
                       توضیح بیشتر
                     </button>
+                    </a>
                   </div>
                   <button class="btn offer_btn back_voted">
                     بازگشت

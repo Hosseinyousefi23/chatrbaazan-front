@@ -11,12 +11,14 @@
   <mat-sidenav-content>
 
     <app-header (navToggle)="sidenav.toggle()"></app-header>
-    {{cart.count}}
     <div class="row content">
       <div class="col-md-8 col-xs-12  ">
         <div *ngIf="cart">
-          <div class="cart_item" *ngFor="let i of cart.result;">
-            {{i}}
+          <div class="cart_item" *ngFor="let i of cart.item;">
+            {{i.product.name}}
+            {{i.product.price}}
+            <img src="{{i.product.image}}" alt="">
+            <a (click)="deletefrombasket(i.id)">del</a>
           </div>
         </div>
       </div>

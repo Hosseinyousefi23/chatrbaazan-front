@@ -14,7 +14,10 @@ export class ShoppingCardComponent implements OnInit {
 
   ngOnInit() {
     
-    this.user.getDatacart().subscribe((data :any) => { console.log(data);this.cart = data; });
+    this.user.getDatacart().subscribe((data :any) => { console.log(data.result[0]);this.cart = data.result[0]; });
   }
 
+  deletefrombasket(){
+    this.user.getDatacart().subscribe((data :any) => { console.log(data.result[0]);this.cart = data.result[0]; });
+  }
 }

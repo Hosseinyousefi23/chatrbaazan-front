@@ -17,13 +17,14 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   // countryForm: FormGroup;
+  selectedcity;
   public cities: Cities[] = [];
   public categories: any[] = [];
   countries = ['USA', 'Canada', 'Uk', 'kashan']
 
   searchTerm: FormControl = new FormControl();
   myBooks = <any>[];
-
+  @Output() cityevent =new EventEmitter<string>();
   constructor(private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router) { }
 
   ngOnInit() {
@@ -44,6 +45,11 @@ export class HeaderComponent implements OnInit {
       })
   }
 
+  CityChange(a){
+    console.log(a)
+    // this.city = a;
+    this.cityevent.emit(a)
+  }
 
   loggedin() {
     return localStorage.getItem("userToken");
