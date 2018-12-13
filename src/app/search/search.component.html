@@ -63,7 +63,8 @@
                               <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                             </span>
                           </div>
-                          <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
+                          <!-- <a class="btn offer_btn" [routerLink]="['/product' , item.slug]"> -->
+                          <a class="btn offer_btn" (click)="openDialog(item.slug)">
                             مشاهده
                           </a>
                         </a>
@@ -101,9 +102,10 @@
                               <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                             </span>
                           </div>
-                          <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
-                            مشاهده
-                          </a>
+                          <!-- <a class="btn offer_btn" [routerLink]="['/product' , item.slug]"> -->
+                          <a class="btn offer_btn" (click)="openDialog(item.slug)">
+                          مشاهده
+                        </a>
                         </a>
                       </div>
                     </div>
@@ -139,9 +141,10 @@
                               <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                             </span>
                           </div>
-                          <a class="btn offer_btn" [routerLink]="['/product' , item.slug]">
-                            مشاهده
-                          </a>
+                          <!-- <a class="btn offer_btn" [routerLink]="['/product' , item.slug]"> -->
+                          <a class="btn offer_btn" (click)="openDialog(item.slug)">
+                          مشاهده
+                        </a>
                         </a>
                       </div>
                     </div>

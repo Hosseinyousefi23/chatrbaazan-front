@@ -58,6 +58,7 @@ import { CompanyComponent } from './company/company.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { DetailModalComponent } from './detail-modal/detail-modal.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     CategoriesComponent,
     CompanyComponent,
     UserprofileComponent,
+    DetailModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -119,6 +121,6 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginModalComponent]
+  entryComponents: [LoginModalComponent,DetailModalComponent]
 })
 export class AppModule { }

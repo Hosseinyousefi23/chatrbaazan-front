@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>
+
+  </h2>
+  
+  <mat-dialog-content>
+      {{pro.name}}
+      <span  *ngFor="let i of pro.company;">
+          <a [routerLink]="['/company' , i.slug]"> {{i.name}}</a>
+        </span>
+  </mat-dialog-content>
+  
+  
+  

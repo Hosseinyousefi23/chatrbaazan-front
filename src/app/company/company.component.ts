@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { FormControl } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { DetailModalComponent } from '../detail-modal/detail-modal.component';
 
 @Component({
   selector: 'app-company',
@@ -10,7 +12,7 @@ import { FormControl } from '@angular/forms';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute , private router : Router,private data :PageService) { }
+  constructor(private route: ActivatedRoute , private router : Router,private data :PageService, private dialog: MatDialog) { }
   pro;
   selectedcategory;
   selectedtab: string;
@@ -60,5 +62,13 @@ export class CompanyComponent implements OnInit {
     }
     });
   }
+
+  openDialog(slug) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.direction = "rtl";
+    this.dialog.open(DetailModalComponent, {
+      direction: 'rtl',
+      data:{ 'slug': slug}
+    });
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { PageService } from '../page.service';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { DetailModalComponent } from '../detail-modal/detail-modal.component';
 
 @Component({
   selector: 'app-search',
@@ -19,7 +21,7 @@ export class SearchComponent implements OnInit {
   companies: any[] = [];
   categories: any[] = [];
   mode = new FormControl('over');
-  constructor(private router: Router, private route: ActivatedRoute, private data: PageService) {
+  constructor(private router: Router, private route: ActivatedRoute, private data: PageService, private dialog: MatDialog) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
       }
@@ -27,6 +29,14 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  openDialog(slug) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.direction = "rtl";
+    this.dialog.open(DetailModalComponent, {
+      direction: 'rtl',
+      data:{ 'slug': slug}
+    });
+  }
   ngOnInit() {
     this.searched = this.route.snapshot.queryParams['search']
     this.data.search(this.searched).subscribe(param => {

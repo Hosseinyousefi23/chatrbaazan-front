@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { PageService } from '../page.service';
 import { FormControl } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { DetailModalComponent } from '../detail-modal/detail-modal.component';
 
 @Component({
   selector: 'app-categories',
@@ -17,7 +19,7 @@ export class CategoriesComponent implements OnInit {
   companies : any[] =[];
   Categoryid :any[] =[];
   mode = new FormControl('over');
-  constructor(private route: ActivatedRoute , private router : Router,private data :PageService) {
+  constructor(private route: ActivatedRoute , private router : Router,private data :PageService, private dialog: MatDialog) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
@@ -29,7 +31,6 @@ export class CategoriesComponent implements OnInit {
     }
   });
 }
-
 
   ngOnInit() {
     
@@ -73,5 +74,13 @@ export class CategoriesComponent implements OnInit {
     }
     });
   }
+
+  openDialog(slug) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.direction = "rtl";
+    this.dialog.open(DetailModalComponent, {
+      direction: 'rtl',
+      data:{ 'slug': slug}
+    });
 
 }

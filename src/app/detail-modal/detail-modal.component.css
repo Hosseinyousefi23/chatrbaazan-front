@@ -1,0 +1,75 @@
+a{
+    color: #1ca2bd;
+}
+.logo img{
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.logo{
+    height: 50px;
+}
+.background{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../assets/image/background.png')
+}
+p{
+    text-align: right;
+     
+}
+a{
+    font-size: .78em;
+}
+.login {
+    background-color: #ffffff;
+  padding: 1.5em 2em;
+}
+
+h1 {
+    font-family: iranyekan ; 
+    font-size: 2em;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 10px;
+  background: #ced4da;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+  -webkit-transition: box-shadow .5s ease;
+  -moz-transition: box-shadow .5s ease;
+  -o-transition: box-shadow .5s ease;
+  -ms-transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+}
+
+input:focus {
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+@media all and (max-width: 575px) {
+    .login {
+        background-color: #ffffff;
+        margin: 1em auto;
+        width: 18em;
+    }
+     h1 {
+        font-size: 1em;
+    }
+}
+
