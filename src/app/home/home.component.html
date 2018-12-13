@@ -10,7 +10,7 @@
 
   <mat-sidenav-content>
     
-    <app-header (navToggle)="sidenav.toggle()"></app-header>
+    <app-header (navToggle)="sidenav.toggle()"  (cityevent)="citychangedinheader($event)"></app-header>
     <div class="row content">
       <div class="col-md-4 col-xs-12 banner px-0">
         <div class="banner_content" >
@@ -29,7 +29,8 @@
         <app-carousel></app-carousel>
       </div>
     </div>
-    <app-offer></app-offer>
+    
+    <app-offer [cityHeader]="cityHeaderinhome"></app-offer>
     <app-footer></app-footer>
 
   </mat-sidenav-content>

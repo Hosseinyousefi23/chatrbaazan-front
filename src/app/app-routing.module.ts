@@ -13,6 +13,7 @@ import { AuthGuard } from './auth.guard';
 import { Page404Component } from './page404/page404.component';
 import { CompanyComponent } from './company/company.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,11 @@ const routes: Routes = [
   {
     path: 'basket',
     component: ShoppingCardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    component: UserprofileComponent,
     canActivate: [AuthGuard],
   },
   {path: '**',  component: Page404Component}

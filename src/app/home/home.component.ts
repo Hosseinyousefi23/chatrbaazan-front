@@ -1,4 +1,4 @@
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit, Type, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ServerResponse } from '../ServerResponse';
 import {FormControl} from '@angular/forms';
@@ -12,6 +12,7 @@ import { PageService } from '../page.service';
 export class HomeComponent implements OnInit {
   mode = new FormControl('over');
 
+  cityHeaderinhome = '';
 
   displayedColumns: string[] = ['prod_name', 'prod_price'];
   slider: any[] = [];
@@ -37,6 +38,10 @@ export class HomeComponent implements OnInit {
         }
       }  
     });
+  }
+
+  citychangedinheader(a){
+    this.cityHeaderinhome =a;
   }
 
 }

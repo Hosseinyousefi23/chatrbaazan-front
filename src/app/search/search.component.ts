@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { PageService } from '../page.service';
 
@@ -8,78 +8,84 @@ import { PageService } from '../page.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit{
+export class SearchComponent implements OnInit {
   pro = null;
-  searched :string;
+  searched: string;
   selectedcompany;
   selectedcategory;
+  selectedtab: string;
+  cityHeader = '';
 
-  companies :any[] =[];
-  categories :any[] =[];
-  mode = new FormControl('over');                                                                                                                                                                                                                                                    
-  constructor(private router: Router ,private route: ActivatedRoute,private data: PageService) {
+  companies: any[] = [];
+  categories: any[] = [];
+  mode = new FormControl('over');
+  constructor(private router: Router, private route: ActivatedRoute, private data: PageService) {
     router.events.forEach((event) => {
-      if(event instanceof NavigationStart) {
+      if (event instanceof NavigationStart) {
       }
       this.ngOnInit()
     });
-   }
+  }
 
   ngOnInit() {
-     this.searched = this.route.snapshot.queryParams['search']
-      this.data.search(this.searched).subscribe(param => { 
-        if(param['count']){
-          // console.log(param)
-          this.pro = param
-          this.companies =[]
-          this.categories =[]
-          for(let i of param.results){
-          
+    this.searched = this.route.snapshot.queryParams['search']
+    this.data.search(this.searched).subscribe(param => {
+      if (param['count']) {
+        // console.log(param)
+        this.pro = param
+        this.companies = []
+        this.categories = []
+        for (let i of param.results) {
+
           // this.companies =[]
-          this.companies = this.companies.concat(i.company); 
-          
-          console.log(this.companies)
-          }
-          for(let i of param.results){
-          
-          // this.companies =[]
-          this.categories = this.categories.concat(i.category); 
-          
-          console.log(this.companies)
-          }
+          this.companies = this.companies.concat(i.company);
+
           // console.log(this.companies)
-        }else{
-          this.pro =null;
+        }
+        for (let i of param.results) {
+
+          // this.companies =[]
+          this.categories = this.categories.concat(i.category);
+
+          // console.log(this.companies)
+        }
+        // console.log(this.companies)
+      } else {
+        this.pro = null;
       }
-      });
+    });
+  }
+  changeTab($event) {
+    let tab = ['favorites', 'topchatrbazi', 'created_at']
+    this.selectedtab = tab[$event.index];
+    this.filter();
+  }
+
+  citychangedinheader(a) {
+    this.cityHeader = a;
+    this.filter();
   }
 
 
-  filter(){
-    this.data.search(this.searched,this.selectedcompany,this.selectedcategory).subscribe(param => { 
-      if(param['count']){
-        // console.log(param)
+  filter() {
+    console.log("filter")
+    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader).subscribe(param => {
+      if (param['count']) {
+
         this.pro = param
-        this.companies =[]
-        this.categories =[]
-        for(let i of param.results){
-        
-        // this.companies =[]
-        this.companies = this.companies.concat(i.company); 
-        
-        console.log(this.companies)
+        this.companies = []
+        this.categories = []
+        for (let i of param.results) {
+          // this.companies =[]
+          this.companies = this.companies.concat(i.company);
         }
-        for(let i of param.results){
-        
-        // this.companies =[]
-        this.categories = this.categories.concat(i.category); 
-        
-        console.log(this.companies)
+        for (let i of param.results) {
+          // this.companies =[]
+          this.categories = this.categories.concat(i.category);
         }
-        // console.log(this.companies)
-      }else{
-        this.pro =null;
-    }
+      } else {
+        this.pro = null;
+      }
     });
   }
   // detectUrl(){
@@ -103,17 +109,17 @@ export class SearchComponent implements OnInit{
   //         this.pro = param
   //         this.companies =[]
   //         for(let i of param.results){
-          
+
   //         // this.companies =[]
   //         this.companies = this.companies.concat(i.company); 
-          
+
   //         console.log(this.companies)
   //         }
   //         for(let i of param.results){
-          
+
   //         // this.companies =[]
   //         this.categories = this.categories.concat(i.category); 
-          
+
   //         console.log(this.companies)
   //         }
   //         // console.log(this.companies)

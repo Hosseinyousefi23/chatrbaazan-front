@@ -1,0 +1,50 @@
+<mat-sidenav-container class="example-container">
+
+    <mat-sidenav #sidenav [mode]="mode.value" position="end">
+      <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-window-close-o" aria-hidden="true"></i>
+        </button></p>
+      <div class="menu_content">
+        <app-sidenav></app-sidenav>
+      </div>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+  
+      <app-header (navToggle)="sidenav.toggle()"></app-header>
+      <div class="row content">
+          <div class="col-md-3 col-xs-12">
+              <div class="profile_header">
+                تتنی
+              </div>
+              <div class="profile_option">
+                <a>تخفیف های من</a>
+                <hr>
+                <a>افزودن کد</a>
+              </div>
+            </div>
+        <div class="col-md-9 col-xs-12  ">
+          
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="First">Content 1</mat-tab>
+                <mat-tab label="Second">Content 2</mat-tab>
+                <mat-tab label="Third">Content 3</mat-tab>
+              </mat-tab-group>
+              
+            <div class="cart_item">
+              <div class="add_code">
+                  <h1>افزودن کد</h1>
+                  <input type="text" [(ngModel)] = "codedata.code" placeholder="کد" required="required" />
+                  <input type="text"  [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" required="required" />
+                  <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
+                  <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
+                  <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button>
+              </div>     
+            </div>
+          
+        </div>
+      </div>
+      <app-footer></app-footer>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

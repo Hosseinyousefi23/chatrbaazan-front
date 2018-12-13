@@ -17,6 +17,9 @@
         <div class="product_about col-md-6 order-xs-2 col-xs-12">
           <div class="product_name">
             {{pro.name}}
+            <span  *ngFor="let i of pro.company;">
+                <a [routerLink]="['/company' , i.slug]"> {{i.name}}</a>
+              </span>
           </div>
           <hr size="30">
           <!-- citeis -->
@@ -24,7 +27,7 @@
             <div class="col-md-4 col-xs-6" *ngFor="let city of pro.city;">
               <p>
                 <img src="assets/image/map.png" class="" alt="چتربازی">
-                {{city.name}}
+                {{city.name}}            
               </p>
             </div>
           </div>

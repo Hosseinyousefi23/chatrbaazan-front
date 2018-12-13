@@ -13,13 +13,18 @@ export class CompanyComponent implements OnInit {
   constructor(private route: ActivatedRoute , private router : Router,private data :PageService) { }
   pro;
   selectedcategory;
+  selectedtab: string;
+  cityHeader ;
+
   categories : any[] =[];
   Companyid :any[] =[];
   mode = new FormControl('over');
   ngOnInit() {
+    console.log("cas")
     this.route.params.subscribe(params => { this.Companyid = params['slug'];})
     this.data.search(this.Companyid).subscribe(param => { 
       if(param['count']){
+        
         this.pro = param
         this.categories =[]
         for(let i of param.results){
@@ -31,8 +36,19 @@ export class CompanyComponent implements OnInit {
     });
   }
 
+  citychangedinheader(a) {
+    this.cityHeader = a;
+    this.filter();
+  }
+
+  changeTab($event){
+    let tab = ['favorites','topchatrbazi','created_at']
+    this.selectedtab =tab[$event.index];
+    this.filter();
+}
+
   filter(){
-    this.data.search(null,,this.Companyid,this.selectedcategory).subscribe(param => { 
+    this.data.search(null,this.Companyid,this.selectedcategory,this.selectedtab,this.cityHeader).subscribe(param => { 
       if(param['count']){
         this.pro = param
         this.categories =[]
