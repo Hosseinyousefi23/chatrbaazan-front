@@ -56,6 +56,7 @@ import { Page404Component } from './page404/page404.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CompanyComponent } from './company/company.component';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -110,7 +111,8 @@ import { CompanyComponent } from './company/company.component';
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     }),
     NgxGalleryModule,
-    ShareButtonModule.forRoot()
+    ShareButtonModule.forRoot(),
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
