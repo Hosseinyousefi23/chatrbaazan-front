@@ -57,6 +57,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { CompanyComponent } from './company/company.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -114,6 +115,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     }),
     NgxGalleryModule,
     ShareButtonModule.forRoot(),
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
