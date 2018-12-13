@@ -14,7 +14,6 @@ export class CarouselComponent implements OnInit {
     this.data.getbanner().subscribe((data :any) => {this.slider = data.data;
       for (let i of this.slider){ 
         if(i.is_slider){
-        console.log(i.image)
       this.myCarouselImages.push(i.image);
         }
       }  

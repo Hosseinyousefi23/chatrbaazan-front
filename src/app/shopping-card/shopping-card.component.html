@@ -12,20 +12,48 @@
 
     <app-header (navToggle)="sidenav.toggle()"></app-header>
     <div class="row content">
-      <div class="col-md-8 col-xs-12  ">
+      
+      <div class=" order1 col-md-8 col-xs-12  ">
         <div *ngIf="cart">
-          <div class="cart_item" *ngFor="let i of cart.item;">
-            {{i.product.name}}
-            {{i.product.price}}
-            <img src="{{i.product.image}}" alt="">
-            <a (click)="deletefrombasket(i.id)">del</a>
+          <div class="cart_item row" *ngFor="let i of cart.item;">
+            <div class="col-4">
+              <img class="product_img" src="{{i.product.image}}" alt="">
+            </div>
+            <div class="col-8 product_info">
+              <div class="product_name">{{i.product.name}}</div>
+              <div class="producr_company">
+                <span *ngFor="let c of i.product.company;">
+                  <a [routerLink]="['/company' , c.slug]"> {{c.name}}</a>
+                </span>
+              </div>
+              {{i.product.price}}
+              {{i.price}}
+              <hr>
+              <div class="product_prices">
+                <span class="count">قیمت :  {{i.price}}</span>
+                <span class="count">تعداد:  {{i.count}}</span>
+                <span class="count"> جمع کل:{{i.total_price}}</span>
+              </div>
+              <a (click)="deletefrombasket(i.id)" class="delete_cart"><i class="fa fa-trash" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-xs-12">
+      <div *ngIf="cart" class="order2 col-md-4 col-xs-12">
         <div class="cart_pardakht">
-          cas
+          <div class="cart_padakht_header">
+            <div class="sum_of_product">
+            مجموع سبد خرید :
+            <div class="total_price">{{cart.total_price}}</div>
+          </div>
+          </div>
+          <!-- {{cart.price}} -->
+          <button mat-raised-button color="basic" class=" btn "> پرداخت</button>
         </div>
+      </div>
+      <div *ngIf="!cart" class="col-12 noproduct">
+        سبد خرید خالی است :\
       </div>
     </div>
     <app-footer></app-footer>

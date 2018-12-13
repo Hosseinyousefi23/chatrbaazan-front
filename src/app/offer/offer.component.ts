@@ -21,7 +21,6 @@ export class OfferComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log(this.cityHeader);
     this.searchoffer();
   }
   addeventlister(){
@@ -40,14 +39,16 @@ export class OfferComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {console.log(data);this.mostseen = data;});
+    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data;});
     this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data;});
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data; this.addeventlister();});
     
   }
   addtocart(id){
     console.log(id)
-    this.offer.addtocart(id).subscribe(data => console.log(data))
+    this.offer.addtocart(id).subscribe(
+      // data => console.log(data)
+    )
   }
 
 }

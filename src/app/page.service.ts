@@ -3,7 +3,6 @@ import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Cities } from './cities';
-import { pipeDef } from '@angular/core/src/view';
 import { debounceTime, map } from 'rxjs/operators';
 
 @Injectable({
@@ -36,7 +35,6 @@ export class PageService {
   }
 
   addtocart(productId) {
-    console.log(productId)
     let pid: object = {
       product: productId
     }

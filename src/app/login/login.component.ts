@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -29,9 +30,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userToken',data.token)
         this.router.navigate([this.returnUrl])
       },
-      error =>{
+      (err : HttpErrorResponse) => {
         this.isLoginerror = true;
-        console.log('error', error);
       }
     );
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
-import { ProviderAst } from '@angular/compiler';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,10 @@ import { ProviderAst } from '@angular/compiler';
 })
 export class SignupComponent implements OnInit {
   user
-  constructor(private userservice: UsersService) { }
+  isSignupError :boolean = false;
+  returnUrl: string;
+  constructor(private userservice: UsersService,private route: ActivatedRoute
+    ,private router :Router) { }
 
   ngOnInit() {
     this.user = {
@@ -21,15 +25,18 @@ export class SignupComponent implements OnInit {
     password1: '',
     password2: '',
     }
+
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   registerUser(){
     this.userservice.register(this.user).subscribe(
-      resposnse =>{
-        alert('user added')
+      (data: any) =>{
+        localStorage.setItem('userToken',data.token)
+        this.router.navigate([this.returnUrl])
       },
-      error =>{
-        console.log('error', error);
+      (err : HttpErrorResponse) =>{
+        this.isSignupError = true;
       }
     );
   }

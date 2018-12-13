@@ -1,6 +1,6 @@
 <div class="background">
   <div class="login">
-    <div class="logo col-2">
+    <div class="logo">
       <a [routerLink]="['/']">
         <img src='assets/image/chatrbaazan-logo.png'>
       </a>
@@ -13,7 +13,9 @@
       <input type="tel" [(ngModel)] = "user.mobile"  placeholder="شماره تلفن" maxlength="11" required="required" />
       <input type="password"  [(ngModel)] = "user.password1"placeholder="رمز عبور" required="required" />
       <input type="password" [(ngModel)] = "user.password2"  placeholder="تکرار رمز عبور" required="required" />
-      <button type="submit" (click)="registerUser()" class="btn btn-primary btn-block btn-large">تبت نام</button>
-
+      <button type="submit"  mat-raised-button (click)="registerUser()" class="btn btn-primary btn-block ">تبت نام</button>
+      <p *ngIf="isSignupError">
+         ثبت نام انجام نشد . دوباره تلاش کنید!!
+        </p>
   </div>
 </div>

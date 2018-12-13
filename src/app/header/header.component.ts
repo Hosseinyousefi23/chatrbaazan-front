@@ -30,7 +30,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.data.getcities().subscribe((data: any) => { this.cities = data.data; });
     this.data.getCategories().subscribe((data: any) => { this.categories = data.data; });
-    // this.user.logged().subscribe(data => { if(data['token']){this.logged = true}} );
+    this.user.logged().subscribe(data => { if(!data['token']){
+      localStorage.removeItem("userToken");
+    }});
 
     this.searchTerm.valueChanges.subscribe(
       term => {

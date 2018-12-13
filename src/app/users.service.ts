@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import {  Headers, RequestOptions, Response } from '@angular/http';
+import {  Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 
@@ -47,8 +47,6 @@ export class UsersService {
     const headers = new HttpHeaders()
     .append('Authorization', 'Bearer '+this.token_string)
     .append('Content-Type', 'application/json');
-    console.log(new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+this.token_string}
-    ))
     return this.http.get(this.baseUrl + 'api/v1/cart/' ,{
       headers: headers});
   }
@@ -65,15 +63,15 @@ export class UsersService {
   }
 
   deletefrombasket(productId) {
-    console.log(productId)
-  //   let pid: object = {
-  //     product: productId
-  //   }
-  //   const body = new HttpParams()
-  //   .set('product', productId)
-  //   return this.http.delete(this.baseUrl + 'api/v1/cart/' ,body, {
-  //     headers: new HttpHeaders( { 'Content-Type':  'application/x-www-form-urlencoded','Authorization': 'Bearer '+this.token_string})
-  //  });
+    const body = new HttpParams().set('cart', productId)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer '+this.token_string
+      })
+      ,body : body
+    };
+    return this.http.delete(this.baseUrl + 'api/v1/cart/' ,httpOptions);
   }
 
 }

@@ -23,13 +23,13 @@ import {
   MatSidenavModule,
   MatRadioModule,
   MatFormFieldModule, 
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatStepperModule,
   } from "@angular/material";
 
 import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog";
 
 import { ClipboardModule } from 'ngx-clipboard';
-
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -104,6 +104,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     MatDialogModule,
     MatRadioModule,
     MatAutocompleteModule,
+    MatStepperModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
@@ -112,7 +113,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     }),
     NgxGalleryModule,
-    ShareButtonModule.forRoot()
+    ShareButtonModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

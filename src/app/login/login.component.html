@@ -1,6 +1,6 @@
 <div class="background">
   <div class="login">
-    <div class="logo col-2">
+    <div class="logo ">
       <a [routerLink]="['/']">
         <img src='assets/image/chatrbaazan-logo.png'>
       </a>
@@ -9,7 +9,10 @@
       <input type="email" [(ngModel)] = "user.email" placeholder="ایمیل" required="required" />
       <input type="password"  [(ngModel)] = "user.password" placeholder="رمز عبور" required="required" />
       <p><a routerLink="/forgetpassword">رمز عبور خود را فراموش کرده ام</a></p>
-      <button (click)="LoginUser()" type="submit" class="btn btn-primary btn-block btn-large">ورود</button>
+      <button mat-raised-button (click)="LoginUser()" type="submit" class="btn btn-primary btn-block btn-large">ورود</button>
+      <p *ngIf="isLoginerror">
+          رمز عبور یا کد کاربری اشتباه است
+        </p>
       <p>کاربر جدید هستید؟ <a routerLink="/signup">
           ثبت‌نام در چتر بازان
         </a></p>

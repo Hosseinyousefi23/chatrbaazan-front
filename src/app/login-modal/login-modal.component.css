@@ -33,6 +33,7 @@ a{
 }
 
 h1 {
+    font-family: iranyekan ; 
     font-size: 2em;
   text-align: center;
 }
@@ -40,11 +41,12 @@ h1 {
 input {
   width: 100%;
   margin-bottom: 10px;
-  background: rgba(0, 0, 0, 0.3);
+  background: #ced4da;
   border: none;
   outline: none;
   padding: 10px;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: bold;
   color: #fff;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -70,3 +72,4 @@ input:focus {
         font-size: 1em;
     }
 }
+

@@ -72,6 +72,7 @@
           <a class="link" [routerLink]="['/signup']">عضویت</a>
         </span>
         <span *ngIf="loggedin()">
+          <a  class="link" [routerLink]="['/basket']"> <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
           <a class="link" [routerLink]="['/profile']">حساب کاربری</a>
           /
           <a class="link" (click)="logout()">خروج</a>

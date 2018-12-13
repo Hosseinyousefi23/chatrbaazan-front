@@ -3,6 +3,7 @@
     margin-right:  2em;
     margin-left:  2em;
     margin-bottom: 4em;
+    min-height: 60vh;
 }
 .cart_item{
     background-color: #ffffff;

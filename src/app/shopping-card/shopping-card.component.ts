@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -10,14 +10,25 @@ import { UsersService } from '../users.service';
 export class ShoppingCardComponent implements OnInit {
   mode = new FormControl('over');
   cart;
-  constructor(private user : UsersService) { }
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  constructor(private user : UsersService,private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
     
     this.user.getDatacart().subscribe((data :any) => { console.log(data.result[0]);this.cart = data.result[0]; });
+
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+
   }
 
-  deletefrombasket(){
-    this.user.getDatacart().subscribe((data :any) => { console.log(data.result[0]);this.cart = data.result[0]; });
+  deletefrombasket(pid){
+    this.user.deletefrombasket(pid).subscribe((data :any) => { console.log(data.result[0]);this.cart = data.result[0]; });
   }
 }
