@@ -22,7 +22,7 @@ export class CompanyComponent implements OnInit {
   Companyid :any[] =[];
   mode = new FormControl('over');
   ngOnInit() {
-    console.log("cas")
+    
     this.route.params.subscribe(params => { this.Companyid = params['slug'];})
     this.data.search(this.Companyid).subscribe(param => { 
       if(param['count']){
@@ -70,5 +70,5 @@ export class CompanyComponent implements OnInit {
       direction: 'rtl',
       data:{ 'slug': slug}
     });
-
+}
 }
