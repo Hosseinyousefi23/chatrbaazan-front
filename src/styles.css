@@ -176,3 +176,6 @@ body {
   text-align: right !important;
   width: 65%;
 }
+.btn-warning {
+  color: #F5F5F5 !important;
+}

@@ -17,9 +17,11 @@
         <div class="product_about col-md-6 order-xs-2 col-xs-12">
           <div class="product_name">
             {{pro.name}}
+          </div>
+          <div class="col-md-4">
             <span  *ngFor="let i of pro.company;">
-                <a [routerLink]="['/company' , i.slug]"> {{i.name}}</a>
-              </span>
+              <h6><a [routerLink]="['/company' , i.slug]"> {{i.name}}</a></h6>
+            </span>
           </div>
           <hr size="30">
           <!-- citeis -->
@@ -43,7 +45,7 @@
           <hr size="30">
           <br>
           <div class="row">
-            <div class="col-md-6 col-xs-12" #container>
+            <div *ngIf='pro.is_free' class="col-md-6 col-xs-12" #container>
               <button class="btn border_btn" ngxClipboard cbContent={{pro.discount}} [container]="container">کپی</button>
               <input class="btn border_input" type="text" value="{{pro.discount}}">
             </div>
