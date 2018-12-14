@@ -6,6 +6,7 @@ import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from "@angu
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -30,9 +31,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.data.getcities().subscribe((data: any) => { this.cities = data.data; });
     this.data.getCategories().subscribe((data: any) => { this.categories = data.data; });
-    this.user.logged().subscribe(data => { if(!data['token']){
-      localStorage.removeItem("userToken");
-    }});
+    this.user.logged().subscribe(
+      (data: any) => {
+        localStorage.setItem('userToken',data.token)
+      },
+      (err : HttpErrorResponse) => {
+        localStorage.removeItem('userToken')
+      }
+    );
 
     this.searchTerm.valueChanges.subscribe(
       term => {

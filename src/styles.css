@@ -172,7 +172,10 @@ body {
 .mat-radio-button{
   width: 100%;
 }
-
-.mat-form-field{
-  width: 100%;
+.mat-form-field { 
+  text-align: right !important;
+  width: 65%;
+}
+.btn-warning {
+  color: #F5F5F5 !important;
 }
