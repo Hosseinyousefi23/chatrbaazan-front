@@ -19,12 +19,13 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatTabsModule,
   MatSidenavModule,
   MatRadioModule,
   MatFormFieldModule, 
   MatAutocompleteModule,
   MatStepperModule,
+  MatTabsModule,
+  MatSelectModule,
   } from "@angular/material";
 
 import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog";
@@ -60,6 +61,9 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DetailModalComponent } from './detail-modal/detail-modal.component';
 
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
 
 @NgModule({
   declarations: [
@@ -102,7 +106,6 @@ import { DetailModalComponent } from './detail-modal/detail-modal.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatTabsModule,
     MatSidenavModule,
     MatDialogModule,
     MatRadioModule,
@@ -117,7 +120,12 @@ import { DetailModalComponent } from './detail-modal/detail-modal.component';
     }),
     NgxGalleryModule,
     ShareButtonModule.forRoot(),
-    ScrollingModule
+    ScrollingModule,
+    DragDropModule,
+    CdkTableModule,
+    CdkTreeModule,
+    MatTabsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

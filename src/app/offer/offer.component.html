@@ -3,7 +3,7 @@
     <div class="col-7 title"> منتخب کدهای تخفیف </div>
     <div class="col-5">
       <a href="#">
-        مشاهده همه{{cityHeader}}
+        مشاهده همه
       </a>
     </div>
   </div>
@@ -11,68 +11,7 @@
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
       <mat-tab label="محبوب ترین‎ها">
         <div class="row inner_content">
-          <!-- start of offer -->
-          <!-- <div class="offer_box">
-            <label>
-              <input type="checkbox" />
-              <div class="card front_offer ">
-                <div class="front">
-                  <a class="offer_box_link">
-                    <span class="offer_off">8000<span>چتر بازی </span></span>
-                    <div class="offer_image">
-                      <img src="http://chatrbaazan.ir/media/offer/Snapp-logo.svg_TBdiWUa.png" alt="">
-                    </div>
-                    <div class="offer_title">
-                      کد تخفیف 20درصد سفارش غذا
-                    </div>
-                    <div class="offer_company">
-                      <a href="">اسنپ</a>
-                    </div>
-                    <a class="btn offer_btn" ngbButton>
-                      مشاهده
-                    </a>
-                  </a>
-                </div>
-                <div class="back ">
-
-                  <p>کد تخفیف 20درصد سفارش غذا</p>
-                  <div   #container>
-
-                    <button class="btn" ngxClipboard [cbContent]="'mohammad hosessein '" [container]="container">Copy</button>
-
-                    <input class=" btn input_cupon" type="text" value="code">
-
-                  </div>
-                  <div class="">
-                    <button class="btn btn-danger btn_sm">
-                      اعلام خرابی
-                    </button>
-                    <button class="btn btn-success btn_sm ">
-                      خرید
-                    </button>
-                  </div>
-                  <div class="">
-                    <button class="btn  btn-warning btn_sm ">
-                      اشتراک گذاری
-                    </button>
-                    <button class="btn btn-primary btn_sm">
-                      توضیح بیشتر
-                    </button>
-                  </div>
-                  <button class="btn offer_btn back_voted">
-                    بازگشت
-                  </button>
-                </div>
-              </div>
-
-            </label>
-
-          </div> -->
-          <!-- end of offer
-          <!-- start of offer -->
           <div class="offer_box" *ngFor="let item of mostseen.results;">
-
-
             <label>
               <input type="checkbox" />
               <div class="card front_offer ">

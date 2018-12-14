@@ -18,10 +18,10 @@ export class HeaderComponent implements OnInit {
 
   // countryForm: FormGroup;
   selectedcity;
+  selected = 'none_city';
   public cities: Cities[] = [];
   public categories: any[] = [];
   countries = ['USA', 'Canada', 'Uk', 'kashan']
-
   searchTerm: FormControl = new FormControl();
   myBooks = <any>[];
   @Output() cityevent =new EventEmitter<string>();
@@ -45,14 +45,15 @@ export class HeaderComponent implements OnInit {
             })
         }
       })
+      
   }
 
-  CityChange(a){
-    if(a=='شهرها'){
+  CityChange(city){
+    if(city=='none_city'){
      this.cityevent.emit('')
     }
     else{
-      this.cityevent.emit(a)
+      this.cityevent.emit(city)
     }
   }
 

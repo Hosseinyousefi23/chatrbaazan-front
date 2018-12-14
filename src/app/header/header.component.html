@@ -9,12 +9,23 @@
       <div class="col-md-3 countryForm_bar ">
 
         <!-- <form [formGroup]="countryForm"> -->
-        <select class="city_btn btn"  (change)="CityChange($event.target.value)" value="شهرها">
+        <!-- <select class="city_btn btn"  (change)="CityChange($event.target.value)" value="شهرها">
           <option selected="selected">شهرها</option>
 
           <option [value]="country.id" *ngFor="let country of cities">{{country.name}}</option>
-        </select>
+        </select> -->
         <!-- </form> -->
+        <mat-form-field>
+          <mat-select [(value)]="selected" (selectionChange)="CityChange(selected)" >
+            <mat-option value="none_city">شهرها</mat-option>
+            <mat-option [value]="country.id" *ngFor="let country of cities">
+              {{country.name}}
+            </mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+        
+       
 
         <!-- <mat-autocomplete #auto="matAutocomplete">
             <mat-option [value]="city" *ngFor="let city of cities" >{{city.name}}</mat-option>
