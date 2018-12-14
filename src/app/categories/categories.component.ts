@@ -36,7 +36,6 @@ export class CategoriesComponent implements OnInit {
     
     this.route.params.subscribe(params => {this.Categoryid = params['slug'];})
     this.data.search(null,null,this.Categoryid).subscribe(param => { 
-      console.log("hi")
       if(param['count']){
         this.pro = param
         this.companies =[]

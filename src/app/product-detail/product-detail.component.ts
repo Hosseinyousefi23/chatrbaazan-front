@@ -79,6 +79,13 @@ export class ProductDetailComponent implements OnInit {
   // console.log(this.galleryImages)
   }
 
+
+  addtocart(id){
+    console.log(id)
+    this.service.addtocart(id).subscribe(
+      // data => console.log(data)
+    )
+  }
 }
 
 
