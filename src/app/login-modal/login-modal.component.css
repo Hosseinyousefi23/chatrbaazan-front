@@ -38,7 +38,7 @@ h1 {
   text-align: center;
 }
 
-input {
+/* input {
   width: 100%;
   margin-bottom: 10px;
   background: #ced4da;
@@ -61,7 +61,7 @@ input {
 
 input:focus {
   box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
-}
+} */
 @media all and (max-width: 575px) {
     .login {
         background-color: #ffffff;
