@@ -63,9 +63,11 @@ input {
     direction: rtl;
 }
 .imgae_modal{
+    width: 60%;
     height: auto;
     max-width: 100%;
     border-radius: 6px !important;
+    margin-top:35px;
 }
 
 .paragraph{

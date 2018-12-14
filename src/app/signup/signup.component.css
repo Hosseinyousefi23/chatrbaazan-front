@@ -1,10 +1,21 @@
+/deep/ body {
+    /* position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;  */
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-image: url('../../assets/image/bg_01.png');
+    background-size: cover;
+  }
 .logo img{
     width: 100px;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
 }
-.background{
+/* .background{
     position: absolute; 
     top: 0; 
     left: 0; 
@@ -13,7 +24,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../assets/image/background.png')
-}
+} */
 .login {
     background-color: #ffffff;
     margin: 6em auto;

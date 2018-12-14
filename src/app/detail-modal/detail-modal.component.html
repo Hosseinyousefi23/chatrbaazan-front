@@ -11,14 +11,22 @@
             </div>
             <hr size=30>
             <div class="col-md-12 btn-group">
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <div *ngIf="!pro.is_free">
+              <div class="col-md-6 col-xs-12">
+                  testttttttttttttt
+              </div>
+            </div>
+            <div class="col-md-5 col-xs-12">
+                            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
                     Single toggle
                   </button>
                   <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
                       Single toggle
                     </button>
+              </div>
             </div>
-            <div  class="paragraph" [innerHTML]="pro.explanation"></div>
+            <hr>
+            <div  class="paragraph" [innerHTML]="pro.explanation_short"></div>
           </div>
           <div class="col-md-4">
             <img class="imgae_modal" src="{{pro.image}}" alt="">
