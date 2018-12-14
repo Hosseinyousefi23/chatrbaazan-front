@@ -38,21 +38,25 @@
   
   .offer .offer_box .offer_image img {
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    /* height: 100%; */
+    width: 92%;
+    margin: 0 auto;
+    border-radius: 6px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
   }
   
   .offer .offer_box .offer_title {
     width: 50%;
     margin: 5px auto;
-    text-align: right;
-    display: flex;
+    text-align: center;
+    /* display: flex; */
     color: #4c4c4c;
     height: 45px;
     font-size: 14px;
+    padding-top:10px;
   }
   
   .offer .offer_box .offer_company {
@@ -78,7 +82,7 @@
     text-decoration: none;
     text-align: center;
     padding: 8px 12px;
-    margin: 6px auto 0;
+    margin: 20px auto 10px;
     border-radius: 6px;
     font-weight: 400;
     line-height: 16px;
@@ -154,3 +158,15 @@
     font-size: 1.1em;
     font-weight: 700;
   }
+
+label{
+    display: block;
+    width: 96%;
+    /* height: 96%; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}

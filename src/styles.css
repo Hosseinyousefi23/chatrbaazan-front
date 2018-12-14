@@ -165,4 +165,10 @@ body {
 .content{
   /* height:100vh; */
 }
-
+.mat-radio-label-content{
+  padding-left: 0px !important;
+  padding-right: 4px !important;
+}
+.mat-radio-button{
+  width: 100%;
+}
