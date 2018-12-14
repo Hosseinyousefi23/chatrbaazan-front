@@ -10,8 +10,12 @@
 <mat-dialog-content>
   <div class="login">
     <form (ngSubmit)="LoginUser()" >
-    <input type="email"  placeholder="ایمیل" required="required" [(ngModel)]="user.email" name="email" />
-    <input type="password" placeholder="رمز عبور" required="required" [(ngModel)]="user.password" name="password" />
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)] = "user.email" placeholder="ایمیل">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="password" matInput [(ngModel)] = "user.password" placeholder="پسورد">
+      </mat-form-field>
     <p><a (click)="forgetpassword()">رمز عبور خود را فراموش کرده ام</a></p>
     <p>کاربر جدید هستید؟ <a (click)="signup()">
         ثبت‌نام در چتر بازان

@@ -12,7 +12,9 @@
 a {
   color: #1ca2bd;
 }
-
+.mat-form-field{
+  width: 100% !important;
+}
 .logo img {
   width: 100px;
   position: absolute;
@@ -44,6 +46,7 @@ p {
   width: 35em;
   height: 500px;
   padding: 5em;
+  border-radius: 10px;
 }
 
 .login h1 {
@@ -54,7 +57,7 @@ p {
   margin: 1em 0;
 }
 
-input {
+/* input {
   width: 100%;
   margin-bottom: 10px;
   background: #ced4da;
@@ -73,11 +76,11 @@ input {
   -o-transition: box-shadow .5s ease;
   -ms-transition: box-shadow .5s ease;
   transition: box-shadow .5s ease;
-}
+} */
 
-input:focus {
+/* input:focus {
   box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
-}
+} */
 
 @media all and (max-width: 575px) {
   .login {
@@ -89,68 +92,5 @@ input:focus {
   .login h1 {
     font-size: 2em;
   }
-}
-
-
-a{
-    color: #1ca2bd;
-}
-.logo img{
-    width: 100px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-.logo{
-    height: 50px;
-}
-
-p{
-    text-align: right;
-     
-}
-a{
-  margin: 0.5em 0;
-    font-size: 1em;
-}
-
-h1 {
-    font-size: 2em;
-  text-align: center;
-}
-
-input {
-  width: 100%;
-  margin-bottom: 10px;
-  background: rgba(0, 0, 0, 0.3);
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 13px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
-  -webkit-transition: box-shadow .5s ease;
-  -moz-transition: box-shadow .5s ease;
-  -o-transition: box-shadow .5s ease;
-  -ms-transition: box-shadow .5s ease;
-  transition: box-shadow .5s ease;
-}
-
-input:focus {
-  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
-}
-@media all and (max-width: 575px) {
-    .login {
-        background-color: #ffffff;
-        margin: 1em auto;
-        width: 18em;
-        padding: 2em;
-    }
-     h1 {
-        font-size: 1em;
-    }
 }
 

@@ -31,6 +31,7 @@
     width: 35em;
   height: 550px;
   padding: 2em;
+  border-radius: 10px;
 }
 .login h1 {
   color: #000000;
