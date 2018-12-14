@@ -20,6 +20,9 @@ a{
     background-size: cover;
     background-image: url('../../assets/image/background.png')
 }
+.mat-form-field{
+  width: 100% !important;
+}
 p{
     text-align: right;
      
