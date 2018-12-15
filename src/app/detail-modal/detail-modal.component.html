@@ -20,12 +20,16 @@
             </div>
 
             <div class="col-md-5 col-xs-12">
-                            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <a [routerLink]="['/product' , pro.slug]" (click)="close()">
+                            <button type="button" class="btn btn-primary btn_sm" data-toggle="button" aria-pressed="false" autocomplete="off">
                     مشاهده بیشتر 
                   </button>
-                  <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                      افزودن به سبد خرید
+                </a>
+                <a (click)="addtocart(pro.id)">
+                  <button type="button" class="btn btn-primary btn_sm" data-toggle="button" aria-pressed="false" autocomplete="off">
+                      افزودن به سبد   
                     </button>
+                    </a>
               </div>
             </div>
             <hr>

@@ -29,5 +29,18 @@ export class DetailModalComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-
+  addtocart(id){
+    console.log(id)
+    this.service.addtocart(id).subscribe(
+      (data : any) => {
+        console.log(data)
+        if(data.count && data.count >= 0){
+          // #TODO Handle Alert Success Add To Cart
+          console.log('ssssss')
+        }else{
+          // #TODO Handle Error Add To Cart
+        }
+      }
+    )
+  }
 }
