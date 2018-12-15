@@ -6,16 +6,29 @@
       </a>
     </div>
     <h1> ثبت‌نام در چتر بازان</h1>
-
-      <input type="text" [(ngModel)] = "user.first_name" placeholder="نام" required="required" />
-      <input type="text" [(ngModel)] = "user.last_name" placeholder="نام خانوادگی" required="required" />
-      <input type="email" [(ngModel)] = "user.email" placeholder="ایمیل" required="required" />
-      <input type="tel" [(ngModel)] = "user.mobile"  placeholder="شماره تلفن" maxlength="11" required="required" />
-      <input type="password"  [(ngModel)] = "user.password1"placeholder="رمز عبور" required="required" />
-      <input type="password" [(ngModel)] = "user.password2"  placeholder="تکرار رمز عبور" required="required" />
-      <button type="submit"  mat-raised-button (click)="registerUser()" class="btn btn-primary btn-block ">تبت نام</button>
+    <form (ngSubmit)="registerUser()" >
+        <mat-form-field class="example-full-width">
+      <input matInput type="text" [(ngModel)] = "user.first_name" placeholder="نام" required="required" />
+    </mat-form-field>
+      <mat-form-field class="example-full-width">
+      <input matInput type="text" [(ngModel)] = "user.last_name" placeholder="نام خانوادگی" required="required" />
+    </mat-form-field>
+      <mat-form-field class="example-full-width">
+      <input matInput type="email" [(ngModel)] = "user.email" placeholder="ایمیل" required="required" />
+    </mat-form-field>
+      <mat-form-field class="example-full-width">
+      <input matInput type="tel" [(ngModel)] = "user.mobile"  placeholder="شماره تلفن" maxlength="11" required="required" />
+    </mat-form-field>
+      <mat-form-field class="example-full-width">
+      <input matInput type="password"  [(ngModel)] = "user.password1"placeholder="رمز عبور" required="required" />
+    </mat-form-field>
+      <mat-form-field class="example-full-width">
+      <input matInput type="password" [(ngModel)] = "user.password2"  placeholder="تکرار رمز عبور" required="required" />
+    </mat-form-field>
+      <button  type="submit"  mat-raised-button (click)="registerUser()" class="btn btn-primary btn-block ">تبت نام</button>
       <p *ngIf="isSignupError">
          ثبت نام انجام نشد . دوباره تلاش کنید!!
         </p>
+    </form>
   </div>
 </div>

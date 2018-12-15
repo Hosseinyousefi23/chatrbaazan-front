@@ -28,10 +28,13 @@ export class OfferComponent implements OnInit {
       $(".card").click(function(){
         $(".card").removeClass("voted");
         $(this).addClass("voted");
+        $(".card").find(".offer_image").css("display","block")
+        $(this).find(".offer_image").css("display","none")
 
       });
 
       $(".back_voted").click(function(e){
+        $(".offer_image").css("display","block")
         e.stopPropagation();
         $(".card").removeClass("voted");
       });
