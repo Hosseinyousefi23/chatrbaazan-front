@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import {  Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
@@ -35,12 +35,20 @@ export class UsersService {
 
 
   logged() {
+    if(!this.token_string){
+      this.token['token'] = "a"
+    }
     return this.http.post(this.baseUrl + 'auth/verify/' , this.token)
   }
 
 
-  logout() {
-    localStorage.removeItem("userToken");
+  // logout(): Observable<any> {
+  //   // localStorage.removeItem("userToken");
+  //   return this.http.post(this.baseUrl + 'auth/logout/') 
+  // }
+
+  logout(): Observable<any> {
+    return this.http.post(this.baseUrl + 'auth/logout/',this.token)
   }
 
   getDatacart(){

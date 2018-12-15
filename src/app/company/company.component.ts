@@ -24,7 +24,7 @@ export class CompanyComponent implements OnInit {
   ngOnInit() {
     
     this.route.params.subscribe(params => { this.Companyid = params['slug'];})
-    this.data.search(this.Companyid).subscribe(param => { 
+    this.data.search(null,this.Companyid).subscribe(param => { 
       if(param['count']){
         
         this.pro = param

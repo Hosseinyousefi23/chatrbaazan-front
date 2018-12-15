@@ -32,11 +32,12 @@ export class HeaderComponent implements OnInit {
     this.data.getcities().subscribe((data: any) => { this.cities = data.data; });
     this.data.getCategories().subscribe((data: any) => { this.categories = data.data; });
     this.user.logged().subscribe(
-      (data: any) => {
-        localStorage.setItem('userToken',data.token)
+      data => {
+        localStorage.setItem('userToken',data['token'])
+        if(data['token']){console.log("hi")}
       },
-      (err : HttpErrorResponse) => {
-        localStorage.removeItem('userToken')
+      err => {
+        console.log(err)
       }
     );
 
@@ -68,8 +69,10 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.user.logout()
-    this.router.navigate(['/'])
+    this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
+    
+    })
+    this.router.navigate(['/']);
   }
   @Output() navToggle = new EventEmitter<boolean>();
   navOpen() {

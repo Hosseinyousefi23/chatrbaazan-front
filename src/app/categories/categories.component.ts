@@ -35,7 +35,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit() {
     
     this.route.params.subscribe(params => {this.Categoryid = params['slug'];})
-    this.data.search(this.Categoryid).subscribe(param => { 
+    this.data.search(null,null,this.Categoryid).subscribe(param => { 
       if(param['count']){
         this.pro = param
         this.companies =[]

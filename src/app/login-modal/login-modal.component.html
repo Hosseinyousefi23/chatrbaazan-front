@@ -11,10 +11,10 @@
   <div class="login">
     <form (ngSubmit)="LoginUser()" >
       <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)] = "user.email" placeholder="ایمیل">
+        <input matInput [(ngModel)] = "user.email" placeholder="ایمیل" name="email">
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input type="password" matInput [(ngModel)] = "user.password" placeholder="پسورد">
+        <input type="password" matInput [(ngModel)] = "user.password" placeholder="پسورد" name="password">
       </mat-form-field>
     <p><a (click)="forgetpassword()">رمز عبور خود را فراموش کرده ام</a></p>
     <p>کاربر جدید هستید؟ <a (click)="signup()">
