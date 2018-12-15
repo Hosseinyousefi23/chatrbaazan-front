@@ -98,6 +98,11 @@ col-xs-5ths,
 .link{
   padding: 2px;
 }
+.link i{
+  color:red;
+  font-size: 17px;
+  padding-left: 10px;
+}
 
 .sum_charbaz_content{
   padding: 10px;

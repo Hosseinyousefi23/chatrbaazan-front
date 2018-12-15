@@ -9,6 +9,8 @@
   /* background-size: cover; */
   background-image: url('../../assets/image/bg_01.png');
   background-size: cover;
+  overflow: hidden;
+  margin: 0;
 }
 a {
   color: #1ca2bd;

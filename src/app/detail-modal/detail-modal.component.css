@@ -38,7 +38,7 @@ h1 {
   text-align: center;
 }
 
-input {
+/* input {
   width: 100%;
   margin-bottom: 10px;
   background: #ced4da;
@@ -57,7 +57,7 @@ input {
   -o-transition: box-shadow .5s ease;
   -ms-transition: box-shadow .5s ease;
   transition: box-shadow .5s ease;
-}
+} */
 
 .modal_part{
     direction: rtl;
@@ -75,9 +75,22 @@ input {
     text-align: justify;
 }
 
-input:focus {
-  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+.Copy_btn{
+    border-radius: 0;
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px;
 }
+.input_cupon{
+    display: inline;
+    width: 100px;
+    border-radius: 10px 0 0 10px;
+    width: 10em;
+    border:1px solid #e2e2e2;
+  }
+
+/* input:focus {
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+} */
 @media all and (max-width: 575px) {
     .login {
         background-color: #ffffff;

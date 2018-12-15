@@ -50,7 +50,15 @@ export class OfferComponent implements OnInit {
   addtocart(id){
     console.log(id)
     this.offer.addtocart(id).subscribe(
-      // data => console.log(data)
+      (data : any) => {
+        console.log(data)
+        if(data.count && data.count >= 0){
+          // #TODO Handle Alert Success Add To Cart
+          console.log('ssssss')
+        }else{
+          // #TODO Handle Error Add To Cart
+        }
+      }
     )
   }
 

@@ -5,7 +5,7 @@
         <img src='assets/image/chatrbaazan-logo.png'>
       </a>
     </div>
-    <div class="search_bar col-md-7 col-xs-12 row">
+    <div class="search_bar col-md-6 col-xs-12 row">
       <div class="col-md-3 countryForm_bar ">
 
         <!-- <form [formGroup]="countryForm"> -->
@@ -75,7 +75,7 @@
       </div>
 
     </div>
-    <div class="col-3 sum_charbaz">
+    <div class="col-4 sum_charbaz">
       <p>
         <span *ngIf="!loggedin()">
           <a class="link" (click)="openDialog()">ورود</a>
@@ -98,11 +98,6 @@
     </button></p>
   <div class="menu">
     <ul>
-      <li>
-        <a href="">
-          سفارش غذا
-        </a>
-      </li>
       <li *ngFor="let category of categories">
         <a [routerLink]="['/category' , category.slug]">
           {{category.name}}
