@@ -4,10 +4,7 @@ import { Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
-<<<<<<< HEAD
 
-=======
->>>>>>> 88be9161910be87cd37ff483a14f908b4c830544
 @Component({
   selector: 'app-detail-modal',
   templateUrl: './detail-modal.component.html',
@@ -20,7 +17,6 @@ export class DetailModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data)
     this.service.getproductByslug(this.data.slug).subscribe(param => { 
       if(param['data']){
         this.pro = param['data']
@@ -34,13 +30,11 @@ export class DetailModalComponent implements OnInit {
     this.dialogRef.close();
   }
   addtocart(id){
-    console.log(id)
     this.user.addtocart(id).subscribe(
       (data : any) => {
-        console.log(data)
+        // console.log(data)
         if(data.count && data.count >= 0){
           // #TODO Handle Alert Success Add To Cart
-          console.log('ssssss')
         }else{
           // #TODO Handle Error Add To Cart
         }

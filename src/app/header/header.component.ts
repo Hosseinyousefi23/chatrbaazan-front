@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit {
     this.user.logged().subscribe(
       data => {
         localStorage.setItem('userToken',data['token'])
-        if(data['token']){console.log("hi")}
       },
       err => {
         console.log(err)
@@ -51,9 +50,7 @@ export class HeaderComponent implements OnInit {
         if (term != '') {
           this.data.search(term).subscribe(
             data => {
-              // console.log(data)
               this.myBooks = data['results'] as any[];
-              //console.log(data[0].BookName);
             })
         }
       })
@@ -92,7 +89,6 @@ export class HeaderComponent implements OnInit {
 
   formsubmit() {
     if (this.searchTerm.value) {
-      // console.log(this.searchTerm.value)
       this.router.navigate(['/search'],{ queryParams: { search: this.searchTerm.value }})
     }
   }

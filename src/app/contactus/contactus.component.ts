@@ -31,14 +31,12 @@ export class ContactusComponent implements OnInit {
   }
   
   save(tryForm?:NgForm){
-    console.log('yes we can')
-    console.log(this.contactus)
     this.contactservice.contactus(this.contactus).subscribe(
         (data: any) => {
-          console.log(this.contactus);
+          // console.log(this.contactus);
         },
         error =>{
-          console.warn(this.contactus);
+          // console.warn(this.contactus);
           console.log('error', error);
         }
       );

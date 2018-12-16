@@ -11,7 +11,7 @@
   <mat-sidenav-content>
 
     <app-header (navToggle)="sidenav.toggle()"></app-header>
-    <div class="content ">
+    <div class="content " *ngIf="pro">
       <div class=" row product">
 
         <div class="product_about col-md-6 order-xs-2 col-xs-12">

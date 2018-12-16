@@ -11,9 +11,9 @@ declare var $: any;
 })
 
 export class OfferComponent implements OnInit {
-  public mostseen;
-  public newest;
-  public mostDiscount;
+  public mostseen : any[] =[];
+  public newest : any[] =[];
+  public mostDiscount: any[] =[];
 
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService) { }
@@ -43,19 +43,18 @@ export class OfferComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data;});
-    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data;});
-    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data; this.addeventlister();});
+    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data['results'];});
+    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data['results'];});
+    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     
   }
   addtocart(id){
-    console.log(id)
     this.user.addtocart(id).subscribe(
       (data : any) => {
-        console.log(data)
+        // console.log(data)
         if(data.count && data.count >= 0){
           // #TODO Handle Alert Success Add To Cart
-          console.log('ssssss')
+          // console.log('ssssss')
         }else{
           // #TODO Handle Error Add To Cart
         }

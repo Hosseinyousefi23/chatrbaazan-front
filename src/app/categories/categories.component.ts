@@ -48,7 +48,6 @@ export class CategoriesComponent implements OnInit {
     });
   }
   citychangedinheader(a) {
-    console.log(a)
     this.cityHeader = a;
     this.filter();
   }
@@ -62,7 +61,6 @@ export class CategoriesComponent implements OnInit {
 
   filter(){
     this.data.search(null,this.selectedcompany,this.Categoryid,this.selectedtab,this.cityHeader).subscribe(param => { 
-      console.log(param)
       if(param['count']){
         this.pro = param
         this.companies =[]
