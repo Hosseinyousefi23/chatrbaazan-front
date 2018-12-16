@@ -3,7 +3,7 @@ import {FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
-
+import { UsersService } from '../users.service';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -19,7 +19,7 @@ export class ProductDetailComponent implements OnInit {
   number =0;
   image_gallery:NgxGalleryImage[]=[];
 
-  constructor(private route: ActivatedRoute , private router : Router,private service :PageService) { }
+  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user:UsersService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {this.slug = params['slug'];})
@@ -80,12 +80,27 @@ export class ProductDetailComponent implements OnInit {
   }
 
 
+  // addtocart(id){
+  //   console.log(id)
+  //   this.service.addtocart(id).subscribe(
+  //     // data => console.log(data)
+  //   )
+  // }
   addtocart(id){
     console.log(id)
-    this.service.addtocart(id).subscribe(
-      // data => console.log(data)
+    this.user.addtocart(id).subscribe(
+      (data : any) => {
+        console.log(data)
+        if(data.count && data.count >= 0){
+          // #TODO Handle Alert Success Add To Cart
+          console.log('ssssss')
+        }else{
+          // #TODO Handle Error Add To Cart
+        }
+      }
     )
   }
+
 }
 
 
