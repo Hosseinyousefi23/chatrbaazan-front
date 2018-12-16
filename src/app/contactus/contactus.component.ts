@@ -14,11 +14,7 @@ export class ContactusComponent implements OnInit {
   
   lat: number = 51.678418;
   lng: number = 7.809007;
-  contactus:object = {
-	  name: null,
-		email:null,
-		contact: null
-  };
+  contactus; 
   
   mode = new FormControl('over');
 
@@ -26,6 +22,12 @@ export class ContactusComponent implements OnInit {
     
 
   ngOnInit() { 
+    this.contactus ={
+      name: '',
+      email: '',
+      contact: ''
+    };
+    
   }
   
   save(tryForm?:NgForm){

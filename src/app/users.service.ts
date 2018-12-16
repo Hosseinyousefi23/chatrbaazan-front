@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular
 import {  Headers, RequestOptions} from '@angular/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '../environments/environment';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +11,7 @@ export class UsersService {
   token: object ={
     token: localStorage.getItem("userToken") 
   }
-  // token_string = localStorage.getItem("userToken") 
   baseUrl = environment.baseUrl;
-  // private token = localStorage.getItem("userToken");
   constructor(private http: HttpClient) { }
 
   register(userdata): Observable<any> {
@@ -40,22 +37,32 @@ export class UsersService {
       return this.http.post(this.baseUrl + 'auth/verify/' , this.token)
   }
 
-
-  // logout(): Observable<any> {
-  //   // localStorage.removeItem("userToken");
-  //   return this.http.post(this.baseUrl + 'auth/logout/') 
-  // }
-
   logout(): Observable<any> {
     this.token['token'] = localStorage.getItem("userToken")
     return this.http.post(this.baseUrl + 'auth/logout/',this.token)
+  }
+
+  getUserData(){
+    const headers = new HttpHeaders()
+    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
+    .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + 'auth/user/' ,{
+      headers: headers});
+  }
+
+  getUserproduct(){
+    const headers = new HttpHeaders()
+    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
+    .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + 'api/v1/user/product/' ,{
+      headers: headers});
   }
 
   getDatacart(){
     const headers = new HttpHeaders()
     .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
     .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + 'api/v1/cart/' ,{
+    return this.http.get(this.baseUrl + 'api/v1/user/product/' ,{
       headers: headers});
   }
 
@@ -70,16 +77,6 @@ export class UsersService {
     });
   }
 
-  sendcode(code) {
-    console.log(code)
-    let pid: object = {
-      code:'12' 
-    }
-    return this.http.post(this.baseUrl + 'api/v1/user/code/' ,pid, {
-      headers: new HttpHeaders( { 'Content-Type':  'application/json','Authorization': 'Bearer '+ localStorage.getItem("userToken") })
-   });
-  }
-
   deletefrombasket(productId) {
     const body = new HttpParams().set('cart', productId)
     const httpOptions = {
@@ -92,4 +89,13 @@ export class UsersService {
     return this.http.delete(this.baseUrl + 'api/v1/cart/' ,httpOptions);
   }
 
+  sendcode(code) {
+    console.log(code)
+    let pid: object = {
+      code:'12' 
+    }
+    return this.http.post(this.baseUrl + 'api/v1/user/code/' ,pid, {
+      headers: new HttpHeaders( { 'Content-Type':  'application/json','Authorization': 'Bearer '+ localStorage.getItem("userToken") })
+   });
+  }
 }

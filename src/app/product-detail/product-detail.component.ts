@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,7 +12,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 })
 export class ProductDetailComponent implements OnInit {
   mode = new FormControl('over');
-  pro : string = '';
+  pro;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   slug: string;
@@ -19,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   number =0;
   image_gallery:NgxGalleryImage[]=[];
 
-  constructor(private route: ActivatedRoute , private router : Router,private service :PageService) { }
+  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {this.slug = params['slug'];})
@@ -82,7 +83,7 @@ export class ProductDetailComponent implements OnInit {
 
   addtocart(id){
     console.log(id)
-    this.service.addtocart(id).subscribe(
+    this.user.addtocart(id).subscribe(
       // data => console.log(data)
     )
   }

@@ -35,27 +35,10 @@
 
       </div>
 
-      <!-- <div class="col-md-9 col-xs-12">
-        <div class="input-group mb-3">
-          <form>
-            <mat-form-field class="container">
-                <input type="text" placeholder="Search books ..."  matInput [formControl]="searchTerm" 
-                    [matAutocomplete]="auto" >  
-                <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let books of myBooks" [value]="books.BookName">
-                    {{ books.name }}
-                  </mat-option>
-                </mat-autocomplete>
-      
-            </mat-form-field>
-        </form>  
-                 
-        </div>
-    </div> -->
 
       <div class="col-md-9 col-xs-12">
         <div class="input-group mb-3">
-          <form (ngSubmit)="formsubmit()" (onSelectionChange)="formsubmit(books.name)">
+          <form (ngSubmit)="formsubmit()" (onSelectionChange)="formsubmit()">
             <!-- <mat-form-field class="container"> -->
                 <button class="btn search_btn" type="button" (click)="formsubmit()">
                   <i class="fa fa-search " aria-hidden="true"></i>

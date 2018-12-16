@@ -90,7 +90,7 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(LoginModalComponent, dialogConfig);
   }
 
-  formsubmit(search) {
+  formsubmit() {
     if (this.searchTerm.value) {
       // console.log(this.searchTerm.value)
       this.router.navigate(['/search'],{ queryParams: { search: this.searchTerm.value }})

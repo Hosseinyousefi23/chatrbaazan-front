@@ -11,9 +11,9 @@ declare var $: any;
 })
 
 export class OfferComponent implements OnInit {
-  public mostseen: any[] = [];
-  public newest: any[] = [];
-  public mostDiscount: any[] = [];
+  public mostseen;
+  public newest;
+  public mostDiscount;
 
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService) { }

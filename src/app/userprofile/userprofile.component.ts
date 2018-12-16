@@ -31,5 +31,15 @@ export class UserprofileComponent implements OnInit {
     this.user.sendcode(this.codedata).subscribe(data => console.log(data));
   }
 
+   getUserproduct(){
+    this.user. getUserproduct().subscribe(data => console.log(data));
+  }
+
+   getUserData(){
+    this.user. getUserData().subscribe(data => console.log(data));
+  }
+
+
+
 
 }

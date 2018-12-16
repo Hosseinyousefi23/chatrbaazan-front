@@ -3,6 +3,7 @@ import { MatDialogRef ,MAT_DIALOG_DATA} from '@angular/material';
 import { Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-detail-modal',
@@ -12,12 +13,12 @@ import { PageService } from '../page.service';
 export class DetailModalComponent implements OnInit {
   pro
   constructor(public dialogRef: MatDialogRef<DetailModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any
-  ,private route: ActivatedRoute , private router : Router,private service :PageService
+  ,private route: ActivatedRoute , private router : Router,private service: UsersService,private page :PageService
   ) { }
 
   ngOnInit() {
     console.log(this.data)
-    this.service.getproductByslug(this.data.slug).subscribe(param => { 
+    this.page.getproductByslug(this.data.slug).subscribe(param => { 
       if(param['data']){
         this.pro = param['data']
       }else{

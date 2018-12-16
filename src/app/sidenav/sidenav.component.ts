@@ -20,4 +20,8 @@ export class SidenavComponent implements OnInit {
   }
   
 
+  loggedin() {
+    return localStorage.getItem("userToken");
+  }
+
 }

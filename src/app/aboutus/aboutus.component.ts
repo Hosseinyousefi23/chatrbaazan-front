@@ -8,7 +8,7 @@ import{ PageService }  from '../page.service'
   styleUrls: ['./aboutus.component.css']
 })
 export class AboutusComponent implements OnInit {
-  public about:any[] =[];
+  about;
   mode = new FormControl('over');
   constructor(private data :PageService) { }
 
