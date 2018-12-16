@@ -19,9 +19,21 @@ export class ProductDetailComponent implements OnInit {
   number =0;
   image_gallery:NgxGalleryImage[]=[];
 
-  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user:UsersService) { }
+  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService) { }
 
   ngOnInit() {
+    this.pro = {
+      id : '',
+      name: '',
+      company: [],
+      city: [],
+      label:[],
+      is_free: false,
+      discount :'',
+      expiration_date :'',
+      price:'',
+      chatrbazi:''
+      }
     this.route.params.subscribe(params => {this.slug = params['slug'];})
     this.service.getproductByslug(this.slug).subscribe(param => { 
       if(param['data']){
@@ -87,10 +99,9 @@ export class ProductDetailComponent implements OnInit {
   //   )
   // }
   addtocart(id){
-    console.log(id)
     this.user.addtocart(id).subscribe(
       (data : any) => {
-        console.log(data)
+        // console.log(data)
         if(data.count && data.count >= 0){
           // #TODO Handle Alert Success Add To Cart
           console.log('ssssss')

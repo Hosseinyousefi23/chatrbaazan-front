@@ -17,7 +17,7 @@ export class UserprofileComponent implements OnInit {
   constructor(private user : UsersService) { }
 
   ngOnInit() {
-    this.user.getDatacart().subscribe((data :any) => { console.log(data);this.cart = data; });
+    this.user.getDatacart().subscribe((data :any) => { this.cart = data; });
     this.codedata={
       code:'',
       explaintion:'',
@@ -27,16 +27,21 @@ export class UserprofileComponent implements OnInit {
   }
 
   sendcode(){
-    console.log(this.codedata)
-    this.user.sendcode(this.codedata).subscribe(data => console.log(data));
+    this.user.sendcode(this.codedata).subscribe(
+      // data => console.log(data)
+      );
   }
 
    getUserproduct(){
-    this.user. getUserproduct().subscribe(data => console.log(data));
+    this.user. getUserproduct().subscribe(
+      // data => console.log(data)
+      );
   }
 
    getUserData(){
-    this.user. getUserData().subscribe(data => console.log(data));
+    this.user. getUserData().subscribe(
+      // data => console.log(data)
+      );
   }
 
 

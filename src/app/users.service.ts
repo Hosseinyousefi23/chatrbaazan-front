@@ -62,7 +62,7 @@ export class UsersService {
     const headers = new HttpHeaders()
     .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
     .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + 'api/v1/user/product/' ,{
+    return this.http.get(this.baseUrl + 'api/v1/cart/' ,{
       headers: headers});
   }
 
@@ -90,9 +90,8 @@ export class UsersService {
   }
 
   sendcode(code) {
-    console.log(code)
     let pid: object = {
-      code:'12' 
+      code: code 
     }
     return this.http.post(this.baseUrl + 'api/v1/user/code/' ,pid, {
       headers: new HttpHeaders( { 'Content-Type':  'application/json','Authorization': 'Bearer '+ localStorage.getItem("userToken") })

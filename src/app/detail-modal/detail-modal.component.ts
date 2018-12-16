@@ -16,7 +16,6 @@ export class DetailModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data)
     this.service.getproductByslug(this.data.slug).subscribe(param => { 
       if(param['data']){
         this.pro = param['data']
@@ -30,13 +29,11 @@ export class DetailModalComponent implements OnInit {
     this.dialogRef.close();
   }
   addtocart(id){
-    console.log(id)
     this.user.addtocart(id).subscribe(
       (data : any) => {
-        console.log(data)
+        // console.log(data)
         if(data.count && data.count >= 0){
           // #TODO Handle Alert Success Add To Cart
-          console.log('ssssss')
         }else{
           // #TODO Handle Error Add To Cart
         }

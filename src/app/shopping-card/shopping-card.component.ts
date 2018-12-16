@@ -17,7 +17,7 @@ export class ShoppingCardComponent implements OnInit {
 
   ngOnInit() {
     
-    this.user.getDatacart().subscribe((data :any) => { console.log(data.result[0]);this.cart = data.result[0]; });
+    this.user.getDatacart().subscribe((data :any) => { this.cart = data.result[0]; });
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -29,6 +29,6 @@ export class ShoppingCardComponent implements OnInit {
   }
 
   deletefrombasket(pid){
-    this.user.deletefrombasket(pid).subscribe((data :any) => { console.log(data.result[0]);this.cart = data.result[0]; });
+    this.user.deletefrombasket(pid).subscribe((data :any) => { this.cart = data.result[0]; });
   }
 }
