@@ -44,7 +44,7 @@
       <ul class="navbar-nav">
           <div  class="div_nav" *ngFor="let category of categories" >  
               <li class="nav-item nav-loc" >
-                  <a class="nav-link" href="">
+                  <a class="nav-link" [routerLink]="['/category' , category.slug]">
                       {{category.name}}
                   </a>
                 </li>
