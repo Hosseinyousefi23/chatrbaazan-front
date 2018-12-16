@@ -4,10 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { UsersService } from '../users.service';
-<<<<<<< HEAD
-
-=======
->>>>>>> 88be9161910be87cd37ff483a14f908b4c830544
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -23,11 +19,7 @@ export class ProductDetailComponent implements OnInit {
   number =0;
   image_gallery:NgxGalleryImage[]=[];
 
-<<<<<<< HEAD
-  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService) { }
-=======
   constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user:UsersService) { }
->>>>>>> 88be9161910be87cd37ff483a14f908b4c830544
 
   ngOnInit() {
     this.route.params.subscribe(params => {this.slug = params['slug'];})
@@ -97,9 +89,6 @@ export class ProductDetailComponent implements OnInit {
   addtocart(id){
     console.log(id)
     this.user.addtocart(id).subscribe(
-<<<<<<< HEAD
-      // data => console.log(data)
-=======
       (data : any) => {
         console.log(data)
         if(data.count && data.count >= 0){
@@ -109,7 +98,6 @@ export class ProductDetailComponent implements OnInit {
           // #TODO Handle Error Add To Cart
         }
       }
->>>>>>> 88be9161910be87cd37ff483a14f908b4c830544
     )
   }
 

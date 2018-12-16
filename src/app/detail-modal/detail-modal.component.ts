@@ -4,10 +4,6 @@ import { Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
-<<<<<<< HEAD
-
-=======
->>>>>>> 88be9161910be87cd37ff483a14f908b4c830544
 @Component({
   selector: 'app-detail-modal',
   templateUrl: './detail-modal.component.html',
