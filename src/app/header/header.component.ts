@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.data.getcities().subscribe((data: any) => { this.cities = data.data; });
     this.data.getCategories().subscribe((data: any) => { this.categories = data.data; });
+    if(localStorage.getItem("userToken")){
     this.user.logged().subscribe(
       data => {
         localStorage.setItem('userToken',data['token'])
@@ -38,8 +39,12 @@ export class HeaderComponent implements OnInit {
       },
       err => {
         console.log(err)
+        localStorage.removeItem('userToken')
+        this.router.navigate(['/']);
+        // console.log("error")
       }
     );
+    }
 
     this.searchTerm.valueChanges.subscribe(
       term => {

@@ -9,7 +9,6 @@ import { debounceTime, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PageService {
-  token_string = localStorage.getItem("userToken");
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
@@ -34,16 +33,7 @@ export class PageService {
     return this.http.get<any[]>(this.baseUrl + 'api/v1/about/')
   }
 
-  addtocart(productId) {
-    let pid: object = {
-      product: productId
-    }
-    const body = new HttpParams()
-      .set('product', productId)
-    return this.http.post(this.baseUrl + 'api/v1/cart/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + this.token_string })
-    });
-  }
+
 
   search(term = null, company = null, category = null, ordering = null, city = null) {
     let search_url = 'api/v1/offer/?'
