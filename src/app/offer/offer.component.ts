@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PageService } from '../page.service';
+import { UsersService } from '../users.service';
 //import * from 'jquery';
 
 declare var $: any;
@@ -15,7 +16,7 @@ export class OfferComponent implements OnInit {
   public mostDiscount: any[] = [];
 
   @Input() cityHeader :string;
-  constructor(private offer : PageService) { }
+  constructor(private offer : PageService ,private user: UsersService) { }
   ngOnInit() {
     this.searchoffer();
   }
@@ -49,7 +50,7 @@ export class OfferComponent implements OnInit {
   }
   addtocart(id){
     console.log(id)
-    this.offer.addtocart(id).subscribe(
+    this.user.addtocart(id).subscribe(
       (data : any) => {
         console.log(data)
         if(data.count && data.count >= 0){
