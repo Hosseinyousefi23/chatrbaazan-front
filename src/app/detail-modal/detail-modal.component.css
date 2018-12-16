@@ -63,11 +63,11 @@ h1 {
     direction: rtl;
 }
 .imgae_modal{
-    width: 60%;
-    height: auto;
+    width: 80%;
+    height: 10em;
+    float: right;
     max-width: 100%;
     border-radius: 6px !important;
-    margin-top:35px;
 }
 
 .paragraph{
@@ -82,6 +82,13 @@ h1 {
     margin-top: 6px;
 
 }
+.price_btn{
+    border-radius: 0;
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px;
+    margin-top: 6px;
+    font-size: 15px;
+}
 .input_cupon{
     display: inline;
     width: 100px;
@@ -92,18 +99,40 @@ h1 {
 
   }
 
+  .price_input{
+    display: inline;
+    width: 70% !important;
+    border-radius: 10px 0 0 10px;
+    width: 10em;
+    border:1px solid #e2e2e2;
+    margin-top: 6px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+
   .btn_sm {
     width: 7em !important;
     font-size: .9em;
     border-radius: 5px;
-    margin: .5em;
-    padding: .5em;
+    /* margin: .5em; */
+    padding: 2px;
 }
 
+.pull-right-md {
+    float: right;
+  }
+  .modal_input{
+      text-align: center;
+      width: 100%;
+      margin-bottom: 1em;
+  }
+  .copy_input{
+    width: 80%;
+}
 /* input:focus {
   box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
 } */
-@media all and (max-width: 575px) {
+@media all and (max-width: 991px) {
     .login {
         background-color: #ffffff;
         margin: 1em auto;
@@ -111,5 +140,32 @@ h1 {
     }
      h1 {
         font-size: 1em;
+    }
+    .imgae_modal{
+        width: 100%;
+        height: 10em;
+        float: right;
+        max-width: 100%;
+        border-radius: 6px !important;
+    }
+    .copy_input{
+        text-align: center;
+        width: 50%;
+    }
+
+    .modal_btn{
+        width: 100%;
+        text-align: center;
+        margin: 1em;
+    }
+  
+}
+@media (max-width: 552px) {
+
+    .btn_sm {
+        width: 7em !important;
+        font-size: .7em;
+        border-radius: 5px;
+        padding: 2px;
     }
 }

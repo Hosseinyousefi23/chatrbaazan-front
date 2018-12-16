@@ -1,51 +1,53 @@
-<h2 mat-dialog-title>
+<mat-dialog-content >
+  <!-- <div class="container modal_part"> -->
+  <!-- style="max-width: 100%;overflow-x: hidden;" -->
+  <div class="row">
+    <div class="col-md-4">
+      <img class="imgae_modal" src="{{pro.image}}" alt="">
+    </div>
+    <div class="col-md-8">
+      <div class="paragraph">
+        <h4>
+          {{pro.name}}
+        </h4>
+      </div>
+      <hr size=30>
+      <div class="col-md-12 col-xs-12 btn-group row">
 
-  </h2>
-  
-  <mat-dialog-content>
-      <div class="container modal_part">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="paragraph">
-                {{pro.name}}
-            </div>
-            <hr size=30>
-            <div class="col-md-12 btn-group ">
-              
-            <div *ngIf="pro.is_free">
-                  <button class="btn Copy_btn" ngxClipboard cbContent={{pro.discount}} [container]="container">کپی</button>
-                  <input  disabled="disabled" class=" btn input_cupon" type="text" value="{{pro.discount}}">
-                  
-
-            </div>
-
-            <div class="col-md-5 col-xs-12">
-                <a [routerLink]="['/product' , pro.slug]" (click)="close()">
-                            <button type="button" class="btn btn-primary btn_sm" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    مشاهده بیشتر 
-                  </button>
-                </a>
-                <a (click)="addtocart(pro.id)">
-                  <button type="button" class="btn btn-primary btn_sm" data-toggle="button" aria-pressed="false" autocomplete="off">
-                      افزودن به سبد   
-                    </button>
-                    </a>
-              </div>
-            </div>
-            <hr>
-            <div  class="paragraph" [innerHTML]="pro.explanation_short"></div>
+        <div class="col-md-7  col-xs-12 " *ngIf="pro.is_free">
+          <div class="centered modal_input">
+            <button class="btn Copy_btn " ngxClipboard cbContent={{pro.discount}} [container]="container">کپی</button>
+            <input disabled="disabled " class=" btn input_cupon copy_input" type="text" value="{{pro.discount}}">
           </div>
-          <div class="col-md-4">
-            <img class="imgae_modal" src="{{pro.image}}" alt="">
+
+        </div>
+        <div class="col-md-7  col-xs-12" *ngIf="!pro.is_free">
+            <div class="centered modal_btn">
+          <button class="btn price_btn " ngxClipboard [container]="container">قیمت</button>
+          <input disabled="disabled " class=" btn price_input copy_input" type="text" value="{{pro.price}}">
           </div>
         </div>
+
+
+        <div class="col-md-5 col-xs-12">
+          <mat-dialog-actions>
+              <div class="centered modal_input">
+            <button mat-raised-button color="warn" [routerLink]="['/product' , pro.slug]" (click)="close()" class="btn_sm">جزئیات
+              بیشتر</button>
+            <button mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
+              به سبد</button>
+              </div>
+          </mat-dialog-actions>
+        </div>
       </div>
-      <span  *ngFor="let i of pro.company;">
+      <hr>
+      <div class="paragraph" [innerHTML]="pro.explanation_short"></div>
+    </div>
+  </div>
+  <!-- </div> -->
+  <!-- <span  *ngFor="let i of pro.company;">
           <a [routerLink]="['/company' , i.slug]"> {{i.name}}</a>
           
-        </span>
-        
-  </mat-dialog-content>
-  
-  
-  
+        </span> -->
+
+</mat-dialog-content>
