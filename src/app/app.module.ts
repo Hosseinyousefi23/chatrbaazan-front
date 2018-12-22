@@ -33,6 +33,8 @@ import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog
 
 import { ClipboardModule } from 'ngx-clipboard';
 
+import { ToastrModule } from 'ngx-toastr';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
@@ -116,6 +118,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     OwlModule,
     BrowserAnimationsModule,
     ClipboardModule,
+    ToastrModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     }),

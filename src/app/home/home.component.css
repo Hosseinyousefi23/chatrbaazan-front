@@ -15,7 +15,10 @@
     width: 100%;
     border-radius: 5px;
 }
-
+.banner_links{
+    height: 100%;
+    width: 100%;
+}
 @media (min-width: 991px) {
     .banner{
         order: 1;

@@ -17,6 +17,7 @@ export class CompanyComponent implements OnInit {
   selectedcategory;
   selectedtab: string;
   cityHeader ;
+  companyinfo;
 
   categories : any[] =[];
   Companyid :any[] =[];
@@ -27,7 +28,8 @@ export class CompanyComponent implements OnInit {
     this.data.search(null,this.Companyid).subscribe(param => { 
       if(param['count']){
         
-        this.pro = param
+        this.pro = param;
+        this.companyinfo = param['dataCompany']
         this.categories =[]
         for(let i of param.results){
         this.categories = this.categories.concat(i.category); 
