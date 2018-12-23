@@ -27,6 +27,8 @@ import {
   MatStepperModule,
   MatTabsModule,
   MatSelectModule,
+  MatListModule,
+  MatBottomSheetModule,
   
   } from "@angular/material";
 
@@ -41,7 +43,7 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CarouselComponent } from './carousel/carousel.component';
-import { OfferComponent } from './offer/offer.component';
+import { OfferComponent, BottomSheetOverviewExampleSheet } from './offer/offer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -95,6 +97,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CompanyComponent,
     UserprofileComponent,
     DetailModalComponent,
+    BottomSheetOverviewExampleSheet,
     
   ],
   imports: [
@@ -118,6 +121,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatRadioModule,
     MatAutocompleteModule,
     MatStepperModule,
+    MatListModule,
+    MatBottomSheetModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
@@ -138,8 +143,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxSpinnerModule,
     
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginModalComponent,DetailModalComponent]
+  entryComponents: [LoginModalComponent,DetailModalComponent,BottomSheetOverviewExampleSheet]
 })
 export class AppModule { }
