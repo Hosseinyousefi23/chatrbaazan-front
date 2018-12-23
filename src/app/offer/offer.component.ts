@@ -74,6 +74,11 @@ export class OfferComponent implements OnInit {
     )
   }
 
+  sendfail(slug){
+    this.offer.sendfailure(slug).subscribe(
+      // data => console.log(data)
+    )
+  }
   showCopied() {
     $(".Copy_btn").text("کپی شد")
     setTimeout( function(){ 

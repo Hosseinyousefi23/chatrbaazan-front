@@ -33,6 +33,10 @@ export class PageService {
     return this.http.get<any[]>(this.baseUrl + 'api/v1/about/')
   }
 
+  sendfailure(slug){
+    return this.http.get<any[]>(this.baseUrl + '/api/v1/failure/'+slug)
+  }
+
 
 
   search(term = null, company = null, category = null, ordering = null, city = null) {

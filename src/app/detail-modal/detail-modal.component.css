@@ -10,6 +10,9 @@ a{
 .logo{
     height: 50px;
 }
+.copy_input{
+    width: 11em;
+}
 .background{
     position: absolute; 
     top: 0; 
@@ -112,17 +115,18 @@ h1 {
 
   .btn_sm {
     width: 7em !important;
-    font-size: .9em;
+    font-size: .7em;
     border-radius: 5px;
-    /* margin: .5em; */
     padding: 2px;
+    font-weight: 700;
+    margin-right: 5px;
 }
 
 .pull-right-md {
     float: right;
   }
   .modal_input{
-      text-align: center;
+      text-align: right;
       width: 100%;
       margin-bottom: 1em;
   }
@@ -161,7 +165,9 @@ h1 {
   
 }
 @media (max-width: 552px) {
-
+    /* .input_cupon{
+        width: 60px !important;    
+    } */
     .btn_sm {
         width: 7em !important;
         font-size: .7em;

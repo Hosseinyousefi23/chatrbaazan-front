@@ -4,6 +4,9 @@ import { Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
+
+declare var $: any;
+
 @Component({
   selector: 'app-detail-modal',
   templateUrl: './detail-modal.component.html',
@@ -40,6 +43,15 @@ export class DetailModalComponent implements OnInit {
       }
     )
   }
+
+  showCopied() {
+    console.log("ascs")
+    $(".Copy_btn").text("کپی شد")
+    setTimeout( function(){ 
+      $(".Copy_btn").text("کپی")
+    }  , 3000 );
+  }
+
 //   addtocart(id){
 //     console.log(id)
 //     this.service.addtocart(id).subscribe(
