@@ -29,7 +29,7 @@
 } */
 .login {
     background-color: #ffffff;
-    margin: 6em auto;
+    margin: 1em auto;
     width: 35em;
   height: 550px;
   padding: 2em;
@@ -81,10 +81,13 @@ form{
     right: 50%;
     transform: translateX(50%);
 }
+.alert{
+
+}
 @media all and (max-width: 575px) {
     .login {
         background-color: #ffffff;
-        margin: 3em auto;
+        margin: 1em auto;
         width: 18em;
     }
     .login h1 {

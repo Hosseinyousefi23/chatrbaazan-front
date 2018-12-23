@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -10,10 +11,10 @@ import { HttpErrorResponse } from '@angular/common/http';
   providers: [UsersService]
 })
 export class SignupComponent implements OnInit {
-  user
+  user;
   isSignupError :boolean = false;
   returnUrl: string;
-  constructor(private userservice: UsersService,private route: ActivatedRoute
+  constructor(private userservice: UsersService,private route: ActivatedRoute,private toastr: ToastrService
     ,private router :Router) { }
 
   ngOnInit() {
@@ -36,7 +37,36 @@ export class SignupComponent implements OnInit {
         this.router.navigate([this.returnUrl])
       },
       (err : HttpErrorResponse) =>{
+        console.log(err.error['email'])
+        if(err.error['email']){
+          // this.toastr.error('email '+err.error['email'][0])
+          this.toastr.error('ایمیل نامعتبر است.')
+        }
+        if(err.error['first_name']){
+          this.toastr.error('فیلد نام خالی میباشد.')
+        }
+        if(err.error['last_name']){
+          // this.toastr.error('lastname '+err.error['last_name'][0])
+          this.toastr.error('فیلد نام خانوادگی خالی میباشد.')
+        }
+        if(err.error['mobile']){
+          // this.toastr.error('mobile '+err.error['mobile'][0])
+          this.toastr.error('شماره موبایل نامعتبر است.')
+        }
+        if(err.error['password1']){
+          // this.toastr.error('password1 '+err.error['password1'][0])
+          this.toastr.error('پسورد خالی یا فاقد امنیت است')
+          this.toastr.info('رمز عبور باید ترکیبی از اعداد حروف و علامت باشد(حداقل 8 کاراکتر)')
+        }
+        if(err.error['password2']){
+          // this.toastr.error('password2 '+err.error['password2'][0])
+          this.toastr.error('پسورد خالی یا فاقد امنیت است')
+        }
+        if(err.error['non_field_errors']){
+          this.toastr.error('رمز عبور یکسان نمی باشد')
+        }
         this.isSignupError = true;
+        
       }
     );
   }
