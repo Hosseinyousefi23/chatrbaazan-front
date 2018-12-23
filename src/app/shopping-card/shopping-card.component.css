@@ -96,3 +96,34 @@
         order: 1;
     }
   }
+
+@media (max-width: 768px) {
+    .cart_item{
+        font-size: .9em;
+    }
+    .product_name{
+        font-size: 1em;
+    }
+  
+    .product_img{
+        width: 95%;    
+        height: 9em;
+    }
+  }
+
+  @media (max-width: 559px) {
+    .cart_item{
+        font-size: .8em;
+    }
+    .product_name{
+        font-size: .9em;
+    }
+  
+    .product_img{
+        width: 95%;    
+        height: 8em;
+    }
+    .line{
+        display: none;
+    }
+  }
