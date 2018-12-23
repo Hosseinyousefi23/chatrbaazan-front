@@ -40,7 +40,11 @@ export class CategoriesComponent implements OnInit {
         this.pro = param
         this.companies =[]
         for(let i of param.results){
-        this.companies = this.companies.concat(i.company); 
+          for (let c of i.company) {
+            if (!this.companies.some(temp => temp.name == c.name)) {
+              this.companies.push(c);
+            }
+          }
         }
       }else{
       this.router.navigate(['/']);

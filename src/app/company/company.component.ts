@@ -57,7 +57,11 @@ export class CompanyComponent implements OnInit {
         this.pro = param
         this.categories =[]
         for(let i of param.results){
-        this.categories = this.categories.concat(i.category); 
+          for (let c of i.category) {
+            if (!this.categories.some(temp => temp.name == c.name)) {
+              this.categories.push(c);
+            }
+          }
         }
       }else{
         this.pro =null;

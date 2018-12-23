@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit {
     dialogConfig.direction = "rtl";
     this.dialog.open(DetailModalComponent, {
       direction: 'rtl',
-      data:{ 'slug': slug}
+      data: { 'slug': slug }
     });
   }
   ngOnInit() {
@@ -48,17 +48,26 @@ export class SearchComponent implements OnInit {
         for (let i of param.results) {
 
           // this.companies =[]
-          this.companies = this.companies.concat(i.company);
-
+          for (let c of i.company) {
+            // console.log(this.companies.indexOf(c))
+            if (!this.companies.some(temp => temp.name == c.name)) {
+              this.companies.push(c);
+            }
+          }
           // console.log(this.companies)
         }
+
         for (let i of param.results) {
 
           // this.companies =[]
-          this.categories = this.categories.concat(i.category);
+          for (let c of i.category) {
+            if (!this.categories.some(temp => temp.name == c.name)) {
+              this.categories.push(c);
+            }
+          }
 
-          // console.log(this.companies)
         }
+
         // console.log(this.companies)
       } else {
         this.pro = null;
