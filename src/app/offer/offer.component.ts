@@ -44,10 +44,10 @@ export class OfferComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data['results'];});
-    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data['results'];});
+    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
-    
+    this.addeventlister();
   }
   addtocart(id){
     this.user.addtocart(id).subscribe(
@@ -64,7 +64,8 @@ export class OfferComponent implements OnInit {
   }
 
   showCopied() {
-    this.toastr.info('کپی شد');
+    // this.toastr.info('کپی شد');
+    $(".Copy_btn").text("کپی شد")
   }
 
 }

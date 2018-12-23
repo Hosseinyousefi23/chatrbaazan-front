@@ -1,7 +1,7 @@
 import { Component, OnInit, Type, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ServerResponse } from '../ServerResponse';
-import {FormControl} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { PageService } from '../page.service';
 
 @Component({
@@ -16,8 +16,10 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: string[] = ['prod_name', 'prod_price'];
   slider: any[] = [];
-  banner: any[] = [];
-  bannerlinks: any[] = [];
+  banner1: any[] = [];
+  banner2: any[] = [];
+  banner3: any[] = [];
+
   isLoadingResults = true;
   constructor(private data: PageService) { }
 
@@ -31,19 +33,29 @@ export class HomeComponent implements OnInit {
     //   console.log(err);
     //   this.isLoadingResults = false;
     // });
-    this.data.getbanner().subscribe((data :any) => {this.slider = data.data;
-      for (let i of this.slider){ 
-        if(!i.is_slider){
-        // console.log(i.image)
-      this.banner.push(i.image);
-      this.bannerlinks.push(i.link);
+    this.data.getbanner().subscribe((data: any) => {
+    this.slider = data.data;
+      for (let i of this.slider) {
+        if (!i.is_slider) {
+          if (i.location == '1') {
+            this.banner3.push(i.image);
+            this.banner3.push(i.link);
+          }
+          else if (i.location == '2') {
+            this.banner2.push(i.image);
+            this.banner2.push(i.link);
+          }
+          else if (i.location == '3') {
+            this.banner1.push(i.image);
+            this.banner1.push(i.link);
+          }
         }
-      }  
+      }
     });
   }
 
-  citychangedinheader(a){
-    this.cityHeaderinhome =a;
+  citychangedinheader(a) {
+    this.cityHeaderinhome = a;
   }
 
 }
