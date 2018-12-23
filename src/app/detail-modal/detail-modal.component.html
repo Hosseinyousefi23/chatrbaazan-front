@@ -14,30 +14,28 @@
       <hr size=30>
       <div class="col-md-12 col-xs-12 btn-group row">
 
-        <div class="col-md-7  col-xs-12 " *ngIf="pro.is_free">
+        <div class="col-12 " *ngIf="pro.is_free">
           <div class="centered modal_input">
-            <button class="btn Copy_btn " ngxClipboard cbContent={{pro.discount_code}} [container]="container">کپی</button>
+            <button class="btn Copy_btn " ngxClipboard (click)="showCopied()" cbContent={{pro.discount_code}} [container]="container">کپی</button>
             <input disabled="disabled " class=" btn input_cupon copy_input" type="text" value="{{pro.discount_code}}">
           </div>
 
         </div>
-        <div class="col-md-7  col-xs-12" *ngIf="!pro.is_free">
-            <div class="centered modal_btn">
+        <div class=" col-12" *ngIf="!pro.is_free">
+            <div class="modal_btn">
           <button class="btn price_btn " ngxClipboard [container]="container">قیمت</button>
           <input disabled="disabled " class=" btn price_input copy_input" type="text" value="{{pro.price}}">
           </div>
         </div>
 
 
-        <div class="col-md-5 col-xs-12">
-          <mat-dialog-actions>
-              <div class="centered modal_input">
+        <div class="col-12">
+              <div class="modal_input">
             <button mat-raised-button color="warn" [routerLink]="['/product' , pro.slug]" (click)="close()" class="btn_sm">جزئیات
               بیشتر</button>
             <button mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
               به سبد</button>
               </div>
-          </mat-dialog-actions>
         </div>
       </div>
       <hr>
