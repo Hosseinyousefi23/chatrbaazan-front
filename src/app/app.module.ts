@@ -35,6 +35,7 @@ import { ClipboardModule } from 'ngx-clipboard';
 
 import { ToastrModule } from 'ngx-toastr';
 
+import { CountdownTimerModule } from 'ngx-countdown-timer';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
@@ -124,6 +125,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     BrowserAnimationsModule,
     ClipboardModule,
     ToastrModule.forRoot(),
+    CountdownTimerModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     }),

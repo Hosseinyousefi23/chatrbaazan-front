@@ -75,8 +75,13 @@ export class OfferComponent implements OnInit {
   }
 
   showCopied() {
-    // this.toastr.info('کپی شد');
     $(".Copy_btn").text("کپی شد")
+    setTimeout( function(){ 
+      $(".Copy_btn").text("کپی")
+    }  , 3000 );
   }
 
+  finished(a){
+    $(".timer_"+a).text("منقضی شد")
+  }
 }

@@ -5,13 +5,16 @@
   max-width: 100%;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-  transform-style: preserve-3d; 
+  transform-style: preserve-3d;
   transition: .6s;
 }
-.title{
+
+.title {
   text-align: right;
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-.title ,.see_all{
+}
+
+.title,
+.see_all {
   font-weight: 700;
 }
 
@@ -19,20 +22,21 @@
 .offer .inner_content {
   text-align: right;
   margin: 0;
-  
+
 }
 
 .offer .offer_box {
   margin-top: .5em;
   position: relative;
   padding: 5px 15px 38px;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
-  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 5px;
   width: 20%;
   height: 20em;
 }
-.offer .offer_box  .offer_box_link{
+
+.offer .offer_box .offer_box_link {
   height: 100%;
   width: 100%;
 }
@@ -55,7 +59,7 @@
   height: 92%;
   margin: 0 auto;
   border-radius: 6px;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
 }
 
 .offer .offer_box .offer_title {
@@ -74,10 +78,12 @@
   height: 10%;
   display: flex;
 }
-.offer_companies{
+
+.offer_companies {
   text-align: center;
   margin: 0 auto;
 }
+
 .offer .offer_box .offer_company a {
   color: #828c99;
   letter-spacing: .3px;
@@ -85,6 +91,7 @@
   font-size: 11.998px;
   font-weight: 400;
 }
+
 .offer .offer_box .offer_btn {
   display: block;
   background-color: #0e1f3c;
@@ -103,7 +110,8 @@
   width: 70%;
   cursor: pointer;
 }
-.offer_off{
+
+.offer_off {
   position: absolute;
   z-index: 4;
   background-color: #ec2b54;
@@ -116,20 +124,31 @@
   line-height: 16px;
   font-weight: 600;
 }
-.Copy_btn{
+
+.Copy_btn {
   border-radius: 0;
-  border-top-right-radius: 5px; 
+  border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.Copy_btn:hover{
+
+.Copy_btn:hover {
   background-color: #e2e2e2;
 }
-.btn-groups{
+
+.btn-groups {
   margin: 1.2em auto;
 }
-.back_name{
+
+.back_name {
   margin: 1em;
+  margin-bottom: 0;
   font-size: 1.1em;
+  font-weight: 700;
+}
+
+.timer {
+  margin: .1em 0;
+  font-size: 1em;
   font-weight: 700;
 }
 
@@ -137,40 +156,55 @@
   .offer .offer_box {
     width: 50%;
   }
-  .mat-tab-label{
+
+  .mat-tab-label {
     width: 100px;
   }
 
 }
+
 @media (max-width: 559px) {
   .mat-tab-label {
     width: 90px !important;
+  }
+  .Copy_btn{
+    font-size: .9em;
+  }
+  .input_cupon {
+    font-size: .9em;
   }
   .offer .offer_box .offer_title {
     font-size: 15px;
     font-weight: 700;
   }
+
   .offer .offer_box .offer_image {
     width: 9em;
     height: 9em;
   }
-  .offer_off{
+
+  .offer_off {
     font-size: 10px;
     padding: 3px 4px;
   }
-  .btn-groups{  
+
+  .btn-groups {
     font-size: .7em;
   }
+
   .back_name {
     margin: 1em;
+    margin-bottom: 0;
     font-size: .9em;
     font-weight: 700;
   }
-  .title{
+
+  .title {
     font-size: .9em;
     padding: 0;
   }
-  .see_all{
+
+  .see_all {
     font-size: .9em;
     padding: 0;
   }
@@ -199,7 +233,7 @@ label {
   height: 100%;
   width: 100%;
   -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d; 
+  transform-style: preserve-3d;
   -webkit-transition: all 600ms;
   transition: all 600ms;
   /* z-index: 20; */
@@ -225,32 +259,36 @@ label {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-.card .back p{
+
+.card .back p {
   color: #FFFFFF;
 }
 
 .voted {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
-} 
+}
+
 input {
   display: none;
 }
 
 .btn_sm {
   width: 7em !important;
-  font-size: .9em;
+  font-size: .8em;
+  font-weight: 700;
   border-radius: 5px;
   margin: .5em;
   padding: .5em;
 }
 
-.input_cupon{
+.input_cupon {
   color: #000000;
   display: inline;
-  /* width: 100px; */
+  width: 100px;
   border-radius: 10px 0 0 10px;
 }
-.see_all{
+
+.see_all {
   text-align: left;
 }
