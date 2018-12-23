@@ -121,6 +121,9 @@
                 <div class="back ">
 
                   <p class="back_name" >{{item.name}}</p>
+                  <div class="timer timer_{{item.id}}">
+                    <countdown-timer  (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
                   <div *ngIf="item.is_free" #container>
 
                     <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
@@ -198,6 +201,9 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
+                  <div class="timer timer_{{item.id}}">
+                    <countdown-timer  (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
                   <div *ngIf="item.is_free" #container>
 
                     <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
