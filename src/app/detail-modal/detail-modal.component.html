@@ -35,8 +35,10 @@
               بیشتر</button>
             <button *ngIf="!pro.is_free"mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
               به سبد</button>
-              <button *ngIf="pro.is_free"mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">خرید</button>
-              <button mat-raised-button color="warn" [routerLink]="[pro.link]" class=" btn_sm mat-raised-button">اعلام خرابی</button>
+            <a href="{{pro.link}}">
+              <button *ngIf="pro.is_free"mat-raised-button color="primary"  class=" btn_sm mat-raised-button">خرید</button>
+            </a>
+              <button mat-raised-button color="warn"  class=" btn_sm mat-raised-button">اعلام خرابی</button>
               </div>
         </div>
       </div>
