@@ -55,7 +55,10 @@ export class OfferComponent implements OnInit {
   }
   date_timestamp(d){
     let time = new Date(d);
-    return time.getTime()
+    //console.log(time)
+    // console.log(Date.now(),time.getTime());
+    // console.log(Date.now()-time.getTime());
+    return Date.now()-time.getTime();
   }
   addtocart(id){
     this.user.addtocart(id).subscribe(
@@ -73,6 +76,7 @@ export class OfferComponent implements OnInit {
 
   showCopied() {
     this.toastr.info('کپی شد');
+    console.log(Date.now());
   }
 
 }

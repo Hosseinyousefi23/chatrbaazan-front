@@ -37,18 +37,21 @@
                   </a>
                 </div>
                 <div class="back ">
-                  <p>
-                  <countdown [config]="{
+                  
+                  <!-- <countdown [config]="{
                     leftTime: [date_timestamp(item.expiration_date)],
-                    template:'$!d!روز$!h!ساعت$!m!دقیقه$!s!ثانیه'
-                  }"></countdown>
-                </p>
+                    template:'$!h!ساعت$!m!دقیقه$!s!ثانیه',
+                    stopTime:0
+                  }"></countdown> -->
+                  <!-- <flip-clock countdown=true clockFace='DailyCounter' time=100000></flip-clock> -->
+                  
+                    
                   <p>{{item.name}}</p>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="{{item.discount}}">
+                    <input class=" btn input_cupon" type="text" value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">
@@ -125,9 +128,9 @@
                   <p>{{item.name}}</p>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="{{item.discount}}">
+                    <input class=" btn input_cupon" type="text" value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">
@@ -202,9 +205,9 @@
                   <p>{{item.name}}</p>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="{{item.discount}}">
+                    <input class=" btn input_cupon" type="text" value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">

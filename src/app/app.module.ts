@@ -67,7 +67,9 @@ import { DetailModalComponent } from './detail-modal/detail-modal.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
-import { CountdownModule } from 'ngx-countdown';
+
+
+
 
 
 @NgModule({
@@ -94,6 +96,7 @@ import { CountdownModule } from 'ngx-countdown';
     CompanyComponent,
     UserprofileComponent,
     DetailModalComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -132,7 +135,7 @@ import { CountdownModule } from 'ngx-countdown';
     CdkTreeModule,
     MatTabsModule,
     MatSelectModule,
-    CountdownModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
