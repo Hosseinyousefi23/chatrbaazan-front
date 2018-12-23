@@ -68,6 +68,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +96,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     CompanyComponent,
     UserprofileComponent,
     DetailModalComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -130,6 +135,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     CdkTreeModule,
     MatTabsModule,
     MatSelectModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

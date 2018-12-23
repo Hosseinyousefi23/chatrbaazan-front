@@ -15,7 +15,11 @@ export class OfferComponent implements OnInit {
   public mostseen : any[] =[];
   public newest : any[] =[];
   public mostDiscount: any[] =[];
-
+  public config : object ={
+    leftTime: 23,
+    template:'$!h!ساعت$!m!دقیقه$!s!ثانیه'
+  };
+  t
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService) { }
   ngOnInit() {
@@ -48,6 +52,13 @@ export class OfferComponent implements OnInit {
     this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();
+  }
+  date_timestamp(d){
+    let time = new Date(d);
+    //console.log(time)
+    // console.log(Date.now(),time.getTime());
+    // console.log(Date.now()-time.getTime());
+    return Date.now()-time.getTime();
   }
   addtocart(id){
     this.user.addtocart(id).subscribe(

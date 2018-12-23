@@ -5,7 +5,9 @@
       <a href="#">
         مشاهده همه
       </a>
+      
     </div>
+    
   </div>
   <div class="offer_content">
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
@@ -39,9 +41,9 @@
                   <p class="back_name" >{{item.name}}</p>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" disabled type="text" value="{{item.discount}}">
+                    <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">
@@ -118,9 +120,9 @@
                   <p class="back_name" >{{item.name}}</p>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount}}">
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">
@@ -195,9 +197,9 @@
                   <p class="back_name">{{item.name}}</p>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount}}">
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">
