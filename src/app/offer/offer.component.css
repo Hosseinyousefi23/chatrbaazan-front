@@ -63,11 +63,11 @@
 }
 
 .offer .offer_box .offer_title {
-  width: 50%;
+  /* width: 50%; */
   margin: 0px auto;
   text-align: center;
   color: #4c4c4c;
-  font-size: 1.2em;
+  font-size: 0.9em;
   font-weight: 700;
 }
 

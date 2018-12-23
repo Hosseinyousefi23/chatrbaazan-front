@@ -58,8 +58,13 @@
 
                         </button>
                       </a>
-                      <a  (click)="addtocart(item.id)">
+                      <a *ngIf="!item.is_free" (click)="addtocart(item.id)">
                         <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                      <a *ngIf="item.is_free" href="{{item.link}}">
+                        <button  class="btn btn-success btn_sm ">
                           خرید
                         </button>
                       </a>
@@ -140,8 +145,13 @@
 
                         </button>
                       </a>
-                      <a (click)="addtocart(item.id)">
+                      <a *ngIf="!item.is_free" (click)="addtocart(item.id)">
                         <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                      <a *ngIf="item.is_free" href="{{item.link}}">
+                        <button  class="btn btn-success btn_sm ">
                           خرید
                         </button>
                       </a>
@@ -220,8 +230,13 @@
 
                         </button>
                       </a>
-                      <a (click)="addtocart(item.id)">
+                      <a *ngIf="!item.is_free" (click)="addtocart(item.id)">
                         <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                      <a *ngIf="item.is_free" href="{{item.link}}">
+                        <button  class="btn btn-success btn_sm ">
                           خرید
                         </button>
                       </a>
