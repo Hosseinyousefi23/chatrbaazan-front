@@ -1,7 +1,7 @@
 <div class="offer">
   <div class="offer_header row">
     <div class="col-7 title"> منتخب کدهای تخفیف </div>
-    <div class="col-5">
+    <div class="col-5 see_all">
       <a href="#">
         مشاهده همه
       </a>
@@ -27,7 +27,7 @@
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <span *ngFor="let i of item.company;">
+                      <span class="offer_companies" *ngFor="let i of item.company;">
                         <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
@@ -37,21 +37,16 @@
                   </a>
                 </div>
                 <div class="back ">
-                  
-                  <!-- <countdown [config]="{
-                    leftTime: [date_timestamp(item.expiration_date)],
-                    template:'$!h!ساعت$!m!دقیقه$!s!ثانیه',
-                    stopTime:0
-                  }"></countdown> -->
-                  <!-- <flip-clock countdown=true clockFace='DailyCounter' time=100000></flip-clock> -->
-                  
                     
-                  <p>{{item.name}}</p>
+                  <p class="back_name" >{{item.name}}</p>
+                  <div class="timer timer_{{item.id}}">
+                    <countdown-timer  (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
                   <div *ngIf="item.is_free" #container>
 
                     <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="{{item.discount_code}}">
+                    <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">
@@ -63,7 +58,7 @@
 
                         </button>
                       </a>
-                      <a (click)="addtocart(item.id)">
+                      <a  (click)="addtocart(item.id)">
                         <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
                           خرید
                         </button>
@@ -114,7 +109,7 @@
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <span *ngFor="let i of item.company;">
+                      <span class="offer_companies" *ngFor="let i of item.company;">
                         <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
@@ -125,12 +120,15 @@
                 </div>
                 <div class="back ">
 
-                  <p>{{item.name}}</p>
+                  <p class="back_name" >{{item.name}}</p>
+                  <div class="timer timer_{{item.id}}">
+                    <countdown-timer  (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
                   <div *ngIf="item.is_free" #container>
 
                     <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="{{item.discount_code}}">
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">
@@ -191,7 +189,7 @@
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <span *ngFor="let i of item.company;">
+                      <span  class="offer_companies"*ngFor="let i of item.company;">
                         <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
@@ -202,12 +200,15 @@
                 </div>
                 <div class="back ">
 
-                  <p>{{item.name}}</p>
+                  <p class="back_name">{{item.name}}</p>
+                  <div class="timer timer_{{item.id}}">
+                    <countdown-timer  (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
                   <div *ngIf="item.is_free" #container>
 
                     <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" value="{{item.discount_code}}">
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
                   </div>
                   <div class="btn-groups">

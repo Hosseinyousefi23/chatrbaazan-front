@@ -48,10 +48,10 @@ export class OfferComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data['results'];});
-    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data['results'];});
+    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
-    
+    this.addeventlister();
   }
   date_timestamp(d){
     let time = new Date(d);
@@ -75,8 +75,13 @@ export class OfferComponent implements OnInit {
   }
 
   showCopied() {
-    this.toastr.info('کپی شد');
-    console.log(Date.now());
+    $(".Copy_btn").text("کپی شد")
+    setTimeout( function(){ 
+      $(".Copy_btn").text("کپی")
+    }  , 3000 );
   }
 
+  finished(a){
+    $(".timer_"+a).text("منقضی شد")
+  }
 }

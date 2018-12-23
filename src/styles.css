@@ -79,7 +79,8 @@ body {
 
 @media (max-width: 559px) {
   .mat-tab-label {
-    width: 80px !important;
+    padding: 0 50px; 
+    width: 90px !important;
     font-size: .8em;
   }
 }
@@ -181,4 +182,7 @@ body {
 }
 .toast-info{
   width: 8em !important;
+}
+.main_title{
+  font-family: iranyekan ;
 }

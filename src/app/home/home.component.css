@@ -14,6 +14,7 @@
     height: 100%;
     width: 100%;
     border-radius: 5px;
+    margin: 0 auto;
 }
 .banner_links{
     height: 100%;
@@ -35,6 +36,25 @@
     .slider{
         order: 1;
     }
+  }
+
+  @media all and (max-width: 991px) { 
+    .banner_links{
+        height: 100%;
+        width: 96%;
+        display: block;
+        margin: 0 auto;
+    }
+   } 
+  @media all and (max-width: 768px) { 
+    .item img {
+    height: 20em;
+  } 
+  } 
+  @media all and (max-width: 575px) { 
+    .item img {
+      height: 12em;
+    } 
   }
   
 
