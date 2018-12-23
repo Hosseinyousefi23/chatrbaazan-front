@@ -69,10 +69,7 @@ import { DetailModalComponent } from './detail-modal/detail-modal.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
-
-
-
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -138,6 +135,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     CdkTreeModule,
     MatTabsModule,
     MatSelectModule,
+    NgxSpinnerModule,
     
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
