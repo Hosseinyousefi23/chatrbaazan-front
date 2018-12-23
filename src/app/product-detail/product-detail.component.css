@@ -16,6 +16,12 @@
   /* height: 450px; */
 }
 
+.modal_input{
+  text-align: right;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
 .product_about {
   padding: 0  2em;
 

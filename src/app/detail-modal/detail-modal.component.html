@@ -31,10 +31,14 @@
 
         <div class="col-12">
               <div class="modal_input">
-            <button mat-raised-button color="warn" [routerLink]="['/product' , pro.slug]" (click)="close()" class="btn_sm">جزئیات
+            <button mat-raised-button color="" [routerLink]="['/product' , pro.slug]" (click)="close()" class="btn_sm">جزئیات
               بیشتر</button>
-            <button mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
+            <button *ngIf="!pro.is_free"mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
               به سبد</button>
+            <a href="{{pro.link}}">
+              <button *ngIf="pro.is_free"mat-raised-button color="primary"  class=" btn_sm mat-raised-button">خرید</button>
+            </a>
+              <button mat-raised-button color="warn"  class=" btn_sm mat-raised-button">اعلام خرابی</button>
               </div>
         </div>
       </div>
