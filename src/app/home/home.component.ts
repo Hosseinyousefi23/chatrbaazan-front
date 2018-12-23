@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['prod_name', 'prod_price'];
   slider: any[] = [];
   banner: any[] = [];
+  bannerlinks: any[] = [];
   isLoadingResults = true;
   constructor(private data: PageService) { }
 
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
         if(!i.is_slider){
         // console.log(i.image)
       this.banner.push(i.image);
+      this.bannerlinks.push(i.link);
         }
       }  
     });

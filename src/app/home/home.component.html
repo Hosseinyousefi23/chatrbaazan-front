@@ -14,8 +14,8 @@
     <div class="row content">
       <div class="col-md-4 col-xs-12 banner px-0">
         <div class="banner_content" >
-          <div class="banner_image" *ngFor="let image of banner;">
-            <img src={{image}} alt="">
+          <div class="banner_image" *ngFor="let image of banner;let i = index">
+            <a class="banner_links" href="{{bannerlinks[i]}}"><img src={{image}} alt=""></a>
           </div>
           <!-- <div class="banner_image">
             <img src="http://chatrbaazan.ir/media/banner/mrbilit.jpg" alt="">

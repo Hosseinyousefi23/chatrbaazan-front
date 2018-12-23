@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
 //import * from 'jquery';
@@ -20,7 +21,7 @@ export class OfferComponent implements OnInit {
   };
   t
   @Input() cityHeader :string;
-  constructor(private offer : PageService ,private user: UsersService) { }
+  constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService) { }
   ngOnInit() {
     this.searchoffer();
   }
@@ -68,6 +69,10 @@ export class OfferComponent implements OnInit {
         }
       }
     )
+  }
+
+  showCopied() {
+    this.toastr.info('کپی شد');
   }
 
 }

@@ -10,11 +10,13 @@ export class CarouselComponent implements OnInit {
   public slider: any[] = [];
   constructor( private data: PageService ) { }
   myCarouselImages :any[] = [];
+  Imageslink :any[] = [];
   ngOnInit() {
     this.data.getbanner().subscribe((data :any) => {this.slider = data.data;
       for (let i of this.slider){ 
         if(i.is_slider){
       this.myCarouselImages.push(i.image);
+      this.Imageslink.push(i.link);
         }
       }  
     });

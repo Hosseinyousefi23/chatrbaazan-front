@@ -12,6 +12,20 @@
 
     <app-header (navToggle)="sidenav.toggle()" (cityevent)="citychangedinheader($event)"></app-header>
     <div class="row content">
+      <div class="company_info row">
+        <div class="col-xs-12 col-md-3">
+            <img class="company_image" src="{{companyinfo.image}}" alt="">
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="company_name">
+          {{companyinfo.name}}
+          </div>
+          <hr class="m-2">
+          <div class="company_desc">
+          {{companyinfo.description}}
+        </div>
+        </div>
+      </div>
       <div class="col-xs-12 col-md-3">
 
         <div class="category filter_box">
