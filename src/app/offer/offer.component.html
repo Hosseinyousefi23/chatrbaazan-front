@@ -5,7 +5,9 @@
       <a href="#">
         مشاهده همه
       </a>
+      
     </div>
+    
   </div>
   <div class="offer_content">
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
@@ -35,7 +37,12 @@
                   </a>
                 </div>
                 <div class="back ">
-
+                  <p>
+                  <countdown [config]="{
+                    leftTime: [date_timestamp(item.expiration_date)],
+                    template:'$!d!روز$!h!ساعت$!m!دقیقه$!s!ثانیه'
+                  }"></countdown>
+                </p>
                   <p>{{item.name}}</p>
                   <div *ngIf="item.is_free" #container>
 
