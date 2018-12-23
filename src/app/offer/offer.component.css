@@ -152,65 +152,6 @@
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .offer .offer_box {
-    width: 50%;
-  }
-
-  .mat-tab-label {
-    width: 100px;
-  }
-
-}
-
-@media (max-width: 559px) {
-  .mat-tab-label {
-    width: 90px !important;
-  }
-  .Copy_btn{
-    font-size: .9em;
-  }
-  .input_cupon {
-    font-size: .9em;
-  }
-  .offer .offer_box .offer_title {
-    font-size: 15px;
-    font-weight: 700;
-  }
-
-  .offer .offer_box .offer_image {
-    width: 9em;
-    height: 9em;
-  }
-
-  .offer_off {
-    font-size: 10px;
-    padding: 3px 4px;
-  }
-
-  .btn-groups {
-    font-size: .7em;
-  }
-
-  .back_name {
-    margin: 1em;
-    margin-bottom: 0;
-    font-size: .9em;
-    font-weight: 700;
-  }
-
-  .title {
-    font-size: .9em;
-    padding: 0;
-  }
-
-  .see_all {
-    font-size: .9em;
-    padding: 0;
-  }
-}
-
-
 label {
   /* -webkit-perspective: 1000px;
   perspective: 1000px; */
@@ -292,3 +233,65 @@ input {
 .see_all {
   text-align: left;
 }
+@media (max-width: 768px) {
+  .offer .offer_box {
+    width: 50%;
+  }
+
+  .mat-tab-label {
+    width: 100px;
+  }
+
+}
+
+@media (max-width: 559px) {
+  .mat-tab-label {
+    width: 90px !important;
+  }
+  .Copy_btn{
+    font-size: .8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  .input_cupon {
+    font-size: .8em;
+    width: 60px;
+  }
+  .offer .offer_box .offer_title {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .offer .offer_box .offer_image {
+    width: 9em;
+    height: 9em;
+  }
+
+  .offer_off {
+    font-size: 10px;
+    padding: 3px 4px;
+  }
+
+  .btn-groups {
+    font-size: .7em;
+  }
+
+  .back_name {
+    margin: 1em;
+    margin-bottom: 0;
+    font-size: .9em;
+    font-weight: 700;
+  }
+
+  .title {
+    font-size: .9em;
+    padding: 0;
+  }
+
+  .see_all {
+    font-size: .9em;
+    padding: 0;
+  }
+}
+
+
