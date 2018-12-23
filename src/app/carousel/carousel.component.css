@@ -16,7 +16,9 @@
   -moz-box-shadow: 0px 0px 41px -6px rgba(135, 130, 135, 1);
   box-shadow: 0px 0px 41px -6px rgba(135, 130, 135, 1);
 }
-
+.imagelink{
+  width: 100%;
+}
 @media (max-width: 500px) {
   .item img {
     height: 12em;
