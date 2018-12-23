@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { UsersService } from '../users.service';
+declare var $: any;
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -98,6 +100,12 @@ export class ProductDetailComponent implements OnInit {
   //     // data => console.log(data)
   //   )
   // }
+  showCopied() {
+    $(".Copy_btn").text("کپی شد")
+    setTimeout( function(){ 
+      $(".Copy_btn").text("کپی")
+    }  , 3000 );
+  }
   addtocart(id){
     this.user.addtocart(id).subscribe(
       (data : any) => {

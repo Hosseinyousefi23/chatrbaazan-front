@@ -46,8 +46,8 @@
           <br>
           <div class="row">
             <div *ngIf='pro.is_free' class="col-md-6 col-xs-12" #container>
-              <button class="btn border_btn" ngxClipboard cbContent={{pro.discount}} [container]="container">کپی</button>
-              <input class="btn border_input" type="text" value="{{pro.discount}}">
+              <button class="btn Copy_btn" style="border-radius: 0 6px 6px 0;" (click)="showCopied()" ngxClipboard cbContent={{pro.discount_code}} [container]="container">کپی</button>
+              <input class="btn border_input" type="text" value="{{pro.discount_code}}">
             </div>
             <div class="col-md-6 col-xs-12">
               <!-- {{pro.expiration_date|date:'yyyy/MM/dd'}} -->
@@ -60,6 +60,16 @@
             </div>
             <div class="col-md-6">
               <button class="btn btn-primary" (click)="addtocart(pro.id)">افزودن به سبد خرید</button>
+            </div>
+          </div>
+          <div *ngIf="pro.is_free" class="row">
+            <div class="col-md-6">
+                <a href="{{pro.link}}">
+                    <button class="btn btn-primary" (click)="addtocart(pro.id)">مشاهده</button>
+                  </a>
+            </div>
+            <div class="col-md-6">
+              
             </div>
           </div>
           <hr size="30">
