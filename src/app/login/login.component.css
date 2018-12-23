@@ -89,12 +89,16 @@ p {
 @media all and (max-width: 575px) {
   .login {
     background-color: #ffffff;
-    margin: 3em auto;
+    margin: 1em auto;
     width: 18em;
-  }
-
-  .login h1 {
-    font-size: 2em;
-  }
+    padding: 1em;
+    height: 400px;
+}
+.logo img{
+    width: 70px;
+}
+.login h1 {
+    font-size: 1em;
+}
 }
 

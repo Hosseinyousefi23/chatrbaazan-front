@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
+import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { environment } from 'src/environments/environment.prod';
 //import * from 'jquery';
 
 declare var $: any;
@@ -21,7 +23,8 @@ export class OfferComponent implements OnInit {
   };
   t
   @Input() cityHeader :string;
-  constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService) { }
+  constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
+    private bottomSheet: MatBottomSheet) { }
   ngOnInit() {
     this.searchoffer();
   }
@@ -89,4 +92,25 @@ export class OfferComponent implements OnInit {
   finished(a){
     $(".timer_"+a).text("منقضی شد")
   }
+
+  openBottomSheet(slug): void {
+    // console.log(slug+"12")
+    this.bottomSheet.open(BottomSheetOverviewExampleSheet
+      ,{data:{ 'slug': slug}});
+  }
+}
+
+@Component({
+  selector: 'bottom-sheet-overview-example-sheet',
+  templateUrl: 'share.component.html',
+})
+export class BottomSheetOverviewExampleSheet implements OnInit {
+  baseUrl = environment.mainurl;
+  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>,
+    @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
+
+    ngOnInit(){
+      this.baseUrl = this.baseUrl +"product/" +this.data.slug
+      console.log(this.baseUrl)
+    }
 }
