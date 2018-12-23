@@ -21,8 +21,9 @@
           {{companyinfo.name}}
           </div>
           <hr class="m-2">
-          <div class="company_desc">
-          {{companyinfo.description}}
+          <div class="company_desc"[innerHTML]="companyinfo.description">
+              <!-- <div class="paragraph" [innerHTML]="companyinfo.description"></div> -->
+          <!-- {{companyinfo.description}} -->
         </div>
         </div>
       </div>
