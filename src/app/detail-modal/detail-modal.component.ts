@@ -4,7 +4,7 @@ import { Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
-
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 
 @Component({
@@ -15,8 +15,8 @@ declare var $: any;
 export class DetailModalComponent implements OnInit {
   pro
   constructor(public dialogRef: MatDialogRef<DetailModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any
-  ,private route: ActivatedRoute , private router : Router,private service :PageService, private user:UsersService
-  ) { }
+  ,private route: ActivatedRoute , private router : Router,private service :PageService, private user:UsersService,
+  private toastr: ToastrService) { }
 
   ngOnInit() {
     this.service.getproductByslug(this.data.slug).subscribe(param => { 
@@ -43,7 +43,12 @@ export class DetailModalComponent implements OnInit {
       }
     )
   }
-
+  sendfail(slug){
+    this.toastr.error('چترتون مستدام')
+    this.service.sendfailure(slug).subscribe(
+      data => console.log(data)
+    )
+  }
   showCopied() {
     console.log("ascs")
     $(".Copy_btn").text("کپی شد")

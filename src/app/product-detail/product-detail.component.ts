@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { UsersService } from '../users.service';
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 
 @Component({
@@ -21,7 +22,7 @@ export class ProductDetailComponent implements OnInit {
   number =0;
   image_gallery:NgxGalleryImage[]=[];
 
-  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService) { }
+  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.pro = {
@@ -100,6 +101,13 @@ export class ProductDetailComponent implements OnInit {
   //     // data => console.log(data)
   //   )
   // }
+  sendfail(slug){
+    this.toastr.error('چترتون مستدام ')
+    this.service.sendfailure(slug).subscribe(
+      // data => console.log(data)
+    )
+  }
+
   showCopied() {
     $(".Copy_btn").text("کپی شد")
     setTimeout( function(){ 

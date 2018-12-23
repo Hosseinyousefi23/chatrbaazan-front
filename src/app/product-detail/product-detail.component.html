@@ -58,27 +58,22 @@
             <div class="col-md-12">
               <p class="text_pay"><span>{{pro.price}}</span> ریال</p>
             </div>
-            <div class="col-md-6">
-              <button class="btn btn-primary" (click)="addtocart(pro.id)">افزودن به سبد</button>
-              
+            <div class="modal_input">
+               
+                <button style="margin-left: 11px;" mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
+                  به سبد</button>
+                  <button mat-raised-button color="warn" (click)="sendfail(pro.slug)" class=" btn_sm mat-raised-button">اعلام خرابی</button>
             </div>
-            <div class="col-md-6">
-                <button class="btn btn-danger" (click)="addtocart(pro.id)">اعلام خرابی</button>
-            </div>
+            
           </div>
           <div *ngIf="pro.is_free" class="row">
-            <div class="col-md-6">
-                <a href="{{pro.link}}">
-                    <button class="btn btn-primary" (click)="addtocart(pro.id)">مشاهده</button>
-                  </a>
-                  
-            </div>
-            <div class="col-md-6">
-                <button class="btn btn-danger" (click)="addtocart(pro.id)">اعلام خرابی</button>
-            </div>
-            <div class="col-md-6">
-              
-            </div>
+              <div class="modal_input">
+                
+                  <button style="margin-left: 11px;" mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
+                    به سبد</button>
+                    <button mat-raised-button color="warn" (click)="sendfail(pro.slug)" class=" btn_sm mat-raised-button">اعلام خرابی</button>
+              </div>
+            
           </div>
           <hr size="30">
           <div>

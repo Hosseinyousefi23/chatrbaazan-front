@@ -1,9 +1,4 @@
-<ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)"
-size = "large"
-color = "#fff"
-type = "ball-climbing-dot"
-></ngx-spinner>
+
 <mat-sidenav-container class="example-container">
    
   <mat-sidenav #sidenav [mode]="mode.value"  position="end">
@@ -15,7 +10,12 @@ type = "ball-climbing-dot"
   </mat-sidenav>
 
   <mat-sidenav-content>
-    
+      <!-- <ngx-spinner
+      bdColor = "rgba(51, 51, 51, 0.8)"
+      size = "large"
+      color = "#fff"
+      type = "ball-climbing-dot"
+      ></ngx-spinner> -->
     <app-header (navToggle)="sidenav.toggle()"  (cityevent)="citychangedinheader($event)"></app-header>
     <div class="row content">
       <div class="col-md-4 col-xs-12 banner px-0">
