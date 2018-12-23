@@ -25,12 +25,13 @@ export class HeaderComponent implements OnInit {
   countries = ['USA', 'Canada', 'Uk', 'kashan']
   searchTerm: FormControl = new FormControl();
   myBooks = <any>[];
+  public all_chatrbazi;
   @Output() cityevent =new EventEmitter<string>();
   constructor(private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router) { }
 
   ngOnInit() {
     this.data.getcities().subscribe((data: any) => { this.cities = data.data; });
-    this.data.getCategories().subscribe((data: any) => { this.categories = data.data; });
+    this.data.getCategories().subscribe((data: any) => { this.categories = data.data; this.all_chatrbazi = data.all_chatrbazi});
     if(localStorage.getItem("userToken")){
     this.user.logged().subscribe(
       data => {
