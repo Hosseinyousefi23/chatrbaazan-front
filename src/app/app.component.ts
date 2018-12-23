@@ -8,16 +8,5 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppComponent {
   title = 'chatrbaazan-front';
-  constructor(private spinner: NgxSpinnerService) { }
- 
-  ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
- 
-    setTimeout(() => {
-        /** spinner ends after 5 seconds */
-        this.spinner.hide();
-    }, 5000);
-  }
   
 }
