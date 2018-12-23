@@ -166,8 +166,9 @@ label{
 }
 
 @media (max-width: 768px) {
+  
   .offer{
-    margin: 0 auto !important;
+    margin: 1em auto !important;
   }
   .company_info{
     margin: 0 auto 1em !important;
