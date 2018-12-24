@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm,FormGroup, FormControl } from '@angular/forms';
 import { ContactusService } from '../contactus.service';
 import { Router } from '@angular/router';
+import { PageService } from '../page.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ContactusComponent implements OnInit {
   
   mode = new FormControl('over');
 
-  constructor(private contactservice: ContactusService,private router :Router) {} ;
+  constructor(private contactservice: ContactusService,private page: PageService,
+    private router :Router) {} ;
     
 
   ngOnInit() { 
@@ -28,6 +30,10 @@ export class ContactusComponent implements OnInit {
       contact: ''
     };
     
+    this.page.getContactInfo().subscribe(
+      data => {console.log(data)}
+      )
+      
   }
   
   save(tryForm?:NgForm){
@@ -41,7 +47,13 @@ export class ContactusComponent implements OnInit {
         }
       );
 
-	}
+  }
+  
+  getContactInfo(){
+    this.page.getContactInfo().subscribe(
+      data => console.log(data)
+    )
+  }
 //TODO: validate email and  clean form and show  sucess maessage
 
 

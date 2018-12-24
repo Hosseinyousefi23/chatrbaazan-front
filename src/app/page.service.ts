@@ -33,6 +33,10 @@ export class PageService {
     return this.http.get<any[]>(this.baseUrl + 'api/v1/about/')
   }
 
+  getContactInfo(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl + 'api/v1/setting/')
+  }
+
   sendfailure(slug){
     return this.http.get<any[]>(this.baseUrl + 'api/v1/failure/'+slug)
   }
