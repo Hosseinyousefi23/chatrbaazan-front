@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular
 import { PageService } from '../page.service';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { DetailModalComponent } from '../detail-modal/detail-modal.component';
+import { last } from '@angular/router/src/utils/collection';
+// import * as _ from 'l'
 
 @Component({
   selector: 'app-search',
@@ -11,13 +13,18 @@ import { DetailModalComponent } from '../detail-modal/detail-modal.component';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  pro = null;
+  pro : any[] = [];
   searched: string;
   selectedcompany;
   selectedcategory;
   selectedtab: string;
   cityHeader = '';
 
+  next_url = '';
+  size = 4;
+  page = 1;
+  finished = false
+  
   companies: any[] = [];
   categories: any[] = [];
   mode = new FormControl('over');
@@ -39,35 +46,27 @@ export class SearchComponent implements OnInit {
   }
   ngOnInit() {
     this.searched = this.route.snapshot.queryParams['search']
-    this.data.search(this.searched).subscribe(param => {
+    this.data.search(this.searched,null,null,null,null,this.size).subscribe(param => {
       if (param['count']) {
-        // console.log(param)
-        this.pro = param
+        this.pro = param.results
+        this.next_url = param.next
         this.companies = []
         this.categories = []
         for (let i of param.results) {
-
-          // this.companies =[]
           for (let c of i.company) {
-            // console.log(this.companies.indexOf(c))
             if (!this.companies.some(temp => temp.name == c.name)) {
               this.companies.push(c);
             }
           }
           // console.log(this.companies)
         }
-
         for (let i of param.results) {
-
-          // this.companies =[]
           for (let c of i.category) {
             if (!this.categories.some(temp => temp.name == c.name)) {
               this.categories.push(c);
             }
           }
-
         }
-
         // console.log(this.companies)
       } else {
         this.pro = null;
@@ -77,23 +76,28 @@ export class SearchComponent implements OnInit {
   changeTab($event) {
     let tab = ['favorites', 'topchatrbazi', 'created_at']
     this.selectedtab = tab[$event.index];
+    this.page = 1;
     this.filter();
   }
 
   citychangedinheader(a) {
     this.cityHeader = a;
+    this.page = 1;
     this.filter();
   }
 
+  filterbtn(){
+    this.page = 1;
+    this.filter();
+  }
 
   filter() {
-    console.log("filter")
-    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader).subscribe(param => {
+    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page).subscribe(param => {
       if (param['count']) {
-
-        this.pro = param
+        this.pro = param.results
         this.companies = []
         this.categories = []
+        this.next_url = param.next
         for (let i of param.results) {
           // this.companies =[]
           for (let c of i.company) {
@@ -116,59 +120,45 @@ export class SearchComponent implements OnInit {
       }
     });
   }
-  // detectUrl(){
-  //   let url =this.router.url
-  //   if(url.slice(1,9)=='category'){
-  //     this.route.params.subscribe(params => { this.Categoryid = params['id'];})
-  //     this.data.searchbyCategory(this.Categoryid).subscribe(param => { 
-  //       if(param['data']){
-  //         this.pro = param['data']
-  //       }else{
-  //       this.router.navigate(['/']);
-  //     }
-  //     });
-  //   }
-  //   else if(url.slice(1,7)=='search'){
-  //     let sea = this.route.snapshot.queryParams['search']
-  //     this.data.search(sea).subscribe(param => { 
-  //       // console.log(param)
-  //       if(param['count']){
-  //         // console.log(param)
-  //         this.pro = param
-  //         this.companies =[]
-  //         for(let i of param.results){
 
-  //         // this.companies =[]
-  //         this.companies = this.companies.concat(i.company); 
 
-  //         console.log(this.companies)
-  //         }
-  //         for(let i of param.results){
+  infinte_list() {
+    if(this.next_url != null){
+    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page).subscribe(param => {
+      if (param['count']) {
+        // console.log(param.results)
+        this.pro = this.pro.concat(param['results'])
+        this.next_url = param.next
+        for (let i of param.results) {
+          for (let c of i.company) {
+            if (!this.companies.some(temp => temp.name == c.name)) {
+              this.companies.push(c);
+            }
+          }
+        }
+        for (let i of param.results) {
+          for (let c of i.category) {
+            if (!this.categories.some(temp => temp.name == c.name)) {
+              this.categories.push(c);
+            }
+          }
+        }
+      } else {
+        this.pro = null;
+      }
+    });
+  }
+  }
 
-  //         // this.companies =[]
-  //         this.categories = this.categories.concat(i.category); 
 
-  //         console.log(this.companies)
-  //         }
-  //         // console.log(this.companies)
-  //       }else{
-  //         this.pro =null;
-  //     }
-  //     });
-  //   }
-  //   else if(url.slice(1,8)=='company'){
-  //     this.route.params.subscribe(params => { this.Categoryid = params['id'];})
-  //     this.data.searchbyCompany(this.Categoryid).subscribe(param => { 
-  //       if(param['data']){
-  //         this.pro = param['data']
-  //         // this.companies =[]
-  //         // this.companies.push(this.pro.results[0].city)
-  //       }else{
-  //       this.router.navigate(['/']);
-  //     }
-  //     });
-  //   }
-
-  // }
+  onScroll() {
+    console.log(this.next_url)
+    if(this.next_url){
+    this.page += 1; 
+    this.infinte_list();
+    // console.log(this.next_url)
+    // console.log(this.page)
+    }
+  }
 
 }

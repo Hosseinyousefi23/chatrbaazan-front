@@ -77,6 +77,15 @@ export class UsersService {
     });
   }
 
+  updatecart(productId,n) {
+    const body = new HttpParams()
+      .set('itemId', productId)
+      .set('itemCount', n)
+    return this.http.put(this.baseUrl + 'api/v1/cart/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+    });
+  }
+
   deletefrombasket(productId) {
     const body = new HttpParams().set('cart', productId)
     const httpOptions = {

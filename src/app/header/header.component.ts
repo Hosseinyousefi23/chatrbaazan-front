@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   public categories: any[] = [];
   countries = ['USA', 'Canada', 'Uk', 'kashan']
   searchTerm: FormControl = new FormControl();
-  myBooks = <any>[];
+  searched = <any>[];
   public all_chatrbazi;
   @Output() cityevent =new EventEmitter<string>();
   constructor(private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router) { }
@@ -51,7 +51,7 @@ export class HeaderComponent implements OnInit {
         if (term != '') {
           this.data.search(term).subscribe(
             data => {
-              this.myBooks = data['results'] as any[];
+              this.searched = data['results'] as any[];
             })
         }
       })

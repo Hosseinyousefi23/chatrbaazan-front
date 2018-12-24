@@ -10,25 +10,25 @@ import { UsersService } from '../users.service';
 export class ShoppingCardComponent implements OnInit {
   mode = new FormControl('over');
   cart;
+  number = 0;
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  constructor(private user : UsersService,private _formBuilder: FormBuilder) { }
+
+  constructor(private user : UsersService) { }
 
   ngOnInit() {
     
     this.user.getDatacart().subscribe((data :any) => { this.cart = data.result[0]; });
 
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-
   }
 
   deletefrombasket(pid){
     this.user.deletefrombasket(pid).subscribe((data :any) => { this.cart = data.result[0]; });
+  }
+
+  updatebasket(pid,n){
+    console.log(n)
+    this.user.updatecart(pid,n).subscribe((data :any) => { 
+      this.cart = data.result[0];
+     });
   }
 }

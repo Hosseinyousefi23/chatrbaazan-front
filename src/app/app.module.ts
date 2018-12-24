@@ -40,6 +40,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { CountdownTimerModule } from 'ngx-countdown-timer';
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -128,6 +130,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     ClipboardModule,
     ToastrModule.forRoot(),
+    InfiniteScrollModule,
     CountdownTimerModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
