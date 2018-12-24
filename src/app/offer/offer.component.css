@@ -109,6 +109,10 @@
   border: 1px;
   width: 70%;
   cursor: pointer;
+  position: absolute;
+  right: 50%;
+  bottom: 1em;
+  transform: translateX(50%);
 }
 
 .offer_off {
@@ -233,6 +237,7 @@ input {
 .see_all {
   text-align: left;
 }
+
 @media (max-width: 768px) {
   .offer .offer_box {
     width: 50%;
@@ -248,17 +253,20 @@ input {
   .mat-tab-label {
     width: 90px !important;
   }
-  .Copy_btn{
+
+  .Copy_btn {
     font-size: .8em;
     padding-left: 0.5em;
     padding-right: 0.5em;
   }
+
   .input_cupon {
     font-size: .8em;
     width: 60px;
   }
+
   .offer .offer_box .offer_title {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
   }
 
@@ -293,5 +301,3 @@ input {
     padding: 0;
   }
 }
-
-
