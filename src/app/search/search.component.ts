@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   cityHeader = '';
 
   next_url = '';
-  size = 8;
+  size = 4;
   page = 1;
   finished = false
   

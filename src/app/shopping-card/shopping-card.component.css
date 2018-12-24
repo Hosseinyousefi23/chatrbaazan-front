@@ -87,6 +87,12 @@
 .order1{
     border-radius: 5px;
 }
+.num_input{
+    width: 3em;
+    /* float: left; */
+    border: 1px solid #ced4da;
+    padding: 2px 5px;
+}
 @media (max-width: 991px) {
     .order1{
         order: 2;

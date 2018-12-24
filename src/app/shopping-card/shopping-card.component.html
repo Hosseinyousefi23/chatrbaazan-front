@@ -26,19 +26,23 @@
                   <a [routerLink]="['/company' , c.slug]"> {{c.name}}</a>
                 </span>
               </div>
-              {{i.product.price}}
-              {{i.price}}
-              <hr class="line ml-4">
+              <!-- {{i.product.price}} -->
+              <!-- {{i.price}} -->
+              <!-- <hr class="line ml-4"> -->
               <div class="product_prices">
                 <span class="count">قیمت :  {{i.price}}</span>
-                <span class="count">تعداد:  {{i.count}}</span>
+                <span class="count">تعداد:  
+                  <input matInput class="num_input"  (keyup)="updatebasket(i.id,number.value)"  #number value="{{i.count}}"   type="number"   min="1">
+                </span>
                 <span class="count"> جمع کل:{{i.total_price}}</span>
               </div>
               <a (click)="deletefrombasket(i.id)" class="delete_cart"><i class="fa fa-trash" aria-hidden="true"></i>
               </a>
+              
             </div>
           </div>
         </div>
+        <!-- <button (click)="updatebasket(i.id,2)"></button> -->
       </div>
       <div *ngIf="cart" class="order2 col-md-4 col-xs-12">
         <div class="cart_pardakht">
