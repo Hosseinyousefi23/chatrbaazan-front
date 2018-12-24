@@ -41,6 +41,7 @@
     "ngx-countdown-timer": "^0.1.9",
     "ngx-flip": "^6.1.1",
     "ngx-gallery": "^5.9.0",
+    "ngx-infinite-scroll": "^6.0.1",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-spinner": "^6.1.2",
     "ngx-toastr": "^9.1.1",

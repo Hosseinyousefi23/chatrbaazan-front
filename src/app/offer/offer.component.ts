@@ -51,9 +51,9 @@ export class OfferComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader).subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
-    this.offer.search(null,null,null,'created_at',this.cityHeader).subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
-    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader).subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'favorites',this.cityHeader,'10').subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'created_at',this.cityHeader,'10').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'10').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();
   }
   date_timestamp(d){

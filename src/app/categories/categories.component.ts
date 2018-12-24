@@ -11,73 +11,86 @@ import { DetailModalComponent } from '../detail-modal/detail-modal.component';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  pro;
+  pro : any[] = [];
   selectedcompany;
   selectedtab: string;
   cityHeader = '';
 
-  companies : any[] =[];
-  Categoryid :any[] =[];
+
+  next_url = '';
+  size = 1;
+  page = 1;
+  finished = false
+
+  companies: any[] = [];
+  Categoryid: any[] = [];
   mode = new FormControl('over');
-  constructor(private route: ActivatedRoute , private router : Router,private data :PageService, private dialog: MatDialog) {
+  constructor(private route: ActivatedRoute, private router: Router, private data: PageService, private dialog: MatDialog) {
 
-    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
-   }
-
-   this.router.events.subscribe((evt) => {
-      if (evt instanceof NavigationEnd){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-         this.router.navigated = false;
     }
-  });
-}
+
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+      }
+    });
+  }
 
   ngOnInit() {
-    
-    this.route.params.subscribe(params => {this.Categoryid = params['slug'];})
-    this.data.search(null,null,this.Categoryid).subscribe(param => { 
-      if(param['count']){
-        this.pro = param
-        this.companies =[]
-        for(let i of param.results){
+
+    this.route.params.subscribe(params => { this.Categoryid = params['slug']; })
+    this.data.search(null, null, this.Categoryid,null,null,this.size).subscribe(param => {
+      if (param['count']) {
+        this.pro = param.results
+        this.companies = []
+        for (let i of param.results) {
           for (let c of i.company) {
             if (!this.companies.some(temp => temp.name == c.name)) {
               this.companies.push(c);
             }
           }
         }
-      }else{
-      this.router.navigate(['/']);
-    }
+      } else {
+        this.router.navigate(['/']);
+      }
     });
   }
   citychangedinheader(a) {
     this.cityHeader = a;
+    this.page = 1;
     this.filter();
   }
 
-  
-  changeTab($event){
-    let tab = ['favorites','topchatrbazi','created_at']
-    this.selectedtab =tab[$event.index];
-    this.filter();
-}
 
-  filter(){
-    this.data.search(null,this.selectedcompany,this.Categoryid,this.selectedtab,this.cityHeader).subscribe(param => { 
-      if(param['count']){
-        this.pro = param
-        this.companies =[]
-        for(let i of param.results){
+  changeTab($event) {
+    let tab = ['favorites', 'topchatrbazi', 'created_at']
+    this.selectedtab = tab[$event.index];
+    this.page = 1;
+    this.filter();
+  }
+
+  filterbtn(){
+    this.page = 1;
+    this.filter();
+  }
+  
+  filter() {
+    this.data.search(null, this.selectedcompany, this.Categoryid, this.selectedtab, this.cityHeader,this.size, this.page).subscribe(param => {
+      if (param['count']) {
+        this.pro = param.results
+        this.companies = []
+        for (let i of param.results) {
           for (let c of i.company) {
             if (!this.companies.some(temp => temp.name == c.name)) {
               this.companies.push(c);
             }
           }
         }
-      }else{
-        this.pro =null;
-    }
+      } else {
+        this.pro = null;
+      }
     });
   }
 
@@ -86,8 +99,35 @@ export class CategoriesComponent implements OnInit {
     dialogConfig.direction = "rtl";
     this.dialog.open(DetailModalComponent, {
       direction: 'rtl',
-      data:{ 'slug': slug}
+      data: { 'slug': slug }
     });
 
-}
+  }
+
+  infinte_list() {
+    this.data.search(null, this.selectedcompany, this.Categoryid, this.selectedtab, this.cityHeader, this.size, this.page).subscribe(param => {
+      if (param['count']) {
+        console.log(param.results)
+        this.pro = this.pro.concat(param['results'])
+        this.next_url = param.next
+        for (let i of param.results) {
+          for (let c of i.company) {
+            if (!this.companies.some(temp => temp.name == c.name)) {
+              this.companies.push(c);
+            }
+          }
+        }
+      } else {
+        this.pro = null;
+      }
+    });
+  }
+
+
+  onScroll() {
+    this.page += 1;
+    this.infinte_list();
+    // console.log(this.next_url)
+    // console.log(this.page)
+  }
 }

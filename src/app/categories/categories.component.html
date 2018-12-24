@@ -22,7 +22,7 @@
             </mat-radio-group>
           </div>
         </div>
-        <button class="btn filter_btn" (click)="filter()">اعمال فیلتر</button>
+        <button class="btn filter_btn" (click)="filterbtn()">اعمال فیلتر</button>
       </div>
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">
@@ -31,7 +31,7 @@
               <div class="row inner_content">
                 <!-- start of offer -->
 
-                <div class="offer_box" *ngFor="let item of pro.results;">
+                <div class="offer_box" *ngFor="let item of pro;">
 
 
                   <label>
@@ -64,13 +64,16 @@
                 <!-- end of offer -->
 
               </div>
+              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+              (scrolled)="onScroll()">
+              </div>
             </mat-tab>
 
             <mat-tab label="بیشترین تخفیف">
               <div class="row inner_content">
                 <!-- start of offer -->
 
-                <div class="offer_box" *ngFor="let item of pro.results;">
+                <div class="offer_box" *ngFor="let item of pro;">
 
 
                   <label>
@@ -101,6 +104,10 @@
                   </label>
                 </div>
                 <!-- end of offer -->
+              </div>
+
+              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+              (scrolled)="onScroll()">
               </div>
             </mat-tab>
 
@@ -109,7 +116,7 @@
               <div class="row inner_content">
                 <!-- start of offer -->
 
-                <div class="offer_box" *ngFor="let item of pro.results;">
+                <div class="offer_box" *ngFor="let item of pro;">
 
 
                   <label>
@@ -140,6 +147,9 @@
                   </label>
                 </div>
                 <!-- end of offer -->
+              </div>
+              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+              (scrolled)="onScroll()">
               </div>
             </mat-tab>
 
