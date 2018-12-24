@@ -34,8 +34,20 @@ export class PageService {
   }
 
   sendfailure(slug){
-    return this.http.get<any[]>(this.baseUrl + '/api/v1/failure/'+slug)
+    return this.http.get<any[]>(this.baseUrl + 'api/v1/failure/'+slug)
   }
+
+  sendclick_like(productId) {
+    
+    const body = new HttpParams()
+      .set('product', productId)
+
+    return this.http.post(this.baseUrl + 'api/v1/like/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+    });
+    
+  }
+
 
 
 

@@ -78,11 +78,23 @@ export class OfferComponent implements OnInit {
   }
 
   sendfail(slug){
+    this.toastr.error('چترتون مستدام ')
     this.offer.sendfailure(slug).subscribe(
       // data => console.log(data)
     )
   }
-  showCopied() {
+
+  sendclick(product_id){
+    this.toastr.info('آماده پرتاب')
+    this.offer.sendclick_like(product_id).subscribe(
+      data => console.log(data)
+    )
+  }
+
+  showCopied(product_id) {
+    this.offer.sendclick_like(product_id).subscribe(
+      data => console.log(data)
+    )
     $(".Copy_btn").text("کپی شد")
     setTimeout( function(){ 
       $(".Copy_btn").text("کپی")

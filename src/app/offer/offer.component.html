@@ -44,7 +44,7 @@
                   </div>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
                     <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
 
@@ -65,7 +65,7 @@
                       </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
                         <button  class="btn btn-success btn_sm ">
-                          خرید
+                          پرتاب
                         </button>
                       </a>
                     </div>
@@ -131,7 +131,7 @@
                   </div>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
                     <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -139,6 +139,7 @@
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
+                          <!--  -->
                         <button class="btn btn-danger btn_sm">
 
                           اعلام خرابی
@@ -152,7 +153,7 @@
                       </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
                         <button  class="btn btn-success btn_sm ">
-                          خرید
+                          پرتاب
                         </button>
                       </a>
                     </div>
@@ -216,7 +217,7 @@
                   </div>
                   <div *ngIf="item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied()" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
                     <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -237,7 +238,7 @@
                       </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
                         <button  class="btn btn-success btn_sm ">
-                          خرید
+                          پرتاب
                         </button>
                       </a>
                     </div>
