@@ -202,7 +202,11 @@
     z-index: 5;
     background: rgb(21, 44, 83);
     color: #FFFFFF;
-    -webkit-transform: rotateY(180deg);
+    
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+    -o-transform:rotateY(180deg);
+    transform:rotateY(180deg);
     transform: rotateY(180deg);
     
   }
@@ -213,7 +217,10 @@
   
   .voted {
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+    -o-transform:rotateY(180deg);
+    transform:rotateY(180deg);
   }
   
   input {
