@@ -21,7 +21,7 @@ a{
     bottom: 0; 
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../../assets/image/background.png')
+    /* background-image: url('../../assets/image/background.png') */
 }
 p{
     text-align: right;
