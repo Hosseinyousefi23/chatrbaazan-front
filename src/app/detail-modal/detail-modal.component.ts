@@ -19,6 +19,10 @@ export class DetailModalComponent implements OnInit {
   private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.pro = {
+      is_free: false,
+    }
+      
     this.service.getproductByslug(this.data.slug).subscribe(param => { 
       if(param['data']){
         this.pro = param['data']
