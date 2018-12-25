@@ -45,7 +45,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CarouselComponent } from './carousel/carousel.component';
-import { OfferComponent, BottomSheetOverviewExampleSheet } from './offer/offer.component';
+import { OfferComponent } from './offer/offer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -74,6 +74,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ProductComponent } from './product/product.component';
+import { ConventionComponent } from './convention/convention.component';
+import { BottomSheetOverviewExampleSheet } from './bottom-sheet/bottom-sheet.component';
+import { ApplicationComponent } from './application/application.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +104,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     UserprofileComponent,
     DetailModalComponent,
     BottomSheetOverviewExampleSheet,
+    ProductComponent,
+    ConventionComponent,
+    ApplicationComponent,
     
   ],
   imports: [

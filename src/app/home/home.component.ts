@@ -20,12 +20,6 @@ export class HomeComponent implements OnInit {
   banner2: any[] = [];
   banner3: any[] = [];
 
-
- 
-  
-  
-  
-
   isLoadingResults = true;
   constructor(private data: PageService,private spinner: NgxSpinnerService) { }
 

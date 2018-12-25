@@ -1,20 +1,20 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit, Input } from '@angular/core';
+import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
-import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
-import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
+import { ToastrService } from 'ngx-toastr';
+import { MatBottomSheet } from '@angular/material';
 
-//import * from 'jquery';
 
 declare var $: any;
-@Component({
-  selector: 'app-offer',
-  templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.css','../sharesCss/shared_style.css']
-})
 
-export class OfferComponent implements OnInit {
+@Component({
+  selector: 'app-application',
+  templateUrl: './application.component.html',
+  styleUrls: ['./application.component.css','../sharesCss/shared_style.css']
+})
+export class ApplicationComponent implements OnInit {
+
   public mostseen : any[] =[];
   public newest : any[] =[];
   public mostDiscount: any[] =[];
@@ -111,4 +111,5 @@ export class OfferComponent implements OnInit {
     this.bottomSheet.open(BottomSheetOverviewExampleSheet
       ,{data:{ 'slug': slug}});
   }
+
 }

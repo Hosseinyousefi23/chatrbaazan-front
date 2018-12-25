@@ -1,28 +1,23 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { PageService } from '../page.service';
-import { UsersService } from '../users.service';
-import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { Component, OnInit, Input } from '@angular/core';
 import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
-
-//import * from 'jquery';
+import { MatBottomSheet } from '@angular/material';
+import { PageService } from '../page.service';
+import { ToastrService } from 'ngx-toastr';
+import { UsersService } from '../users.service';
 
 declare var $: any;
-@Component({
-  selector: 'app-offer',
-  templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.css','../sharesCss/shared_style.css']
-})
 
-export class OfferComponent implements OnInit {
+@Component({
+  selector: 'app-convention',
+  templateUrl: './convention.component.html',
+  styleUrls: ['./convention.component.css','../sharesCss/shared_style.css']
+})
+export class ConventionComponent implements OnInit {
+
   public mostseen : any[] =[];
   public newest : any[] =[];
   public mostDiscount: any[] =[];
-  public config : object ={
-    leftTime: 23,
-    template:'$!h!ساعت$!m!دقیقه$!s!ثانیه'
-  };
-  t
+
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
@@ -57,13 +52,6 @@ export class OfferComponent implements OnInit {
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();
   }
-  date_timestamp(d){
-    let time = new Date(d);
-    //console.log(time)
-    // console.log(Date.now(),time.getTime());
-    // console.log(Date.now()-time.getTime());
-    return Date.now()-time.getTime();
-  }
   addtocart(id){
     this.user.addtocart(id).subscribe(
       (data : any) => {
@@ -81,7 +69,6 @@ export class OfferComponent implements OnInit {
   sendfail(slug){
     this.toastr.error('چترتون مستدام ')
     this.offer.sendfailure(slug).subscribe(
-      // data => console.log(data)
     )
   }
 
@@ -107,8 +94,8 @@ export class OfferComponent implements OnInit {
   }
 
   openBottomSheet(slug): void {
-    // console.log(slug+"12")
     this.bottomSheet.open(BottomSheetOverviewExampleSheet
       ,{data:{ 'slug': slug}});
   }
+
 }
