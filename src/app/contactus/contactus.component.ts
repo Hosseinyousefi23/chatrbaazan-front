@@ -16,7 +16,7 @@ export class ContactusComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
   contactus; 
-  
+  info;
   mode = new FormControl('over');
 
   constructor(private contactservice: ContactusService,private page: PageService,
@@ -29,11 +29,12 @@ export class ContactusComponent implements OnInit {
       email: '',
       contact: ''
     };
+    this.page.getContactInfo().subscribe((data:any) => {this.info = data.data;}) ;
+    // this.page.getContactInfo().subscribe(
+    //   data => {console.log(data)}
+    //   )
     
-    this.page.getContactInfo().subscribe(
-      data => {console.log(data)}
-      )
-      
+    
   }
   
   save(tryForm?:NgForm){

@@ -22,13 +22,14 @@
       <div class="contact_inner">
         <div class="row">
           <div class="col-xs-12 col-md-2 contact email box">
+              <a href="https://t.me/{{info.telegram}}">
               <span>
                 <i   class="fa fa-telegram"></i>
               </span>
               <p>
-                کانال تلگرامی : <a href="https://t.me/linuxkhan">@linuxkhan</a>
+                {{info.telegram}}@
               </p>
-              
+              </a>
           </div>
 
           <div class="col-xs-12 col-md-2 contact telegram box">
@@ -36,25 +37,27 @@
                   <i class="fa fa-phone"></i>
                 </span>
                 <p>
-                  کانال تلگرامی : <a href="https://t.me/linuxkhan">@linuxkhan</a>
+                  <a href="">{{info.phone}}</a>
                 </p>
           </div>
-
+          
           <div class="col-xs-12 col-md-2 contact telegram box">
               <span >
                   <i class="fa fa-envelope"></i>
                 </span>
-                <p>
-                <a href="surena_project@gmail.com">surena-project@gmail.com</a>
+                <p style="word-break: break-all;">
+                  <a href="mailto:{{info.email}}">{{info.email}}</a>
                 </p>
           </div>
           <div class="col-xs-12 col-md-2 contact instagram box">
+              <a href="https://instagram.com/{{info.instagram}}">
               <span  >
                   <i   class="fa fa-instagram"></i>
                 </span>
                 <p>
-                  کانال تلگرامی : <a href="https://t.me/linuxkhan">@linuxkhan</a>
+                 {{info.instagram}}@
                 </p>
+              </a>
           </div>
 
         </div>
