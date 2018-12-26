@@ -44,11 +44,11 @@ export class HomeComponent implements OnInit {
     this.slider = data.data;
       for (let i of this.slider) {
         if (!i.is_slider) {
-          if (i.location == '1') {
-            this.banner3.push(i.image);
-            this.banner3.push(i.link);
-          }
-          else if (i.location == '2') {
+          // if (i.location == '1') {
+          //   this.banner3.push(i.image);
+          //   this.banner3.push(i.link);
+          // }
+          if (i.location == '2') {
             this.banner2.push(i.image);
             this.banner2.push(i.link);
           }
