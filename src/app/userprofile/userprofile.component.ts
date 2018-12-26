@@ -7,12 +7,13 @@ declare var $: any;
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
-  styleUrls: ['./userprofile.component.css'],
+  styleUrls: ['./userprofile.component.css','./user.component.scss'],
   // encapsulation: ViewEncapsulation.None
 })
 export class UserprofileComponent implements OnInit {
   mode = new FormControl('over');
   cart;
+  userinfo;
   codedata;
   constructor(private user : UsersService) { }
 
@@ -24,6 +25,14 @@ export class UserprofileComponent implements OnInit {
       ex_date:'',
       chatr:'',
     }
+    this.userinfo={
+      first_name:'',
+      last_name:'',
+      email:'',
+      mobile:'',
+    }
+    this.getUserData();
+    this.getUserproduct();
   }
 
   sendcode(){
@@ -34,13 +43,16 @@ export class UserprofileComponent implements OnInit {
 
    getUserproduct(){
     this.user. getUserproduct().subscribe(
-      // data => console.log(data)
+      data => console.log(data)
       );
   }
 
    getUserData(){
     this.user. getUserData().subscribe(
-      // data => console.log(data)
+      data => {
+        this.userinfo = data;
+        console.log(data);
+      }
       );
   }
 

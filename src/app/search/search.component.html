@@ -18,7 +18,7 @@
           <hr>
           <div class="filter_options">
             <mat-radio-group [(ngModel)]="selectedcompany">
-              <mat-radio-button *ngFor="let company of companies;" value="{{company.name}}">{{company.name}}</mat-radio-button>
+              <mat-radio-button *ngFor="let company of companies;" value="{{company.slug}}">{{company.name}}</mat-radio-button>
             </mat-radio-group>
             <!-- <a *ngFor="let company of companies;">{{company.name}}</a>  -->
           </div>
@@ -29,7 +29,7 @@
           <div class="filter_options">
             <!-- <a *ngFor="let category of categories;">{{category.name}}</a>  -->
             <mat-radio-group [(ngModel)]="selectedcategory">
-              <mat-radio-button *ngFor="let category of categories;" value="{{category.name}}">{{category.name}}</mat-radio-button>
+              <mat-radio-button *ngFor="let category of categories;" value="{{category.slug}}">{{category.name}}</mat-radio-button>
             </mat-radio-group>
 
           </div>

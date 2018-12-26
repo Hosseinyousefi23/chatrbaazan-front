@@ -12,33 +12,47 @@
   
       <app-header (navToggle)="sidenav.toggle()"></app-header>
       <div class="row content">
-          <div class="col-md-3 col-xs-12">
-              <div class="profile_header">
-                پروفایل کاربری
-              </div>
-              <div class="profile_option">
-                <a>تخفیف های من</a>
-                <hr>
-                <a>افزودن کد</a>
-              </div>
-            </div>
-        <div class="col-md-9 col-xs-12  ">
-          
 
-              
-              
-            <div class="cart_item">
-              <div class="add_code">
-                  <h1 class="add_code_title">افزودن کد</h1>
-                  <input type="text" [(ngModel)] = "codedata.code" placeholder="کد" required="required" />
-                  <input type="text"  [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" required="required" />
-                  <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
-                  <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
-                  <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button>
-              </div>     
+          <div class="container">
+              <div id="content">
+                <div id="main-content">
+                  <mat-tab-group>
+                    <mat-tab label="مشخصات چترباز">
+                        <div class="cart_item tabs">
+                    <div class="user_name">
+                      {{userinfo.first_name}} {{userinfo.last_name}}
+                    </div> 
+                    <div class="user_email">
+                        {{userinfo.email}}
+                    </div> 
+                    <div class="user_moble">
+                        {{userinfo.mobile}}
+                    </div> 
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="چتربازی های من">
+                        <div class="cart_item tabs">
+                      تخفیف هات 
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="افزودن چتر جدید">
+
+                      <div class="cart_item tabs">
+                        <div class="add_code">
+                            <h1 class="add_code_title">افزودن کد</h1>
+                            <input type="text" [(ngModel)] = "codedata.code" placeholder="کد" required="required" />
+                            <input type="text"  [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" required="required" />
+                            <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
+                            <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
+                            <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button>
+                        </div>     
+                      </div>
+
+                    </mat-tab>
+                  </mat-tab-group>
+                </div>
+              </div>
             </div>
-          
-        </div>
       </div>
       <app-footer></app-footer>
   
