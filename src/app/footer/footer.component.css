@@ -48,6 +48,7 @@
   display: block;
   float: inline-start;
   padding: 0 4px;
+  float: right;
 }
 
 .social_network {
