@@ -52,18 +52,12 @@ export class ApplicationComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader,'5').subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
-    this.offer.search(null,null,null,'created_at',this.cityHeader,'5').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
-    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'favorites',this.cityHeader,'5',null,'2').subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'created_at',this.cityHeader,'5',null,'2').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5',null,'2').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();
   }
-  date_timestamp(d){
-    let time = new Date(d);
-    //console.log(time)
-    // console.log(Date.now(),time.getTime());
-    // console.log(Date.now()-time.getTime());
-    return Date.now()-time.getTime();
-  }
+
   addtocart(id){
     this.user.addtocart(id).subscribe(
       (data : any) => {
@@ -107,7 +101,6 @@ export class ApplicationComponent implements OnInit {
   }
 
   openBottomSheet(slug): void {
-    // console.log(slug+"12")
     this.bottomSheet.open(BottomSheetOverviewExampleSheet
       ,{data:{ 'slug': slug}});
   }

@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   selectedcategory;
   selectedtab: string;
   cityHeader = '';
+  type = 4;
 
   next_url = '';
   size = 4;
@@ -45,8 +46,9 @@ export class SearchComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.route.params.subscribe(params => {this.type = params['type'];})
     this.searched = this.route.snapshot.queryParams['search']
-    this.data.search(this.searched,null,null,null,null,this.size).subscribe(param => {
+    this.data.search(this.searched,null,null,null,null,this.size,null,this.type).subscribe(param => {
       if (param['count']) {
         this.pro = param.results
         this.next_url = param.next
@@ -92,8 +94,8 @@ export class SearchComponent implements OnInit {
   }
 
   filter() {
-    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page).subscribe(param => {
-      if (param['count']) {
+    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page,this.type).subscribe(param => {
+      if (param['count']) {    
         this.pro = param.results
         this.companies = []
         this.categories = []
@@ -124,7 +126,7 @@ export class SearchComponent implements OnInit {
 
   infinte_list() {
     if(this.next_url != null){
-    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page).subscribe(param => {
+    this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page,this.type).subscribe(param => {
       if (param['count']) {
         // console.log(param.results)
         this.pro = this.pro.concat(param['results'])
