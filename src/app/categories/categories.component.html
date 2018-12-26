@@ -30,12 +30,11 @@
             <mat-tab label="محبوب ترین‎ها">
               <div class="row inner_content">
                 <!-- start of offer -->
-
                 <div class="offer_box" *ngFor="let item of pro;">
 
 
                   <label>
-
+                    <input type="checkbox" />
                     <div class="card front_offer ">
                       <div class="front">
                         <a class="offer_box_link">
@@ -47,109 +46,256 @@
                             {{item.name}}
                           </div>
                           <div class="offer_company">
-                            <span *ngFor="let i of item.company;">
+                            <span class="offer_companies" *ngFor="let i of item.company;">
                               <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                             </span>
                           </div>
-                          <!-- <a class="btn offer_btn" [routerLink]="['/product' , item.slug]"> -->
-                            <a class="btn offer_btn" (click)="openDialog(item.slug)">
+                          <a class="btn offer_btn" ngbButton>
                             مشاهده
                           </a>
                         </a>
                       </div>
+                      <div class="back ">
+
+                        <p class="back_name">{{item.name}}</p>
+                        <div class="timer timer_{{item.id}}">
+                          <countdown-timer (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                        </div>
+                        <div *ngIf="item.is_free" #container>
+
+                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                            [container]="container">کپی</button>
+
+                          <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+
+                        </div>
+                        <div class="btn-groups">
+                          <div>
+                            <a (click)="sendfail(item.slug)">
+                              <!--  -->
+                              <button class="btn btn-danger btn_sm">
+
+                                اعلام خرابی
+
+                              </button>
+                            </a>
+                            <a *ngIf="!item.is_free" (click)="addtocart(item.id)">
+                              <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
+                                خرید
+                              </button>
+                            </a>
+                            <a *ngIf="item.is_free" href="{{item.link}}">
+                              <button class="btn btn-success btn_sm ">
+                                لینک خرید
+                              </button>
+                            </a>
+                          </div>
+                          <button (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
+                            اشتراک گذاری
+                          </button>
+
+                          <a [routerLink]="['/product' , item.slug]">
+                            <button class="btn btn-primary btn_sm">
+                              توضیح بیشتر
+                            </button>
+                          </a>
+                        </div>
+                        <button class="btn offer_btn back_voted">
+                          بازگشت
+                        </button>
+                      </div>
                     </div>
 
                   </label>
+
                 </div>
                 <!-- end of offer -->
 
               </div>
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-              (scrolled)="onScroll()">
+                (scrolled)="onScroll()">
               </div>
             </mat-tab>
 
             <mat-tab label="بیشترین تخفیف">
-              <div class="row inner_content">
-                <!-- start of offer -->
-
-                <div class="offer_box" *ngFor="let item of pro;">
-
-
-                  <label>
-
-                    <div class="card front_offer ">
-                      <div class="front">
-                        <a class="offer_box_link">
-                          <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
-                          <div class="offer_image">
-                            <img src="{{item.image}}" alt="">
+                <div class="row inner_content">
+                    <!-- start of offer -->
+                    <div class="offer_box" *ngFor="let item of pro;">
+    
+    
+                      <label>
+                        <input type="checkbox" />
+                        <div class="card front_offer ">
+                          <div class="front">
+                            <a class="offer_box_link">
+                              <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
+                              <div class="offer_image">
+                                <img src="{{item.image}}" alt="">
+                              </div>
+                              <div class="offer_title">
+                                {{item.name}}
+                              </div>
+                              <div class="offer_company">
+                                <span class="offer_companies" *ngFor="let i of item.company;">
+                                  <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                                </span>
+                              </div>
+                              <a class="btn offer_btn" ngbButton>
+                                مشاهده
+                              </a>
+                            </a>
                           </div>
-                          <div class="offer_title">
-                            {{item.name}}
+                          <div class="back ">
+    
+                            <p class="back_name">{{item.name}}</p>
+                            <div class="timer timer_{{item.id}}">
+                              <countdown-timer (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                            </div>
+                            <div *ngIf="item.is_free" #container>
+    
+                              <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                                [container]="container">کپی</button>
+    
+                              <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+    
+                            </div>
+                            <div class="btn-groups">
+                              <div>
+                                <a (click)="sendfail(item.slug)">
+                                  <!--  -->
+                                  <button class="btn btn-danger btn_sm">
+    
+                                    اعلام خرابی
+    
+                                  </button>
+                                </a>
+                                <a *ngIf="!item.is_free" (click)="addtocart(item.id)">
+                                  <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
+                                    خرید
+                                  </button>
+                                </a>
+                                <a *ngIf="item.is_free" href="{{item.link}}">
+                                  <button class="btn btn-success btn_sm ">
+                                    لینک خرید
+                                  </button>
+                                </a>
+                              </div>
+                              <button (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
+                                اشتراک گذاری
+                              </button>
+    
+                              <a [routerLink]="['/product' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                            </div>
+                            <button class="btn offer_btn back_voted">
+                              بازگشت
+                            </button>
                           </div>
-                          <div class="offer_company">
-                            <span *ngFor="let i of item.company;">
-                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
-                            </span>
-                          </div>
-                          <!-- <a class="btn offer_btn" [routerLink]="['/product' , item.slug]"> -->
-                            <a class="btn offer_btn" (click)="openDialog(item.slug)">
-                            مشاهده
-                          </a>
-                        </a>
-                      </div>
+                        </div>
+    
+                      </label>
+    
                     </div>
-
-                  </label>
-                </div>
-                <!-- end of offer -->
-              </div>
+                    <!-- end of offer -->
+    
+                  </div>
 
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-              (scrolled)="onScroll()">
+                (scrolled)="onScroll()">
               </div>
             </mat-tab>
 
 
             <mat-tab label="تازه ترین‎ها">
-              <div class="row inner_content">
-                <!-- start of offer -->
-
-                <div class="offer_box" *ngFor="let item of pro;">
-
-
-                  <label>
-
-                    <div class="card front_offer ">
-                      <div class="front">
-                        <a class="offer_box_link">
-                          <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
-                          <div class="offer_image">
-                            <img src="{{item.image}}" alt="">
+                <div class="row inner_content">
+                    <!-- start of offer -->
+                    <div class="offer_box" *ngFor="let item of pro;">
+    
+    
+                      <label>
+                        <input type="checkbox" />
+                        <div class="card front_offer ">
+                          <div class="front">
+                            <a class="offer_box_link">
+                              <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
+                              <div class="offer_image">
+                                <img src="{{item.image}}" alt="">
+                              </div>
+                              <div class="offer_title">
+                                {{item.name}}
+                              </div>
+                              <div class="offer_company">
+                                <span class="offer_companies" *ngFor="let i of item.company;">
+                                  <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                                </span>
+                              </div>
+                              <a class="btn offer_btn" ngbButton>
+                                مشاهده
+                              </a>
+                            </a>
                           </div>
-                          <div class="offer_title">
-                            {{item.name}}
+                          <div class="back ">
+    
+                            <p class="back_name">{{item.name}}</p>
+                            <div class="timer timer_{{item.id}}">
+                              <countdown-timer (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                            </div>
+                            <div *ngIf="item.is_free" #container>
+    
+                              <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                                [container]="container">کپی</button>
+    
+                              <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+    
+                            </div>
+                            <div class="btn-groups">
+                              <div>
+                                <a (click)="sendfail(item.slug)">
+                                  <!--  -->
+                                  <button class="btn btn-danger btn_sm">
+    
+                                    اعلام خرابی
+    
+                                  </button>
+                                </a>
+                                <a *ngIf="!item.is_free" (click)="addtocart(item.id)">
+                                  <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
+                                    خرید
+                                  </button>
+                                </a>
+                                <a *ngIf="item.is_free" href="{{item.link}}">
+                                  <button class="btn btn-success btn_sm ">
+                                    لینک خرید
+                                  </button>
+                                </a>
+                              </div>
+                              <button (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
+                                اشتراک گذاری
+                              </button>
+    
+                              <a [routerLink]="['/product' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                            </div>
+                            <button class="btn offer_btn back_voted">
+                              بازگشت
+                            </button>
                           </div>
-                          <div class="offer_company">
-                            <span *ngFor="let i of item.company;">
-                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
-                            </span>
-                          </div>
-                          <!-- <a class="btn offer_btn" [routerLink]="['/product' , item.slug]"> -->
-                            <a class="btn offer_btn" (click)="openDialog(item.slug)">
-                            مشاهده
-                          </a>
-                        </a>
-                      </div>
+                        </div>
+    
+                      </label>
+    
                     </div>
-
-                  </label>
-                </div>
-                <!-- end of offer -->
-              </div>
+                    <!-- end of offer -->
+    
+                  </div>
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-              (scrolled)="onScroll()">
+                (scrolled)="onScroll()">
               </div>
             </mat-tab>
 

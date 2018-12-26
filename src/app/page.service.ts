@@ -37,27 +37,31 @@ export class PageService {
     return this.http.get<any[]>(this.baseUrl + 'api/v1/setting/')
   }
 
-  sendfailure(slug){
-    return this.http.get<any[]>(this.baseUrl + 'api/v1/failure/'+slug)
+  serachIncompany(company) {
+    return this.http.get<any[]>(this.baseUrl + 'api/v1/company/?search=' + company)
+  }
+
+  sendfailure(slug) {
+    return this.http.get<any[]>(this.baseUrl + 'api/v1/failure/' + slug)
   }
 
   sendclick_like(productId) {
-    
+
     const body = new HttpParams()
       .set('product', productId)
 
     return this.http.post(this.baseUrl + 'api/v1/like/', body, {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
     });
-    
+
   }
 
 
 
 
-  search(term = null, company = null, category = null, ordering = null, city = null,limit =null,page=null,type=null){
+  search(term = null, company = null, category = null, ordering = null, city = null, limit = null, page = null, type = null) {
     let search_url = 'api/v1/offer/?'
-    if (term) { search_url = search_url + 'search=' + term }
+    // if (term) { search_url = search_url + 'search=' + term }
     if (company) { search_url = search_url + '&company_slug=' + company }
     if (category) { search_url = search_url + '&category_slug=' + category }
     if (ordering) { search_url = search_url + '&ordering=' + ordering }

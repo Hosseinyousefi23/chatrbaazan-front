@@ -5,10 +5,11 @@ import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { DetailModalComponent } from '../detail-modal/detail-modal.component';
 
+declare var $: any;
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
-  styleUrls: ['./company.component.css']
+  styleUrls: ['../sharesCss/shared_style.css','./company.component.css']
 })
 export class CompanyComponent implements OnInit {
 
@@ -23,7 +24,6 @@ export class CompanyComponent implements OnInit {
   next_url = '';
   size = 4;
   page = 1;
-  finished = false
 
   categories: any[] = [];
   Companyid: any[] = [];
@@ -44,9 +44,29 @@ export class CompanyComponent implements OnInit {
             }
           }
         }
+        this.addeventlister();
       } else {
         this.router.navigate(['/']);
       }
+    });
+  }
+
+  addeventlister(){
+    $(document).ready(function(){
+      $(".card").click(function(){
+        $(".card").removeClass("voted");
+        $(this).addClass("voted");
+        $(".card").find(".offer_image").css("display","block")
+        $(this).find(".offer_image").css("display","none")
+
+      });
+
+      $(".back_voted").click(function(e){
+        $(".offer_image").css("display","block")
+        e.stopPropagation();
+        $(".card").removeClass("voted");
+      });
+
     });
   }
 
@@ -80,6 +100,7 @@ export class CompanyComponent implements OnInit {
             }
           }
         }
+        this.addeventlister();
       } else {
         this.pro = null;
       }
@@ -108,6 +129,7 @@ export class CompanyComponent implements OnInit {
             }
           }
         }
+        this.addeventlister();
       } else {
         this.pro = null;
       }
@@ -121,4 +143,10 @@ export class CompanyComponent implements OnInit {
     // console.log(this.next_url)
     // console.log(this.page)
   }
+
+
+  finished(a){
+    $(".timer_"+a).text("منقضی شد")
+  }
+
 }

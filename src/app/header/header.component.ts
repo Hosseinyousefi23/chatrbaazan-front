@@ -48,10 +48,14 @@ export class HeaderComponent implements OnInit {
 
     this.searchTerm.valueChanges.subscribe(
       term => {
-        if (term != '') {
-          this.data.search(term).subscribe(
+        if (term.length > 2) {
+          this.data.serachIncompany(term).subscribe(
             data => {
-              this.searched = data['results'] as any[];
+              // console.log(data['data'])
+              if(data['data'].length){
+                this.searched = data['data'];
+              }
+              // this.searched.name = "cadsc"
             })
         }
       })

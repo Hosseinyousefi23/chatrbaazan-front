@@ -22,6 +22,7 @@
   .offer .inner_content {
     text-align: right;
     margin: 0;
+    margin-top: 6px;
   
   }
   
@@ -233,7 +234,7 @@
   }
   
   .btn_sm {
-    width: 7em !important;
+    width: 7em ;
     font-size: .8em;
     font-weight: 700;
     border-radius: 5px;
@@ -251,6 +252,10 @@
   .see_all {
     text-align: left;
   }
+  /deep/.mat-tab-label{
+    color: #000000;
+    font-weight: 700;
+  }
   
   @media (max-width: 768px) {
     .offer .offer_box {
@@ -260,6 +265,10 @@
   
     .mat-tab-label {
       width: 100px;
+    }
+    .btn_sm {
+    width: 8em !important;
+    font-size: 0.6em;
     }
   
   }
@@ -320,5 +329,9 @@
       font-size: .9em;
       padding: 0;
     }
+    .btn_sm {
+      width: 7em !important;
+      font-size: .8em;
+      }
   }
   

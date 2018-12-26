@@ -18,11 +18,7 @@ export class OfferComponent implements OnInit {
   public mostseen : any[] =[];
   public newest : any[] =[];
   public mostDiscount: any[] =[];
-  public config : object ={
-    leftTime: 23,
-    template:'$!h!ساعت$!m!دقیقه$!s!ثانیه'
-  };
-  t
+ 
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
@@ -52,9 +48,9 @@ export class OfferComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader,'5').subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
-    this.offer.search(null,null,null,'created_at',this.cityHeader,'5').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
-    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'favorites',this.cityHeader,'5',null,'4').subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'created_at',this.cityHeader,'5',null,'4 ').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5',null,'4').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();
   }
   date_timestamp(d){

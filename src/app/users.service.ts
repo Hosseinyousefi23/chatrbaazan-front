@@ -77,6 +77,14 @@ export class UsersService {
     });
   }
 
+  forgotpassword(email) {
+    const body = new HttpParams()
+      .set('email', email)
+    return this.http.post(this.baseUrl + 'auth/password/reset/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})
+    });
+  }
+
   updatecart(productId,n) {
     const body = new HttpParams()
       .set('itemId', productId)

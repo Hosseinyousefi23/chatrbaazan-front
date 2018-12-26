@@ -4,13 +4,13 @@ import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular
 import { PageService } from '../page.service';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { DetailModalComponent } from '../detail-modal/detail-modal.component';
-import { last } from '@angular/router/src/utils/collection';
-// import * as _ from 'l'
 
+
+declare var $: any;
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['../sharesCss/shared_style.css','./search.component.css']
 })
 export class SearchComponent implements OnInit {
   pro : any[] = [];
@@ -24,7 +24,6 @@ export class SearchComponent implements OnInit {
   next_url = '';
   size = 4;
   page = 1;
-  finished = false
   
   companies: any[] = [];
   categories: any[] = [];
@@ -60,7 +59,6 @@ export class SearchComponent implements OnInit {
               this.companies.push(c);
             }
           }
-          // console.log(this.companies)
         }
         for (let i of param.results) {
           for (let c of i.category) {
@@ -69,12 +67,32 @@ export class SearchComponent implements OnInit {
             }
           }
         }
-        // console.log(this.companies)
+        this.addeventlister();
       } else {
         this.pro = null;
       }
     });
   }
+
+  addeventlister(){
+    $(document).ready(function(){
+      $(".card").click(function(){
+        $(".card").removeClass("voted");
+        $(this).addClass("voted");
+        $(".card").find(".offer_image").css("display","block")
+        $(this).find(".offer_image").css("display","none")
+
+      });
+
+      $(".back_voted").click(function(e){
+        $(".offer_image").css("display","block")
+        e.stopPropagation();
+        $(".card").removeClass("voted");
+      });
+
+    });
+  }
+
   changeTab($event) {
     let tab = ['favorites', 'topchatrbazi', 'created_at']
     this.selectedtab = tab[$event.index];
@@ -117,6 +135,7 @@ export class SearchComponent implements OnInit {
             }
           }
         }
+        this.addeventlister();
       } else {
         this.pro = null;
       }
@@ -128,7 +147,6 @@ export class SearchComponent implements OnInit {
     if(this.next_url != null){
     this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page,this.type).subscribe(param => {
       if (param['count']) {
-        // console.log(param.results)
         this.pro = this.pro.concat(param['results'])
         this.next_url = param.next
         for (let i of param.results) {
@@ -145,6 +163,7 @@ export class SearchComponent implements OnInit {
             }
           }
         }
+        this.addeventlister();
       } else {
         this.pro = null;
       }
@@ -161,6 +180,11 @@ export class SearchComponent implements OnInit {
     // console.log(this.next_url)
     // console.log(this.page)
     }
+  }
+
+
+  finished(a){
+    $(".timer_"+a).text("منقضی شد")
   }
 
 }
