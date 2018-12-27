@@ -61,12 +61,13 @@
 
 .product_chatr {
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 1em;
   padding: 2px;
   background-color: #FF003C;
   color: #ffffff;
   border-radius:  5px ;
+  z-index: 5 !important;
 }
 
 .ngx_gallery {
