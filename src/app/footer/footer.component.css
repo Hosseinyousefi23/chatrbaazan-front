@@ -63,6 +63,13 @@
   font-size: 22px;
 }
 
+
+.email_sen{
+  text-align: right;
+  margin-right: 64px;
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   .line {
     margin: 1em 3em;
