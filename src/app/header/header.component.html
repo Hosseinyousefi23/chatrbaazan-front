@@ -82,10 +82,25 @@
   <div class="menu">
     <ul>
       <li *ngFor="let category of categories">
-        <a [routerLink]="['/category' , category.slug]">
-          {{category.name}}
-        </a>
+        <!-- <a [routerLink]="['/category' , category.slug]"> -->
+          <!-- {{category.name}} -->
+          <button mat-button [matMenuTriggerFor]="menu">{{category.name}}</button>
+        <!-- </a> -->
+        <mat-menu #menu="matMenu">
+          
+            <button *ngFor="let comp of category.company" [routerLink]="['/company',comp.slug]" routerLinkActive="router-link-active"  mat-menu-item>{{comp.name}}
+              <img src="{{comp.image}}" style="height: 32px;width: 32px;" >
+            </button>
+        </mat-menu>
       </li>
     </ul>
+
+    <!-- <ul>
+        <li *ngFor="let category of categories">
+          <a [routerLink]="['/category' , category.slug]">
+            {{category.name}}
+          </a>
+        </li>
+      </ul> -->
   </div>
 </div>

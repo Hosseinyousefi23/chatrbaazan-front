@@ -29,8 +29,10 @@ import {
   MatSelectModule,
   MatListModule,
   MatBottomSheetModule,
+  MatMenuModule
   
   } from "@angular/material";
+
 
 import {  MatDialogModule,MatDialogRef,MatDialog} from "@angular/material/dialog";
 
@@ -151,7 +153,7 @@ import { ApplicationComponent } from './application/application.component';
     MatTabsModule,
     MatSelectModule,
     NgxSpinnerModule,
-    
+    MatMenuModule
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   providers: [],
