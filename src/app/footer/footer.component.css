@@ -63,6 +63,9 @@
   font-size: 22px;
 }
 
+:host::ng-deep mat-form-field {
+  color: red !important;
+}
 
 .email_sen{
   text-align: right;
