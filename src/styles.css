@@ -57,6 +57,14 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* Fix bug input in safari */
+input {
+  -moz-user-select: auto !important;
+  -webkit-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+}
+
 .example-container {
   /* z-index: 10; */
 }
