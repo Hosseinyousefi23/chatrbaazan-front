@@ -4,7 +4,9 @@ import { PageService } from '../page.service';
 import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { DetailModalComponent } from '../detail-modal/detail-modal.component';
-
+import { ToastrService } from 'ngx-toastr';
+import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
 declare var $: any;
 @Component({
   selector: 'app-company',
@@ -13,7 +15,8 @@ declare var $: any;
 })
 export class CompanyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private data: PageService, private dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private router: Router, private data: PageService, private dialog: MatDialog,private toastr: ToastrService,
+    private bottomSheet: MatBottomSheet) { }
   pro : any[] = [];
   selectedcategory;
   selectedtab: string;
@@ -144,6 +147,28 @@ export class CompanyComponent implements OnInit {
     // console.log(this.page)
   }
 
+  sendfail(slug){
+    this.toastr.error('چترتون مستدام ')
+    this.data.sendfailure(slug).subscribe(
+      // data => console.log(data)
+    )
+  }
+
+  openBottomSheet(slug): void {
+    // console.log(slug+"12")
+    this.bottomSheet.open(BottomSheetOverviewExampleSheet
+      ,{data:{ 'slug': slug}});
+  }
+
+  showCopied(product_id) {
+    this.data.sendclick_like(product_id).subscribe(
+      data => console.log(data)
+    )
+    $(".Copy_btn").text("کپی شد")
+    setTimeout( function(){ 
+      $(".Copy_btn").text("کپی")
+    }  , 3000 );
+  }
 
   finished(a){
     $(".timer_"+a).text("منقضی شد")

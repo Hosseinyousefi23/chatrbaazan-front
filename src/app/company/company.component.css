@@ -36,7 +36,7 @@
 .company_image {
   width: 100%;
   height: 10em;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
 }
 
 .filter_box {
@@ -98,7 +98,7 @@ label {
 .company_image {
   width: 100%;
   height: 10em;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
 }
 
 .filter_box {
@@ -116,6 +116,10 @@ label {
 .filter_box p {
   font-size: 1.1em;
   font-weight: 700;
+}
+.btn_loction{
+  margin:auto;
+  display:block;
 }
 
 label {
