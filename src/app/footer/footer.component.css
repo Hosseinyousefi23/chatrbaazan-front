@@ -63,16 +63,19 @@
   font-size: 22px;
 }
 
-:host::ng-deep mat-form-field {
-  color: red !important;
-}
-
 .email_sen{
   text-align: right;
   margin-right: 64px;
   font-weight: 700;
 }
 
+
+.placeholder {
+  color: #ffffff;
+}
+.mat-focused .placeholder {
+  color: #ffffff;
+}
 @media (max-width: 768px) {
   .line {
     margin: 1em 3em;
