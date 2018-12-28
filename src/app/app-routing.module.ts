@@ -14,6 +14,7 @@ import { Page404Component } from './page404/page404.component';
 import { CompanyComponent } from './company/company.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpasswordconfrim.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'auth/password/reset/confirm/:token',
+    component: ResetpasswordconfrimComponent
   },
   {
     path: 'signup',

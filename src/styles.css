@@ -191,3 +191,6 @@ input {
 .main_title{
   font-family: iranyekan ;
 }
+.toast-info,.toast-error{
+  text-align: right !important;
+}
