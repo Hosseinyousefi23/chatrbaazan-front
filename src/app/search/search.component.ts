@@ -4,7 +4,9 @@ import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular
 import { PageService } from '../page.service';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { DetailModalComponent } from '../detail-modal/detail-modal.component';
-
+import { ToastrService } from 'ngx-toastr';
+import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
 
 declare var $: any;
 @Component({
@@ -28,7 +30,8 @@ export class SearchComponent implements OnInit {
   companies: any[] = [];
   categories: any[] = [];
   mode = new FormControl('over');
-  constructor(private router: Router, private route: ActivatedRoute, private data: PageService, private dialog: MatDialog) {
+  constructor(private router: Router, private route: ActivatedRoute, private data: PageService, private dialog: MatDialog,
+    private toastr: ToastrService,private bottomSheet: MatBottomSheet) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
       }
@@ -170,7 +173,18 @@ export class SearchComponent implements OnInit {
     });
   }
   }
+  sendfail(slug){
+    this.toastr.error('چترتون مستدام ')
+    this.data.sendfailure(slug).subscribe(
+      // data => console.log(data)
+    )
+  }
 
+  openBottomSheet(slug): void {
+    // console.log(slug+"12")
+    this.bottomSheet.open(BottomSheetOverviewExampleSheet
+      ,{data:{ 'slug': slug}});
+  }
 
   onScroll() {
     console.log(this.next_url)

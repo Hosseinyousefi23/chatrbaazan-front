@@ -5,14 +5,14 @@
         <img src='assets/image/chatrbaazan-logo.png'>
       </a>
     </div>
-    <h1>ورود به چتر بازان</h1>
+    <h1>ورود به چتربازان</h1>
     <form (ngSubmit)="LoginUser()" >
       <!-- <input type="email" [(ngModel)] = "user.email" placeholder="ایمیل" required="required" /> -->
       <mat-form-field class="example-full-width">
         <input matInput [(ngModel)] = "user.email" placeholder="ایمیل" name="email">
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input type="password" matInput [(ngModel)] = "user.password" placeholder="پسورد" name="password">
+        <input type="password" matInput [(ngModel)] = "user.password" placeholder="رمزعبور" name="password">
       </mat-form-field>
       
 
@@ -22,11 +22,18 @@
       <button mat-raised-button (click)="LoginUser()" type="submit" class="btn btn-primary btn-block btn-large">ورود</button>
       
       <p *ngIf="isLoginerror">
-          رمز عبور یاپسورد اشتباه است
+          رمز عبور یاایمیل اشتباه است
         </p>
       <p>کاربر جدید هستید؟ <a routerLink="/signup">
           ثبت‌نام در چتر بازان
         </a></p>
       </form>
+      <div style="text-align: right; ">
+        <a [routerLink]="['']" >
+          <p style="    margin-top: 0px;">
+            بازگشت به صفحه اصلی
+          </p>
+        </a>
+       </div>
   </div>
 </div>

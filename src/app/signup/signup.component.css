@@ -17,6 +17,9 @@
     left: 50%;
     transform: translate(-50%, 0);
 }
+a {
+    color: #1ca2bd;
+  }
 /* .background{
     position: absolute; 
     top: 0; 
@@ -31,7 +34,7 @@
     background-color: #ffffff;
     margin: 1em auto;
     width: 35em;
-  height: 550px;
+  height: 565px;
   padding: 2em;
   border-radius: 10px;
 }

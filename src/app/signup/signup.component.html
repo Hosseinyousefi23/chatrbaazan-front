@@ -5,7 +5,7 @@
         <img src='assets/image/chatrbaazan-logo.png'>
       </a>
     </div>
-    <h1> ثبت‌نام در چتر بازان</h1>
+    <h1> ثبت‌نام در چتربازان</h1>
     <form (ngSubmit)="registerUser()">
       <mat-form-field class="example-full-width">
         <input matInput type="text" [(ngModel)]="user.first_name" placeholder="نام" name="firstname" required="required"
@@ -28,7 +28,14 @@
         <input matInput type="password" [(ngModel)]="user.password2" placeholder="تکرار رمز عبور" name="password2"
           required="required" />
       </mat-form-field>
-      <button type="submit" mat-raised-button  class="btn btn-primary btn-block ">تبت نام</button>
+      <button type="submit" mat-raised-button  class="btn btn-primary btn-block ">ثبت نام</button>
     </form>
+    <div style="text-align: right; margin-top: 10px; font-size: 12px">
+     <a [routerLink]="['']" >
+       <p>
+         بازگشت به صفحه اصلی
+       </p>
+     </a>
+    </div>
   </div>
 </div>
