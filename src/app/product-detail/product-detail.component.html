@@ -18,11 +18,11 @@
           <div class="product_name">
             {{pro.name}}
           </div>
-          <div class="col-md-4">
-            <span  *ngFor="let i of pro.company;">
-              <h6><a [routerLink]="['/company' , i.slug]"> {{i.name}}</a></h6>
+          <!-- <div *ngFor="let i of pro.company;" class="col-md-4"> -->
+            <span style="margin:0 7px;" *ngFor="let i of pro.company;" >
+              <a [routerLink]="['/company' , i.slug]"> {{i.name}}</a>
             </span>
-          </div>
+          <!-- </div> -->
           <hr size="30">
           <!-- citeis -->
           <div class="row">
@@ -68,7 +68,7 @@
           </div>
           <div *ngIf="pro.is_free" class="row">
               <div class="modal_input">
-                  <a href="{{pro.link}}">
+                  <a href="https://{{pro.link}}">
                     <button style="margin-left: 11px;" mat-raised-button color="primary"  class=" btn_sm mat-raised-button">خرید</button>
                   </a>
                     <button mat-raised-button color="warn" (click)="sendfail(pro.slug)" class=" btn_sm mat-raised-button">اعلام خرابی</button>
