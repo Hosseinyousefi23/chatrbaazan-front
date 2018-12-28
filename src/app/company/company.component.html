@@ -62,9 +62,12 @@
                           <div class="front">
                             <a class="offer_box_link">
                               <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
-                              <div class="offer_image">
-                                <img src="{{item.image}}" alt="">
-                              </div>
+                              <div *ngIf="item.image" class="offer_image">
+                                  <img  src="{{item.image}}" alt="">
+                                </div>
+                                <div *ngIf="!item.image" class="offer_image">
+                                    <img  src="{{item.company[0].image}}" alt="">
+                                  </div>
                               <div class="offer_title">
                                 {{item.name}}
                               </div>
@@ -155,9 +158,12 @@
                           <div class="front">
                             <a class="offer_box_link">
                               <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
-                              <div class="offer_image">
-                                <img src="{{item.image}}" alt="">
-                              </div>
+                              <div *ngIf="item.image" class="offer_image">
+                                  <img  src="{{item.image}}" alt="">
+                                </div>
+                                <div *ngIf="!item.image" class="offer_image">
+                                    <img  src="{{item.company[0].image}}" alt="">
+                                  </div>
                               <div class="offer_title">
                                 {{item.name}}
                               </div>
@@ -247,9 +253,12 @@
                           <div class="front">
                             <a class="offer_box_link">
                               <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
-                              <div class="offer_image">
-                                <img src="{{item.image}}" alt="">
-                              </div>
+                                <div *ngIf="item.image" class="offer_image">
+                                  <img  src="{{item.image}}" alt="">
+                                </div>
+                                <div *ngIf="!item.image" class="offer_image">
+                                    <img  src="{{item.company[0].image}}" alt="">
+                                </div>
                               <div class="offer_title">
                                 {{item.name}}
                               </div>
