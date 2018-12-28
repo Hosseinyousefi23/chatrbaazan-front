@@ -1,12 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageService } from '../page.service';
 import { Cities } from '../cities';
-import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef, MatMenuTrigger } from "@angular/material";
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
@@ -25,8 +26,11 @@ export class HeaderComponent implements OnInit {
   countries = ['USA', 'Canada', 'Uk', 'kashan']
   searchTerm: FormControl = new FormControl();
   searched = <any>[];
+  tagsSearched = <any>[];
   public all_chatrbazi;
   @Output() cityevent =new EventEmitter<string>();
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
   constructor(private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router) { }
 
   ngOnInit() {
@@ -48,7 +52,7 @@ export class HeaderComponent implements OnInit {
 
     this.searchTerm.valueChanges.subscribe(
       term => {
-        if (term.length > 2) {
+        if (term.length > 0) {
           this.data.serachIncompany(term).subscribe(
             data => {
               // console.log(data['data'])
@@ -56,7 +60,18 @@ export class HeaderComponent implements OnInit {
                 this.searched = data['data'];
               }
               // this.searched.name = "cadsc"
-            })
+            });
+
+          this.data.serachIntags(term).subscribe(
+            data => {
+              // console.log(data['data'])
+              if(data['data'].length){
+                this.tagsSearched = data['data'];
+              }
+              // this.searched.name = "cadsc"
+            });
+
+
         }
       })
       
@@ -92,9 +107,19 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(LoginModalComponent, dialogConfig);
   }
 
-  formsubmit() {
-    if (this.searchTerm.value) {
+  formsubmit(search,type) {
+    console.log(type);
+    if(type == 2){
+      this.router.navigate(['/company',search])
+    }
+    if (this.searchTerm.value, type==1 ) {
       this.router.navigate(['/search'],{ queryParams: { search: this.searchTerm.value }})
     }
   }
+
+  link_click(slug){
+    console.log(slug)
+    this.router.navigate(['/category',slug])
+  }
+  
 }
