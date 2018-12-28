@@ -56,6 +56,17 @@ export class PageService {
 
   }
 
+  send_one_email(email) {
+
+    const body = new HttpParams()
+      .set('email', email)
+
+    return this.http.post(this.baseUrl + 'api/v1/email/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+    });
+
+  }
+
 
 
 
