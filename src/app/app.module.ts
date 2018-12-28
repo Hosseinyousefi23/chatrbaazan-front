@@ -80,6 +80,7 @@ import { ProductComponent } from './product/product.component';
 import { ConventionComponent } from './convention/convention.component';
 import { BottomSheetOverviewExampleSheet } from './bottom-sheet/bottom-sheet.component';
 import { ApplicationComponent } from './application/application.component';
+import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpasswordconfrim.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { ApplicationComponent } from './application/application.component';
     ProductComponent,
     ConventionComponent,
     ApplicationComponent,
+    ResetpasswordconfrimComponent,
     
   ],
   imports: [

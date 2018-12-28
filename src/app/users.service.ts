@@ -85,6 +85,15 @@ export class UsersService {
     });
   }
 
+  resetpassConfrim(user,token) {
+    const body = new HttpParams()
+      .set('new_password1', user.pass1)
+      .set('new_password2', user.pass2)
+    return this.http.post(this.baseUrl + 'auth/password/reset/confrim/MQ-'+token, body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})
+    });
+  }
+
   updatecart(productId,n) {
     const body = new HttpParams()
       .set('itemId', productId)
