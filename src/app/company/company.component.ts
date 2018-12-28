@@ -90,7 +90,11 @@ export class CompanyComponent implements OnInit {
     this.page = 1;
     this.filter();
   }
-  
+  filterDeletebtn(){
+    this.page = 1;
+    this.selectedcategory = null;
+    this.filter();
+  }
   filter() {
     this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader,this.size, this.page).subscribe(param => {
       if (param['count']) {

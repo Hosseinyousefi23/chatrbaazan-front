@@ -101,6 +101,12 @@ export class CategoriesComponent implements OnInit {
     this.filter();
   }
   
+  filterDeletebtn(){
+    this.page = 1;
+    this.selectedcompany = null;
+    this.filter();
+  }
+
   filter() {
     this.data.search(null, this.selectedcompany, this.Categoryid, this.selectedtab, this.cityHeader,this.size, this.page).subscribe(param => {
       if (param['count']) {
