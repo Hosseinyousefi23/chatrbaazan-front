@@ -1,18 +1,19 @@
-<ngx-spinner
+<ngx-spinner class="myspiner"
       bdColor = "rgba(51, 51, 51, 0.8)"
       size = "large"
       color = "#fff"
-      type = "ball-climbing-dot"
-      ></ngx-spinner>
+      type = "ball-climbing-dot">
+  </ngx-spinner>
 <mat-sidenav-container class="example-container">
    
-  <mat-sidenav #sidenav [mode]="mode.value"  position="end">
+  <mat-sidenav #sidenav [mode]="mode.value" [fixedInViewport]="true" position="end">
     <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-window-close-o" aria-hidden="true"></i>
     </button></p>
     <div class="menu_content">
         <app-sidenav></app-sidenav>
     </div>    
   </mat-sidenav>
+
 
   <mat-sidenav-content>
       
