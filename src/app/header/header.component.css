@@ -166,6 +166,16 @@ col-xs-5ths,
     left: 50px;
     top: 19px;
   }
+  .search_div *{
+    font-size: .98em !important;
+  }
+  .search_div img{
+    /* width: 1.1em; */
+    /* height: 1.1em; */
+  }
+  .search_result{
+    padding: 0;
+  }
 }
 
 /* .select{
