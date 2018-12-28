@@ -21,7 +21,7 @@ export class ProductDetailComponent implements OnInit {
   address:object;
   number =0;
   image_gallery:NgxGalleryImage[]=[];
-
+  
   constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService,private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -36,17 +36,27 @@ export class ProductDetailComponent implements OnInit {
       expiration_date :'',
       price:'',
       chatrbazi:''
-      }
+      };
+      
     this.route.params.subscribe(params => {this.slug = params['slug'];})
     this.service.getproductByslug(this.slug).subscribe(param => { 
       if(param['data']){
         this.pro = param['data']
-        let address={small:this.pro['image'],medium:this.pro['image'],big: this.pro['image']};
-        this.image_gallery.push(address)
+        if (this.pro['image']){
+        this.address={small:this.pro['image'],medium:this.pro['image'],big: this.pro['image']};
+        this.image_gallery.push(this.address)
+        
         for (let entry of this.pro['gallery']) {
            this.address={small:entry.image,medium: entry.image,big: entry.image};
           this.image_gallery.push(this.address)
-          
+          }
+        }
+        console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
+        
+        if (!this.pro['image']){
+          console.log('tessst',this.pro['company'][0]['image'])
+          this.address={small:this.pro['company'][0]['image'],medium:this.pro['company'][0]['image'],big: this.pro['company'][0]['image']};
+          this.image_gallery.push(this.address)
           
         }
         
