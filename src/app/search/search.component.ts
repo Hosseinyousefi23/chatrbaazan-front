@@ -114,6 +114,14 @@ export class SearchComponent implements OnInit {
     this.filter();
   }
 
+  filterDeletebtn(){
+    this.page = 1;
+    this.selectedcategory =null;
+    this.selectedcompany = null;
+    this.filter();
+  }
+
+
   filter() {
     this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page,this.type).subscribe(param => {
       if (param['count']) {    

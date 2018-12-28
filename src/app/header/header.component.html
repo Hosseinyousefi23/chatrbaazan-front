@@ -16,16 +16,16 @@
         </select> -->
         <!-- </form> -->
         <mat-form-field>
-          <mat-select [(value)]="selected" (selectionChange)="CityChange(selected)" >
+          <mat-select [(value)]="selected" (selectionChange)="CityChange(selected)">
             <mat-option value="none_city">شهرها</mat-option>
             <mat-option [value]="country.id" *ngFor="let country of cities">
               {{country.name}}
             </mat-option>
-            
+
           </mat-select>
         </mat-form-field>
-        
-       
+
+
 
         <!-- <mat-autocomplete #auto="matAutocomplete">
             <mat-option [value]="city" *ngFor="let city of cities" >{{city.name}}</mat-option>
@@ -38,21 +38,35 @@
 
       <div class="col-md-9 col-xs-12">
         <div class="input-group mb-3">
-          <form (ngSubmit)="formsubmit()" (onSelectionChange)="formsubmit()">
+            <form  (onSelectionChange)="formsubmit()">
             <!-- <mat-form-field class="container"> -->
-                <button class="btn search_btn" type="button" (click)="formsubmit()">
-                  <i class="fa fa-search " aria-hidden="true"></i>
-                </button>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-              <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
-                 [formControl]="searchTerm" [matAutocomplete]="auto"  >
-              <mat-autocomplete #auto="matAutocomplete">
-                <mat-option  *ngFor="let search of searched" [value]="search.name">
-                  {{ search.name }}
-                  <img src="{{search.image}}" class="search_image" alt="">
-                </mat-option>
-              </mat-autocomplete>
-<!-- 
-            </mat-form-field> -->
+            <button class="btn search_btn" type="button" (click)="formsubmit()">
+              <i class="fa fa-search " aria-hidden="true"></i>
+            </button>
+            <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
+              [formControl]="searchTerm" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <div class="row search_div">
+                <div class="col-6">
+                  <mat-option (onSelectionChange)="formsubmit(search.slug,2)" *ngFor="let search of searched" [value]="search.name">
+                    <div (click)="formsubmit(search.slug,2)" >
+                      <img src="{{search.image}}" class="search_image" alt="">
+                      {{ search.name }}
+                    </div>
+                  </mat-option>
+                </div>
+
+                <div class="col-6">
+                    <mat-option (onSelectionChange)="formsubmit(search.name,1)" *ngFor="let search of tagsSearched" [value]="search.name">
+                        <div (click)="formsubmit(search.name,1)" >
+                      #{{ search.name }}
+                        </div>
+                    </mat-option>
+                  </div>
+              </div>
+            </mat-autocomplete>
+            
+            <!-- </mat-form-field> -->
           </form>
         </div>
       </div>
@@ -66,7 +80,7 @@
           <a class="link" [routerLink]="['/signup']">عضویت</a>
         </span>
         <span *ngIf="loggedin()">
-          <a  class="link" [routerLink]="['/basket']"> <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+          <a class="link" [routerLink]="['/basket']"> <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
           <a class="link" [routerLink]="['/profile']">حساب کاربری</a>
           /
           <a class="link" (click)="logout()">خروج</a>
@@ -81,26 +95,23 @@
     </button></p>
   <div class="menu">
     <ul>
-      <li *ngFor="let category of categories">
-        <!-- <a [routerLink]="['/category' , category.slug]"> -->
-          <!-- {{category.name}} -->
-          <button mat-button [matMenuTriggerFor]="menu">{{category.name}}</button>
-        <!-- </a> -->
-        <mat-menu #menu="matMenu">
-          
-            <button *ngFor="let comp of category.company" [routerLink]="['/company',comp.slug]" routerLinkActive="router-link-active"  mat-menu-item>{{comp.name}}
-              <img src="{{comp.image}}" style="height: 32px;width: 32px;" >
-            </button>
-        </mat-menu>
-      </li>
-    </ul>
 
-    <!-- <ul>
-        <li *ngFor="let category of categories">
-          <a [routerLink]="['/category' , category.slug]">
+      <li class="dropdown" *ngFor="let category of categories">
+        <span (click)="link_click(category.slug)">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
             {{category.name}}
           </a>
-        </li>
-      </ul> -->
+        </span>
+
+        <div *ngIf="category.company" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a *ngFor="let comp of category.company" [routerLink]="['/company',comp.slug]" routerLinkActive="router-link-active"
+            class="company_links">
+            <img src="{{comp.image}}" style="height: 32px;width: 32px;">
+            {{comp.name}}
+          </a>
+
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

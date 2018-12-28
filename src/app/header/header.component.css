@@ -177,3 +177,22 @@ col-xs-5ths,
 @media (max-width: 992px) {}
 
 @media (max-width: 1200px) {}
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
+
+.dropdown-menu {
+  right: 0;
+}
+.company_links{
+  width: 100%;
+  text-align: right;
+} 
+.search_div{
+  direction: rtl;
+}

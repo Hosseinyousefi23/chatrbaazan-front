@@ -274,7 +274,9 @@
     color: #000000;
     font-weight: 700;
   }
-  
+  .filter_btn{
+    margin: auto 2px;
+  }
   @media (max-width: 768px) {
     .offer .offer_box {
       width: 31%;
