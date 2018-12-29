@@ -24,10 +24,17 @@
       <p class="email_sen">از جدیدترین چتربازی‌ها باخبر شوید</p>
       <form class="example-form" (ngSubmit)="send_email()">
 
-         <mat-form-field class="example-full-width">
+         <!-- <mat-form-field class="example-full-width">
           <input   name="email" class="input_email" matInput [(ngModel)] = "email.email" >
           <mat-placeholder class="placeholder">ایمیل خود را وارد کنید</mat-placeholder>
-        </mat-form-field>
+        </mat-form-field> -->
+        <div class="row">
+          <div class=col-md-8>
+              <input type="text" name="email" [(ngModel)] = "email.email" class="input_email" placeholder="ایمیل خود را وارد کنید">
+          </div>
+          <div></div>
+        </div>
+        
         <!-- <mat-form-field class="example-full-width">
             <input matInput class="input_email " [(ngModel)] = "email.email" placeholder="ایمیل" name="email">
           </mat-form-field> -->
