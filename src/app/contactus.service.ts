@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class ContactusService {
+  
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   contactus(data): Observable<any> {

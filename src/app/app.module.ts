@@ -81,6 +81,7 @@ import { ConventionComponent } from './convention/convention.component';
 import { BottomSheetOverviewExampleSheet } from './bottom-sheet/bottom-sheet.component';
 import { ApplicationComponent } from './application/application.component';
 import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpasswordconfrim.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [
@@ -155,7 +156,8 @@ import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpassw
     MatTabsModule,
     MatSelectModule,
     NgxSpinnerModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxCaptchaModule
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   providers: [],
