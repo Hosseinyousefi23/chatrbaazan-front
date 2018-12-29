@@ -45,7 +45,7 @@
           <hr size="30">
           <br>
           <div class="row">
-            <div *ngIf='pro.is_free' class="col-md-6 col-xs-12" #container>
+            <div *ngIf='pro.type===4 && pro.is_free' class="col-md-6 col-xs-12" #container>
               <button class="btn Copy_btn" style="border-radius: 0 6px 6px 0;" (click)="showCopied()" ngxClipboard cbContent={{pro.discount_code}} [container]="container">کپی</button>
               <input class="btn border_input" type="text" value="{{pro.discount_code}}">
             </div>
@@ -53,6 +53,7 @@
               <!-- {{pro.expiration_date|date:'yyyy/MM/dd'}} -->
               <p>مهلت استفاده:{{pro.expiration_date|jalali}}</p>
             </div>
+            
           </div>
           <div *ngIf="!pro.is_free" class="row">
             <div class="col-md-12">
@@ -68,12 +69,11 @@
           </div>
           <div *ngIf="pro.is_free" class="row">
               <div class="modal_input">
-                  <a href="https://{{pro.link}}">
+                  <a href="{{pro.link}}">
                     <button style="margin-left: 11px;" mat-raised-button color="primary"  class=" btn_sm mat-raised-button">خرید</button>
                   </a>
                     <button mat-raised-button color="warn" (click)="sendfail(pro.slug)" class=" btn_sm mat-raised-button">اعلام خرابی</button>
               </div>
-            
           </div>
           <hr size="30">
           <div>

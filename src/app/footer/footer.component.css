@@ -42,6 +42,13 @@
   background-color: #ffffff;
   margin: 1.5em 3em;
 }
+.input_email{
+  padding-left: 163px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-right: 7px;
+    border-radius: 5px;
+}
 
 .social_network a {
   height: 2em;
