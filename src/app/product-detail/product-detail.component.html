@@ -68,7 +68,7 @@
           </div>
           <div *ngIf="pro.is_free" class="row">
               <div class="modal_input">
-                  <a href="https://{{pro.link}}">
+                  <a href="{{pro.link}}">
                     <button style="margin-left: 11px;" mat-raised-button color="primary"  class=" btn_sm mat-raised-button">خرید</button>
                   </a>
                     <button mat-raised-button color="warn" (click)="sendfail(pro.slug)" class=" btn_sm mat-raised-button">اعلام خرابی</button>
