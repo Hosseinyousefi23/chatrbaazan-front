@@ -187,8 +187,13 @@ col-xs-5ths,
 @media (max-width: 992px) {}
 
 @media (max-width: 1200px) {}
+
+.dropdown:hover{
+  background: rgba(206, 206, 206, 0.226);
+}
 .dropdown:hover > .dropdown-menu {
   display: block;
+  transition-delay: 10s;
 }
 
 .dropdown > .dropdown-toggle:active {

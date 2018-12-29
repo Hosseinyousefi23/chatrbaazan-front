@@ -7,13 +7,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  email;
+  email = '';
   constructor(private data :PageService,private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.email={
-      email:''
-    }
   }
 
   send_email(){

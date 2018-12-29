@@ -111,7 +111,22 @@
                                 اشتراک گذاری
                               </button>
     
-                              <a [routerLink]="['/product' , item.slug]">
+                              <a *ngIf="item.type == 1" [routerLink]="['/product' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 2" [routerLink]="['/app' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 3" [routerLink]="['/offer' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 4" [routerLink]="['/code' , item.slug]">
                                 <button class="btn btn-primary btn_sm">
                                   توضیح بیشتر
                                 </button>
@@ -205,7 +220,22 @@
                                 اشتراک گذاری
                               </button>
     
-                              <a [routerLink]="['/product' , item.slug]">
+                              <a *ngIf="item.type == 1" [routerLink]="['/product' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 2" [routerLink]="['/app' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 3" [routerLink]="['/offer' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 4" [routerLink]="['/code' , item.slug]">
                                 <button class="btn btn-primary btn_sm">
                                   توضیح بیشتر
                                 </button>
@@ -300,7 +330,22 @@
                                 اشتراک گذاری
                               </button>
     
-                              <a [routerLink]="['/product' , item.slug]">
+                              <a *ngIf="item.type == 1" [routerLink]="['/product' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 2" [routerLink]="['/app' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 3" [routerLink]="['/offer' , item.slug]">
+                                <button class="btn btn-primary btn_sm">
+                                  توضیح بیشتر
+                                </button>
+                              </a>
+                              <a *ngIf="item.type == 4" [routerLink]="['/code' , item.slug]">
                                 <button class="btn btn-primary btn_sm">
                                   توضیح بیشتر
                                 </button>

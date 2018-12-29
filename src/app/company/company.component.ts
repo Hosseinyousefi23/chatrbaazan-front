@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { PageService } from '../page.service';
 import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material';
@@ -16,7 +16,17 @@ declare var $: any;
 export class CompanyComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private data: PageService, private dialog: MatDialog,private toastr: ToastrService,
-    private bottomSheet: MatBottomSheet) { }
+    private bottomSheet: MatBottomSheet) { 
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+        return false;
+      }
+  
+      this.router.events.subscribe((evt) => {
+        if (evt instanceof NavigationEnd) {
+          this.router.navigated = false;
+        }
+      });
+    }
   pro : any[] = [];
   selectedcategory;
   selectedtab: string;
