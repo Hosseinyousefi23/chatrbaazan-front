@@ -67,6 +67,18 @@ const routes: Routes = [
     component: ProductDetailComponent
   },
   {
+    path: 'app/:slug',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'offer/:slug',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'code/:slug',
+    component: ProductDetailComponent
+  },
+  {
     path: 'basket',
     component: ShoppingCardComponent,
     canActivate: [AuthGuard],
