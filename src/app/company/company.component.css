@@ -34,8 +34,6 @@
 }
 
 .company_image {
-  width: 10em;
-    height: 10em;
     transform: translateX(50%);
     right: 50%;
   /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
@@ -98,8 +96,8 @@ label {
 }
 
 .company_image {
-  width: 92%;
-  height: 92%;
+  width: 12em;
+  height: 12em;
   /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
 }
 

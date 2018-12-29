@@ -19,7 +19,7 @@ export class CategoriesComponent implements OnInit {
   selectedcompany;
   selectedtab: string;
   cityHeader = '';
-
+  url ='';
 
   next_url = '';
   size = 1;
