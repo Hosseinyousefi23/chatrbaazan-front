@@ -59,6 +59,9 @@ export class HeaderComponent implements OnInit {
               if(data['data'].length){
                 this.searched = data['data'];
               }
+              else{
+                this.searched = []
+              }
               // this.searched.name = "cadsc"
             });
 
@@ -67,6 +70,9 @@ export class HeaderComponent implements OnInit {
               // console.log(data['data'])
               if(data['data'].length){
                 this.tagsSearched = data['data'];
+              }
+              else{
+                this.tagsSearched = []
               }
               // this.searched.name = "cadsc"
             });

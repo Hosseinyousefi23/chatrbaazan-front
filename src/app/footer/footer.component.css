@@ -20,7 +20,7 @@
 }
 
 .footer_content ul {
-  width: 30em;
+  width: 33em;
   height: 3em;
 }
 
@@ -45,11 +45,15 @@
 
 .social_network a {
   height: 2em;
+  width: 25px;
   display: block;
   float: inline-start;
-  padding: 0 4px;
+  padding: 0px 4px;
   float: right;
+  /* height: 2px; */
+  position: relative;
 }
+
 
 .social_network {
   height: 2em;
@@ -61,6 +65,7 @@
   width: 22px;
   /* height: 2em; */
   font-size: 22px;
+  position: absolute;
 }
 
 .email_sen{
@@ -76,6 +81,10 @@
 .mat-focused .placeholder {
   color: #ffffff;
 }
+.send_btn{
+  margin: 8px;
+  height: 35px;
+}
 @media (max-width: 768px) {
   .line {
     margin: 1em 3em;
@@ -85,11 +94,25 @@
     /* height: 2em; */
     font-size: 20px;
   }
+  .email_sen{ 
+    font-size: .9em;
+  }
+
+.placeholder {
+  font-size: .9em;
+}
+.mat-focused .placeholder {
+  font-size: .9em;
+}
+.send_btn{
+  font-size: .9em;
+}
+  
 }
 
 @media (max-width: 559px) {
   .footer_content ul {
-    width: 18em;
+    width: 21em;
     height: 2em;
   }
 
@@ -121,5 +144,17 @@
   }
   .social_network {
     width: 9em;
+  }
+  .email_sen{ 
+    font-size: .8em;
+  }
+  .placeholder {
+    font-size: .8em;
+  }
+  .mat-focused .placeholder {
+    font-size: .8em;
+  }
+  .send_btn{
+    font-size: .8em;
   }
 }

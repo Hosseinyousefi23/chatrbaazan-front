@@ -79,7 +79,9 @@ input {
 .mat-drawer-content {
   overflow: hidden !important;
 }
-
+.mat-drawer-inner-container { 
+  overflow: visible !important;
+}
 .menu_content {
   width: 270px;
   ;
@@ -193,4 +195,10 @@ input {
 }
 .toast-info,.toast-error{
   text-align: right !important;
+}
+.mat-drawer-inner-container { 
+  overflow: visible !important;
+}
+.fa-window-close-o{
+  font-size: 20px;
 }

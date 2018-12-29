@@ -47,7 +47,7 @@
               [formControl]="searchTerm" [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
               <div class="row search_div">
-                <div class="col-6">
+                <div class="col-6 search_result">
                   <mat-option (onSelectionChange)="formsubmit(search.slug,2)" *ngFor="let search of searched" [value]="search.name">
                     <div (click)="formsubmit(search.slug,2)" >
                       <img src="{{search.image}}" class="search_image" alt="">
@@ -56,7 +56,7 @@
                   </mat-option>
                 </div>
 
-                <div class="col-6">
+                <div class="col-6 search_result">
                     <mat-option (onSelectionChange)="formsubmit(search.name,1)" *ngFor="let search of tagsSearched" [value]="search.name">
                         <div (click)="formsubmit(search.name,1)" >
                       #{{ search.name }}
@@ -109,7 +109,6 @@
             <img src="{{comp.image}}" style="height: 32px;width: 32px;">
             {{comp.name}}
           </a>
-
         </div>
       </li>
     </ul>
