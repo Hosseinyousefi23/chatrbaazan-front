@@ -85,14 +85,39 @@ export class UsersService {
     });
   }
 
-  resetpassConfrim(user,token) {
+  resetpassConfrim(user,uid,token) {
     const body = new HttpParams()
       .set('new_password1', user.pass1)
       .set('new_password2', user.pass2)
-    return this.http.post(this.baseUrl + 'auth/password/reset/confrim/MQ-'+token, body, {
+      .set('uid', uid)
+      .set('token', token)
+    return this.http.post(this.baseUrl + 'auth/password/reset/confirm/'+uid+"-"+token+"/", body, {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})
     });
   }
+
+  updateUserData(user) {
+    const body = new HttpParams()
+      .set('first_name', user.firstname)
+      .set('last_name', user.lastname)
+      .set('mobile', user.mobile)
+      .set('address', user.address)
+    return this.http.put(this.baseUrl + 'api/v1/user/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+    });
+  }
+
+  changepassword(oldpass,pass1,pass2) {
+    const body = new HttpParams()
+      .set('password_old', oldpass)
+      .set('password_1', pass1)
+      .set('password_2', pass2)
+    return this.http.put(this.baseUrl + 'api/v1/user/password/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+    });
+  }
+
+
 
   updatecart(productId,n) {
     const body = new HttpParams()
