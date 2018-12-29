@@ -14,7 +14,10 @@ export class UserprofileComponent implements OnInit {
   mode = new FormControl('over');
   cart;
   userinfo;
+  userchange;
   codedata;
+  passwords;
+  mobile;
   constructor(private user : UsersService) { }
 
   ngOnInit() {
@@ -30,6 +33,17 @@ export class UserprofileComponent implements OnInit {
       last_name:'',
       email:'',
       mobile:'',
+    }
+    this.userchange={
+      firstname:'',
+      lastname:'',
+      address:'',
+      mobile:'',
+    }
+    this.passwords={
+      oldpass:'',
+      pass1:'',
+      pass2:''
     }
     this.getUserData();
     this.getUserproduct();
@@ -56,7 +70,22 @@ export class UserprofileComponent implements OnInit {
       );
   }
 
+  changePassword(){
+    this.user.changepassword(this.passwords).subscribe(
+      // data => console.log(data)
+      );
+  }
+
+  UpadateProfile(){
+    this.user.updateUserData(this.userchange).subscribe(
+      // data => console.log(data)
+      );
+  }
 
 
-
+  verify(){
+    this.user.verifyMobile(this.mobile).subscribe(
+      // data => console.log(data)
+      );
+  }
 }

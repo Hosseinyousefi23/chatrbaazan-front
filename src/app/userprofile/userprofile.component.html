@@ -35,6 +35,17 @@
                       تخفیف هات 
                         </div>
                     </mat-tab>
+                    <mat-tab label="تایید شماره موبایل">
+                        <div class="cart_item tabs">
+                          <div class="add_code">
+                          <h1 class="add_code_title">
+                            تایید شماره موبایل
+                          </h1>
+                          <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" />
+                          <button (click)="verify()" type="submit" class="btn btn-primary ">ارسال کد</button>
+                      </div>
+                        </div>
+                    </mat-tab>
                     <mat-tab label="افزودن چتر جدید">
 
                       <div class="cart_item tabs">
@@ -45,6 +56,29 @@
                             <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
                             <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
                             <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button>
+                        </div>     
+                      </div>
+                    </mat-tab>
+                      <mat-tab label="تغییر رمز عبور">
+                      <div class="cart_item tabs">
+                        <div class="add_code">
+                            <h1 class="add_code_title">تغییر رمز عبور</h1>
+                            <input type="text" [(ngModel)] = "passwords.oldpass" placeholder=" رمز عبور قبلی" required="required" />
+                            <input type="text" [(ngModel)] = "passwords.pass1" placeholder=" رمز عبور" required="required" />
+                            <input type="text"  [(ngModel)] = "passwords.pass2" placeholder=" تکرار رمز عبور " required="required" />
+                            <button (click)="changePassword()" type="submit" class="btn btn-primary ">تغییر رمز عبور</button>
+                        </div>     
+                      </div>
+                    </mat-tab>
+                    <mat-tab label="تغییر مشخصات">
+                      <div class="cart_item tabs">
+                        <div class="add_code">
+                            <h1 class="add_code_title"> تغییر مشخصات</h1>
+                            <input type="text" [(ngModel)] = "userchange.firstname" placeholder="نام" required="required" />
+                            <input type="text"  [(ngModel)] = "userchange.lastname" placeholder="نام خانوادگی" required="required" />
+                            <input type="text"  [(ngModel)] = "userchange.mobile" placeholder="موبایل" required="required" />
+                            <input type="text"  [(ngModel)] = "userchange.address" placeholder="آدرس" required="required" />
+                            <button (click)="UpadateProfile()" type="submit" class="btn btn-primary ">تغییر مشخصات</button>
                         </div>     
                       </div>
 
