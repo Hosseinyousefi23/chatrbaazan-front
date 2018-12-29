@@ -14,12 +14,8 @@
     <div class="row content">
       <div class="company_info row">
         <div class="col-xs-12 col-md-3">
-            <img class="company_image" src="{{companyinfo.image}}" alt="">
-            <div>
-              <a class="btn_loction" href="https://{{companyinfo.link}}">
-                <button type="button"  class="btn btn-primary btn_loction" style="margin-top: 11px;">مشاهده {{companyinfo.name}}</button>
-              </a>
-            </div>
+            <img class="company_image" st src="{{companyinfo.image}}" alt="">
+            
         </div>
         <div class="col-xs-12 col-md-9">
           <div class="company_name">
@@ -29,6 +25,12 @@
           <div class="company_desc"[innerHTML]="companyinfo.description">
               <!-- <div class="paragraph" [innerHTML]="companyinfo.description"></div> -->
           <!-- {{companyinfo.description}} -->
+        </div>
+        <div>
+          <a class="" href="https://{{companyinfo.link}}">
+            <!-- <button  mat-raised-button type="button"  class="btn" style="margin-top: 11px;">مشاهده {{companyinfo.name}}</button> -->
+            <img  style="height: 32px;width: 32px;" src="assets/image/sabad.jpg" alt="">
+          </a>
         </div>
         </div>
       </div>
