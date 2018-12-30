@@ -48,7 +48,7 @@
 
 .img_cls{
     height: 262px;
-    box-shadow: 2px 2px 11px 2px #cccfcf;
+    /* box-shadow: 2px 2px 11px 2px #cccfcf; */
     margin-top:7em;
     display: block;
     margin-left: auto;
