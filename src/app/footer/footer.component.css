@@ -3,7 +3,7 @@
   z-index: 99;
   padding: 15px;
   background-color: #1A1A1A;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   color: #ffffff;
 }
 
@@ -162,4 +162,20 @@
   .send_btn{
     font-size: .8em;
   }
+  .footer_text{
+    font-size: .8em;
+  }
+  .input_email{
+    width: 15em;
+font-size: .9em;
+  }
+}
+.footer_text{
+  background: #EDEDED;
+padding: 1em 5em;
+text-align: center;
+}
+.footer_text_link a{
+  color: #FF003C;
+  font-weight: 700;
 }
