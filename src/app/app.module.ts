@@ -148,7 +148,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     }),
     NgxGalleryModule,
-    ShareButtonModule.forRoot(),
+    ShareButtonModule,
     ScrollingModule,
     DragDropModule,
     CdkTableModule,
