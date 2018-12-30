@@ -36,8 +36,11 @@
         <button type="button" class="btn btn-danger btn-sm btn_sm" [routerLink]="['/signup']">ثبت نام!</button>
       </div>
       <div class="profile-userbuttons" *ngIf="loggedin()">
-          <button type="button" class="btn btn-success btn-sm btn_sm"  [routerLink]="['/profile']">پروفایل</button>
-          <button type="button" class="btn btn-danger btn-sm btn_sm" (click)="logout()" >خروج</button>
+        <div>
+          <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/basket']">سبد خرید</button>
+        </div>
+          <button type="button" class="btn btn-success btn_sm"  [routerLink]="['/profile']">پروفایل</button>
+          <button type="button" class="btn btn-danger btn_sm " (click)="logout()" >خروج</button>
         </div>
       <!-- END SIDEBAR BUTTONS -->
       <div class="navbar_loc">

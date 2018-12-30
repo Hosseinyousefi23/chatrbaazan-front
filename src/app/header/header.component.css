@@ -92,6 +92,9 @@ col-xs-5ths,
   position: absolute;
   top: 1em;
 }
+.toggler {
+  font-weight: 700;
+}
 .toggler i{
     font-size: 1.7em;
 }

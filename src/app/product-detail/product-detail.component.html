@@ -37,7 +37,7 @@
           <!-- tags -->
           <div class="row">
             <div class="col-md-2 col-xs-4" *ngFor="let label of pro.label;">
-              <a href="#" class="badge badge-pill badge-light">{{label.name}}</a>
+              <a [routerLink]="['/search' , label.name]" class="badge badge-pill badge-light">{{label.name}}</a>
             </div>
           </div>
           <!-- end tags -->
