@@ -90,13 +90,27 @@
                                 اعتبار تا
                                 <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
                               </div>
-                            <div *ngIf="item.is_free" #container>
+                            <div *ngIf="item.is_free && item.type==4" #container>
     
                               <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
                                 [container]="container">کپی</button>
     
                               <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
     
+                            </div>
+                            <div *ngIf="item.type==1">
+                              <p>وضعیت:
+                                <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
+                                <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
+                              </p>
+                            </div>
+                            <div *ngIf=" item.type==1 &&(!item.free || item.price)">
+                              <p>قیمت:
+                                <span>
+                                  {{item.price}}
+                                  ریال
+                                </span>
+                              </p>
                             </div>
                             <div class="btn-groups">
                               <div>
@@ -201,13 +215,27 @@
                                 اعتبار تا
                                 <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
                               </div>
-                            <div *ngIf="item.is_free" #container>
+                            <div *ngIf="item.is_free && item.type==4" #container>
     
                               <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
                                 [container]="container">کپی</button>
     
                               <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
     
+                            </div>
+                            <div *ngIf="item.type==1">
+                              <p>وضعیت:
+                                <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
+                                <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
+                              </p>
+                            </div>
+                            <div *ngIf=" item.type==1 &&(!item.free || item.price)">
+                              <p>قیمت:
+                                <span>
+                                  {{item.price}}
+                                  ریال
+                                </span>
+                              </p>
                             </div>
                             <div class="btn-groups">
                               <div>
@@ -311,13 +339,27 @@
                                 اعتبار تا
                                 <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
                               </div>
-                            <div *ngIf="item.is_free" #container>
+                            <div *ngIf="item.is_free && item.type==4" #container>
     
                               <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
                                 [container]="container">کپی</button>
     
                               <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
     
+                            </div>
+                            <div *ngIf="item.type==1">
+                              <p>وضعیت:
+                                <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
+                                <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
+                              </p>
+                            </div>
+                            <div *ngIf=" item.type==1 &&(!item.free || item.price)">
+                              <p>قیمت:
+                                <span>
+                                  {{item.price}}
+                                  ریال
+                                </span>
+                              </p>
                             </div>
                             <div class="btn-groups">
                               <div>

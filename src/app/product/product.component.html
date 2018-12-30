@@ -5,9 +5,9 @@
       <a [routerLink]="['/search',1]">
         مشاهده همه
       </a>
-      
+
     </div>
-    
+
   </div>
   <div class="offer_content">
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
@@ -21,11 +21,11 @@
                   <a class="offer_box_link">
                     <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div *ngIf="item.image" class="offer_image">
-                        <img  src="{{item.image}}" alt="">
-                      </div>
-                      <div *ngIf="!item.image" class="offer_image">
-                          <img  src="{{item.company[0].image}}" alt="">
-                        </div>
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div *ngIf="!item.image" class="offer_image">
+                      <img src="{{item.company[0].image}}" alt="">
+                    </div>
                     <div class="offer_title">
                       {{item.name}}
                     </div>
@@ -40,33 +40,34 @@
                   </a>
                 </div>
                 <div class="back ">
-                    
-                  <p class="back_name" >{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                      اعتبار تا
-                      <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
-                    </div>
-                    <div *ngIf="item.type===4 && item.is_free" #container>
 
-                        <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
-    
-                        <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
-    
-                      </div>
-                      <div>
-                        <p>وضعیت:
-                          <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
-                          <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
-                        </p>
-                      </div>
-                      <div *ngIf="!item.free || item.price">
-                          <p>قیمت:
-                            <span>
-                              {{item.price}}
-                              ریال
-                            </span>
-                          </p>
-                        </div>
+                  <p class="back_name">{{item.name}}</p>
+                  <div class="timer timer_{{item.id}}">
+                    اعتبار تا
+                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
+                  <div *ngIf="item.type===4 && item.is_free" #container>
+
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                      [container]="container">کپی</button>
+
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+
+                  </div>
+                  <div>
+                    <p>وضعیت:
+                      <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
+                      <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
+                    </p>
+                  </div>
+                  <div *ngIf="!item.free || item.price">
+                    <p>قیمت:
+                      <span>
+                        {{item.price}}
+                        ریال
+                      </span>
+                    </p>
+                  </div>
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
@@ -82,17 +83,17 @@
                         </button>
                       </a>
                       <a *ngIf="!item.is_free && item.count >0" (click)="addtocart(item.id)">
-                          <button  class="btn btn-success btn_sm ">
-                            خرید
-                          </button>
-                        </a>
+                        <button class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
-                        <button  class="btn btn-success btn_sm ">
+                        <button class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
                       </a>
                     </div>
-                    <button  (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
+                    <button (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
 
@@ -131,11 +132,11 @@
                   <a class="offer_box_link">
                     <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div *ngIf="item.image" class="offer_image">
-                        <img  src="{{item.image}}" alt="">
-                      </div>
-                      <div *ngIf="!item.image" class="offer_image">
-                          <img  src="{{item.company[0].image}}" alt="">
-                        </div>
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div *ngIf="!item.image" class="offer_image">
+                      <img src="{{item.company[0].image}}" alt="">
+                    </div>
                     <div class="offer_title">
                       {{item.name}}
                     </div>
@@ -151,14 +152,15 @@
                 </div>
                 <div class="back ">
 
-                  <p class="back_name" >{{item.name}}</p>
+                  <p class="back_name">{{item.name}}</p>
                   <div class="timer timer_{{item.id}}">
-                      اعتبار تا
-                      <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
-                    </div>
+                    اعتبار تا
+                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
                   <div *ngIf="item.type===4 && item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                      [container]="container">کپی</button>
 
                     <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -172,7 +174,7 @@
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
-                          <!--  -->
+                        <!--  -->
                         <button class="btn btn-danger btn_sm">
 
                           اعلام خرابی
@@ -180,17 +182,17 @@
                         </button>
                       </a>
                       <a *ngIf="!item.is_free && item.count <=0" (click)="addtocart(item.id)">
-                          <button [disabled]="true" class="btn btn-success btn_sm ">
-                            خرید
-                          </button>
-                        </a>
-                        <a *ngIf="!item.is_free && item.count >0" (click)="addtocart(item.id)">
-                            <button  class="btn btn-success btn_sm ">
-                              خرید
-                            </button>
-                          </a>
+                        <button [disabled]="true" class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                      <a *ngIf="!item.is_free && item.count >0" (click)="addtocart(item.id)">
+                        <button class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
-                        <button  class="btn btn-success btn_sm ">
+                        <button class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
                       </a>
@@ -232,16 +234,16 @@
                   <a class="offer_box_link">
                     <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div *ngIf="item.image" class="offer_image">
-                        <img  src="{{item.image}}" alt="">
-                      </div>
-                      <div *ngIf="!item.image" class="offer_image">
-                          <img  src="{{item.company[0].image}}" alt="">
-                        </div>
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div *ngIf="!item.image" class="offer_image">
+                      <img src="{{item.company[0].image}}" alt="">
+                    </div>
                     <div class="offer_title">
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <span  class="offer_companies"*ngFor="let i of item.company;">
+                      <span class="offer_companies" *ngFor="let i of item.company;">
                         <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
@@ -254,22 +256,23 @@
 
                   <p class="back_name">{{item.name}}</p>
                   <div class="timer timer_{{item.id}}">
-                      اعتبار تا
-                      <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
-                    </div>
-                    <div *ngIf="item.type===4 && item.is_free" #container>
+                    اعتبار تا
+                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
+                  <div *ngIf="item.type===4 && item.is_free" #container>
 
-                        <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
-    
-                        <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
-    
-                      </div>
-                      <div>
-                        <p>وضعیت:
-                          <span *ngIf="item.count>0">موجود</span>
-                          <span *ngIf="item.count<=0">ناموجود</span>
-                        </p>
-                      </div>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                      [container]="container">کپی</button>
+
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+
+                  </div>
+                  <div>
+                    <p>وضعیت:
+                      <span *ngIf="item.count>0">موجود</span>
+                      <span *ngIf="item.count<=0">ناموجود</span>
+                    </p>
+                  </div>
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
@@ -280,17 +283,17 @@
                         </button>
                       </a>
                       <a *ngIf="!item.is_free && item.count <=0" (click)="addtocart(item.id)">
-                          <button [disabled]="true" class="btn btn-success btn_sm ">
-                            خرید
-                          </button>
-                        </a>
-                        <a *ngIf="!item.is_free && item.count >0" (click)="addtocart(item.id)">
-                            <button  class="btn btn-success btn_sm ">
-                              خرید
-                            </button>
-                          </a>
+                        <button [disabled]="true" class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                      <a *ngIf="!item.is_free && item.count >0" (click)="addtocart(item.id)">
+                        <button class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
-                        <button  class="btn btn-success btn_sm ">
+                        <button class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
                       </a>

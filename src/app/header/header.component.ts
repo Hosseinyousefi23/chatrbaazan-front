@@ -79,7 +79,9 @@ export class HeaderComponent implements OnInit {
               // this.searched.name = "cadsc"
             });
 
-
+        }else{
+          this.searched = [];
+          this.tagsSearched = [];
         }
       })
       
@@ -94,13 +96,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   clear_input(){
-    console.log('hiiiiiiiiiiiiiiiiiiiiiiiii')
-    
-    
-    console.log(this.searchTerm.value);
-    this.textValue='';
-    console.log(this.searchTerm.value);
-    
+    this.searchTerm.setValue('')
   }
   loggedin() {
     return localStorage.getItem("userToken");
@@ -130,6 +126,7 @@ export class HeaderComponent implements OnInit {
     }
     if (this.searchTerm.value, type==1 ) {
       this.router.navigate(['/search'],{ queryParams: { search: this.searchTerm.value }})
+      // this.router.navigate(['/search'],{ queryParams: { search: search }})
     }
   }
 

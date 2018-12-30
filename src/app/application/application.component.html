@@ -5,9 +5,9 @@
       <a [routerLink]="['/search',2]">
         مشاهده همه
       </a>
-      
+
     </div>
-    
+
   </div>
   <div class="offer_content">
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
@@ -21,11 +21,11 @@
                   <a class="offer_box_link">
                     <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div *ngIf="item.image" class="offer_image">
-                        <img  src="{{item.image}}" alt="">
-                      </div>
-                      <div *ngIf="!item.image" class="offer_image">
-                          <img  src="{{item.company[0].image}}" alt="">
-                        </div>
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div *ngIf="!item.image" class="offer_image">
+                      <img src="{{item.company[0].image}}" alt="">
+                    </div>
                     <div class="offer_title">
                       {{item.name}}
                     </div>
@@ -40,34 +40,26 @@
                   </a>
                 </div>
                 <div class="back ">
-                    
-                  <p class="back_name" >{{item.name}}</p>
+
+                  <p class="back_name">{{item.name}}</p>
                   <div class="timer timer_{{item.id}}">
-                      اعتبار تا
-                      <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
-                    </div>
+                    اعتبار تا
+                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
                   <div *ngIf=" item.link===4 && item.is_free" #container>
 
-                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                      [container]="container">کپی</button>
 
                     <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
 
                   </div>
-                 
-                    <div class="row">
-                      <div class="col-md-3">
-                          <p>نوع: 
-                            </p>
-                      </div>
-                        <div *ngFor="let comp of item.company" class="col-md-3">
-                            <img  style="height: 32px;width: 32px;" src="{{comp.image}}" alt="">
-                        </div>
-                    </div>
-                    <!-- <div class="col-md-7">
+
+                  <!-- <div class="col-md-7">
                       <p style="text-align: center;" *ngIf="item.price" >قیمت:{{item.price}}</p>
                       <p style="text-align: center;" *ngIf="!item.price">رایگان</p>
                     </div> -->
-                  
+
                   <p style="font-weight: 900;">{{item.english_name}}</p>
                   <div class="btn-groups">
                     <div>
@@ -84,12 +76,12 @@
                         </button>
                       </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
-                        <button  class="btn btn-success btn_sm ">
+                        <button class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
                       </a>
                     </div>
-                    <button  (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
+                    <button (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
                       اشتراک گذاری
                     </button>
 
@@ -128,11 +120,11 @@
                   <a class="offer_box_link">
                     <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div *ngIf="item.image" class="offer_image">
-                        <img  src="{{item.image}}" alt="">
-                      </div>
-                      <div *ngIf="!item.image" class="offer_image">
-                          <img  src="{{item.company[0].image}}" alt="">
-                        </div>
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div *ngIf="!item.image" class="offer_image">
+                      <img src="{{item.company[0].image}}" alt="">
+                    </div>
                     <div class="offer_title">
                       {{item.name}}
                     </div>
@@ -148,33 +140,26 @@
                 </div>
                 <div class="back ">
 
-                  <p class="back_name" >{{item.name}}</p>
+                  <p class="back_name">{{item.name}}</p>
                   <div class="timer timer_{{item.id}}">
-                      اعتبار تا
-                      <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
-                    </div>
-                    <div *ngIf=" item.link===4 && item.is_free" #container>
+                    اعتبار تا
+                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
+                  <div *ngIf=" item.link===4 && item.is_free" #container>
 
-                        <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
-    
-                        <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
-    
-                      </div>
-                     
-                        <div class="row">
-                          <div class="col-md-3">
-                              <p>نوع: 
-                                </p>
-                          </div>
-                            <div *ngFor="let comp of item.company" class="col-md-3">
-                                <img  style="height: 32px;width: 32px;" src="{{comp.image}}" alt="">
-                            </div>
-                        </div>
-                  
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                      [container]="container">کپی</button>
+
+                    <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
+
+                  </div>
+
+
+
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
-                          <!--  -->
+                        <!--  -->
                         <button class="btn btn-danger btn_sm">
 
                           اعلام خرابی
@@ -187,7 +172,7 @@
                         </button>
                       </a>
                       <a *ngIf="item.is_free" href="{{item.link}}">
-                        <button  class="btn btn-success btn_sm ">
+                        <button class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
                       </a>
@@ -229,16 +214,16 @@
                   <a class="offer_box_link">
                     <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                     <div *ngIf="item.image" class="offer_image">
-                        <img  src="{{item.image}}" alt="">
-                      </div>
-                      <div *ngIf="!item.image" class="offer_image">
-                          <img  src="{{item.company[0].image}}" alt="">
-                        </div>
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div *ngIf="!item.image" class="offer_image">
+                      <img src="{{item.company[0].image}}" alt="">
+                    </div>
                     <div class="offer_title">
                       {{item.name}}
                     </div>
                     <div class="offer_company">
-                      <span  class="offer_companies"*ngFor="let i of item.company;">
+                      <span class="offer_companies" *ngFor="let i of item.company;">
                         <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
@@ -251,27 +236,18 @@
 
                   <p class="back_name">{{item.name}}</p>
                   <div class="timer timer_{{item.id}}">
-                      اعتبار تا
-                      <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
-                    </div>
-                    <div *ngIf=" item.link===4 && item.is_free" #container>
+                    اعتبار تا
+                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  </div>
+                  <div *ngIf=" item.link===4 && item.is_free" #container>
 
-                        <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
-    
-                        <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
-    
-                      </div>
-                     
-                        <div class="row">
-                          <div class="col-md-3">
-                              <p>نوع: 
-                                </p>
-                          </div>
-                            <div *ngFor="let comp of item.company" class="col-md-3">
-                                <img  style="height: 32px;width: 32px;" src="{{comp.image}}" alt="">
-                            </div>
-                        </div>
-                        
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
+                      [container]="container">کپی</button>
+
+                    <input class=" btn input_cupon" disabled type="text" value="{{item.discount_code}}">
+
+                  </div>
+
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
@@ -287,7 +263,7 @@
                         </button>
                       </a>
                       <a *ngIf=" item.is_free" href="{{item.link}}">
-                        <button  class="btn btn-success btn_sm ">
+                        <button class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
                       </a>

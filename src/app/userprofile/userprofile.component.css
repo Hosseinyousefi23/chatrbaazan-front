@@ -50,7 +50,17 @@
   }
 
   @media (max-width: 559px) {
-
+    .content{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #content{
+        padding: 12px 10px !important;
+    }
+    .cart_item{
+        margin: .5em;
+        padding: .5em;
+    }
   }
 
   

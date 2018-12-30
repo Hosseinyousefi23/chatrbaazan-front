@@ -45,7 +45,7 @@
             </button>
             <input type="text"   class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
               [formControl]="searchTerm" [matAutocomplete]="auto">
-            <span *ngIf="searchTerm.value" (click)="textValue=''" class="trash_input" >
+            <span *ngIf="searchTerm.value" (click)="clear_input()" class="trash_input" >
               <i class="fa fa-trash"></i>
             </span>
                 

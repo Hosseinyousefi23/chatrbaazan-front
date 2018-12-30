@@ -275,7 +275,7 @@
     font-weight: 700;
   }
   .filter_btn{
-    margin: auto 2px;
+    margin: 10px 2px;
   }
   @media (max-width: 768px) {
     .offer .offer_box {

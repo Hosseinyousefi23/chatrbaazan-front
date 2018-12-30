@@ -137,13 +137,13 @@
                       اعتبار تا
                       <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
                     </div>
-                  <div *ngIf="item.is_free" #container>
+                  <!-- <div *ngIf="item.is_free" #container>
 
                     <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}"> -->
 
-                  </div>
+                  <!-- </div> -->
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
@@ -227,13 +227,13 @@
                       اعتبار تا
                       <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
                     </div>
-                  <div *ngIf="item.is_free" #container>
+                  <!-- <div *ngIf="item.is_free" #container>
 
                     <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}} [container]="container">کپی</button>
 
-                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}"> -->
 
-                  </div>
+                  <!-- </div> -->
                   <div class="btn-groups">
                     <div>
                       <a (click)="sendfail(item.slug)">
