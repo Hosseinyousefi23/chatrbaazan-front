@@ -119,7 +119,14 @@
 }
 
 .btn_sm {
-    width: 7em !important;
+    font-size: .9em;
+    border-radius: 5px;
+    margin: .5em !important;
+    padding: .5em;
+  }
+
+  .basket_btn{
+    width: 14em !important;
     font-size: .9em;
     border-radius: 5px;
     margin: .5em;
