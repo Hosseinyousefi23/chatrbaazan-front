@@ -82,7 +82,7 @@ import { BottomSheetOverviewExampleSheet } from './bottom-sheet/bottom-sheet.com
 import { ApplicationComponent } from './application/application.component';
 import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpasswordconfrim.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
-
+import {GoTopButtonModule} from 'ng2-go-top-button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -157,7 +157,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     MatSelectModule,
     NgxSpinnerModule,
     MatMenuModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    GoTopButtonModule
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   providers: [],

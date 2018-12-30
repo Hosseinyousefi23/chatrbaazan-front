@@ -34,7 +34,6 @@ export class ProductComponent implements OnInit {
         $(this).addClass("voted");
         $(".card").find(".offer_image").css("display","block")
         $(this).find(".offer_image").css("display","none")
-
       });
 
       $(".back_voted").click(function(e){

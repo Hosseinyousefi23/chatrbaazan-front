@@ -112,6 +112,12 @@ col-xs-5ths,
   height: 30px;
   margin-left: 11px;
 }
+.trash_input{
+  position: absolute;
+  top: 11px;
+  left: 15px;
+  color: red;   
+}
 @media (max-width: 768px) {
   .menu {
     display: none;
@@ -127,6 +133,11 @@ col-xs-5ths,
 
   .search_input {
     width: 85%;
+  }
+  .trash_input{
+    position: absolute;
+    left: 40px;
+    top: 6px;
   }
 
   .countryForm_bar {

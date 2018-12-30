@@ -43,8 +43,13 @@
             <button class="btn search_btn" type="button" (click)="formsubmit(null,null)">
               <i class="fa fa-search " aria-hidden="true"></i>
             </button>
-            <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
+            <input type="text"   class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
               [formControl]="searchTerm" [matAutocomplete]="auto">
+            <span *ngIf="searchTerm.value" (click)="textValue=''" class="trash_input" >
+              <i class="fa fa-trash"></i>
+            </span>
+                
+            
             <mat-autocomplete #auto="matAutocomplete">
               <div class="row search_div">
                 <div class="col-6 search_result">

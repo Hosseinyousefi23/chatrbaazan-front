@@ -8,6 +8,7 @@ import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { trigger } from '@angular/animations';
+import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-header',
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
   searched = <any>[];
   tagsSearched = <any>[];
   public all_chatrbazi;
+  textValue;
   @Output() cityevent =new EventEmitter<string>();
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
@@ -52,7 +54,7 @@ export class HeaderComponent implements OnInit {
 
     this.searchTerm.valueChanges.subscribe(
       term => {
-        if (term.length > 0) {
+        if (term.length > 2) {
           this.data.serachIncompany(term).subscribe(
             data => {
               // console.log(data['data'])
@@ -91,15 +93,23 @@ export class HeaderComponent implements OnInit {
       this.cityevent.emit(city)
     }
   }
-
+  clear_input(){
+    console.log('hiiiiiiiiiiiiiiiiiiiiiiiii')
+    
+    
+    console.log(this.searchTerm.value);
+    this.textValue='';
+    console.log(this.searchTerm.value);
+    
+  }
   loggedin() {
     return localStorage.getItem("userToken");
   }
 
   logout() {
     this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
-    
-    })
+2   
+  2 })
     this.router.navigate(['/']);
   }
   @Output() navToggle = new EventEmitter<boolean>();

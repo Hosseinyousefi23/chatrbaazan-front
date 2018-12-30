@@ -120,7 +120,9 @@
     width: 21em;
     height: 2em;
   }
-
+  .send_btn_email{
+    margin-top: 4px;
+  }
   .footer_content li {
     line-height: 2em;
     font-size: .85em;
@@ -164,6 +166,8 @@
   }
   .footer_text{
     font-size: .8em;
+    font-weight: bold;
+
   }
   .input_email{
     width: 15em;
