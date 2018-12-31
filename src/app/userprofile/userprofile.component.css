@@ -10,7 +10,7 @@
     padding: 1em;
     /* margin-left: 1em; */
     border-radius: 5px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
 }
 .profile_header{
     background-color: #cfcfcf;
@@ -18,7 +18,7 @@
     padding: 1em;
     /* margin-right: 1em; */
     border-radius: 25px 7px 0 0px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
 }
 .profile_option{
     background-color: #ffffff;
@@ -26,7 +26,7 @@
     padding: 1em;
     /* margin-right: 1em; */
     border-radius:0 0 7px  7px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
 }
 .profile_option a{ text-align: right; width: 100%;}
 .add_code{
@@ -34,8 +34,8 @@
 }
 .add_code input{
     display: block;
-    width: 30%;
-    margin: 1em;
+    width: 85%;
+    /* margin: 1em; */
 }
 .tabs{
     text-align: right;
@@ -46,6 +46,17 @@
     }
     .add_code_title{
         font-size: 1em;
+    }
+    .content{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #content{
+        padding: 12px 10px !important;
+    }
+    .cart_item{
+        margin: .5em;
+        padding: .5em;
     }
   }
 

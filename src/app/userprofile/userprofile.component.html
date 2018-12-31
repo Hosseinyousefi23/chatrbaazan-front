@@ -1,12 +1,13 @@
 <mat-sidenav-container class="example-container">
 
     <mat-sidenav #sidenav [mode]="mode.value" position="end">
-      <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-window-close-o" aria-hidden="true"></i>
+      <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
         </button></p>
       <div class="menu_content">
         <app-sidenav></app-sidenav>
       </div>
     </mat-sidenav>
+    
   
     <mat-sidenav-content>
   
@@ -46,9 +47,11 @@
                           </p>
                           <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
                           <mat-form-field class="example-full-width">
-                            <input matInput [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" >
+                            <input matInput [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}" >
                           </mat-form-field>
-                          <button  mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
+                          <div>
+                              <button  mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
+                          </div>
                           <!-- <button (click)="verify()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
                       </div>
                         </div>
@@ -63,7 +66,7 @@
                             <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
                             <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
                             <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
-                            <form class="example-form">
+                            <!-- <form class="example-form"> -->
                               <mat-form-field class="">
                                 <input matInput [(ngModel)] = "codedata.code" placeholder="کد" required="required" >
                               </mat-form-field>
@@ -76,8 +79,11 @@
                               <mat-form-field class="example-full-width">
                                 <input matInput [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" >
                               </mat-form-field>
-                              <button mat-raised-button (click)="sendcode()"  color="primary" type="submit" >ارسال کد</button>
-                            </form>
+                              <div>
+                                  <button mat-raised-button (click)="sendcode()"  color="primary" type="submit" >ارسال کد</button>
+                              </div>
+                              
+                            <!-- </form> -->
                         </div>     
                       </div>
                     </mat-tab>
@@ -97,7 +103,10 @@
                             <mat-form-field class="">
                               <input matInput [(ngModel)] = "passwords.pass2"  placeholder="تکرار رمز عبور جدید" required="required">
                             </mat-form-field>
-                            <button mat-raised-button (click)="changePassword()" type="submit" color="primary" >تغییر رمز عبور</button>
+                            <div>
+                                <button mat-raised-button (click)="changePassword()" type="submit" color="primary" >تغییر رمز عبور</button>
+                            </div>
+                            
                         </div>     
                       </div>
                     </mat-tab>
@@ -107,18 +116,20 @@
                             <h1 class="add_code_title"> تغییر مشخصات</h1>
                             <!-- <input type="text" [(ngModel)] = "userchange.firstname" placeholder="نام" required="required" /> -->
                             <mat-form-field class="">
-                              <input matInput [(ngModel)] = "userchange.firstname"  placeholder="نام" required="required">
+                              <input matInput [(ngModel)] = "userchange.firstname"  placeholder="نام" required="required" value="{{userinfo.first_name}}">
                             </mat-form-field>
                             <!-- <input type="text"  [(ngModel)] = "userchange.lastname" placeholder="نام خانوادگی" required="required" /> -->
                             <mat-form-field class="">
-                              <input matInput [(ngModel)] = "userchange.lastname"  placeholder="نام خانوادگی" required="required">
+                              <input matInput [(ngModel)] = "userchange.lastname"  placeholder="نام خانوادگی" required="required" value="{{userinfo.last_name}}" >
                             </mat-form-field>
                             <!-- <input type="text"  [(ngModel)] = "userchange.mobile" placeholder="موبایل" required="required" /> -->
                             <mat-form-field class="">
                               <input matInput [(ngModel)] = "userchange.address"  placeholder="ادرس" required="required">
                             </mat-form-field>
                             <!-- <input type="text"  [(ngModel)] = "userchange.address" placeholder="آدرس" required="required" /> -->
-                            <button (click)="UpadateProfile()" type="submit" class="btn btn-primary ">تغییر مشخصات</button>
+                            <div>
+                              <button mat-raised-button (click)="UpadateProfile()" type="submit" color="primary" >تغییر مشخصات</button>
+                            </div>
                         </div>     
                       </div>
 
