@@ -59,17 +59,19 @@ export class ApplicationComponent implements OnInit {
   }
 
   addtocart(id){
-    this.user.addtocart(id).subscribe(
-      (data : any) => {
-        // console.log(data)
-        if(data.count && data.count >= 0){
-          // #TODO Handle Alert Success Add To Cart
-          // console.log('ssssss')
-        }else{
-          // #TODO Handle Error Add To Cart
+    if(localStorage.getItem("userToken")){
+      this.user.addtocart(id).subscribe(
+        (data : any) => {
+          // console.log(data)
+          if(data.count && data.count >= 0){
+          }else{
+            // #TODO Handle Error Add To Cart
+          }
         }
+      )
+      }else{
+        this.toastr.info('ابتدا وارد سایت شوید !!')
       }
-    )
   }
 
   sendfail(slug){

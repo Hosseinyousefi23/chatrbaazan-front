@@ -36,16 +36,19 @@ export class DetailModalComponent implements OnInit {
     this.dialogRef.close();
   }
   addtocart(id){
-    this.user.addtocart(id).subscribe(
-      (data : any) => {
-        // console.log(data)
-        if(data.count && data.count >= 0){
-          // #TODO Handle Alert Success Add To Cart
-        }else{
-          // #TODO Handle Error Add To Cart
+    if(localStorage.getItem("userToken")){
+      this.user.addtocart(id).subscribe(
+        (data : any) => {
+          // console.log(data)
+          if(data.count && data.count >= 0){
+          }else{
+            // #TODO Handle Error Add To Cart
+          }
         }
+      )
+      }else{
+        this.toastr.info('ابتدا وارد سایت شوید !!')
       }
-    )
   }
   sendfail(slug){
     this.toastr.error('چترتون مستدام')
