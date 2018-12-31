@@ -20,8 +20,8 @@
     <p>کاربر جدید هستید؟ <a (click)="signup()">
         ثبت‌نام در چتربازان
       </a></p>
-      <p *ngIf="isLoginError">
-        رمز عبور یا کد کاربری اشتباه است
+      <p  style="color: red;" *ngIf="isLoginError">
+        رمز عبور یا ایمیل اشتباه است
       </p>
       <mat-dialog-actions>
         <button mat-raised-button color="warn" (click)="close()">خروج</button>
