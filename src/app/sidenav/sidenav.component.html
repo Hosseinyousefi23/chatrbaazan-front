@@ -32,6 +32,9 @@
       <!-- END SIDEBAR USER TITLE -->
       <!-- SIDEBAR BUTTONS -->
       <div class="profile-userbuttons" *ngIf="!loggedin()">
+          <div>
+              <button type="button" class="btn basket_btn btn-sm " (click)="plaeseLogin()" [routerLink]="['/basket']">سبد خرید</button>
+            </div>
         <button type="button" class="btn btn-success btn-sm btn_sm" [routerLink]="['/login']">ورود</button>
         <button type="button" class="btn btn-danger btn-sm btn_sm" [routerLink]="['/signup']">ثبت نام!</button>
       </div>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { trigger } from '@angular/animations';
 import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -33,7 +34,8 @@ export class HeaderComponent implements OnInit {
   @Output() cityevent =new EventEmitter<string>();
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router) { }
+  constructor(private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router
+    ,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.data.getcities().subscribe((data: any) => { this.cities = data.data; });
@@ -134,5 +136,7 @@ export class HeaderComponent implements OnInit {
     console.log(slug)
     this.router.navigate(['/category',slug])
   }
-  
+  plaeseLogin(){
+    this.toastr.info('ابتدا وارد سایت شوید !!')
+  }
 }
