@@ -15,6 +15,7 @@ import { CompanyComponent } from './company/company.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpasswordconfrim.component';
+import { SendcodeComponent } from './sendcode/sendcode.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  },
+  {
+    path: 'sendcode',
+    component: SendcodeComponent
   },
   {
     path: 'search/:type',

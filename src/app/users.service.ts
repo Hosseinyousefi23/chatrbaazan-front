@@ -75,12 +75,16 @@ export class UsersService {
   }
 
   addtocart(productId) {
-    let pid: object = {
-      product: productId
-    }
     const body = new HttpParams()
       .set('product', productId)
     return this.http.post(this.baseUrl + 'api/v1/cart/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+    });
+  }
+  completeCart(productId) {
+    // const body = new HttpParams()
+    //   .set('product', productId)
+    return this.http.get(this.baseUrl + 'api/v1/cart/complete/'+productId,  {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
     });
   }
@@ -136,6 +140,7 @@ export class UsersService {
     });
   }
 
+  
   deletefrombasket(productId) {
     const body = new HttpParams().set('cart', productId)
     const httpOptions = {
@@ -149,11 +154,13 @@ export class UsersService {
   }
 
   sendcode(code) {
-    let pid: object = {
-      code: code 
-    }
-    return this.http.post(this.baseUrl + 'api/v1/user/code/' ,pid, {
-      headers: new HttpHeaders( { 'Content-Type':  'application/json','Authorization': 'Bearer '+ localStorage.getItem("userToken") })
+    const body = new HttpParams()
+      .set('code', code.code)
+      .set('chatrbazi', code.chatr)
+      .set('expiration_date', code.ex_date)
+      .set('explanation', code.explaintion)
+    return this.http.post(this.baseUrl + 'api/v1/user/code/' ,body, {
+      headers: new HttpHeaders( { 'Content-Type':  'application/x-www-form-urlencoded'})
    });
   }
 

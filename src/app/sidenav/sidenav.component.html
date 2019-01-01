@@ -34,6 +34,7 @@
       <div class="profile-userbuttons" *ngIf="!loggedin()">
           <div>
               <button type="button" class="btn basket_btn btn-sm " (click)="plaeseLogin()" [routerLink]="['/basket']">سبد خرید</button>
+              <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/sendcode']">ارسال کد</button>
             </div>
         <button type="button" class="btn btn-success btn-sm btn_sm" [routerLink]="['/login']">ورود</button>
         <button type="button" class="btn btn-danger btn-sm btn_sm" [routerLink]="['/signup']">ثبت نام!</button>
@@ -41,6 +42,7 @@
       <div class="profile-userbuttons" *ngIf="loggedin()">
         <div>
           <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/basket']">سبد خرید</button>
+          <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/sendcode']">ارسال کد</button>
         </div>
           <button type="button" class="btn btn-success btn_sm"  [routerLink]="['/profile']">پروفایل</button>
           <button type="button" class="btn btn-danger btn_sm " (click)="logout()" >خروج</button>

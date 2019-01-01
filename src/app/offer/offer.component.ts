@@ -66,6 +66,7 @@ export class OfferComponent implements OnInit {
       (data : any) => {
         // console.log(data)
         if(data.count && data.count >= 0){
+          this.toastr.success('به سبد خرید اضافه شد.')
         }else{
           // #TODO Handle Error Add To Cart
         }

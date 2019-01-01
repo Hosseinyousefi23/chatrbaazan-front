@@ -83,6 +83,7 @@ import { ApplicationComponent } from './application/application.component';
 import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpasswordconfrim.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import {GoTopButtonModule} from 'ng2-go-top-button';
+import { SendcodeComponent } from './sendcode/sendcode.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,6 +113,7 @@ import {GoTopButtonModule} from 'ng2-go-top-button';
     ConventionComponent,
     ApplicationComponent,
     ResetpasswordconfrimComponent,
+    SendcodeComponent,
     
   ],
   imports: [
