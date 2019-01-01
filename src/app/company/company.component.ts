@@ -7,6 +7,7 @@ import { DetailModalComponent } from '../detail-modal/detail-modal.component';
 import { ToastrService } from 'ngx-toastr';
 import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
 import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
+import { UsersService } from '../users.service';
 declare var $: any;
 @Component({
   selector: 'app-company',
@@ -15,7 +16,7 @@ declare var $: any;
 })
 export class CompanyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private data: PageService, private dialog: MatDialog,private toastr: ToastrService,
+  constructor(private route: ActivatedRoute, private router: Router, private data: PageService,private user: UsersService, private dialog: MatDialog,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { 
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
@@ -95,7 +96,22 @@ export class CompanyComponent implements OnInit {
     this.page = 1;
     this.filter();
   }
-
+  addtocart(id){
+    if(localStorage.getItem("userToken")){
+      this.user.addtocart(id).subscribe(
+        (data : any) => {
+          // console.log(data)
+          if(data.count && data.count >= 0){
+            this.toastr.success('به سبد خرید اضافه شد.')
+          }else{
+            // #TODO Handle Error Add To Cart
+          }
+        }
+      )
+      }else{
+        this.toastr.info('ابتدا وارد سایت شوید !!')
+      }
+  }
   filterbtn(){
     this.page = 1;
     this.filter();

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { UsersService } from '../users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-card',
@@ -13,16 +14,26 @@ export class ShoppingCardComponent implements OnInit {
   number = 0;
   isLinear = false;
 
-  constructor(private user : UsersService) { }
+  constructor(private user : UsersService, private router: Router) { }
 
   ngOnInit() {
-    
+
     this.user.getDatacart().subscribe((data :any) => { this.cart = data.result[0]; });
 
   }
 
   deletefrombasket(pid){
     this.user.deletefrombasket(pid).subscribe((data :any) => { this.cart = data.result[0]; });
+  }
+
+  completeCart(pid){
+    this.user.completeCart(pid).subscribe((data :any) => { 
+      // this.cart = data.result[0]; 
+      if(data['success'] && data['redirect_uri']){
+        this.router.navigate(['/cart/factor/' , pid]);
+      }
+      console.log(data)
+    });
   }
 
   updatebasket(pid,n){

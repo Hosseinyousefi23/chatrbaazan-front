@@ -202,7 +202,7 @@ input {
 .main_title{
   font-family: iranyekan ;
 }
-.toast-info,.toast-error{
+.toast-info,.toast-error,.toast-success{
   text-align: right !important;
 }
 .mat-drawer-inner-container { 

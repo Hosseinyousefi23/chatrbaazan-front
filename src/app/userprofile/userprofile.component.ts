@@ -57,7 +57,7 @@ export class UserprofileComponent implements OnInit {
 
    getUserproduct(){
     this.user. getUserproduct().subscribe(
-      data => console.log(data)
+      data => console.log(data['data'])
       );
   }
 
