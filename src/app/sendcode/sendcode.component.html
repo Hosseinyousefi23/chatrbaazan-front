@@ -1,0 +1,32 @@
+<div class="background">
+  <div class="login">
+    <div class="logo">
+      <a [routerLink]="['/']">
+        <img src='assets/image/chatrbaazan-logo.png'>
+      </a>
+    </div>
+    <h1>ارسال کد</h1>
+    <form (ngSubmit)="sendcode()">
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)] = "codedata.code" name="code" placeholder="کد" required="required" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)] = "codedata.ex_date" name="ex_date" placeholder="تاریخ انقضا" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)] = "codedata.chatr" name="chatr" placeholder="مقدار چتربازی" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)] = "codedata.explaintion" name="explaination" placeholder="توضیحات" >
+      </mat-form-field>
+      <button type="submit" mat-raised-button  class="btn btn-primary btn-block ">ارسال کد</button>
+    </form>
+    <!-- <div style="text-align: right; margin-top: 10px; font-size: 12px">
+     <a [routerLink]="['']" >
+       <p>
+         بازگشت به صفحه اصلی
+       </p>
+     </a>
+    </div> -->
+  </div>
+</div>
