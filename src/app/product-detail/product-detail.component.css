@@ -103,4 +103,9 @@
         margin: 2em 0;
         order: 2;
     }
+    .product_name {
+      font-size: 0.8em;
+      color: #FF003C;
+      font-weight: 700;
+    }
   }
