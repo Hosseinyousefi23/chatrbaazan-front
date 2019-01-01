@@ -62,7 +62,7 @@ export class UsersService {
     const headers = new HttpHeaders()
     .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
     .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + ' /api/v1/cart/factor/'+cartId ,{
+    return this.http.get(this.baseUrl + 'api/v1/cart/factor/'+cartId ,{
       headers: headers});
   }
 
@@ -82,8 +82,6 @@ export class UsersService {
     });
   }
   completeCart(productId) {
-    // const body = new HttpParams()
-    //   .set('product', productId)
     return this.http.get(this.baseUrl + 'api/v1/cart/complete/'+productId,  {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
     });

@@ -105,9 +105,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
-2   
-  2 })
+    this.user.logout().subscribe(data => { localStorage.removeItem("userToken"); })
     this.router.navigate(['/']);
   }
   @Output() navToggle = new EventEmitter<boolean>();

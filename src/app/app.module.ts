@@ -84,6 +84,7 @@ import { ResetpasswordconfrimComponent } from './resetpasswordconfrim/resetpassw
 import { NgxCaptchaModule } from 'ngx-captcha';
 import {GoTopButtonModule} from 'ng2-go-top-button';
 import { SendcodeComponent } from './sendcode/sendcode.component';
+import { FactorComponent } from './factor/factor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,6 +115,7 @@ import { SendcodeComponent } from './sendcode/sendcode.component';
     ApplicationComponent,
     ResetpasswordconfrimComponent,
     SendcodeComponent,
+    FactorComponent,
     
   ],
   imports: [
