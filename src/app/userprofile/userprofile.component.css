@@ -28,6 +28,12 @@
     border-radius:0 0 7px  7px;
     /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
 }
+
+:host /deep/ .mat-tab-label-content {
+    font-weight: bold !important;
+    /* font-size: 13px !important; */
+    color: #000000 !important;
+}
 .profile_option a{ text-align: right; width: 100%;}
 .add_code{
     text-align: right;
