@@ -80,6 +80,7 @@
     <div class="col-4 sum_charbaz">
       <p>
         <span *ngIf="!loggedin()">
+          <a class="link" [routerLink]="['/basket']" (click)="plaeseLogin()"> <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
           <a class="link" (click)="openDialog()">ورود</a>
           /
           <a class="link" [routerLink]="['/signup']">عضویت</a>
