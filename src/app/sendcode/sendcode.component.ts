@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
+import * as moment from 'jalali-moment';
+
 
 @Component({
   selector: 'app-sendcode',
@@ -7,7 +9,14 @@ import { UsersService } from '../users.service';
   styleUrls: ['./sendcode.component.css']
 })
 export class SendcodeComponent implements OnInit {
-
+  public dateChange(event: any, dateInput: any,picker:any) {
+    var faDate = dateInput.value;
+    moment.locale('fa');
+    var enDateMomentFormat  = moment(faDate).locale('en');
+    var enDate = new Date(enDateMomentFormat.toLocaleString());
+    picker._validSelected = enDate;
+    picker.startAt = enDate;
+}
   codedata;
   constructor(private user : UsersService) { }
 
@@ -28,3 +37,6 @@ export class SendcodeComponent implements OnInit {
   }
 
 }
+
+
+

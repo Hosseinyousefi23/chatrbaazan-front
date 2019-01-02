@@ -88,6 +88,32 @@ import {GoTopButtonModule} from 'ng2-go-top-button';
 import { SendcodeComponent } from './sendcode/sendcode.component';
 import { FactorComponent } from './factor/factor.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {  NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS,MAT_DATE_LOCALE} from '@angular/material';
+import * as moment from 'jalali-moment';
+import { Platform } from '@angular/cdk/platform';
+
+
+const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: { month: 'short', year: 'numeric', day: 'numeric' }
+  },
+  display: {
+    dateInput: 'input',
+    monthYearLabel: { year: 'numeric', month: 'short' },
+    dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
+    monthYearA11yLabel: { year: 'numeric', month: 'long' }
+  }
+}
+
+export class CustomDateAdapter extends NativeDateAdapter {
+  constructor(matDateLocale: string) {
+    super(matDateLocale, new Platform());
+  }
+  format(date: Date, displayFormat: object): string {
+    var faDate = moment(date.toDateString()).locale('fa').format('YYYY/MM/DD');
+    return faDate;
+  }
+}
 
 @NgModule({
   declarations: [
@@ -172,7 +198,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'fa-IR' },
+    { provide: DateAdapter, useClass: CustomDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [LoginModalComponent,DetailModalComponent,BottomSheetOverviewExampleSheet]
 })
