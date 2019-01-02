@@ -121,12 +121,16 @@ export class HeaderComponent implements OnInit {
 
   formsubmit(search,type) {
     console.log(type);
+    if(type == 1){
+      this.router.navigate(['/search'],{ queryParams: { search: this.searchTerm.value }})
+    }
     if(type == 2){
       this.router.navigate(['/company',search])
     }
-    if (this.searchTerm.value, type==1 ) {
-      this.router.navigate(['/search'],{ queryParams: { search: this.searchTerm.value }})
-      // this.router.navigate(['/search'],{ queryParams: { search: search }})
+    if (this.searchTerm.value, type==3 ) {
+      console.log(search)
+      // this.router.navigate(['/search'],{ queryParams: { label: this.searchTerm.value }})
+      this.router.navigate(['/search'],{ queryParams: { label: search }})
     }
   }
 
