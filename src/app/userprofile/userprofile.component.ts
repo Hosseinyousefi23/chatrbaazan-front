@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { UsersService } from '../users.service';
 import { ViewEncapsulation } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 declare var $: any;
 @Component({
@@ -12,13 +13,14 @@ declare var $: any;
 })
 export class UserprofileComponent implements OnInit {
   mode = new FormControl('over');
+  panelOpenState = false;
   cart;
   userinfo;
-  userchange;
+  // userchange;
   codedata;
   passwords;
   mobile;
-  constructor(private user : UsersService) { }
+  constructor(private user : UsersService,private router: Router) { }
 
   ngOnInit() {
     this.user.getDatacart().subscribe((data :any) => { this.cart = data; });
@@ -33,13 +35,14 @@ export class UserprofileComponent implements OnInit {
       last_name:'',
       email:'',
       mobile:'',
-    }
-    this.userchange={
-      firstname:'',
-      lastname:'',
       address:'',
-      mobile:'',
     }
+    // this.userchange={
+    //   firstname:'',
+    //   lastname:'',
+    //   address:'',
+    //   mobile:'',
+    // }
     this.passwords={
       oldpass:'',
       pass1:'',
@@ -77,8 +80,8 @@ export class UserprofileComponent implements OnInit {
   }
 
   UpadateProfile(){
-    this.user.updateUserData(this.userchange).subscribe(
-      // data => console.log(data)
+    this.user.updateUserData(this.userinfo).subscribe(
+      data => console.log(data)
       );
   }
 
@@ -87,5 +90,13 @@ export class UserprofileComponent implements OnInit {
     this.user.verifyMobile(this.mobile).subscribe(
       // data => console.log(data)
       );
+  }
+
+
+  logout() {
+    this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
+    
+    })
+    this.router.navigate(['/']);
   }
 }

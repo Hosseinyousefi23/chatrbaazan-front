@@ -30,6 +30,7 @@ import {
   MatListModule,
   MatBottomSheetModule,
   MatMenuModule,
+  MatExpansionModule,
   MatNativeDateModule,
   
   
@@ -171,6 +172,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     MatStepperModule,
     MatListModule,
     MatBottomSheetModule,
+    MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule.forRoot(),

@@ -1,146 +1,342 @@
 <mat-sidenav-container class="example-container">
 
-    <mat-sidenav #sidenav [mode]="mode.value" position="end">
-      <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
-        </button></p>
-      <div class="menu_content">
-        <app-sidenav></app-sidenav>
-      </div>
-    </mat-sidenav>
-    
-  
-    <mat-sidenav-content>
-  
-      <app-header (navToggle)="sidenav.toggle()"></app-header>
-      <div class="row content">
+  <mat-sidenav #sidenav [mode]="mode.value" position="end">
+    <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
+      </button></p>
+    <div class="menu_content">
+      <app-sidenav></app-sidenav>
+    </div>
+  </mat-sidenav>
 
-          <div class="container">
-              <div id="content">
-                <div id="main-content">
-                  <mat-tab-group>
-                    <mat-tab label="مشخصات چترباز">
-                        <div class="cart_item tabs">
-                    <div class="user_name">
-                      {{userinfo.first_name}} {{userinfo.last_name}}
-                    </div> 
-                    <div class="user_email">
-                        {{userinfo.email}}
-                    </div> 
-                    <div class="user_moble">
-                        {{userinfo.mobile}}
-                    </div> 
+
+  <mat-sidenav-content>
+
+    <app-header (navToggle)="sidenav.toggle()"></app-header>
+    <div class="row content">
+      <div class="col-md-2 user_name">
+
+        <div class="user_icon">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </div>
+        <div class="user_name_inner">
+          <span>
+            {{userinfo.first_name}}
+          </span>
+          <span>
+            {{userinfo.last_name}}
+          </span>
+          <div class="logout">
+              <a (click)="logout()" >خروج از حساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 user_info">
+        <div class="row" style="height:100%">
+          <div class="col-sm-4 col-xs-12 user_info_outter">
+
+            <div class="user_info_inner">
+              <span class="user_info_text">
+                ایمیل چترباز
+              </span>
+              <span class="user_info_value">
+              {{userinfo.email}}
+            </span>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12 user_info_outter">
+
+            <div class="user_info_inner">
+              <span class="user_info_text">
+                شماره چترباز
+              </span>
+              <span class="user_info_value">
+              {{userinfo.mobile}}
+              </span>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12 user_info_outter">
+
+            <div class="user_info_inner">
+              <span class="user_info_text">                
+                آدرس چترباز
+              </span>
+              <span *ngIf="userinfo.address != null" class="user_info_value">
+                  <div class="address_inner" [innerHTML]="userinfo.address"></div>
+              <!-- {{userinfo.address}} -->
+              </span>
+            </div>
+          </div>
+          <!-- <div class="col-12 user_info_inner">{{userinfo.mobile}}</div>
+            <div class="col-12 user_info_inner">{{userinfo.address}}</div> -->
+
+        </div>
+      </div>
+      <div class=" desktop_panel">
+        <div id="content">
+          <div id="main-content">
+            <mat-tab-group >
+              <mat-tab label="تغییر مشخصات">
+                <div class="cart_item tabs">
+                  <div class="add_code">
+                    <h1 class="add_code_title"> تغییر مشخصات</h1>
+                    <!-- <input type="text" [(ngModel)] = "userchange.firstname" placeholder="نام" required="required" /> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.first_name" placeholder="نام" required="required" value="{{userinfo.first_name}}">
+                    </mat-form-field>
+                    <!-- <input type="text"  [(ngModel)] = "userchange.lastname" placeholder="نام خانوادگی" required="required" /> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.last_name" placeholder="نام خانوادگی" required="required"
+                        value="{{userinfo.last_name}}">
+                    </mat-form-field> 
+                    <!-- <input type="text"  [(ngModel)] = "userchange.mobile" placeholder="موبایل" required="required" /> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.mobile" placeholder="موبایل" 
+                      >
+                    </mat-form-field>
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.address" placeholder="ادرس"
+                      >
+                    </mat-form-field>
+                    <!-- <input type="text"  [(ngModel)] = "userchange.address" placeholder="آدرس" required="required" /> -->
+                    <div>
+                      <button mat-raised-button (click)="UpadateProfile()" type="submit" color="primary">تغییر مشخصات</button>
+                    </div>
+                  </div>
+                </div>
+
+              </mat-tab>
+              <mat-tab label="افزودن چتر جدید">
+
+                <div class="cart_item tabs">
+                  <div class="add_code">
+                    <h1 class="add_code_title">افزودن کد</h1>
+                    <!-- <input type="text" [(ngModel)] = "codedata.code" placeholder="کد" required="required" />
+                            <input type="text"  [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" required="required" />
+                            <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
+                            <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
+                            <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
+                    <!-- <form class="example-form"> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="codedata.code" placeholder="کد" required="required">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                      <input matInput [(ngModel)]="codedata.ex_date" placeholder="تاریخ انقضا">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                      <input matInput [(ngModel)]="codedata.chatr" placeholder="مقدار چتربازی">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                      <input matInput [(ngModel)]="codedata.explaintion" placeholder="توضیحات">
+                    </mat-form-field>
+                    <div>
+                      <button mat-raised-button (click)="sendcode()" color="primary" type="submit">ارسال کد</button>
+                    </div>
+
+                    <!-- </form> -->
+                  </div>
+                </div>
+              </mat-tab>
+              <mat-tab label="تغییر رمز عبور">
+                <div class="cart_item tabs">
+                  <div class="add_code">
+                    <h1 class="add_code_title">تغییر رمز عبور</h1>
+                    <!-- <input type="text" [(ngModel)] = "passwords.oldpass" placeholder=" رمز عبور قبلی" required="required" />
+                            <input type="text" [(ngModel)] = "passwords.pass1" placeholder=" رمز عبور" required="required" />
+                            <input type="text"  [(ngModel)] = "passwords.pass2" placeholder=" تکرار رمز عبور " required="required" /> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="passwords.oldpass" type="password" placeholder="رمز عبور قبلی" required="required">
+                    </mat-form-field>
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="passwords.pass1" type="password" placeholder="رمز عبور جدید" required="required">
+                    </mat-form-field>
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="passwords.pass2" type="password" placeholder="تکرار رمز عبور جدید" required="required">
+                    </mat-form-field>
+                    <div>
+                      <button mat-raised-button (click)="changePassword()" type="submit" color="primary">تغییر رمز
+                        عبور</button>
+                    </div>
+
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="تایید شماره موبایل">
+                  <div class="cart_item tabs">
+                    <div class="add_code">
+                      <h1 class="add_code_title">
+                        تایید شماره موبایل
+                      </h1>
+                      <p>
+                        برای دریافت جدیدترین تخفیف‌ های شهر خود شماره خود را ارسال نمایید.
+                      </p>
+                      <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
+                      <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="mobile" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
+                      </mat-form-field>
+                      <div>
+                        <button mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
+                      </div>
+                      <!-- <button (click)="verify()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
+                    </div>
+                  </div>
+                </mat-tab>
+
+              <mat-tab label="چتربازی های من">
+                <div class="cart_item tabs">
+                  تخفیف هات
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="mobile_panel">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    تغییر مشخصات
+                </mat-panel-title>
+                <mat-panel-description>
+                  مشخصات خود را وارد کنید
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="cart_item tabs">
+                  <div class="add_code">
+                    <!-- <input type="text" [(ngModel)] = "userchange.firstname" placeholder="نام" required="required" /> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.firstname" placeholder="نام" required="required" value="{{userinfo.first_name}}">
+                    </mat-form-field>
+                    <!-- <input type="text"  [(ngModel)] = "userchange.lastname" placeholder="نام خانوادگی" required="required" /> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.lastname" placeholder="نام خانوادگی" required="required"
+                        value="{{userinfo.last_name}}">
+                    </mat-form-field>
+                    <mat-form-field class="">
+                        <input matInput [(ngModel)]="userinfo.mobile" placeholder="موبایل" 
+                        value="{{userinfo.mobile}}">
+                      </mat-form-field>
+                    <!-- <input type="text"  [(ngModel)] = "userchange.mobile" placeholder="موبایل" required="required" /> -->
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.address" placeholder="ادرس" required="required">
+                    </mat-form-field>
+                    <!-- <input type="text"  [(ngModel)] = "userchange.address" placeholder="آدرس" required="required" /> -->
+                    <div>
+                      <button mat-raised-button (click)="UpadateProfile()" type="submit" color="primary">تغییر مشخصات</button>
+                    </div>
+                  </div>
+                </div>
+            </mat-expansion-panel>
+
+           
+
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      افزودن چتر جدید
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    چتر خود را وارد کنید
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+               
+                <div class="cart_item tabs">
+                    <div class="add_code">
+                      <!-- <input type="text" [(ngModel)] = "codedata.code" placeholder="کد" required="required" />
+                              <input type="text"  [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" required="required" />
+                              <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
+                              <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
+                              <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
+                      <!-- <form class="example-form"> -->
+                      <mat-form-field class="">
+                        <input matInput [(ngModel)]="codedata.code" placeholder="کد" required="required">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="codedata.ex_date" placeholder="تاریخ انقضا">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="codedata.chatr" placeholder="مقدار چتربازی">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="codedata.explaintion" placeholder="توضیحات">
+                      </mat-form-field>
+                      <div>
+                        <button mat-raised-button (click)="sendcode()" color="primary" type="submit">ارسال کد</button>
+                      </div>
+  
+                      <!-- </form> -->
+                    </div>
+                  </div>
+              </mat-expansion-panel>
+
+
+              <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        تغییر رمز عبور
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        رمز عبور خود را وارد کنید
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class="cart_item tabs">
+                      <div class="add_code">
+                        <!-- <input type="text" [(ngModel)] = "passwords.oldpass" placeholder=" رمز عبور قبلی" required="required" />
+                                <input type="text" [(ngModel)] = "passwords.pass1" placeholder=" رمز عبور" required="required" />
+                                <input type="text"  [(ngModel)] = "passwords.pass2" placeholder=" تکرار رمز عبور " required="required" /> -->
+                        <mat-form-field class="">
+                          <input matInput [(ngModel)]="passwords.oldpass" type="password" placeholder="رمز عبور قبلی" required="required">
+                        </mat-form-field>
+                        <mat-form-field class="">
+                          <input matInput [(ngModel)]="passwords.pass1" type="password" placeholder="رمز عبور جدید" required="required">
+                        </mat-form-field>
+                        <mat-form-field class="">
+                          <input matInput [(ngModel)]="passwords.pass2" type="password" placeholder="تکرار رمز عبور جدید" required="required">
+                        </mat-form-field>
+                        <div>
+                          <button mat-raised-button (click)="changePassword()" type="submit" color="primary">تغییر رمز
+                            عبور</button>
                         </div>
-                    </mat-tab>
-                    <mat-tab label="چتربازی های من">
-                        <div class="cart_item tabs">
-                      تخفیف هات 
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="تایید شماره موبایل">
-                        <div class="cart_item tabs">
-                          <div class="add_code">
-                          <h1 class="add_code_title">
-                            تایید شماره موبایل
-                          </h1>
+    
+                      </div>
+                    </div>
+                </mat-expansion-panel>
+
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                          تایید شماره موبایل
+                      </mat-panel-title>
+                      <mat-panel-description>
+                          موبایل خود را وارد کنید
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="cart_item tabs">
+                        <div class="add_code">
                           <p>
                             برای دریافت جدیدترین تخفیف‌ های شهر خود شماره خود را ارسال نمایید.
                           </p>
                           <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
                           <mat-form-field class="example-full-width">
-                            <input matInput [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}" >
+                            <input matInput [(ngModel)]="mobile" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
                           </mat-form-field>
                           <div>
-                              <button  mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
+                            <button mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
                           </div>
                           <!-- <button (click)="verify()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
-                      </div>
                         </div>
-                    </mat-tab>
-                    <mat-tab label="افزودن چتر جدید">
-
-                      <div class="cart_item tabs">
-                        <div class="add_code">
-                            <h1 class="add_code_title">افزودن کد</h1>
-                            <!-- <input type="text" [(ngModel)] = "codedata.code" placeholder="کد" required="required" />
-                            <input type="text"  [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" required="required" />
-                            <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
-                            <input type="text"  [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" required="required" />
-                            <button (click)="sendcode()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
-                            <!-- <form class="example-form"> -->
-                              <mat-form-field class="">
-                                <input matInput [(ngModel)] = "codedata.code" placeholder="کد" required="required" >
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width">
-                                <input matInput [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" >
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width">
-                                <input matInput [(ngModel)] = "codedata.chatr" placeholder="مقدار چتربازی" >
-                              </mat-form-field>
-                              <mat-form-field class="example-full-width">
-                                <input matInput [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" >
-                              </mat-form-field>
-                              <div>
-                                  <button mat-raised-button (click)="sendcode()"  color="primary" type="submit" >ارسال کد</button>
-                              </div>
-                              
-                            <!-- </form> -->
-                        </div>     
                       </div>
-                    </mat-tab>
-                      <mat-tab label="تغییر رمز عبور">
-                      <div class="cart_item tabs">
-                        <div class="add_code">
-                            <h1 class="add_code_title">تغییر رمز عبور</h1>
-                            <!-- <input type="text" [(ngModel)] = "passwords.oldpass" placeholder=" رمز عبور قبلی" required="required" />
-                            <input type="text" [(ngModel)] = "passwords.pass1" placeholder=" رمز عبور" required="required" />
-                            <input type="text"  [(ngModel)] = "passwords.pass2" placeholder=" تکرار رمز عبور " required="required" /> -->
-                            <mat-form-field class="">
-                              <input matInput [(ngModel)] = "passwords.oldpass" placeholder="رمز عبور قبلی" required="required" >
-                            </mat-form-field>
-                            <mat-form-field class="">
-                              <input matInput [(ngModel)] = "passwords.pass1" placeholder="رمز عبور جدید" required="required" >
-                            </mat-form-field>
-                            <mat-form-field class="">
-                              <input matInput [(ngModel)] = "passwords.pass2"  placeholder="تکرار رمز عبور جدید" required="required">
-                            </mat-form-field>
-                            <div>
-                                <button mat-raised-button (click)="changePassword()" type="submit" color="primary" >تغییر رمز عبور</button>
-                            </div>
-                            
-                        </div>     
-                      </div>
-                    </mat-tab>
-                    <mat-tab label="تغییر مشخصات">
-                      <div class="cart_item tabs">
-                        <div class="add_code">
-                            <h1 class="add_code_title"> تغییر مشخصات</h1>
-                            <!-- <input type="text" [(ngModel)] = "userchange.firstname" placeholder="نام" required="required" /> -->
-                            <mat-form-field class="">
-                              <input matInput [(ngModel)] = "userchange.firstname"  placeholder="نام" required="required" value="{{userinfo.first_name}}">
-                            </mat-form-field>
-                            <!-- <input type="text"  [(ngModel)] = "userchange.lastname" placeholder="نام خانوادگی" required="required" /> -->
-                            <mat-form-field class="">
-                              <input matInput [(ngModel)] = "userchange.lastname"  placeholder="نام خانوادگی" required="required" value="{{userinfo.last_name}}" >
-                            </mat-form-field>
-                            <!-- <input type="text"  [(ngModel)] = "userchange.mobile" placeholder="موبایل" required="required" /> -->
-                            <mat-form-field class="">
-                              <input matInput [(ngModel)] = "userchange.address"  placeholder="ادرس" required="required">
-                            </mat-form-field>
-                            <!-- <input type="text"  [(ngModel)] = "userchange.address" placeholder="آدرس" required="required" /> -->
-                            <div>
-                              <button mat-raised-button (click)="UpadateProfile()" type="submit" color="primary" >تغییر مشخصات</button>
-                            </div>
-                        </div>     
-                      </div>
-
-                    </mat-tab>
-                  </mat-tab-group>
-                </div>
-              </div>
-            </div>
+                  </mat-expansion-panel>
+          </mat-accordion>
+        </div>
       </div>
-      <app-footer></app-footer>
-  
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+    </div>
+    <app-footer></app-footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
