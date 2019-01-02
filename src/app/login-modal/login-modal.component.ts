@@ -58,6 +58,7 @@ export class LoginModalComponent implements OnInit {
       },
       (err : HttpErrorResponse) => {
         this.isLoginError = true;
+        console.log(err);
       }
     );
   }

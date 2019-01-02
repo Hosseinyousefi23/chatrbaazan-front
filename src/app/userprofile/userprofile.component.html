@@ -178,7 +178,7 @@
                       </p>
                       <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
                       <mat-form-field class="example-full-width">
-                        <input matInput [(ngModel)]="mobile" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
+                        <input matInput [(ngModel)]="mobile" disabled="disabled" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
                       </mat-form-field>
                       <div>
                         <button mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
