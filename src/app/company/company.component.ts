@@ -200,8 +200,15 @@ export class CompanyComponent implements OnInit {
     }  , 3000 );
   }
 
+  sendclick(product_id){
+    this.toastr.info('آماده پرتاب')
+    this.data.sendclick_like(product_id).subscribe(
+      data => console.log(data)
+    )
+  }
   finished(a){
-    $(".timer_"+a).text("منقضی شد")
+    // $(".timer_"+a).text("منقضی شد")
+    $(".timer_"+a).html('<p style="color:red;">منقضی شد</p>')
   }
 
 }

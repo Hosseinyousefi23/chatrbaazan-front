@@ -128,7 +128,7 @@
                                   </button>
                                 </a>
                                 <a *ngIf="item.is_free" href="{{item.link}}">
-                                  <button class="btn btn-success btn_sm ">
+                                  <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                                     لینک خرید
                                   </button>
                                 </a>
@@ -253,7 +253,7 @@
                                   </button>
                                 </a>
                                 <a *ngIf="item.is_free" href="{{item.link}}">
-                                  <button class="btn btn-success btn_sm ">
+                                  <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                                     لینک خرید
                                   </button>
                                 </a>
@@ -377,7 +377,7 @@
                                   </button>
                                 </a>
                                 <a *ngIf="item.is_free" href="{{item.link}}">
-                                  <button class="btn btn-success btn_sm ">
+                                  <button  (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                                     لینک خرید
                                   </button>
                                 </a>
@@ -440,3 +440,4 @@
 
   </mat-sidenav-content>
 </mat-sidenav-container>
+

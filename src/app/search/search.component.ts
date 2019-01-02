@@ -253,6 +253,13 @@ export class SearchComponent implements OnInit {
     )
   }
 
+  sendclick(product_id){
+    // this.toastr.info('آماده پرتاب')
+    this.data.sendclick_like(product_id).subscribe(
+      data => console.log(data)
+    )
+  }
+
   openBottomSheet(slug): void {
     // console.log(slug+"12")
     this.bottomSheet.open(BottomSheetOverviewExampleSheet
@@ -271,7 +278,8 @@ export class SearchComponent implements OnInit {
 
 
   finished(a){
-    $(".timer_"+a).text("منقضی شد")
+    // $(".timer_"+a).text("منقضی شد")
+    $(".timer_"+a).html('<p style="color:red;">منقضی شد</p>')
   }
 
 }

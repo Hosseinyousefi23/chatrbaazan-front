@@ -30,7 +30,9 @@ import {
   MatListModule,
   MatBottomSheetModule,
   MatMenuModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatNativeDateModule,
+  
   
   } from "@angular/material";
 
@@ -86,6 +88,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import {GoTopButtonModule} from 'ng2-go-top-button';
 import { SendcodeComponent } from './sendcode/sendcode.component';
 import { FactorComponent } from './factor/factor.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -143,6 +147,8 @@ import { FactorComponent } from './factor/factor.component';
     MatListModule,
     MatBottomSheetModule,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
@@ -164,7 +170,8 @@ import { FactorComponent } from './factor/factor.component';
     NgxSpinnerModule,
     MatMenuModule,
     NgxCaptchaModule,
-    GoTopButtonModule
+    GoTopButtonModule,
+    
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   providers: [],
