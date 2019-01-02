@@ -16,14 +16,14 @@ export class FooterComponent implements OnInit {
   send_email(){
     this.data.send_one_email(this.email).subscribe(
       (data: any) => {
-        console.log('hiiiiiii')
+        // console.log('hiiiiiii')
         this.toastr.info('چترتون مستدام')
       },
       (err) => {
-        console.log(this.email)
-        console.log(err)
+        // console.log(this.email)
+        // console.log(err)
 
-        this.toastr.error('چترتون مستدام')
+        this.toastr.error('ایمیل خود را وارد نمایید')
       }
     );
   }

@@ -178,6 +178,8 @@ font-size: .9em;
   background: #EDEDED;
 padding: 1em 5em;
 text-align: center;
+font-weight: bold;
+
 }
 .footer_text_link a{
   color: #FF003C;

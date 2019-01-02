@@ -23,6 +23,7 @@ export class ConventionComponent implements OnInit {
     private bottomSheet: MatBottomSheet) { }
   ngOnInit() {
     this.searchoffer();
+    
   }
 
   ngOnChanges() {
