@@ -119,9 +119,15 @@
                     <mat-form-field class="">
                       <input matInput [(ngModel)]="codedata.code" placeholder="کد" required="required">
                     </mat-form-field>
-                    <mat-form-field class="example-full-width">
+                    <!-- <mat-form-field class="example-full-width">
                       <input matInput [(ngModel)]="codedata.ex_date" placeholder="تاریخ انقضا">
+                    </mat-form-field> -->
+                    <mat-form-field>
+                      <input #dateInput matInput [matDatepicker]="picker" [(ngModel)]="date" (change)="dateChange($event,dateInput,picker)" placeholder="انتخاب تاریخ">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
+                  
                     <mat-form-field class="example-full-width">
                       <input matInput [(ngModel)]="codedata.chatr" placeholder="مقدار چتربازی">
                     </mat-form-field>

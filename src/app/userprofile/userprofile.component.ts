@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { UsersService } from '../users.service';
 import { ViewEncapsulation } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
-
+import * as moment from 'jalali-moment';
 declare var $: any;
 @Component({
   selector: 'app-userprofile',
@@ -20,6 +20,14 @@ export class UserprofileComponent implements OnInit {
   codedata;
   passwords;
   mobile;
+  public dateChange(event: any, dateInput: any,picker:any) {
+    var faDate = dateInput.value;
+    moment.locale('fa');
+    var enDateMomentFormat  = moment(faDate).locale('en');
+    var enDate = new Date(enDateMomentFormat.toLocaleString());
+    picker._validSelected = enDate;
+    picker.startAt = enDate;
+}
   constructor(private user : UsersService,private router: Router) { }
 
   ngOnInit() {
