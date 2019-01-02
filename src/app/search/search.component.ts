@@ -17,6 +17,7 @@ declare var $: any;
 export class SearchComponent implements OnInit {
   pro : any[] = [];
   searched: string;
+  searchedLabel: string;
   selectedcompany;
   selectedcategory;
   selectedtab: string;
@@ -50,6 +51,10 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {this.type = params['type'];})
     this.searched = this.route.snapshot.queryParams['search']
+    this.searchedLabel = this.route.snapshot.queryParams['label']
+    console.log(this.searched)
+    console.log(this.searchedLabel)
+    if(this.searched){
     this.data.search(this.searched,null,null,null,null,this.size,null,this.type).subscribe(param => {
       if (param['count']) {
         this.pro = param.results
@@ -75,6 +80,35 @@ export class SearchComponent implements OnInit {
         this.pro = null;
       }
     });
+  }else if(this.searchedLabel){
+    this.data.search_label(this.searchedLabel,null,null,null,null,this.size,null,this.type).subscribe(param => {
+      if (param['count']) {
+        this.pro = param.results
+        this.next_url = param.next
+        this.companies = []
+        this.categories = []
+        for (let i of param.results) {
+          for (let c of i.company) {
+            if (!this.companies.some(temp => temp.name == c.name)) {
+              this.companies.push(c);
+            }
+          }
+        }
+        for (let i of param.results) {
+          for (let c of i.category) {
+            if (!this.categories.some(temp => temp.name == c.name)) {
+              this.categories.push(c);
+            }
+          }
+        }
+        this.addeventlister();
+      } else {
+        this.pro = null;
+      }
+    });
+  }
+
+
   }
 
   addeventlister(){
@@ -123,6 +157,7 @@ export class SearchComponent implements OnInit {
 
 
   filter() {
+    if(this.searched){
     this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page,this.type).subscribe(param => {
       if (param['count']) {    
         this.pro = param.results
@@ -151,6 +186,36 @@ export class SearchComponent implements OnInit {
         this.pro = null;
       }
     });
+  }else if(this.searchedLabel){
+    this.data.search_label(this.searchedLabel, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page,this.type).subscribe(param => {
+      if (param['count']) {    
+        this.pro = param.results
+        this.companies = []
+        this.categories = []
+        this.next_url = param.next
+        for (let i of param.results) {
+          // this.companies =[]
+          for (let c of i.company) {
+            // console.log(this.companies.indexOf(c))
+            if (!this.companies.some(temp => temp.name == c.name)) {
+              this.companies.push(c);
+            }
+          }
+        }
+        for (let i of param.results) {
+          // this.companies =[]
+          for (let c of i.category) {
+            if (!this.categories.some(temp => temp.name == c.name)) {
+              this.categories.push(c);
+            }
+          }
+        }
+        this.addeventlister();
+      } else {
+        this.pro = null;
+      }
+    });
+    }
   }
 
 

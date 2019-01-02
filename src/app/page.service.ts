@@ -97,4 +97,27 @@ export class PageService {
     return result;
   }
 
+  search_label(label = null, company = null, category = null, ordering = null, city = null, limit = null, page = null, type = null) {
+    let search_url = 'api/v1/label/'+label+'/?'
+    // if (label) { search_url = search_url + 'label=' + label }
+    if (company) { search_url = search_url + '&company_slug=' + company }
+    if (category) { search_url = search_url + '&category_slug=' + category }
+    if (ordering) { search_url = search_url + '&ordering=' + ordering }
+    if (city) { search_url = search_url + '&city=' + city }
+    if (limit) { search_url = search_url + '&limits=' + limit }
+    if (page) { search_url = search_url + '&page=' + page }
+    if (type) { search_url = search_url + '&type=' + type }
+    var result = this.http.get(this.baseUrl + search_url)
+      .pipe(
+        debounceTime(500),
+        map(
+          (data: any) => {
+            return (
+              data.length != 0 ? data.data : [{ "BookName": "No Record Found" } as any]
+            );
+          }
+        ));
+    return result;
+  }
+
 }

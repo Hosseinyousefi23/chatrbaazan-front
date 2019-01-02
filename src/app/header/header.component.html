@@ -38,9 +38,9 @@
 
       <div class="col-md-9 col-xs-12">
         <div class="input-group mb-3">
-            <form  (onSelectionChange)="formsubmit(null,null)">
+            <form  (ngSubmit)="formsubmit(null,1)" >
             <!-- <mat-form-field class="container"> -->
-            <button class="btn search_btn" type="button" (click)="formsubmit(null,null)">
+            <button class="btn search_btn" type="button" (click)="formsubmit(null,1)">
               <i class="fa fa-search " aria-hidden="true"></i>
             </button>
             <input type="text"   class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
@@ -62,8 +62,8 @@
                 </div>
 
                 <div class="col-6 search_result">
-                    <mat-option (onSelectionChange)="formsubmit(search.name,1)" *ngFor="let search of tagsSearched" [value]="search.name">
-                        <div (click)="formsubmit(search.name,1)" >
+                    <mat-option (onSelectionChange)="formsubmit(search.name,3)" *ngFor="let search of tagsSearched" [value]="search.name">
+                        <div (click)="formsubmit(search.name,3)" >
                       #{{ search.name }}
                         </div>
                     </mat-option>
