@@ -61,6 +61,9 @@ export class OfferComponent implements OnInit {
     return Date.now()-time.getTime();
   }
   addtocart(id){
+    this.offer.sendclick_like(id).subscribe(
+      data => console.log(data)
+    )
     if(localStorage.getItem("userToken")){
     this.user.addtocart(id).subscribe(
       (data : any) => {
@@ -85,7 +88,7 @@ export class OfferComponent implements OnInit {
   }
 
   sendclick(product_id){
-    this.toastr.info('آماده پرتاب')
+    // this.toastr.info('آماده پرتاب')
     this.offer.sendclick_like(product_id).subscribe(
       data => console.log(data)
     )

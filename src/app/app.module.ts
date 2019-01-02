@@ -30,6 +30,7 @@ import {
   MatListModule,
   MatBottomSheetModule,
   MatMenuModule,
+  MatNativeDateModule,
   
   
   } from "@angular/material";
@@ -144,6 +145,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatStepperModule,
     MatListModule,
     MatBottomSheetModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
@@ -166,7 +169,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatMenuModule,
     NgxCaptchaModule,
     GoTopButtonModule,
-    MatDatepickerModule
+    
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   providers: [],

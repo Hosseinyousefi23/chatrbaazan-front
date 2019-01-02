@@ -188,6 +188,13 @@ export class SearchComponent implements OnInit {
     )
   }
 
+  sendclick(product_id){
+    // this.toastr.info('آماده پرتاب')
+    this.data.sendclick_like(product_id).subscribe(
+      data => console.log(data)
+    )
+  }
+
   openBottomSheet(slug): void {
     // console.log(slug+"12")
     this.bottomSheet.open(BottomSheetOverviewExampleSheet

@@ -74,7 +74,7 @@ export class ProductComponent implements OnInit {
   }
 
   sendclick(product_id){
-    this.toastr.info('آماده پرتاب')
+    // this.toastr.info('آماده پرتاب')
     this.offer.sendclick_like(product_id).subscribe(
       data => console.log(data)
     )

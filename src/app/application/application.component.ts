@@ -59,6 +59,9 @@ export class ApplicationComponent implements OnInit {
   }
 
   addtocart(id){
+    this.offer.sendclick_like(id).subscribe(
+      data => console.log(data)
+    )
     if(localStorage.getItem("userToken")){
       this.user.addtocart(id).subscribe(
         (data : any) => {
@@ -83,7 +86,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   sendclick(product_id){
-    this.toastr.info('آماده پرتاب')
+    // this.toastr.info('آماده پرتاب')
     this.offer.sendclick_like(product_id).subscribe(
       data => console.log(data)
     )
@@ -104,6 +107,7 @@ export class ApplicationComponent implements OnInit {
     $(".timer_"+a).html('<p style="color:red;">منقضی شد</p>')
   }
 
+  
   openBottomSheet(slug): void {
     this.bottomSheet.open(BottomSheetOverviewExampleSheet
       ,{data:{ 'slug': slug}});
