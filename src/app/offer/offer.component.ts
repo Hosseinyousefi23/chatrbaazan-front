@@ -102,7 +102,8 @@ export class OfferComponent implements OnInit {
   }
 
   finished(a){
-    $(".timer_"+a).text("منقضی شد")
+    // $(".timer_"+a).text("منقضی شد")
+    $(".timer_"+a).html('<p style="color:red;">منقضی شد</p>')
   }
 
   openBottomSheet(slug): void {

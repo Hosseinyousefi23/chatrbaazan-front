@@ -23,10 +23,10 @@ html,
 body {
   height: 100%;
   direction: rtl;
-  /* -webkit-user-select: all;  
-  -moz-user-select: all;     
-  -ms-user-select: all;      
-  user-select: all;           */
+  -webkit-user-select: auto;  
+  -moz-user-select: auto;     
+  -ms-user-select: auto;      
+  user-select: auto;          
   
 }
 
