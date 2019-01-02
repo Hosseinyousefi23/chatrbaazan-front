@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
@@ -20,7 +20,8 @@ export class LoginModalComponent implements OnInit {
   //   email: new FormControl(''),
   //   password: new FormControl(''),
   // });
-  constructor(public dialogRef: MatDialogRef<LoginModalComponent>,private userservice: UsersService,private router :Router) {
+  constructor(public dialogRef: MatDialogRef<LoginModalComponent>,private userservice: UsersService,private router :Router
+    ,private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -58,7 +59,7 @@ export class LoginModalComponent implements OnInit {
       },
       (err : HttpErrorResponse) => {
         this.isLoginError = true;
-        console.log(err);
+        this.toastr.error('رمز عبور یاایمیل اشتباه است')
       }
     );
   }
