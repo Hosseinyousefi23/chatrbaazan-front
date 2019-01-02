@@ -51,8 +51,6 @@ export class ProductDetailComponent implements OnInit {
           this.image_gallery.push(this.address)
           }
         }
-        console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
-        
         if (!this.pro['image']){
           console.log('tessst',this.pro['company'][0]['image'])
           this.address={small:this.pro['company'][0]['image'],medium:this.pro['company'][0]['image'],big: this.pro['company'][0]['image']};
@@ -68,7 +66,6 @@ export class ProductDetailComponent implements OnInit {
       {
           width: '600px',
           // height: '400px',
-          
           thumbnailsColumns: 4,
           imageAnimation: NgxGalleryAnimation.Slide
       },
@@ -104,13 +101,6 @@ export class ProductDetailComponent implements OnInit {
   // console.log(this.galleryImages)
   }
 
-
-  // addtocart(id){
-  //   console.log(id)
-  //   this.service.addtocart(id).subscribe(
-  //     // data => console.log(data)
-  //   )
-  // }
   sendfail(slug){
     this.toastr.error('چترتون مستدام ')
     this.service.sendfailure(slug).subscribe(
@@ -140,14 +130,11 @@ export class ProductDetailComponent implements OnInit {
         this.toastr.info('ابتدا وارد سایت شوید !!')
       }
   }
+  label_clicked(label){
+    this.router.navigate(['/search'],{ queryParams: { label: label }})
+  }
+
+  
 
 }
-
-
-// (2) [{…}, {…}]
-// 0:
-// big: "assets/image/contact-us-bg-banner.jpg"
-// medium: "assets/image/contact-us-bg-banner.jpg"
-// small: "assets/image/contact-us-bg-banner.jpg"
-// __proto__: Object
 
