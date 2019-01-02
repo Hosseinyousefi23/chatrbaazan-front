@@ -108,8 +108,8 @@ export class UsersService {
 
   updateUserData(user) {
     const body = new HttpParams()
-      .set('first_name', user.firstname)
-      .set('last_name', user.lastname)
+      .set('first_name', user.first_name)
+      .set('last_name', user.last_name)
       .set('mobile', user.mobile)
       .set('address', user.address)
     return this.http.put(this.baseUrl + 'api/v1/user/', body, {

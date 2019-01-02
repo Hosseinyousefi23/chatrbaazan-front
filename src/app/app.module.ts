@@ -29,7 +29,8 @@ import {
   MatSelectModule,
   MatListModule,
   MatBottomSheetModule,
-  MatMenuModule
+  MatMenuModule,
+  MatExpansionModule
   
   } from "@angular/material";
 
@@ -141,6 +142,7 @@ import { FactorComponent } from './factor/factor.component';
     MatStepperModule,
     MatListModule,
     MatBottomSheetModule,
+    MatExpansionModule,
     NgbModule.forRoot(),
     OwlModule,
     BrowserAnimationsModule,
