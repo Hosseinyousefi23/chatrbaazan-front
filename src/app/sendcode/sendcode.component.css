@@ -8,7 +8,7 @@
     /* background-size: cover; */
     background-image: url('../../assets/image/bg_01.png');
     background-size: cover;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 0;
   }
 .logo img{

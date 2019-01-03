@@ -108,4 +108,10 @@
       color: #FF003C;
       font-weight: 700;
     }
+    .date_praph{
+      font-size: .65em !important;
+      font-weight: bold;
+      margin-top: 10px;
+      
+    }
   }

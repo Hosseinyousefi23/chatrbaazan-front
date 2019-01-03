@@ -107,9 +107,9 @@ export class ProductDetailComponent implements OnInit {
       // data => console.log(data)
     )
   }
-
+  
   showCopied() {
-    $(".Copy_btn").text("کپی شد")
+    $(".Copy_btn").html("کپی شد")
     setTimeout( function(){ 
       $(".Copy_btn").text("کپی")
     }  , 3000 );

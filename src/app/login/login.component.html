@@ -21,19 +21,22 @@
 
       <button mat-raised-button (click)="LoginUser()" type="submit" class="btn btn-primary btn-block btn-large">ورود</button>
       
-      <p *ngIf="isLoginerror">
+      <!-- <p *ngIf="isLoginerror">
           رمز عبور یاایمیل اشتباه است
-        </p>
+        </p> -->
       <p>کاربر جدید هستید؟ <a routerLink="/signup">
           ثبت‌نام در چتربازان
-        </a></p>
-      </form>
-      <div style="text-align: right; ">
-        <a [routerLink]="['']" >
-          <p style="    margin-top: 0px;">
-            بازگشت به صفحه اصلی
-          </p>
         </a>
-       </div>
+        <a [routerLink]="['']" >
+          
+          بازگشت به صفحه اصلی
+        
+      </a>
+      </p>
+        
+    
+        
+      </form>
+      
   </div>
 </div>

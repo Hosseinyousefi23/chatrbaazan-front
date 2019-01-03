@@ -16,7 +16,7 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field> -->
       <mat-form-field class="example-full-width">
-        <input #dateInput matInput [matDatepicker]="picker" [(ngModel)]="date" (change)="dateChange($event,dateInput,picker)" placeholder="انتخاب تاریخ">
+        <input #dateInput matInput [matDatepicker]="picker" [(ngModel)]="codedata.ex_date" (change)="dateChange($event,dateInput,picker)" placeholder="تاریخ انقضا">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

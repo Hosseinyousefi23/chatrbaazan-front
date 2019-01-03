@@ -290,6 +290,18 @@
     width: 8em !important;
     font-size: 0.6em;
     }
+    .timer {
+      margin: .85em 0;
+      font-size: .74em;
+      font-weight: 700;
+    }
+    .status_pro{
+      margin: 0 !important;
+    }
+    .price_p{
+      margin:0 !important ;
+      font-size: 0.831em !important;
+    }
   
   }
   
@@ -352,6 +364,19 @@
     .btn_sm {
       width: 7em !important;
       font-size: .8em;
+      }
+    
+      .timer {
+        margin: .85em 0;
+        font-size: .74em;
+        font-weight: 700;
+      }
+      .status_pro{
+        margin: 0 !important;
+      }
+      .price_p{
+        margin:0 !important ;
+        font-size: 0.831em !important;
       }
   }
   

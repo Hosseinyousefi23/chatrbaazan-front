@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container">
 
-  <mat-sidenav #sidenav [mode]="mode.value" position="end">
+  <mat-sidenav #sidenav [mode]="mode.value" [fixedInViewport]="true" position="end">
     <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
       </button></p>
     <div class="menu_content">
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-6 col-xs-12">
               <!-- {{pro.expiration_date|date:'yyyy/MM/dd'}} -->
-              <p>مهلت استفاده:{{pro.expiration_date|jalali}}</p>
+              <p  style="color:red; font-weight: bold" class="date_praph">مهلت استفاده:{{pro.expiration_date|date:'dd-MM-yyyy' |jalali:pro.expiration_date}}</p>
             </div>
             
           </div>
@@ -70,7 +70,7 @@
           <div *ngIf="pro.is_free" class="row">
               <div class="modal_input">
                   <a href="{{pro.link}}">
-                    <button style="margin-left: 11px;" mat-raised-button color="primary"  class=" btn_sm mat-raised-button">خرید</button>
+                    <button style="margin-left: 11px;" mat-raised-button color="primary"  class=" btn_sm mat-raised-button">لینک خرید</button>
                   </a>
                     <button mat-raised-button color="warn" (click)="sendfail(pro.slug)" class=" btn_sm mat-raised-button">اعلام خرابی</button>
               </div>

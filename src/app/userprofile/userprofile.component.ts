@@ -106,7 +106,9 @@ export class UserprofileComponent implements OnInit {
   //   this.router.navigate(['/']);
   // }
   logout() {
-    this.user.logout().subscribe(data => { localStorage.removeItem("userToken"); })
-    this.router.navigate(['/']);
+    this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
+    this.router.navigate(['/']);  
+    })
+  
   }
 }

@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container">
 
-  <mat-sidenav #sidenav [mode]="mode.value" position="end">
+  <mat-sidenav #sidenav [mode]="mode.value" [fixedInViewport]="true" position="end">
     <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
       </button></p>
     <div class="menu_content">
@@ -73,13 +73,13 @@
                           <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
                         </div>
                         <div *ngIf="item.type==1">
-                          <p>وضعیت:
+                          <p class="status_pro">وضعیت:
                             <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                             <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
                           </p>
                         </div>
                         <div *ngIf=" item.type==1 &&(!item.free || item.price)">
-                          <p>قیمت:
+                          <p class="price_p">قیمت:
                             <span>
                               {{item.price}}
                               ریال
@@ -194,13 +194,13 @@
 
                         </div>
                         <div *ngIf="item.type==1">
-                          <p>وضعیت:
+                          <p class="status_pro">وضعیت:
                             <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                             <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
                           </p>
                         </div>
                         <div *ngIf=" item.type==1 &&(!item.free || item.price)">
-                          <p>قیمت:
+                          <p class="price_p">قیمت:
                             <span>
                               {{item.price}}
                               ریال
@@ -319,13 +319,13 @@
 
                         </div>
                         <div *ngIf="item.type==1">
-                          <p>وضعیت:
+                          <p  class="status_pro" >وضعیت:
                             <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                             <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
                           </p>
                         </div>
                         <div *ngIf=" item.type==1 &&(!item.free || item.price)">
-                          <p>قیمت:
+                          <p class="price_p">قیمت:
                             <span>
                               {{item.price}}
                               ریال
