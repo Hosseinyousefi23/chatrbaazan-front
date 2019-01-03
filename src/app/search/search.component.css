@@ -68,3 +68,18 @@
     font-size: 0.831em !important;
   }
 }
+.not_found{
+  text-align: center;
+font-size: 2em;
+font-weight: 700;
+}
+@media (max-width: 768px) {
+  .not_found{
+  font-size: 1.5em;
+  } 
+}
+@media (max-width: 559px) {
+  .not_found{
+    font-size: 1.1em;
+    }
+}

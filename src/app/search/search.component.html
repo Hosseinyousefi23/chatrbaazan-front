@@ -39,6 +39,9 @@
       </div>
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">
+          <div class="not_found" *ngIf="!pro">
+            کلمه مورد نظر یافت نشد.
+          </div>
           <mat-tab-group animationDuration="0ms" (selectedTabChange)="changeTab($event)" *ngIf="pro">
             <mat-tab label="محبوب ترین‎ها">
                 <div class="row inner_content">
