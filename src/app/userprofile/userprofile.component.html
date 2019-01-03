@@ -109,7 +109,7 @@
 
                 <div class="cart_item tabs">
                   <div class="add_code">
-                    <h1 class="add_code_title">افزودن کد</h1>
+                    <h1 class="add_code_title">افزودن چتر</h1>
                     <!-- <input type="text" [(ngModel)] = "codedata.code" placeholder="کد" required="required" />
                             <input type="text"  [(ngModel)] = "codedata.explaintion" placeholder="توضیحات" required="required" />
                             <input type="text"  [(ngModel)] = "codedata.ex_date" placeholder="تاریخ انقضا" required="required" />
@@ -176,13 +176,24 @@
                       <p>
                         برای دریافت جدیدترین تخفیف‌ های شهر خود شماره خود را ارسال نمایید.
                       </p>
+                      <div *ngIf="!verify_phone">
                       <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
-                      <mat-form-field class="example-full-width">
-                        <input matInput [(ngModel)]="mobile" disabled="disabled" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
-                      </mat-form-field>
-                      <div>
-                        <button mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
-                      </div>
+                        <mat-form-field  class="example-full-width">
+                          <input matInput [(ngModel)]="mobile" disabled="disabled" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
+                        </mat-form-field>
+                        <div>
+                          <button mat-raised-button  (click)="verify()" color="primary">دریافت کد تایید</button>
+                        </div>
+                    </div>
+                    <div *ngIf="verify_phone">
+                      <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
+                        <mat-form-field  class="example-full-width">
+                          <input matInput [(ngModel)]="verfiy_code"  placeholder="کد تایید را وارد نمایید" required="required" >
+                        </mat-form-field>
+                        <div>
+                          <button mat-raised-button  (click)="send_verifycode_user()" color="primary">تایید شماره </button>
+                        </div>
+                    </div>
                       <!-- <button (click)="verify()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
                     </div>
                   </div>

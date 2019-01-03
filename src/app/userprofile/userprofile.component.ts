@@ -5,6 +5,7 @@ import { ViewEncapsulation } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import * as moment from 'jalali-moment';
 declare var $: any;
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
@@ -20,6 +21,8 @@ export class UserprofileComponent implements OnInit {
   codedata;
   passwords;
   mobile;
+  verify_phone:boolean=false;
+  verfiy_code;
   public dateChange(event: any, dateInput: any,picker:any) {
     var faDate = dateInput.value;
     moment.locale('fa');
@@ -28,7 +31,7 @@ export class UserprofileComponent implements OnInit {
     picker._validSelected = enDate;
     picker.startAt = enDate;
 }
-  constructor(private user : UsersService,private router: Router) { }
+  constructor(private user : UsersService,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.user.getDatacart().subscribe((data :any) => { this.cart = data; });
@@ -56,6 +59,7 @@ export class UserprofileComponent implements OnInit {
       pass1:'',
       pass2:''
     }
+    this.verfiy_code='';
     this.getUserData();
     this.getUserproduct();
   }
@@ -95,11 +99,40 @@ export class UserprofileComponent implements OnInit {
 
 
   verify(){
-    this.user.verifyMobile(this.mobile).subscribe(
-      // data => console.log(data)
+    // console.log('hiiiiiiiiiiiiiii',this.mobile)
+    this.user.verifyMobile(this.userinfo.mobile).subscribe(
+      (data: any) => {
+        // console.log('hiiiiiii')
+        this.toastr.info('چترباز گرامی پیامی برای شما ارسال گردید')
+        this.verify_phone=true;
+
+      },
+      (err) => {
+        // this.verify_phone=true;
+        this.toastr.error('لطفا مجددا امتحان نمایید')
+        this.toastr.error('خطا در ارسال پیام')
+        
+      }
       );
   }
 
+  send_verifycode_user(){
+    this.user.sendverifycode(this.verfiy_code,this.userinfo.mobile).subscribe(
+      (data: any) => {
+        // console.log('hiiiiiii')
+        this.toastr.info('تایید شد')
+        
+
+      },
+      (err) => {
+        // this.verify_phone=true;
+        this.toastr.error('لطفا مجددا امتحان نمایید')
+        this.toastr.error('خطا در تایید')
+        
+      }
+      );
+
+  }
 
   logout() {
     this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
