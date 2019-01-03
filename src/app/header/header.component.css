@@ -181,7 +181,8 @@ col-xs-5ths,
     top: 19px;
   }
   .search_div *{
-    font-size: .98em !important;
+    font-size: .831em !important;
+    font-weight: bold !important;
   }
   .search_div img{
     /* width: 1.1em; */

@@ -87,13 +87,13 @@
     
                             </div>
                             <div *ngIf="item.type==1">
-                              <p>وضعیت:
+                              <p class="status_pro">وضعیت:
                                 <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                                 <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
                               </p>
                             </div>
                             <div *ngIf=" item.type==1 &&(!item.free || item.price)">
-                              <p>قیمت:
+                              <p class="price_p">قیمت:
                                 <span>
                                   {{item.price}}
                                   ریال
@@ -210,13 +210,13 @@
     
                             </div>
                             <div *ngIf="item.type==1">
-                              <p>وضعیت:
+                              <p class="status_pro">وضعیت:
                                 <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                                 <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
                               </p>
                             </div>
                             <div *ngIf=" item.type==1 &&(!item.free || item.price)">
-                              <p>قیمت:
+                              <p class="price_p">قیمت:
                                 <span>
                                   {{item.price}}
                                   ریال
@@ -334,13 +334,13 @@
     
                             </div>
                             <div *ngIf="item.type==1">
-                              <p>وضعیت:
+                              <p class="status_pro">وضعیت:
                                 <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                                 <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
-                              </p>
+                              </p >
                             </div>
                             <div *ngIf=" item.type==1 &&(!item.free || item.price)">
-                              <p>قیمت:
+                              <p class="price_p">قیمت:
                                 <span>
                                   {{item.price}}
                                   ریال

@@ -185,6 +185,13 @@ label {
     margin: 0 auto;
     display: block;
   }
+  .status_pro{
+    margin: 0 !important;
+  }
+  .price_p{
+    margin:0 !important ;
+    font-size: 0.831em !important;
+  }
 }
 
 @media (max-width: 559px) {
@@ -209,5 +216,12 @@ label {
   .offer_off {
     font-size: 10px;
     padding: 3px 4px;
+  }
+  .status_pro{
+    margin: 0 !important;
+  }
+  .price_p{
+    margin:0 !important ;
+    font-size: 0.831em !important;
   }
 }

@@ -55,13 +55,13 @@
 
                   </div>
                   <div>
-                    <p>وضعیت:
+                    <p class="status_pro">وضعیت:
                       <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                       <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
                     </p>
                   </div>
                   <div *ngIf="!item.free || item.price">
-                    <p>قیمت:
+                    <p class="price_p">قیمت:
                       <span>
                         {{item.price}}
                         ریال
@@ -155,7 +155,7 @@
                   <p class="back_name">{{item.name}}</p>
                   <div class="timer timer_{{item.id}}">
                     اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                    <countdown-timer style="color: #ec3e54;font-weight: 1000;"  (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
                   </div>
                   <div *ngIf="item.type===4 && item.is_free" #container>
 
@@ -166,9 +166,18 @@
 
                   </div>
                   <div>
-                    <p>وضعیت:
+                    <p class="status_pro">وضعیت:
                       <span *ngIf="item.count>0">موجود</span>
                       <span *ngIf="item.count<=0">ناموجود</span>
+                    </p>
+                  </div>
+                  
+                  <div *ngIf="!item.free || item.price">
+                    <p  class="price_p">قیمت:
+                      <span>
+                        {{item.price}}
+                        ریال
+                      </span>
                     </p>
                   </div>
                   <div class="btn-groups">
@@ -268,9 +277,17 @@
 
                   </div>
                   <div>
-                    <p>وضعیت:
+                    <p class="status_pro">وضعیت:
                       <span *ngIf="item.count>0">موجود</span>
                       <span *ngIf="item.count<=0">ناموجود</span>
+                    </p>
+                  </div>
+                  <div *ngIf="!item.free || item.price">
+                    <p class="price_p">قیمت:
+                      <span>
+                        {{item.price}}
+                        ریال
+                      </span>
                     </p>
                   </div>
                   <div class="btn-groups">
