@@ -54,7 +54,7 @@ export class SearchComponent implements OnInit {
     this.searchedLabel = this.route.snapshot.queryParams['label']
     console.log(this.searched)
     console.log(this.searchedLabel)
-    if(this.searched){
+    if(this.searched || this.type){
     this.data.search(this.searched,null,null,null,null,this.size,null,this.type).subscribe(param => {
       if (param['count']) {
         this.pro = param.results
