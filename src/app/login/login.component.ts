@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   user;
   constructor(private userservice: UsersService,private router :Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.user = {
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
       },
       (err : HttpErrorResponse) => {
         this.isLoginerror = true;
+        this.toastr.error('رمز عبور یاایمیل اشتباه است')
       }
     );
   }

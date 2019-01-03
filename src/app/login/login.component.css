@@ -4,12 +4,12 @@
   left: 0; 
   right: 0; 
   bottom: 0;  */
-  margin: 0; height: 100%; overflow: hidden;
+  margin: 0; height: 100%; 
   background-repeat: no-repeat;
   /* background-size: cover; */
   background-image: url('../../assets/image/bg_01.png');
   background-size: cover;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0;
 }
 a {

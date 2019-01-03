@@ -59,7 +59,7 @@ export class LoginModalComponent implements OnInit {
       },
       (err : HttpErrorResponse) => {
         this.isLoginError = true;
-        this.toastr.error('رمز عبور یاایمیل اشتباه است')
+        // this.toastr.error('رمز عبور یاایمیل اشتباه است')
       }
     );
   }
