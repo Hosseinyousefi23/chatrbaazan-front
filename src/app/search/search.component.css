@@ -33,6 +33,14 @@
   width: 23%;
 }
 
+.status_pro{
+  margin: 0 !important;
+}
+.price_p{
+  margin:0 !important ;
+  /* font-size: 0.831em !important; */
+}
+
 @media (max-width: 768px) {
   .offer .offer_box {
     width: 31%;
@@ -77,9 +85,23 @@ font-weight: 700;
   .not_found{
   font-size: 1.5em;
   } 
+  .status_pro{
+    margin: 0 !important;
+  }
+  .price_p{
+    margin:0 !important ;
+    font-size: 0.731em !important;
+  }
 }
 @media (max-width: 559px) {
   .not_found{
     font-size: 1.1em;
+    }
+    .status_pro{
+      margin: 0 !important;
+    }
+    .price_p{
+      margin:0 !important ;
+      font-size: 0.631em !important;
     }
 }

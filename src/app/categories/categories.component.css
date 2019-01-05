@@ -32,6 +32,13 @@
 .offer .offer_box{
   width: 23%;
 }
+.status_pro{
+  margin: 0 !important;
+}
+.price_p{
+  margin:0 !important ;
+  /* font-size: 0.831em !important; */
+}
 
 @media (max-width: 768px) {
   .offer .offer_box {
