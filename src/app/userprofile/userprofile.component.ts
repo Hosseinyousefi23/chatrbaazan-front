@@ -18,6 +18,7 @@ export class UserprofileComponent implements OnInit {
   cart;
   userinfo;
   // userchange;
+  myproduct;
   codedata;
   passwords;
   mobile;
@@ -72,8 +73,10 @@ export class UserprofileComponent implements OnInit {
 
    getUserproduct(){
     this.user. getUserproduct().subscribe(
-      data => console.log(data['data'])
-      );
+      (data :any) => {console.log(data['data'])
+      this.myproduct  = data['data'].results;
+      console.log(this.myproduct)
+    });
   }
 
    getUserData(){

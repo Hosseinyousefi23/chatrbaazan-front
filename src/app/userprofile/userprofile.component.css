@@ -20,7 +20,7 @@
   padding: 1em;
   /* margin-right: 1em; */
   border-radius: 25px 7px 0 0px;
-  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1); */
+
 }
 
 .profile_option {
@@ -257,4 +257,12 @@ width: 50%;
   .mat-expansion-panel-header{
       font-size: .78em;
   }
+}
+.product_box{
+  text-align: right;
+  margin: 1em;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .3);
+}
+.Product_image img{
+  width: 5em;
 }

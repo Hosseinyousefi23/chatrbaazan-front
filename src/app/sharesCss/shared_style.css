@@ -277,6 +277,39 @@
   .filter_btn{
     margin: 10px 2px;
   }
+  @media (max-width: 1100px) {
+    .offer .offer_box {
+      width: 23%;
+      margin: 5px;
+    }
+  }
+  @media (max-width: 992px) {
+    .offer .offer_box {
+      width: 31%;
+      margin: 5px;
+    }
+  
+    .mat-tab-label {
+      width: 100px;
+    }
+    .btn_sm {
+    width: 8em !important;
+    font-size: 0.6em;
+    }
+    .timer {
+      margin: .85em 0;
+      font-size: .74em;
+      font-weight: 700;
+    }
+    .status_pro{
+      margin: 0 !important;
+    }
+    .price_p{
+      margin:0 !important ;
+      font-size: 0.831em !important;
+    }
+  
+  }
   @media (max-width: 768px) {
     .offer .offer_box {
       width: 31%;
@@ -309,21 +342,21 @@
     .offer .offer_box {
       width: 47%;
       margin: 4px;
-      height: 18em;
+      height: 20em;
     }
     .mat-tab-label {
       width: 90px !important;
     }
   
     .Copy_btn {
-      font-size: .8em;
+      font-size: .7em;
       padding-left: 0.5em;
       padding-right: 0.5em;
     }
   
     .input_cupon {
-      font-size: .8em;
-      width: 60px;
+      font-size: .7em;
+      width: 84px;
     }
   
     .offer .offer_box .offer_title {

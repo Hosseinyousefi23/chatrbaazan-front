@@ -201,7 +201,16 @@
 
               <mat-tab label="چتربازی های من">
                 <div class="cart_item tabs">
-                  تخفیف هات
+                  <div class="myproduct">
+                    <div class="product_box" *ngFor="let item of myproduct;">
+                        <span class="Product_image">
+                            <img src="{{item.product.image}}" alt="">
+                        </span>
+                      <span class="Product_name">{{item.product.name}}</span>
+                      
+                      <span class="Product_image"></span>
+                    </div>
+                  </div>
                 </div>
               </mat-tab>
             </mat-tab-group>
