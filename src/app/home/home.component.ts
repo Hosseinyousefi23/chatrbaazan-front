@@ -72,7 +72,6 @@ export class HomeComponent implements OnInit {
     this.showoffer = a;
   }
   showapplicationfunc(a){
-    console.log(a)
     this.showapllication = a;
   }
   showconventionfunc(a){
