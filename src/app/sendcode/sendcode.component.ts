@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import * as moment from 'jalali-moment';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class SendcodeComponent implements OnInit {
     picker.startAt = enDate;
 }
   codedata;
-  constructor(private user : UsersService) { }
+  constructor(private user : UsersService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.codedata={
@@ -32,7 +34,12 @@ export class SendcodeComponent implements OnInit {
 
   sendcode(){
     this.user.sendcode(this.codedata).subscribe(
-      // data => console.log(data)
+      (data:any)=>{
+        this.toastr.success('چتر با موفقیت ارسال شد')
+      },
+      (err:HttpErrorResponse) =>{
+        this.toastr.error('مشکلی در ارسال چتر،لطفا مجددا امتحان نمایید.')
+      }
       );
   }
 
