@@ -11,9 +11,10 @@
   </div>
   <div class="offer_content">
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
-      <mat-tab label="محبوب ترین‎ها">
+      <mat-tab label="تازه ترین‎ها" (click)="addeventlister()">
         <div class="row inner_content">
-          <div class="offer_box" *ngFor="let item of mostseen;">
+          <!-- start of offer -->
+          <div class="offer_box" *ngFor="let item of newest;">
             <label>
               <input type="checkbox" />
               <div class="card front_offer">
@@ -189,10 +190,9 @@
       </mat-tab>
 
 
-      <mat-tab label="تازه ترین‎ها" (click)="addeventlister()">
+      <mat-tab label="محبوب ترین‎ها">
         <div class="row inner_content">
-          <!-- start of offer -->
-          <div class="offer_box" *ngFor="let item of newest;">
+          <div class="offer_box" *ngFor="let item of mostseen;">
 
 
             <label>
