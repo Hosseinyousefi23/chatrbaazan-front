@@ -22,7 +22,8 @@
         ثبت‌نام در چتربازان
       </a></p>
       <p  style="color: red;" *ngIf="isLoginError">
-        رمز عبور یا ایمیل اشتباه است
+        <!-- رمز عبور یا ایمیل اشتباه است -->
+        {{error_msg}}
       </p>
       <mat-dialog-actions>
 

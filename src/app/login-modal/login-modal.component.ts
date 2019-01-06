@@ -15,6 +15,7 @@ export class LoginModalComponent implements OnInit {
   isLoginError :boolean = false;
   form: FormGroup;
   description:string;
+  error_msg;
   // loginform: FormControl = new FormControl();
   // loginform = new FormGroup({
   //   email: new FormControl(''),
@@ -29,6 +30,7 @@ export class LoginModalComponent implements OnInit {
       email: '',
       password: '',
       }
+      this.error_msg='';
   }
 
   save() {
@@ -59,6 +61,13 @@ export class LoginModalComponent implements OnInit {
       },
       (err : HttpErrorResponse) => {
         this.isLoginError = true;
+        if(err.error['non_field_errors']){
+          // this.toastr.error(err.error['non_field_errors'][0])
+          this.error_msg=err.error['non_field_errors'][0]
+        }
+        if(err.error['email']){
+          this.error_msg=err.error['email'][0];
+        }
         // this.toastr.error('رمز عبور یاایمیل اشتباه است')
       }
     );

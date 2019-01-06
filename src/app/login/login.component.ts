@@ -33,7 +33,13 @@ export class LoginComponent implements OnInit {
       },
       (err : HttpErrorResponse) => {
         this.isLoginerror = true;
-        this.toastr.error('رمز عبور یاایمیل اشتباه است')
+        // this.toastr.error('رمز عبور یاایمیل اشتباه است')
+        if(err.error['non_field_errors']){
+          this.toastr.error(err.error['non_field_errors'][0])
+        }
+        if(err.error['email']){
+          this.toastr.error(err.error['email'][0])
+        }
       }
     );
   }

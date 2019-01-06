@@ -33,14 +33,15 @@ export class SignupComponent implements OnInit {
   registerUser(){
     this.userservice.register(this.user).subscribe(
       (data: any) =>{
-        localStorage.setItem('userToken',data.token)
+        // localStorage.setItem('userToken',data.token)
         this.router.navigate([this.returnUrl])
+        this.toastr.success('ایمیل فعال‌سازی برای شما ارسال گردید.')
       },
       (err : HttpErrorResponse) =>{
         console.log(err.error['email'])
         if(err.error['email']){
-          // this.toastr.error('email '+err.error['email'][0])
-          this.toastr.error('ایمیل نامعتبر است.')
+          this.toastr.error(err.error['email'][0])
+          // this.toastr.error('ایمیل نامعتبر است.')
         }
         if(err.error['first_name']){
           this.toastr.error('فیلد نام خالی میباشد.')
@@ -50,8 +51,8 @@ export class SignupComponent implements OnInit {
           this.toastr.error('فیلد نام خانوادگی خالی میباشد.')
         }
         if(err.error['mobile']){
-          // this.toastr.error('mobile '+err.error['mobile'][0])
-          this.toastr.error('شماره موبایل نامعتبر است.')
+          this.toastr.error(err.error['mobile'][0])
+          // this.toastr.error('شماره موبایل نامعتبر است.')
         }
         if(err.error['password1']){
           // this.toastr.error('password1 '+err.error['password1'][0])
@@ -63,7 +64,7 @@ export class SignupComponent implements OnInit {
           this.toastr.error('پسورد خالی یا فاقد امنیت است')
         }
         if(err.error['non_field_errors']){
-          this.toastr.error('رمز عبور یکسان نمی باشد')
+          this.toastr.error(err.error['non_field_errors'][0])
         }
         this.isSignupError = true;
         

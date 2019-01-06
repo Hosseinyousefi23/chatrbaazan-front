@@ -27,6 +27,8 @@ body {
   -moz-user-select: auto;     
   -ms-user-select: auto;      
   user-select: auto;          
+  -webkit-appearance: none; /* CSS submit button weird rendering on iPad/iPhone */
+
   
 }
 

@@ -24,6 +24,7 @@ export class FooterComponent implements OnInit {
         // console.log(err)
 
         this.toastr.error('ایمیل خود را وارد نمایید')
+        
       }
     );
   }

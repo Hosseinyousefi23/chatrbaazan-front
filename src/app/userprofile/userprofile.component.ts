@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import * as moment from 'jalali-moment';
 declare var $: any;
 import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
@@ -96,7 +97,12 @@ export class UserprofileComponent implements OnInit {
 
   UpadateProfile(){
     this.user.updateUserData(this.userinfo).subscribe(
-      data => console.log(data)
+      (data:any) => {console.log(data)
+        this.toastr.success('تغییر اطلاعات موفقیت آمیز بود')
+      },
+      (err:HttpErrorResponse) =>{
+        this.toastr.error('لطفا اطلاعات خود به طور صحیح وارد نمایید')
+      }
       );
   }
 
@@ -110,10 +116,16 @@ export class UserprofileComponent implements OnInit {
         this.verify_phone=true;
 
       },
-      (err) => {
+      (err:HttpErrorResponse) => {
         // this.verify_phone=true;
-        this.toastr.error('لطفا مجددا امتحان نمایید')
-        this.toastr.error('خطا در ارسال پیام')
+        // this.toastr.error('لطفا مجددا امتحان نمایید')
+        // this.toastr.error('خطا در ارسال پیام')
+        if(err.error['non_field_errors']){
+          this.toastr.error(err.error['non_field_errors'][0])
+        }
+        if(err.error['phone']){
+          this.toastr.error(err.error['phone'])
+        }
         
       }
       );
@@ -127,10 +139,16 @@ export class UserprofileComponent implements OnInit {
         
 
       },
-      (err) => {
+      (err : HttpErrorResponse) => {
         // this.verify_phone=true;
-        this.toastr.error('لطفا مجددا امتحان نمایید')
-        this.toastr.error('خطا در تایید')
+        // this.toastr.error('لطفا مجددا امتحان نمایید')
+        // this.toastr.error('خطا در تایید')
+        if(err.error['non_field_errors']){
+          this.toastr.error(err.error['non_field_errors'][0])
+        }
+        if(err.error['phone']){
+          this.toastr.error(err.error['phone'][0])
+        }
         
       }
       );
