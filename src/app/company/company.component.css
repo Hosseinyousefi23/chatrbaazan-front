@@ -141,11 +141,25 @@ label {
 .offer .offer_box {
   width: 23%;
 }
+.status_pro{
+  margin: 0 !important;
+}
+.price_p{
+  margin:0 !important ;
+  
+}
 
 @media (max-width: 768px) {
   .offer .offer_box {
     width: 31%;
     margin: 5px;
+  }
+  .status_pro{
+    margin: 0 !important;
+  }
+  .price_p{
+    margin:0 !important ;
+    font-size: 0.831em !important;
   }
 }
 
@@ -154,6 +168,13 @@ label {
     width: 47%;
     margin: 4px;
     height: 18em;
+  }
+  .status_pro{
+    margin: 0 !important;
+  }
+  .price_p{
+    margin:0 !important ;
+    font-size: 0.731em !important;
   }
 }
 

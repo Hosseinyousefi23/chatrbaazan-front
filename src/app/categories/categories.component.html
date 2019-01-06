@@ -28,7 +28,7 @@
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">
           <mat-tab-group animationDuration="0ms" *ngIf="pro" (selectedTabChange)="changeTab($event)">
-            <mat-tab label="محبوب ترین‎ها">
+            <mat-tab label="تازه ترین‎ها">
               <div class="row inner_content">
                 <!-- start of offer -->
                 <div class="offer_box" *ngFor="let item of pro;">
@@ -273,7 +273,7 @@
             </mat-tab>
 
 
-            <mat-tab label="تازه ترین‎ها">
+            <mat-tab label="محبوب ترین‎ها">
               <div class="row inner_content">
                 <!-- start of offer -->
                 <div class="offer_box" *ngFor="let item of pro;">
