@@ -59,7 +59,7 @@
   
   .offer .offer_box .offer_image {
     position: relative;
-    width: 12em;
+    width: 11em;
     height: 11em;
     display: block;
     margin: auto;
@@ -379,4 +379,19 @@
         font-size: 0.831em !important;
       }
   }
-  
+  @media (device-height : 568px) 
+   and (device-width : 320px) 
+   and (-webkit-min-device-pixel-ratio: 2){
+    .offer .offer_box {
+      width: 45%;
+      margin: 4px;
+      height: 18em;
+    }
+    .offer .offer_box .offer_image {
+      width: 7em;
+      height: 7em;
+    }
+    .mat-tab-label {
+      min-width: 60px !important;
+    }
+}

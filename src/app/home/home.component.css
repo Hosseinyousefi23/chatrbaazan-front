@@ -69,6 +69,11 @@
         display: block;
         margin: 0 auto;
     }
+    .banner .banner_image{
+        height: 10.4em;
+        width: 100%;
+        padding: .5em;
+    }
    } 
   @media all and (max-width: 768px) { 
     .item img {

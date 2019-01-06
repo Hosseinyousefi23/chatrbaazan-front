@@ -38,10 +38,10 @@
     </div>
     
   
-    <app-offer [cityHeader]="cityHeaderinhome"></app-offer>
-    <app-convention [cityHeader]="cityHeaderinhome" ></app-convention>
-    <app-application ></app-application>
-    <app-product ></app-product>
+    <app-offer *ngIf="showoffer" [cityHeader]="cityHeaderinhome" (showCompo)="showofferfunc($event)" ></app-offer>
+    <app-convention *ngIf="showconvention" [cityHeader]="cityHeaderinhome" (showCompo)="showconventionfunc($event)" ></app-convention>
+    <app-application *ngIf="showapllication" (showCompo)="showapplicationfunc($event)"></app-application>
+    <app-product *ngIf="showproduct" (showCompo)="showproductfunc($event)"></app-product>
     <go-top-button   [animate]="true"
     [speed]="10"
     [acceleration]="2"

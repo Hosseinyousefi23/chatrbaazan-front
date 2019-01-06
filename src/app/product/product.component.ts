@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
 import { MatBottomSheet } from '@angular/material';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
 import { ToastrService } from 'ngx-toastr';
+
 
 declare var $: any;
 
@@ -17,6 +18,7 @@ export class ProductComponent implements OnInit {
   public newest : any[] =[];
   public mostDiscount: any[] =[];
 
+  @Output() showCompo =new EventEmitter<boolean>();
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
@@ -45,7 +47,7 @@ export class ProductComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader,'5',null,'1').subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'favorites',this.cityHeader,'5',null,'1').subscribe((data :any) => {this.mostseen = data['results']; if(!data['results'][0]){ this.showCompo.emit(false)}this.addeventlister();});
     this.offer.search(null,null,null,'created_at',this.cityHeader,'5',null,'1').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5',null,'1').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();

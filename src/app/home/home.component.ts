@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit {
   mode = new FormControl('over');
 
   cityHeaderinhome = '';
-
+  showconvention = true;
+  showapllication = true;
+  showproduct = true;
+  showoffer = true;
   displayedColumns: string[] = ['prod_name', 'prod_price'];
   slider: any[] = [];
   banner1: any[] = [];
@@ -65,4 +68,18 @@ export class HomeComponent implements OnInit {
     this.cityHeaderinhome = a;
   }
 
+  showofferfunc(a){
+    this.showoffer = a;
+  }
+  showapplicationfunc(a){
+    console.log(a)
+    this.showapllication = a;
+  }
+  showconventionfunc(a){
+    console.log(a)
+    this.showconvention = a;
+  }
+  showproductfunc(a){
+    this.showproduct = a;
+  }
 }

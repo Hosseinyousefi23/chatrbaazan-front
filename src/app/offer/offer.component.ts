@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
@@ -19,6 +19,7 @@ export class OfferComponent implements OnInit {
   public newest : any[] =[];
   public mostDiscount: any[] =[];
  
+  @Output() showCompo =new EventEmitter<boolean>();
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
@@ -48,7 +49,7 @@ export class OfferComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader,'10',null,'4').subscribe((data :any) => {this.mostseen = data['results']; this.addeventlister();});
+    this.offer.search(null,null,null,'favorites',this.cityHeader,'10',null,'4').subscribe((data :any) => {this.mostseen = data['results']; if(!data['results'][0]){ this.showCompo.emit(false)}this.addeventlister();});
     this.offer.search(null,null,null,'created_at',this.cityHeader,'10',null,'4 ').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'10',null,'4').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();
