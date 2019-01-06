@@ -99,7 +99,7 @@ export class ApplicationComponent implements OnInit {
     $(".Copy_btn").text("کپی شد")
     setTimeout( function(){ 
       $(".Copy_btn").text("کپی")
-    }  , 3000 );
+    }  , 500 );
   }
 
   finished(a){

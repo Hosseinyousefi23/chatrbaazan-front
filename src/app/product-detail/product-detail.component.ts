@@ -112,7 +112,7 @@ export class ProductDetailComponent implements OnInit {
     $(".Copy_btn").html("کپی شد")
     setTimeout( function(){ 
       $(".Copy_btn").text("کپی")
-    }  , 3000 );
+    }  , 500 );
   }
   addtocart(id){
     if(localStorage.getItem("userToken")){
