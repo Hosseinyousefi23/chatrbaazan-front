@@ -36,6 +36,13 @@
         <app-carousel></app-carousel>
       </div>
     </div>
+
+    <div id="mySidenav" class="sidenav">
+      <a [routerLink]="['/sendcode']" id="about">چترجدید
+        <i class="fa fa-envira" aria-hidden="true"></i>
+
+      </a>
+    </div>
     
   
     <app-offer *ngIf="showoffer" [cityHeader]="cityHeaderinhome" (showCompo)="showofferfunc($event)" ></app-offer>
