@@ -22,7 +22,8 @@ export class ApplicationComponent implements OnInit {
     leftTime: 23,
     template:'$!h!ساعت$!m!دقیقه$!s!ثانیه'
   };
-  @Output() showCompo =new EventEmitter<boolean>();
+  // @Output() showCompo =new EventEmitter<boolean>();
+  showDiv = false;
   @Input() cityHeader :string;
   constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
@@ -52,7 +53,10 @@ export class ApplicationComponent implements OnInit {
     });
   }
   searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader,'5',null,'2').subscribe((data :any) => {this.mostseen = data['results']; if(!data['results'][0]){ this.showCompo.emit(false)} this.addeventlister();});
+    this.offer.search(null,null,null,'favorites',this.cityHeader,'5',null,'2').subscribe((data :any) => {this.mostseen = data['results'];
+    //  if(!data['results'][0]){ this.showCompo.emit(false)}
+    if(data['results'][0]){this.showDiv =true};
+      this.addeventlister();});
     this.offer.search(null,null,null,'created_at',this.cityHeader,'5',null,'2').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
     this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5',null,'2').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
     this.addeventlister();
