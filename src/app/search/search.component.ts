@@ -27,6 +27,7 @@ export class SearchComponent implements OnInit {
   next_url = '';
   size = 4;
   page = 1;
+  stop_scroll = false;
   
   companies: any[] = [];
   categories: any[] = [];
@@ -52,8 +53,8 @@ export class SearchComponent implements OnInit {
     this.route.params.subscribe(params => {this.type = params['type'];})
     this.searched = this.route.snapshot.queryParams['search']
     this.searchedLabel = this.route.snapshot.queryParams['label']
-    console.log(this.searched)
-    console.log(this.searchedLabel)
+    // console.log(this.searched)
+    // console.log(this.searchedLabel)
     if(this.searched || this.type){
     this.data.search(this.searched,null,null,null,null,this.size,null,this.type).subscribe(param => {
       if (param['count']) {
@@ -76,6 +77,11 @@ export class SearchComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -102,6 +108,11 @@ export class SearchComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -182,6 +193,11 @@ export class SearchComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -211,6 +227,11 @@ export class SearchComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -220,7 +241,7 @@ export class SearchComponent implements OnInit {
 
 
   infinte_list() {
-    if(this.next_url != null){
+    // if(this.next_url != null){
     this.data.search(this.searched, this.selectedcompany, this.selectedcategory, this.selectedtab, this.cityHeader,this.size,this.page,this.type).subscribe(param => {
       if (param['count']) {
         this.pro = this.pro.concat(param['results'])
@@ -240,11 +261,16 @@ export class SearchComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
     });
-  }
+  // }
   }
   sendfail(slug){
     this.toastr.error('چترتون مستدام ')
@@ -267,12 +293,10 @@ export class SearchComponent implements OnInit {
   }
 
   onScroll() {
-    console.log(this.next_url)
-    if(this.next_url){
+    if(!this.stop_scroll){
     this.page += 1; 
     this.infinte_list();
-    // console.log(this.next_url)
-    // console.log(this.page)
+    this.stop_scroll =true;
     }
   }
 

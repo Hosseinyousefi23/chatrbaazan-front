@@ -343,21 +343,56 @@
                       </mat-panel-description>
                     </mat-expansion-panel-header>
                     <div class="cart_item tabs">
-                        <div class="add_code">
-                          <p>
-                            برای دریافت جدیدترین تخفیف‌ های شهر خود شماره خود را ارسال نمایید.
-                          </p>
-                          <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
-                          <mat-form-field class="example-full-width">
-                            <input matInput [(ngModel)]="mobile" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
+                      <div class="add_code">
+                        <p>
+                          برای دریافت جدیدترین تخفیف‌ های شهر خود شماره خود را ارسال نمایید.
+                        </p>
+                        <div *ngIf="!verify_phone">
+                        <!-- <input type="text" [(ngModel)] = "mobile" placeholder="شماره موبایل" required="required" /> -->
+                          <mat-form-field  class="example-full-width">
+                            <input matInput [(ngModel)]="mobile" disabled="disabled" placeholder="شماره موبایل" required="required" value="{{userinfo.mobile}}">
                           </mat-form-field>
                           <div>
-                            <button mat-raised-button (click)="verify()" color="primary">دریافت کد تایید</button>
+                            <button mat-raised-button  (click)="verify()" color="primary">دریافت کد تایید</button>
                           </div>
-                          <!-- <button (click)="verify()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
+                      </div>
+                      <div *ngIf="verify_phone">
+
+                          <mat-form-field  class="example-full-width">
+                            <input matInput [(ngModel)]="verfiy_code"  placeholder="کد تایید را وارد نمایید" required="required" >
+                          </mat-form-field>
+                          <div>
+                            <button mat-raised-button  (click)="send_verifycode_user()" color="primary">تایید شماره </button>
+                          </div>
+                      </div>
+                      </div>
+                      </div>
+                  </mat-expansion-panel>
+
+
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                          چتربازی های من
+                      </mat-panel-title>
+                      <mat-panel-description>
+                          ...
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="cart_item tabs">
+                        <div class="myproduct">
+                          <div class="product_box" *ngFor="let item of myproduct;">
+                              <span class="Product_image">
+                                  <img src="{{item.product.image}}" alt="">
+                              </span>
+                            <span class="Product_name">{{item.product.name}}</span>
+                            
+                            <span class="Product_image"></span>
+                          </div>
                         </div>
                       </div>
                   </mat-expansion-panel>
+
           </mat-accordion>
         </div>
       </div>

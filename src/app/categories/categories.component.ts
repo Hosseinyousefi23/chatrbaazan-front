@@ -22,8 +22,9 @@ export class CategoriesComponent implements OnInit {
   url ='';
 
   next_url = '';
-  size = 1;
+  size = 4;
   page = 1;
+  stop_scroll = false;
 
   companies: any[] = [];
   Categoryid: any[] = [];
@@ -49,6 +50,7 @@ export class CategoriesComponent implements OnInit {
       if (param['count']) {
         this.pro = param.results
         this.companies = []
+        this.next_url = param.next
         for (let i of param.results) {
           for (let c of i.company) {
             if (!this.companies.some(temp => temp.name == c.name)) {
@@ -57,6 +59,11 @@ export class CategoriesComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.router.navigate(['/']);
       }
@@ -112,6 +119,7 @@ export class CategoriesComponent implements OnInit {
       if (param['count']) {
         this.pro = param.results
         this.companies = []
+        this.next_url = param.next
         for (let i of param.results) {
           for (let c of i.company) {
             if (!this.companies.some(temp => temp.name == c.name)) {
@@ -120,6 +128,11 @@ export class CategoriesComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -149,6 +162,11 @@ export class CategoriesComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -157,10 +175,11 @@ export class CategoriesComponent implements OnInit {
 
 
   onScroll() {
-    this.page += 1;
-    this.infinte_list();
-    // console.log(this.next_url)
-    // console.log(this.page)
+    if(!this.stop_scroll){
+      this.page += 1; 
+      this.infinte_list();
+      this.stop_scroll =true;
+      }
   }
 
   sendfail(slug){

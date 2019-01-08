@@ -92,6 +92,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {  NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS,MAT_DATE_LOCALE} from '@angular/material';
 import * as moment from 'jalali-moment';
 import { Platform } from '@angular/cdk/platform';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 
 const MY_DATE_FORMATS = {
@@ -147,6 +148,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     ResetpasswordconfrimComponent,
     SendcodeComponent,
     FactorComponent,
+    LoadingSpinnerComponent,
     
   ],
   imports: [

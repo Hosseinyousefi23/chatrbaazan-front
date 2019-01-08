@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-shopping-card',
@@ -14,7 +16,7 @@ export class ShoppingCardComponent implements OnInit {
   number = 0;
   isLinear = false;
 
-  constructor(private user : UsersService, private router: Router) { }
+  constructor(private user : UsersService, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -32,8 +34,11 @@ export class ShoppingCardComponent implements OnInit {
       if(data['success'] && data['redirect_uri']){
         this.router.navigate(['/cart/factor/' , pid]);
       }
-      console.log(data)
-    });
+    }
+    ,(err:HttpErrorResponse) =>{
+      this.toastr.error(err.error['message'])
+    }
+    );
   }
 
   updatebasket(pid,n){
