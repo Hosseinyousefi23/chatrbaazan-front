@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-shopping-card',
   templateUrl: './shopping-card.component.html',
@@ -33,6 +34,8 @@ export class ShoppingCardComponent implements OnInit {
       // this.cart = data.result[0]; 
       if(data['success'] && data['redirect_uri']){
         this.router.navigate(['/cart/factor/' , pid]);
+        this.toastr.success('باتشکر از خرید شما')
+
       }
     }
     ,(err:HttpErrorResponse) =>{

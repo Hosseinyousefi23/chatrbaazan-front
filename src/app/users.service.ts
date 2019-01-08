@@ -112,6 +112,8 @@ export class UsersService {
       .set('last_name', user.last_name)
       .set('mobile', user.mobile)
       .set('address', user.address)
+      .set('postal_code', user.postal_code)
+
     return this.http.put(this.baseUrl + 'api/v1/user/', body, {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
     });

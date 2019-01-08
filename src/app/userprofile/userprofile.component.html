@@ -97,6 +97,10 @@
                       <input matInput [(ngModel)]="userinfo.address" placeholder="ادرس"
                       >
                     </mat-form-field>
+                    <mat-form-field class="">
+                      <input matInput [(ngModel)]="userinfo.postal_code" placeholder="کد پستی">
+                    </mat-form-field>
+                    
                     <!-- <input type="text"  [(ngModel)] = "userchange.address" placeholder="آدرس" required="required" /> -->
                     <div>
                       <button mat-raised-button (click)="UpadateProfile()" type="submit" color="primary">تغییر مشخصات</button>

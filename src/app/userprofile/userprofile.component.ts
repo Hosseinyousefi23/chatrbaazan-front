@@ -49,6 +49,7 @@ export class UserprofileComponent implements OnInit {
       email:'',
       mobile:'',
       address:'',
+      postal_code:'',
     }
     // this.userchange={
     //   firstname:'',
