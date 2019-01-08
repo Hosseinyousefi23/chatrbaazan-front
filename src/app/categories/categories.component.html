@@ -143,9 +143,11 @@
                 <!-- end of offer -->
 
               </div>
-              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-                (scrolled)="onScroll()">
-              </div>
+              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
+              (scrolled)="onScroll()">
+            </div>
+            <loading-spinner *ngIf="!stop_scroll">
+            </loading-spinner>
             </mat-tab>
 
             <mat-tab label="بیشترین تخفیف">
@@ -267,9 +269,11 @@
 
               </div>
 
-              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-                (scrolled)="onScroll()">
-              </div>
+              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
+              (scrolled)="onScroll()">
+            </div>
+            <loading-spinner *ngIf="!stop_scroll">
+            </loading-spinner>
             </mat-tab>
 
 
@@ -390,9 +394,11 @@
                 <!-- end of offer -->
 
               </div>
-              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-                (scrolled)="onScroll()">
-              </div>
+              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
+              (scrolled)="onScroll()">
+            </div>
+            <loading-spinner *ngIf="!stop_scroll">
+            </loading-spinner>
             </mat-tab>
 
           </mat-tab-group>

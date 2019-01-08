@@ -38,18 +38,25 @@ export class CompanyComponent implements OnInit {
   next_url = '';
   size = 4;
   page = 1;
+  stop_scroll = false;
 
   categories: any[] = [];
   Companyid: any[] = [];
   mode = new FormControl('over');
   ngOnInit() {
-
+    this.companyinfo = {
+      name: '',
+      description: '',
+      link: '',
+      image: '',
+      }
     this.route.params.subscribe(params => { this.Companyid = params['slug']; })
     this.data.search(null, this.Companyid,null,null,null,this.size).subscribe(param => {
       if (param['count']) {
 
         this.pro = param.results;
         this.companyinfo = param['dataCompany']
+        this.next_url = param.next
         this.categories = []
         for (let i of param.results) {
           for (let c of i.category) {
@@ -59,6 +66,11 @@ export class CompanyComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.router.navigate(['/']);
       }
@@ -126,6 +138,7 @@ export class CompanyComponent implements OnInit {
       if (param['count']) {
         this.pro = param.results
         this.categories = []
+        this.next_url = param.next
         for (let i of param.results) {
           for (let c of i.category) {
             if (!this.categories.some(temp => temp.name == c.name)) {
@@ -134,6 +147,11 @@ export class CompanyComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -163,6 +181,11 @@ export class CompanyComponent implements OnInit {
           }
         }
         this.addeventlister();
+        if(this.next_url != null){
+          this.stop_scroll = false;
+        }else{
+          this.stop_scroll = true;
+        }
       } else {
         this.pro = null;
       }
@@ -171,10 +194,11 @@ export class CompanyComponent implements OnInit {
 
 
   onScroll() {
-    this.page += 1;
-    this.infinte_list();
-    // console.log(this.next_url)
-    // console.log(this.page)
+    if(!this.stop_scroll){
+      this.page += 1; 
+      this.infinte_list();
+      this.stop_scroll =true;
+      }
   }
 
   sendfail(slug){
