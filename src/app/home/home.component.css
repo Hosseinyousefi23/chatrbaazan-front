@@ -44,6 +44,35 @@
     height: 100%;
     width: 100%;
 }
+
+.sidenav{
+    
+}
+
+#mySidenav a {
+    position: fixed;
+    right: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    z-index: 10000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px 0px 0px 5px;
+  }
+  
+  #mySidenav a:hover {
+    right: 0;
+  }
+  
+  #about {
+    top: 50%;
+    background-color: #4CAF50;
+  }
+
+
 @media (min-width: 991px) {
     .banner{
         order: 1;
