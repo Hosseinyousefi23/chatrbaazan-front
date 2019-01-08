@@ -51,7 +51,7 @@
 
 #mySidenav a {
     position: fixed;
-    right: -80px;
+    right: -67px;
     transition: 0.3s;
     padding: 15px;
     width: 100px;
@@ -61,14 +61,14 @@
     font-weight: bold;
     color: white;
     border-radius: 5px 0px 0px 5px;
+    bottom: 20px;
   }
   
   #mySidenav a:hover {
-    right: 0;
+    right: 0px;
   }
   
   #about {
-    top: 50%;
     background-color: #4CAF50;
   }
 
