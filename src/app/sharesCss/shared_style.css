@@ -263,7 +263,7 @@
   .input_cupon {
     color: #000000;
     display: inline;
-    width: 64%;
+    width: 100px;
     border-radius: 10px 0 0 10px;
   }
   
