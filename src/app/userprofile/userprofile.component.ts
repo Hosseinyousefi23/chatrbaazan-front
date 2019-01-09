@@ -25,6 +25,14 @@ export class UserprofileComponent implements OnInit {
   mobile;
   verify_phone:boolean=false;
   verfiy_code;
+
+
+
+  next_url = '';
+  size = 4;
+  page = 1;
+  stop_scroll = false;
+
   public dateChange(event: any, dateInput: any,picker:any) {
     var faDate = dateInput.value;
     moment.locale('fa');
@@ -74,7 +82,7 @@ export class UserprofileComponent implements OnInit {
   }
 
    getUserproduct(){
-    this.user. getUserproduct().subscribe(
+    this.user.getUserproduct().subscribe(
       (data :any) => {console.log(data['data'])
       this.myproduct  = data['data'].results;
       console.log(this.myproduct)
@@ -82,7 +90,7 @@ export class UserprofileComponent implements OnInit {
   }
 
    getUserData(){
-    this.user. getUserData().subscribe(
+    this.user.getUserData().subscribe(
       data => {
         this.userinfo = data;
         console.log(data);
@@ -165,5 +173,46 @@ export class UserprofileComponent implements OnInit {
     this.router.navigate(['/']);  
     })
   
+  }
+
+  onScroll() {
+    if(!this.stop_scroll){
+      this.page += 1; 
+      this.infinte_list();
+      this.stop_scroll =true;
+      }
+  }
+
+  infinte_list() {
+    // this.user.getUserproduct().subscribe(
+    //   (data :any) => {console.log(data['data'])
+    //   this.myproduct  = data['data'].results;
+    //   console.log(this.myproduct)
+    // });
+
+  //   this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page).subscribe(param => {
+  //     if (param['count']) {
+  //       console.log(param.results)
+  //       this.pro = this.pro.concat(param['results'])
+  //       this.next_url = param.next
+  //       for (let i of param.results) {
+  //         for (let c of i.category) {
+  //           if (!this.categories.some(temp => temp.name == c.name)) {
+  //             this.categories.push(c);
+  //           }
+  //         }
+  //       }
+  //       if(this.next_url != null){
+  //         this.stop_scroll = false;
+  //       }else{
+  //         this.stop_scroll = true;
+  //       }
+  //     } else {
+  //       this.pro = null;
+  //     }
+  //   });
+  // }
+
+
   }
 }
