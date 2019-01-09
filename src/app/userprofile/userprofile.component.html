@@ -195,7 +195,12 @@
                           <input matInput [(ngModel)]="verfiy_code"  placeholder="کد تایید را وارد نمایید" required="required" >
                         </mat-form-field>
                         <div>
-                          <button mat-raised-button  (click)="send_verifycode_user()" color="primary">تایید شماره </button>
+                            <!-- (zeroTrigger)="resend()"  -->
+                            
+                            <button class="send_btn" mat-raised-button  (click)="send_verifycode_user()" color="primary">تایید شماره </button>
+                            <button class="send_btn" mat-raised-button  (click)="resend()" color="primary">ارسال مجدد</button>
+                            <countdown-timer style="color: #ec3e54;font-weight: 1000;" 
+                            [end]="[resend_time]"></countdown-timer>
                         </div>
                     </div>
                       <!-- <button (click)="verify()" type="submit" class="btn btn-primary ">ارسال کد</button> -->
@@ -372,7 +377,9 @@
                             <input matInput [(ngModel)]="verfiy_code"  placeholder="کد تایید را وارد نمایید" required="required" >
                           </mat-form-field>
                           <div>
+                              <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[resend_time]"></countdown-timer>
                             <button mat-raised-button  (click)="send_verifycode_user()" color="primary">تایید شماره </button>
+                            <button mat-raised-button  (click)="resend()" color="primary">ارسال مجدد</button>
                           </div>
                       </div>
                       </div>

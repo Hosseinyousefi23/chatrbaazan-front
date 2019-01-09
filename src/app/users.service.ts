@@ -181,7 +181,11 @@ export class UsersService {
   }
 
   resedsms(mobile) {
-    return this.http.get(this.baseUrl + '/api/v1/sms/resend/'+mobile);
+    const headers = new HttpHeaders()
+    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
+    .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + '/api/v1/sms/resend/'+mobile , {
+      headers: headers});
   }
   
 }
