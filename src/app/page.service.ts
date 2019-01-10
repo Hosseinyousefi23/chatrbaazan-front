@@ -74,7 +74,7 @@ export class PageService {
 
 
 
-  search(term = null, company = null, category = null, ordering = null, city = null, limit = null, page = null, type = null) {
+  search(term = null, company = null, category = null, ordering = null, city = null, limit = null, page = null, type = null,expire=null) {
     let search_url = 'api/v1/offer/?'
     if (term) { search_url = search_url + 'search=' + term }
     if (company) { search_url = search_url + '&company_slug=' + company }
@@ -84,6 +84,7 @@ export class PageService {
     if (limit) { search_url = search_url + '&limits=' + limit }
     if (page) { search_url = search_url + '&page=' + page }
     if (type) { search_url = search_url + '&type=' + type }
+    if (expire) { search_url = search_url + '&expire=' + expire }
     var result = this.http.get(this.baseUrl + search_url)
       .pipe(
         debounceTime(500),

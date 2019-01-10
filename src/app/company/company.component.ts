@@ -51,7 +51,7 @@ export class CompanyComponent implements OnInit {
       image: '',
       }
     this.route.params.subscribe(params => { this.Companyid = params['slug']; })
-    this.data.search(null, this.Companyid,null,null,null,this.size).subscribe(param => {
+    this.data.search(null, this.Companyid,null,null,null,this.size,this.page,null,true).subscribe(param => {
       if (param['count']) {
 
         this.pro = param.results;
@@ -141,7 +141,7 @@ export class CompanyComponent implements OnInit {
     this.filter();
   }
   filter() {
-    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader,this.size, this.page).subscribe(param => {
+    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader,this.size, this.page,null,true).subscribe(param => {
       if (param['count']) {
         this.pro = param.results
         this.categories = []
@@ -175,7 +175,7 @@ export class CompanyComponent implements OnInit {
   }
 
   infinte_list() {
-    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page).subscribe(param => {
+    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page,null,true).subscribe(param => {
       if (param['count']) {
         console.log(param.results)
         this.pro = this.pro.concat(param['results'])

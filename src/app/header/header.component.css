@@ -209,6 +209,7 @@ col-xs-5ths,
 .dropdown:hover > .dropdown-menu {
   display: block;
   transition-delay: 10s;
+  transition-duration: 5s;
 }
 
 .dropdown > .dropdown-toggle:active {
