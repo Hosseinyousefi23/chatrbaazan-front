@@ -87,6 +87,13 @@ export class CategoriesComponent implements OnInit {
         $(".card").removeClass("voted");
       });
 
+      $(".Copy_btn").click(function(){
+        $(this).text("کپی شد");
+      setTimeout( function(){ 
+        $(".Copy_btn").text("کپی")
+      }  , 500 );
+      })
+
     });
   }
 
@@ -199,10 +206,6 @@ export class CategoriesComponent implements OnInit {
     this.data.sendclick_like(product_id).subscribe(
       data => console.log(data)
     )
-    $(".Copy_btn").text("کپی شد")
-    setTimeout( function(){ 
-      $(".Copy_btn").text("کپی")
-    }  , 500 );
   }
 
   finished(a){

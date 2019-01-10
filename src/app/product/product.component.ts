@@ -45,6 +45,12 @@ export class ProductComponent implements OnInit {
         $(".card").removeClass("voted");
       });
 
+      $(".Copy_btn").click(function(){
+        $(this).text("کپی شد");
+      setTimeout( function(){ 
+        $(".Copy_btn").text("کپی")
+      }  , 500 );
+      })
     });
   }
   searchoffer(){
@@ -87,10 +93,6 @@ export class ProductComponent implements OnInit {
     this.offer.sendclick_like(product_id).subscribe(
       data => console.log(data)
     )
-    $(".Copy_btn").text("کپی شد")
-    setTimeout( function(){ 
-      $(".Copy_btn").text("کپی")
-    }  , 500 );
   }
 
   finished(a){

@@ -137,6 +137,13 @@ export class SearchComponent implements OnInit {
         e.stopPropagation();
         $(".card").removeClass("voted");
       });
+      
+      $(".Copy_btn").click(function(){
+        $(this).text("کپی شد");
+      setTimeout( function(){ 
+        $(".Copy_btn").text("کپی")
+      }  , 500 );
+      })
 
     });
   }
@@ -327,6 +334,12 @@ export class SearchComponent implements OnInit {
       this.infinte_list();
       this.stop_scroll = true;
     }
+  }
+
+  showCopied(product_id) {
+    this.data.sendclick_like(product_id).subscribe(
+      data => console.log(data)
+    )
   }
 
 

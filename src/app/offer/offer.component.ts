@@ -45,6 +45,13 @@ export class OfferComponent implements OnInit {
         e.stopPropagation();
         $(".card").removeClass("voted");
       });
+      
+      $(".Copy_btn").click(function(){
+        $(this).text("کپی شد");
+      setTimeout( function(){ 
+        $(".Copy_btn").text("کپی")
+      }  , 500 );
+      })
 
     });
   }
@@ -96,13 +103,15 @@ export class OfferComponent implements OnInit {
   }
 
   showCopied(product_id) {
+    // var target = event.target || event.srcElement || event.currentTarget;
+    // var idAttr = target.attributes.class;
+    // console.log(event)
+    // console.log(target)
+    // console.log(idAttr)
     this.offer.sendclick_like(product_id).subscribe(
-      data => console.log(data)
+      // data => console.log(data)
     )
-    $(".Copy_btn").text("کپی شد")
-    setTimeout( function(){ 
-      $(".Copy_btn").text("کپی")
-    }  , 500 );
+    
   }
 
   finished(a){
