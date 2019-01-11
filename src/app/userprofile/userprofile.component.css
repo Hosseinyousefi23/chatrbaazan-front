@@ -229,6 +229,9 @@
 float: left;
 margin: 2em 4em;
 }
+.send_btn{
+  margin: 0 5px;  
+}
 @media (max-width: 992px) {
   .product_box {
     text-align: right;

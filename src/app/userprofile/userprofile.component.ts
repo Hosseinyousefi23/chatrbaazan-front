@@ -21,6 +21,7 @@ export class UserprofileComponent implements OnInit {
   // userchange;
   myproduct;
   codedata;
+  resend_time;
   passwords;
   mobile;
   verify_phone:boolean=false;
@@ -44,6 +45,10 @@ export class UserprofileComponent implements OnInit {
   constructor(private user : UsersService,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit() {
+    // this.resend_time = new Date();
+    // console.log(this.resend_time)
+    // this.resend_time.setMinutes(this.resend_time.getMinutes() + 1)
+    // console.log(this.resend_time)
     this.user.getDatacart().subscribe((data :any) => { this.cart = data; });
     this.codedata={
       code:'',
@@ -123,12 +128,31 @@ export class UserprofileComponent implements OnInit {
         // console.log('hiiiiiii')
         this.toastr.info('چترباز گرامی پیامی برای شما ارسال گردید')
         this.verify_phone=true;
-
+        this.resend_time = new Date();
+        this.resend_time.setMinutes(this.resend_time.getMinutes() +1);
       },
       (err:HttpErrorResponse) => {
         // this.verify_phone=true;
         // this.toastr.error('لطفا مجددا امتحان نمایید')
         // this.toastr.error('خطا در ارسال پیام')
+        if(err.error['non_field_errors']){
+          this.toastr.error(err.error['non_field_errors'][0])
+        }
+        if(err.error['phone']){
+          this.toastr.error(err.error['phone'])
+        }
+        
+      }
+      );
+  }
+  resend(){
+    this.user.resedsms(this.userinfo.mobile).subscribe(
+      (data: any) => {
+        this.toastr.info('  پیام مجددا برای شما ارسال گردید')
+        this.verify_phone=true;
+
+      },
+      (err:HttpErrorResponse) => {
         if(err.error['non_field_errors']){
           this.toastr.error(err.error['non_field_errors'][0])
         }
