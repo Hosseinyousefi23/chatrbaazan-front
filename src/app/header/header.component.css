@@ -35,7 +35,7 @@
 
 .menu ul li a {
   height: 100%;
-  padding: .6em;
+  padding: .6em 0.39em;
   font-weight: 700;
 }
 
@@ -228,13 +228,19 @@ col-xs-5ths,
   direction: rtl;
 }
 
-@media only screen 
-  and (min-width: 1024px) 
-  and (max-height: 1366px) 
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-    .menu ul li{
-      font-size: .82em;
+@media (max-width: 1290px)  {
+  .menu ul li a{
+    font-size: .9em;
+    padding: .6em 0.4em;
+  }
+
+}
+@media (max-width: 1090px)  {
+    .menu ul li a{
+      font-size: .85em;
+      padding: .6em 0.2em;
     }
 
   }
+
 
