@@ -49,11 +49,11 @@
 }
 
 .social_network a {
-  height: 2em;
-  width: 25px;
+  height: 22px;
+  width: 22px;
   display: block;
   float: inline-start;
-  padding: 0px 4px;
+  margin: 0px 4px;
   float: right;
   /* height: 2px; */
   position: relative;
@@ -71,6 +71,8 @@
   /* height: 2em; */
   font-size: 22px;
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .email_sen{
@@ -93,6 +95,10 @@
 @media (max-width: 768px) {
   .line {
     margin: 1em 3em;
+  }
+  .social_network a{
+    height: 20px;
+    width: 20px; 
   }
   .social_network_images {
     width: 20px;
@@ -144,6 +150,10 @@
 
   .line {
     margin: 1em 3em;
+  }
+  .social_network a{
+    height: 15px;
+    width: 15px; 
   }
   .social_network_images {
     width: 15px;
