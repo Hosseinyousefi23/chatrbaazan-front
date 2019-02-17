@@ -222,8 +222,8 @@ col-xs-5ths,
 
 .dropdown:hover > .dropdown-menu {
   display: block;
-  transition-delay: 10s;
-  transition-duration: 5s;
+  /*transition-delay: 1s;*/
+  transition-duration: 1.5s;
 }
 
 .dropdown > .dropdown-toggle:active {
@@ -233,13 +233,43 @@ col-xs-5ths,
 
 .dropdown-menu {
   right: 0;
-  width: 20rem
+  /*width: 20rem;*/
+  width: 610px;
+  max-height: 122px;
+  overflow: hidden;
+  /*-webkit-transition: width 2s; !* Safari *!*/
+  /*transition: width 2s;*/
+}
+
+.full-dropdown-menu {
+  max-height: 500px !important;
+  /*width: 30rem !important;*/
+  /*width: 515px !important;*/
 }
 
 .company_links {
-  width: 50%;
+  /*width: 50%;*/
+  width: 200px;
   float: right;
   text-align: right;
+}
+
+/*.company_links-small {*/
+/*width: 33% !important;*/
+/*}*/
+
+.show-more {
+  float: right;
+}
+
+.more {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.plus-icon {
+  height: 32px;
+  width: 32px
 }
 
 .search_div {
