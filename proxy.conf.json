@@ -1,6 +1,7 @@
 {
-    "/api": {
-      "target": "http://0.0.0.0:8001",
-      "secure": false
-    }
+  "/api/**": {
+    "target": "https://cors-anywhere.herokuapp.com/http://api.chatrbaazan.ir/",
+    "secure": false,
+    "changeOrigin": true
+  }
 }

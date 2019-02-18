@@ -116,7 +116,7 @@
         </span>
 
         <div *ngIf="category.company" id={{category.slug}} (mouseleave)="show_more('')"
-             class="dropdown-menu {{is_more==category.slug? 'full-dropdown-menu' : ''}}"
+             class="dropdown-menu{{is_more==category.slug? ' full-dropdown-menu' : ''}}"
              aria-labelledby="navbarDropdownMenuLink">
           <a
             *ngFor="let comp of (is_more!=category.slug?category.company.slice(0,show_company_threshold) : category.company)"

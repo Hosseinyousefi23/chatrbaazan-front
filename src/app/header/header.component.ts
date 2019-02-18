@@ -94,7 +94,8 @@ export class HeaderComponent implements OnInit {
           this.searched = [];
           this.tagsSearched = [];
         }
-      })
+      });
+    console.log(this.categories);
 
   }
 
