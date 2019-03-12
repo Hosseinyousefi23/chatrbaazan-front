@@ -141,7 +141,7 @@ export class UserprofileComponent implements OnInit {
         if(err.error['phone']){
           this.toastr.error(err.error['phone'])
         }
-        
+
       }
       );
   }
@@ -159,7 +159,7 @@ export class UserprofileComponent implements OnInit {
         if(err.error['phone']){
           this.toastr.error(err.error['phone'])
         }
-        
+
       }
       );
   }
@@ -169,7 +169,7 @@ export class UserprofileComponent implements OnInit {
       (data: any) => {
         // console.log('hiiiiiii')
         this.toastr.info('تایید شد')
-        
+
 
       },
       (err : HttpErrorResponse) => {
@@ -182,7 +182,7 @@ export class UserprofileComponent implements OnInit {
         if(err.error['phone']){
           this.toastr.error(err.error['phone'][0])
         }
-        
+
       }
       );
 
@@ -194,14 +194,14 @@ export class UserprofileComponent implements OnInit {
   // }
   logout() {
     this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
-    this.router.navigate(['/']);  
+    this.router.navigate(['/']);
     })
-  
+
   }
 
   onScroll() {
     if(!this.stop_scroll){
-      this.page += 1; 
+      this.page += 1;
       this.infinte_list();
       this.stop_scroll =true;
       }
@@ -218,7 +218,7 @@ export class UserprofileComponent implements OnInit {
   //     if (param['count']) {
   //       console.log(param.results)
   //       this.pro = this.pro.concat(param['results'])
-  //       this.next_url = param.next
+  //       this.next_url_pro = param.next
   //       for (let i of param.results) {
   //         for (let c of i.category) {
   //           if (!this.categories.some(temp => temp.name == c.name)) {
@@ -226,10 +226,10 @@ export class UserprofileComponent implements OnInit {
   //           }
   //         }
   //       }
-  //       if(this.next_url != null){
-  //         this.stop_scroll = false;
+  //       if(this.next_url_pro != null){
+  //         this.stop_scroll_pro = false;
   //       }else{
-  //         this.stop_scroll = true;
+  //         this.stop_scroll_pro = true;
   //       }
   //     } else {
   //       this.pro = null;

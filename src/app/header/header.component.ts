@@ -1,14 +1,11 @@
-import {Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {FormControl} from '@angular/forms';
 import {PageService} from '../page.service';
 import {Cities} from '../cities';
-import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef, MatMenuTrigger} from "@angular/material";
+import {MatDialog, MatDialogConfig, MatMenuTrigger} from "@angular/material";
 import {LoginModalComponent} from '../login-modal/login-modal.component';
 import {UsersService} from '../users.service';
 import {Router} from '@angular/router';
-import {HttpErrorResponse} from '@angular/common/http';
-import {trigger} from '@angular/animations';
-import {NONE_TYPE} from '@angular/compiler/src/output/output_ast';
 import {ToastrService} from 'ngx-toastr';
 
 
@@ -144,7 +141,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/company', search])
     }
     if (this.searchTerm.value, type == 3) {
-      console.log(search)
+      console.log(search);
       // this.router.navigate(['/search'],{ queryParams: { label: this.searchTerm.value }})
       this.router.navigate(['/search'], {queryParams: {label: search}})
     }
@@ -164,4 +161,32 @@ export class HeaderComponent implements OnInit {
     this.is_more = slug;
 
   }
+
+  adjust_position($event) {
+    const menu = ($event.target as HTMLElement).children[1];
+
+    const left = menu.getBoundingClientRect().left;
+    if (left < 0) {
+      (menu  as HTMLElement).style.right = `${left - 20}px`;
+    }
+  }
+
+  deadjust_position($event) {
+    const menu = ($event.target as HTMLElement).children[1];
+    (menu  as HTMLElement).style.right = `0`;
+  }
+
+  // adjust_position() {
+  //   const menus = document.querySelectorAll('.dropdown-menu');
+  //   console.log(`length: ${menus.length}`);
+  //   for (let i = 0; i < menus.length; i = i + 1) {
+  //     const left = menus[i].getBoundingClientRect().left;
+  //     if (left < 0) {
+  //       (menus[i] as HTMLElement).style.right = `${left}px`;
+  //     } else {
+  //       (menus[i] as HTMLElement).style.right = '0';
+  //     }
+  //   }
+  // }
+
 }

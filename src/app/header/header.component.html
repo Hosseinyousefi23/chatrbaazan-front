@@ -108,7 +108,8 @@
   <div class="menu">
     <ul>
 
-      <li class="dropdown" *ngFor="let category of categories">
+      <li class="dropdown" (mouseenter)="adjust_position($event)" (mouseleave)="deadjust_position($event)"
+          *ngFor="let category of categories">
         <span (click)="link_click(category.slug)">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
             {{category.name}}

@@ -17,6 +17,7 @@
   height: 3em;
   font-size: .92em;
   font-weight: 700;
+  padding-bottom: 0;
 }
 
 .menu ul {
@@ -25,7 +26,9 @@
 }
 
 .menu ul li {
+  height: 100%;
   float: right;
+  padding-bottom: 0;
 }
 
 .menu ul li:first-child {
@@ -34,8 +37,13 @@
 
 .menu ul li a {
   height: 100%;
-  padding: .6em 0.39em;
+  /*padding: .6em 0.39em;*/
   font-weight: 700;
+}
+
+.menu ul li:last-child > .dropdown-menu {
+  right: auto;
+  left: 100%;
 }
 
 .city_btn {
@@ -222,8 +230,9 @@ col-xs-5ths,
 
 .dropdown:hover > .dropdown-menu {
   display: block;
-  /*transition-delay: 1s;*/
-  transition-duration: 1.5s;
+  /*transition-delay: 3s;*/
+  /*transition-duration: 1.5s;*/
+  transition: max-height 2s;
 }
 
 .dropdown > .dropdown-toggle:active {
@@ -237,6 +246,8 @@ col-xs-5ths,
   width: 610px;
   max-height: 122px;
   overflow: hidden;
+  top: 96%;
+  left: auto !important;
   /*-webkit-transition: width 2s; !* Safari *!*/
   /*transition: width 2s;*/
 }
@@ -263,8 +274,9 @@ col-xs-5ths,
 }
 
 .more {
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: bold;
+  margin-right: 4px;
 }
 
 .plus-icon {
@@ -276,10 +288,11 @@ col-xs-5ths,
   direction: rtl;
 }
 
-@media (max-width: 1290px) {
+@media (max-width: 1410px) {
   .menu ul li a {
     font-size: .9em;
     padding: .6em 0.4em;
+    padding-bottom: 0;
   }
 
 }

@@ -113,7 +113,8 @@ export class CustomDateAdapter extends NativeDateAdapter {
   }
 
   format(date: Date, displayFormat: object): string {
-    return moment(date.toDateString()).locale('fa').format('YYYY/MM/DD');
+    var faDate = moment(date.toDateString()).locale('fa').format('YYYY/MM/DD');
+    return faDate;
   }
 }
 

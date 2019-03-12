@@ -5,8 +5,8 @@
 export const environment = {
   production: true,
   // baseUrl: 'http://localhost:8000/',
-  // baseUrl: 'http://api.chatrbaazan.ir/',
-  baseUrl: '/',
+  baseUrl: 'http://api.chatrbaazan.ir/',
+  // baseUrl: '/',
   mainurl: 'http://chatrbaazan.ir/'
 
 };
