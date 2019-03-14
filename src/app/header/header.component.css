@@ -16,7 +16,7 @@
   border-bottom: 2px solid #dfdfdf;
   height: 3em;
   font-size: .92em;
-  font-weight: 700;
+  font-weight: 300;
   padding-bottom: 0;
 }
 
@@ -304,5 +304,11 @@ col-xs-5ths,
   }
 
 }
-
+ @supports (-webkit-overflow-scrolling: touch) {
+   .menu ul li a {
+     height: 100%;
+     /*padding: .6em 0.39em;*/
+     font-weight: 200 !important;
+   }
+ }
 

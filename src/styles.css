@@ -1,215 +1,244 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@ngx-share/button/themes/default/default-theme.css';
 
-@font-face{
-  font-family: "iranyekan";
-  src: url('./assets/fonts/iranyekanweblight.ttf')format('ttf'),
-  url('./assets/fonts/iranyekanweblight.woff2') format('woff2'),
-  url('./assets/fonts/iranyekanweblight.woff') format('woff'),
-  url('./assets/fonts/iranyekanweblight.eot') format('eot');
+@font-face {
+    font-family: "iranyekan";
+    src: url('./assets/fonts/iranyekanweblight.woff') format('woff'),
+    url('./assets/fonts/iranyekanweblight.ttf') format('ttf'),
+    url('./assets/fonts/iranyekanweblight.woff2') format('woff2'),
+    url('./assets/fonts/iranyekanweblight.eot') format('eot');
 }
+
+/*@font-face {*/
+/*font-family: 'iranyekan-safari';*/
+/*src: url('./assets/fonts/iranyekanweblight.woff') format('woff'),*/
+/*url('./assets/fonts/iranyekanweblight.eot') format('embedded-opentype'),*/
+/*url('./assets/fonts/iranyekanweblight.ttf') format('truetype'),*/
+/*url('./assets/fonts/iranyekanweblight.woff2') format('woff2');*/
+/*font-weight: ;*/
+/*!*url('myfont-webfont.svg#svgFontName') format('svg');*!*/
+/*}*/
+
+
+/*@supports not (-webkit-overflow-scrolling: touch) {*/
 * {
-  outline: none;
-  /* -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; */
-  font-family: iranyekan ;
+    outline: none;
+    /* -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; */
+    font-family: iranyekan;
+    /*}*/
 }
 
 html,
 body {
-  height: 100%;
-  direction: rtl;
-  -webkit-user-select: auto;  
-  -moz-user-select: auto;     
-  -ms-user-select: auto;      
-  user-select: auto;          
-  -webkit-appearance: none; /* CSS submit button weird rendering on iPad/iPhone */
+    height: 100%;
+    direction: rtl;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    -webkit-appearance: none; /* CSS submit button weird rendering on iPad/iPhone */
 
-  
 }
 
 .row {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #F5F5F5;
-  font-family: iranyekan !important;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    font-family: iranyekan !important;
 }
 
 a {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 ul {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
 }
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+    /*font-family: Roboto, "Helvetica Neue", sans-serif;*/
+    font-family: iranyekan;
 }
 
 /* Fix bug input in safari */
 input {
-  -moz-user-select: auto !important;
-  -webkit-user-select: auto !important;
-  -ms-user-select: auto !important;
-  user-select: auto !important;
+    -moz-user-select: auto !important;
+    -webkit-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
 }
 
 .example-container {
-  /* z-index: 10; */
+    /* z-index: 10; */
 }
 
 .example-radio-group {
-  display: block;
-  border: 1px solid #555;
-  margin: 20px;
-  padding: 10px;
+    display: block;
+    border: 1px solid #555;
+    margin: 20px;
+    padding: 10px;
 }
 
 .mat-drawer-content {
-  overflow: hidden !important;
+    overflow: hidden !important;
 }
-.mat-drawer-inner-container { 
-  overflow: visible !important;
+
+.mat-drawer-inner-container {
+    overflow: visible !important;
 }
+
 .menu_content {
-  width: 270px;
-  ;
+    width: 270px;;
 }
+
 .go-top-button {
-  left: 0 !important;
-  background: rgb(250, 250, 250);
+    left: 0 !important;
+    background: rgb(250, 250, 250);
 }
 
 @media (max-width: 559px) {
-  .mat-tab-label {
-    padding: 0 50px; 
-    width: 90px !important;
-    font-size: .8em;
-  }
+    .mat-tab-label {
+        padding: 0 50px;
+        width: 90px !important;
+        font-size: .8em;
+    }
 }
 
 @media (min-width: 768px) {
 
-  .mat-tab-label {
-    width: 100px !important;
-    font-size: .9em;
-  }
+    .mat-tab-label {
+        width: 100px !important;
+        font-size: .9em;
+    }
 }
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+}
 
 @media (min-width: 1200px) {
-  .col-lg-5ths {
-    width: 20%;
-    float: left;
-  }
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
 
 }
 
-
-
 .owl-carousel {
-  /* margin: 2em auto; */
-  margin:7px 0 2em 0;
+    /* margin: 2em auto; */
+    margin: 7px 0 2em 0;
 }
 
 .owl-carousel .owl-nav .owl-prev,
 .owl-carousel .owl-nav .owl-next {
-  position: absolute;
-  top: 50%;
-  background: rgba(212, 200, 200, 0.267) !important;
-  transform: translate(0, -50%);
+    position: absolute;
+    top: 50%;
+    background: rgba(212, 200, 200, 0.267) !important;
+    transform: translate(0, -50%);
 }
 
 .owl-carousel .owl-nav {
-  background: #1253a1;
+    background: #1253a1;
 }
 
 .owl-carousel .owl-nav .owl-prev {
-  right: 5px;
-  font-size: 40px !important;
+    right: 5px;
+    font-size: 40px !important;
 }
 
 .owl-carousel .owl-nav .owl-next {
-  left: 5px;
-  font-size: 40px !important;
+    left: 5px;
+    font-size: 40px !important;
 }
 
 .owl-carousel .owl-dots {
-  position: absolute;
-  bottom: 2%;
-  left: 50%;
-  transform: translate(-50%, 0);
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
+
 .owl-dot {
-  border-radius: 50px;
-  height: 10px;
-  width: 10px;
-  display: inline-block;
-  background: rgba(158, 144, 144, 0.76) !important;
-  margin-left: 5px;
-  margin-right: 5px;
+    border-radius: 50px;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    background: rgba(158, 144, 144, 0.76) !important;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
 .owl-dot.active {
-  background: rgba(245, 240, 240, 0.87) !important;
+    background: rgba(245, 240, 240, 0.87) !important;
 }
+
 .owl-dot:hover {
-  background: rgba(255, 255, 12, 0.959) !important;
+    background: rgba(255, 255, 12, 0.959) !important;
 }
 
 .ngx-gallery-image {
-  z-index: 0 !important;
+    z-index: 0 !important;
 }
-.mat-tab-body-content{
-  overflow: hidden !important;
+
+.mat-tab-body-content {
+    overflow: hidden !important;
 }
+
 .mat-option-text {
-  text-align: right;
+    text-align: right;
 }
-.content{
-  /* height:100vh; */
+
+.content {
+    /* height:100vh; */
 }
-.mat-radio-label-content{
-  padding-left: 0px !important;
-  padding-right: 4px !important;
+
+.mat-radio-label-content {
+    padding-left: 0px !important;
+    padding-right: 4px !important;
 }
-.mat-radio-button{
-  width: 100%;
+
+.mat-radio-button {
+    width: 100%;
 }
-.mat-form-field { 
-  text-align: right !important;
-  width: 65%;
+
+.mat-form-field {
+    text-align: right !important;
+    width: 65%;
 }
+
 .btn-warning {
-  color: #F5F5F5 !important;
+    color: #F5F5F5 !important;
 }
-.main_title{
-  font-family: iranyekan ;
+
+.main_title {
+    font-family: iranyekan;
 }
-.toast-info,.toast-error,.toast-success{
-  text-align: right !important;
+
+.toast-info, .toast-error, .toast-success {
+    text-align: right !important;
 }
-.mat-drawer-inner-container { 
-  overflow: visible !important;
+
+.mat-drawer-inner-container {
+    overflow: visible !important;
 }
-.fa-window-close-o{
-  font-size: 20px;
+
+.fa-window-close-o {
+    font-size: 20px;
 }

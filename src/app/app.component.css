@@ -1,37 +1,41 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 :host {
-  font-family: IRANSans;
-  color: #4c4c4c;
-  font-size: 14px;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 116px 0 0;
-  direction: rtl;
-  min-height: 100vh;
+    font-family: iranyekan;
+    color: #4c4c4c;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 116px 0 0;
+    direction: rtl;
+    min-height: 100vh;
 }
- *, :host :host-context:focus {
-  outline: 0;
+
+*, :host :host-context:focus {
+    outline: 0;
 }
 
 :host /deep/ .go-smooth {
-  transition: .5s;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
 }
 
 :host /deep/ a {
-  text-decoration: none;
-  display: inline-block;
-  color: #16171a;
+    text-decoration: none;
+    display: inline-block;
+    color: #16171a;
 }
+
 :host /deep/ :host-context a {
-  color: #007ad9;
-  text-decoration: none;
+    color: #007ad9;
+    text-decoration: none;
 }
+
 :host /deep/ .go-smooth {
-  transition: .5s;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
 }
