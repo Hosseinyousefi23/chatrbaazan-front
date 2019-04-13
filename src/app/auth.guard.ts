@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import { UsersService } from './users.service';
-import {  CanActivate,Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import {LOCAL_STORAGE} from '@ng-toolkit/universal';
+import {Inject, Injectable} from '@angular/core';
+import {UsersService} from './users.service';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 
 
 @Injectable({
@@ -8,16 +9,18 @@ import {  CanActivate,Router, RouterStateSnapshot, ActivatedRouteSnapshot } from
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private userservice : UsersService ,private router :Router){}
-  logged : boolean;
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private userservice: UsersService, private router: Router) {
+  }
 
-  canActivate( route: ActivatedRouteSnapshot,state: RouterStateSnapshot) :boolean{
+  logged: boolean;
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     // this.userservice.logged().subscribe(data => {console.log("onComplete"); if(data['token']){this.logged = true}else{this.logged = false}} );
     // console.log(this.logged)
-    if(localStorage.getItem('userToken')){
+    if (this.localStorage.getItem('userToken')) {
       return true
-    }else{
-      this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }})
+    } else {
+      this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}})
       return false
     }
   }

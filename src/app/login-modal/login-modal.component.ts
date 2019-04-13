@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
@@ -21,7 +22,7 @@ export class LoginModalComponent implements OnInit {
   //   email: new FormControl(''),
   //   password: new FormControl(''),
   // });
-  constructor(public dialogRef: MatDialogRef<LoginModalComponent>,private userservice: UsersService,private router :Router
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, public dialogRef: MatDialogRef<LoginModalComponent>,private userservice: UsersService,private router :Router
     ,private toastr: ToastrService) {
   }
 
@@ -55,7 +56,7 @@ export class LoginModalComponent implements OnInit {
     // this.user.email = this.loginform.get()
     this.userservice.login(this.user).subscribe(
       (data: any) => {
-        localStorage.setItem('userToken',data.token)
+        this.localStorage.setItem('userToken',data.token)
         this.dialogRef.close();
         this.router.navigate(['/'])
       },

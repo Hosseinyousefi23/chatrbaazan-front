@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { UsersService } from '../users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   user;
   isSignupError :boolean = false;
   returnUrl: string;
-  constructor(private userservice: UsersService,private route: ActivatedRoute,private toastr: ToastrService
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private userservice: UsersService,private route: ActivatedRoute,private toastr: ToastrService
     ,private router :Router) { }
 
   ngOnInit() {

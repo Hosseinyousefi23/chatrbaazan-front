@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../page.service';
@@ -22,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
   number =0;
   image_gallery:NgxGalleryImage[]=[];
   
-  constructor(private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService,private toastr: ToastrService) { }
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: ActivatedRoute , private router : Router,private service :PageService,private user :UsersService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.pro = {
@@ -115,7 +116,7 @@ export class ProductDetailComponent implements OnInit {
     }  , 500 );
   }
   addtocart(id){
-    if(localStorage.getItem("userToken")){
+    if(this.localStorage.getItem("userToken")){
       this.user.addtocart(id).subscribe(
         (data : any) => {
           // console.log(data)

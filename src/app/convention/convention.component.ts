@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, Input, Output,EventEmitter , Inject} from '@angular/core';
 import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
 import { MatBottomSheet } from '@angular/material';
 import { PageService } from '../page.service';
@@ -20,7 +21,7 @@ export class ConventionComponent implements OnInit {
   // @Output() showCompo =new EventEmitter<boolean>();
   showDiv = false;
   @Input() cityHeader :string;
-  constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
   ngOnInit() {
     this.searchoffer();
@@ -61,7 +62,7 @@ export class ConventionComponent implements OnInit {
     this.addeventlister();
   }
   addtocart(id){
-    if(localStorage.getItem("userToken")){
+    if(this.localStorage.getItem("userToken")){
       this.user.addtocart(id).subscribe(
         (data : any) => {
           // console.log(data)

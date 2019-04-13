@@ -243,7 +243,7 @@ col-xs-5ths,
 .dropdown-menu {
   right: 0;
   /*width: 20rem;*/
-  width: 610px;
+  width: 620px;
   max-height: 122px;
   overflow: hidden;
   top: 96%;
@@ -263,6 +263,7 @@ col-xs-5ths,
   width: 200px;
   float: right;
   text-align: right;
+  margin: 0 5px 5px 0;
 }
 
 /*.company_links-small {*/

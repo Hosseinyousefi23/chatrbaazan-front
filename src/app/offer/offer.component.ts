@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit, Input, Inject, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PageService } from '../page.service';
@@ -21,7 +22,7 @@ export class OfferComponent implements OnInit {
  
   showDiv = false;
   @Input() cityHeader :string;
-  constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
   ngOnInit() {
     this.searchoffer();
@@ -72,7 +73,7 @@ export class OfferComponent implements OnInit {
     this.offer.sendclick_like(id).subscribe(
       data => console.log(data)
     )
-    if(localStorage.getItem("userToken")){
+    if(this.localStorage.getItem("userToken")){
     this.user.addtocart(id).subscribe(
       (data : any) => {
         // console.log(data)

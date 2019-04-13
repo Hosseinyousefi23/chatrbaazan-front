@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import {Component, EventEmitter, OnInit, Output, ViewChild, Inject} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {PageService} from '../page.service';
 import {Cities} from '../cities';
@@ -34,7 +35,7 @@ export class HeaderComponent implements OnInit {
   @Output() cityevent = new EventEmitter<string>();
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private data: PageService, private dialog: MatDialog, private user: UsersService, private router: Router
     , private toastr: ToastrService) {
   }
 
@@ -46,14 +47,14 @@ export class HeaderComponent implements OnInit {
       this.categories = data.data;
       this.all_chatrbazi = data.all_chatrbazi
     });
-    if (localStorage.getItem("userToken")) {
+    if (this.localStorage.getItem("userToken")) {
       this.user.logged().subscribe(
         data => {
-          localStorage.setItem('userToken', data['token'])
+          this.localStorage.setItem('userToken', data['token'])
         },
         err => {
           console.log(err)
-          localStorage.removeItem('userToken')
+          this.localStorage.removeItem('userToken')
           this.router.navigate(['/']);
           // console.log("error")
         }
@@ -110,12 +111,12 @@ export class HeaderComponent implements OnInit {
   }
 
   loggedin() {
-    return localStorage.getItem("userToken");
+    return this.localStorage.getItem("userToken");
   }
 
   logout() {
     this.user.logout().subscribe(data => {
-      localStorage.removeItem("userToken");
+      this.localStorage.removeItem("userToken");
     })
     this.router.navigate(['/']);
   }

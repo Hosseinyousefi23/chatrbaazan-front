@@ -1,8 +1,9 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {NgtUniversalModule} from '@ng-toolkit/universal';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {OwlModule} from 'ngx-owl-carousel';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {CommonModule} from '@angular/common';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,32 +13,34 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonModule} from '@ngx-share/button';
 
 import {
-  MatInputModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatSortModule,
-  MatTableModule,
-  MatIconModule,
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+  MatAutocompleteModule,
+  MatBottomSheetModule,
   MatButtonModule,
   MatCardModule,
-  MatSidenavModule,
-  MatRadioModule,
-  MatFormFieldModule,
-  MatAutocompleteModule,
-  MatStepperModule,
-  MatTabsModule,
-  MatSelectModule,
-  MatListModule,
-  MatBottomSheetModule,
-  MatMenuModule,
   MatExpansionModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
   MatNativeDateModule,
-
-
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  NativeDateAdapter,
 } from "@angular/material";
 
 
-import {MatDialogModule, MatDialogRef, MatDialog} from "@angular/material/dialog";
+import {MatDialogModule} from "@angular/material/dialog";
 
 import {ClipboardModule} from 'ngx-clipboard';
 
@@ -89,10 +92,11 @@ import {GoTopButtonModule} from 'ng2-go-top-button';
 import {SendcodeComponent} from './sendcode/sendcode.component';
 import {FactorComponent} from './factor/factor.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
 import * as moment from 'jalali-moment';
 import {Platform} from '@angular/cdk/platform';
 import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 
 const MY_DATE_FORMATS = {
@@ -153,7 +157,13 @@ export class CustomDateAdapter extends NativeDateAdapter {
 
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
+    NgtUniversalModule,
+
+    TransferHttpCacheModule,
+    HttpClientModule,
+
+
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -200,6 +210,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     MatMenuModule,
     NgxCaptchaModule,
     GoTopButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
 
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
@@ -208,7 +219,6 @@ export class CustomDateAdapter extends NativeDateAdapter {
     {provide: DateAdapter, useClass: CustomDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}
   ],
-  bootstrap: [AppComponent],
   entryComponents: [LoginModalComponent, DetailModalComponent, BottomSheetOverviewExampleSheet]
 })
 export class AppModule {

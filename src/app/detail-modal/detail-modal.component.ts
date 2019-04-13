@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef ,MAT_DIALOG_DATA} from '@angular/material';
 import { Inject } from '@angular/core';
@@ -14,7 +15,7 @@ declare var $: any;
 })
 export class DetailModalComponent implements OnInit {
   pro
-  constructor(public dialogRef: MatDialogRef<DetailModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, public dialogRef: MatDialogRef<DetailModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any
   ,private route: ActivatedRoute , private router : Router,private service :PageService, private user:UsersService,
   private toastr: ToastrService) { }
 
@@ -36,7 +37,7 @@ export class DetailModalComponent implements OnInit {
     this.dialogRef.close();
   }
   addtocart(id){
-    if(localStorage.getItem("userToken")){
+    if(this.localStorage.getItem("userToken")){
       this.user.addtocart(id).subscribe(
         (data : any) => {
           // console.log(data)

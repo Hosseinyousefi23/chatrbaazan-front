@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { UsersService } from '../users.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   isLoginerror :boolean;
   returnUrl: string;
   user;
-  constructor(private userservice: UsersService,private router :Router,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private userservice: UsersService,private router :Router,
     private route: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
   LoginUser(){
     this.userservice.login(this.user).subscribe(
       (data: any) => {
-        localStorage.setItem('userToken',data.token)
+        this.localStorage.setItem('userToken',data.token)
         this.router.navigate([this.returnUrl])
       },
       (err : HttpErrorResponse) => {

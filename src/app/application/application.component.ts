@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, Input, EventEmitter, Output , Inject} from '@angular/core';
 import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
@@ -25,7 +26,7 @@ export class ApplicationComponent implements OnInit {
   // @Output() showCompo =new EventEmitter<boolean>();
   showDiv = false;
   @Input() cityHeader :string;
-  constructor(private offer : PageService ,private user: UsersService,private toastr: ToastrService,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private offer : PageService ,private user: UsersService,private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
   ngOnInit() {
     this.searchoffer();
@@ -73,7 +74,7 @@ export class ApplicationComponent implements OnInit {
     this.offer.sendclick_like(id).subscribe(
       data => console.log(data)
     )
-    if(localStorage.getItem("userToken")){
+    if(this.localStorage.getItem("userToken")){
       this.user.addtocart(id).subscribe(
         (data : any) => {
           // console.log(data)

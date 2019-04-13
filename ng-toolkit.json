@@ -1,0 +1,13 @@
+{
+  "universal": {
+    "project": "chatrbaazan-front",
+    "skipInstall": false,
+    "directory": ".",
+    "http": true
+  },
+  "pwa": {
+    "directory": ".",
+    "skipInstall": true,
+    "project": "chatrbaazan-front"
+  }
+}

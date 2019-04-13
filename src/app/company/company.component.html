@@ -443,6 +443,9 @@
             </loading-spinner>
 
           </mat-tab-group>
+          <div *ngIf="pro && !pro.length" class="notfound">
+            موردی یافت نشد
+          </div>
           <hr>
           <mat-tab-group>
             <mat-tab label="منقضی شده‎ها">
@@ -580,8 +583,8 @@
         </div>
 
 
-        <div *ngIf="!expired" class="notfound">
-          <!-- موردی یافت نشد -->
+        <div *ngIf="expired && !expired.length" class="notfound">
+          موردی یافت نشد
         </div>
       </div>
 

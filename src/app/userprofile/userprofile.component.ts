@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { UsersService } from '../users.service';
 import { ViewEncapsulation } from '@angular/compiler/src/core';
@@ -42,7 +43,7 @@ export class UserprofileComponent implements OnInit {
     picker._validSelected = enDate;
     picker.startAt = enDate;
 }
-  constructor(private user : UsersService,private router: Router,private toastr: ToastrService) { }
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private user : UsersService,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit() {
     // this.resend_time = new Date();
@@ -193,7 +194,7 @@ export class UserprofileComponent implements OnInit {
   //   this.router.navigate(['/']);
   // }
   logout() {
-    this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
+    this.user.logout().subscribe(data => { this.localStorage.removeItem("userToken");
     this.router.navigate(['/']);
     })
 

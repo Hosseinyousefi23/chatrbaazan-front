@@ -23,26 +23,26 @@
     -ms-transition: 0.6s;
     -ms-transform-style: preserve-3d;
     /* -ms-transform: rotateY(0deg) */
-   
+
   }
-  
+
   .title {
     text-align: right;
   }
-  
+
   .title,
   .see_all {
     font-weight: 700;
   }
-  
-  
+
+
   .offer .inner_content {
     text-align: right;
     margin: 0;
     margin-top: 6px;
-  
+
   }
-  
+
   .offer .offer_box {
     margin-top: .5em;
     position: relative;
@@ -51,12 +51,12 @@
     height: 20em;
     margin: 6px;
   }
-  
+
   .offer .offer_box .offer_box_link {
     height: 100%;
     width: 100%;
   }
-  
+
   .offer .offer_box .offer_image {
     position: relative;
     width: 11em;
@@ -64,7 +64,7 @@
     display: block;
     margin: auto;
   }
-  
+
   .offer .offer_box .offer_image img {
     position: absolute;
     top: 5px;
@@ -77,7 +77,7 @@
     border-radius: 6px;
     /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1); */
   }
-  
+
   .offer .offer_box .offer_title {
     /* width: 50%; */
     margin: 0px auto;
@@ -86,7 +86,7 @@
     font-size: 0.9em;
     font-weight: 700;
   }
-  
+
   .offer .offer_box .offer_company {
     text-align: right;
     margin: auto;
@@ -94,12 +94,12 @@
     height: 10%;
     display: flex;
   }
-  
+
   .offer_companies {
     text-align: center;
     margin: 0 auto;
   }
-  
+
   .offer .offer_box .offer_company a {
     color: #828c99;
     letter-spacing: .3px;
@@ -107,7 +107,7 @@
     font-size: 11.998px;
     font-weight: 400;
   }
-  
+
   .offer .offer_box .offer_btn {
     display: block;
     background-color: #0e1f3c;
@@ -130,7 +130,7 @@
     bottom: 1em;
     transform: translateX(50%);
   }
-  
+
   .offer_off {
     position: absolute;
     z-index: 4;
@@ -144,34 +144,35 @@
     line-height: 16px;
     font-weight: 600;
   }
-  
+
   .Copy_btn {
     border-radius: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-color: #dddddd !important;
   }
-  
+
   .Copy_btn:hover {
     background-color: #e2e2e2;
   }
-  
+
   .btn-groups {
     margin: 1.2em auto;
   }
-  
+
   .back_name {
     margin: 1em;
     margin-bottom: 0;
     font-size: .9em;
     font-weight: 700;
   }
-  
+
   .timer {
     margin: .1em 0;
     font-size: 1em;
     font-weight: 700;
   }
-  
+
   label {
     /* -webkit-perspective: 1000px;
     perspective: 1000px; */
@@ -188,8 +189,8 @@
     cursor: pointer;
     /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1); */
   }
-  
-  
+
+
   .card {
     position: relative;
     height: 100%;
@@ -202,43 +203,43 @@
     border: none;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .13);
   }
-  
+
   .card .front,
   .card .back {
-  
+
     position: absolute;
     height: 100%;
     width: 100%;
     text-align: center;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    
+
   -moz-backface-visibility:    hidden;
   -ms-backface-visibility:     hidden;
   -o-backface-visibility:     hidden;
-  
+
 
     border-radius: 2px;
-    
+
   }
-  
+
   .card .back {
     z-index: 5;
     background: rgb(21, 44, 83);
     color: #FFFFFF;
-    
+
     -webkit-transform:rotateY(-180deg);
     -moz-transform:rotateY(-180deg);
     -o-transform:rotateY(-180deg);
     transform:rotateY(-180deg);
-   
-    
+
+
   }
-  
+
   .card .back p {
     color: #FFFFFF;
   }
-  
+
   .voted {
     transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg);
@@ -246,11 +247,11 @@
     -o-transform:rotateY(180deg);
     transform:rotateY(180deg);
   }
-  
+
   input {
     display: none;
   }
-  
+
   .btn_sm {
     width: 7em ;
     font-size: .8em;
@@ -259,14 +260,14 @@
     margin: .5em;
     padding: .5em;
   }
-  
+
   .input_cupon {
     color: #000000;
     display: inline;
     width: 100px;
     border-radius: 10px 0 0 10px;
   }
-  
+
   .see_all {
     text-align: left;
   }
@@ -288,7 +289,7 @@
       width: 31%;
       margin: 5px;
     }
-  
+
     .mat-tab-label {
       width: 100px;
     }
@@ -308,14 +309,14 @@
       margin:0 !important ;
       font-size: 0.831em !important;
     }
-  
+
   }
   @media (max-width: 768px) {
     .offer .offer_box {
       width: 31%;
       margin: 5px;
     }
-  
+
     .mat-tab-label {
       width: 100px;
     }
@@ -335,9 +336,9 @@
       margin:0 !important ;
       font-size: 0.831em !important;
     }
-  
+
   }
-  
+
   @media (max-width: 559px) {
     .offer .offer_box {
       width: 47%;
@@ -347,49 +348,49 @@
     .mat-tab-label {
       width: 90px !important;
     }
-  
+
     .Copy_btn {
       font-size: .7em;
       padding-left: 0.5em;
       padding-right: 0.5em;
     }
-  
+
     .input_cupon {
       font-size: .7em;
       width: 84px;
     }
-  
+
     .offer .offer_box .offer_title {
       font-size: 12px;
       font-weight: 700;
     }
-  
+
     .offer .offer_box .offer_image {
       width: 9em;
       height: 9em;
     }
-  
+
     .offer_off {
       font-size: 10px;
       padding: 3px 4px;
     }
-  
+
     .btn-groups {
       font-size: .7em;
     }
-  
+
     .back_name {
       margin: .8em;
       margin-bottom: 0;
       font-size: .8em;
       font-weight: 700;
     }
-  
+
     .title {
       font-size: .9em;
       padding: 0;
     }
-  
+
     .see_all {
       font-size: .9em;
       padding: 0;
@@ -398,7 +399,7 @@
       width: 7em !important;
       font-size: .8em;
       }
-    
+
       .timer {
         margin: .85em 0;
         font-size: .74em;
@@ -412,8 +413,8 @@
         font-size: 0.831em !important;
       }
   }
-  @media (device-height : 568px) 
-   and (device-width : 320px) 
+  @media (device-height : 568px)
+   and (device-width : 320px)
    and (-webkit-min-device-pixel-ratio: 2){
     .offer .offer_box {
       width: 45%;

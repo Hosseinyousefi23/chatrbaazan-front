@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
+import {SwUpdate} from '@angular/service-worker';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 // import { Router, NavigationEnd } from '@angular/router';
 
 // declare var gtag: Function;
@@ -11,10 +12,28 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'chatrbaazan-front';
-  // constructor(private router: Router) { }
-    //site : https://stackoverflow.com/questions/37655898/tracking-google-analytics-page-views-in-angular2
+
+  //
+  public ngOnInit(): void {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe((evt) => {
+        console.log('service worker updated');
+      });
+
+      this.swUpdate.checkForUpdate().then(() => {
+        // noop
+      }).catch((err) => {
+        console.error('error when checking for update', err);
+      });
+    }
+  }
+
+  constructor(private swUpdate: SwUpdate, private router: Router) {
+  }
+
+  //site : https://stackoverflow.com/questions/37655898/tracking-google-analytics-page-views-in-angular2
   // ngOnInit() {
   //   this.router.events.pipe(distinctUntilChanged((previous: any, current: any) => {
   //      // Subscribe to any `NavigationEnd` events where the url has changed
@@ -26,14 +45,14 @@ export class AppComponent {
   //     gtag('config', 'UA-132350923-1', {'page_path': x.url});
   // }));
 
-      // this.router.events.distinctUntilChanged((previous: any, current: any) => {
-      //     // Subscribe to any `NavigationEnd` events where the url has changed
-      //     if(current instanceof NavigationEnd) {
-      //         return previous.url === current.url;
-      //     }
-      //     return true;
-      // }).subscribe((x: any) => {
-      //     gtag('config', '<%= GOOGLE_ANALYTICS_ID %>', {'page_path': x.url});
-      // });
+  // this.router.events.distinctUntilChanged((previous: any, current: any) => {
+  //     // Subscribe to any `NavigationEnd` events where the url has changed
+  //     if(current instanceof NavigationEnd) {
+  //         return previous.url === current.url;
+  //     }
+  //     return true;
+  // }).subscribe((x: any) => {
+  //     gtag('config', '<%= GOOGLE_ANALYTICS_ID %>', {'page_path': x.url});
+  // });
   // }
 }

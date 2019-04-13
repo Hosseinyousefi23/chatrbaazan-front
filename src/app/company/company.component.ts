@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import {Component, OnInit, Inject} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PageService} from '../page.service';
 import {FormControl} from '@angular/forms';
@@ -17,7 +18,7 @@ declare var $: any;
 })
 export class CompanyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private data: PageService, private user: UsersService, private dialog: MatDialog, private toastr: ToastrService,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: ActivatedRoute, private router: Router, private data: PageService, private user: UsersService, private dialog: MatDialog, private toastr: ToastrService,
               private bottomSheet: MatBottomSheet) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -61,41 +62,41 @@ export class CompanyComponent implements OnInit {
       this.Companyid = params['slug'];
     })
     this.data.search(null, this.Companyid, null, null, null, this.size, this.page_pro, null, this.selectedtab == 'expired').subscribe(param => {
-      if (param['count']) {
+      // if (param['count']) {
 
-        this.pro = param.results;
-        this.companyinfo = param['dataCompany']
-        this.next_url_pro = param.next
-        this.categories = []
-        for (let i of param.results) {
-          for (let c of i.category) {
-            if (!this.categories.some(temp => temp.name == c.name)) {
-              this.categories.push(c);
-            }
+      this.pro = param.results;
+      this.companyinfo = param['dataCompany']
+      this.next_url_pro = param.next
+      this.categories = []
+      for (let i of param.results) {
+        for (let c of i.category) {
+          if (!this.categories.some(temp => temp.name == c.name)) {
+            this.categories.push(c);
           }
         }
-        this.addeventlister();
-        if (this.next_url_pro != null) {
-          this.stop_scroll_pro = false;
-        } else {
-          this.stop_scroll_pro = true;
-        }
-      } else {
-        this.router.navigate(['/']);
       }
+      this.addeventlister();
+      if (this.next_url_pro != null) {
+        this.stop_scroll_pro = false;
+      } else {
+        this.stop_scroll_pro = true;
+      }
+      // } else {
+      //   this.router.navigate(['/']);
+      // }
     });
     this.data.search(null, this.Companyid, null, 'expired', null, this.size, this.page_exp, null, true).subscribe(param => {
-      if (param['count']) {
+      // if (param['count']) {
 
-        this.expired = param.results;
-        this.next_url_exp = param.next;
-        this.addeventlister();
-        if (this.next_url_exp != null) {
-          this.stop_scroll_exp = false;
-        } else {
-          this.stop_scroll_exp = true;
-        }
+      this.expired = param.results;
+      this.next_url_exp = param.next;
+      this.addeventlister();
+      if (this.next_url_exp != null) {
+        this.stop_scroll_exp = false;
+      } else {
+        this.stop_scroll_exp = true;
       }
+      // }
       // } else {
       //   this.router.navigate(['/']);
       // }
@@ -142,7 +143,7 @@ export class CompanyComponent implements OnInit {
   }
 
   addtocart(id) {
-    if (localStorage.getItem("userToken")) {
+    if (this.localStorage.getItem("userToken")) {
       this.user.addtocart(id).subscribe(
         (data: any) => {
           // console.log(data)
@@ -188,9 +189,10 @@ export class CompanyComponent implements OnInit {
         } else {
           this.stop_scroll_pro = true;
         }
-      } else {
-        this.pro = null;
       }
+      // } else {
+      //   this.pro = null;
+      // }
     });
   }
 
@@ -229,7 +231,7 @@ export class CompanyComponent implements OnInit {
   }
 
   infinte_list_exp() {
-    this.data.search(null, this.Companyid, 'expired', this.selectedtab, this.cityHeader, this.size, this.page_exp, null, true).subscribe(param => {
+    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page_exp, null, true).subscribe(param => {
       if (param['count']) {
         this.expired = this.expired.concat(param['results'])
         this.next_url_exp = param.next

@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Component, OnInit, Output, EventEmitter , Inject} from '@angular/core';
 import { PageService } from '../page.service';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
@@ -14,7 +15,7 @@ export class SidenavComponent implements OnInit {
 
   public categories: any[] = [];
 
-  constructor(private data: PageService, private user : UsersService,private router: Router
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private data: PageService, private user : UsersService,private router: Router
     ,private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -24,11 +25,11 @@ export class SidenavComponent implements OnInit {
   
 
   loggedin() {
-    return localStorage.getItem("userToken");
+    return this.localStorage.getItem("userToken");
   }
 
   logout() {
-    this.user.logout().subscribe(data => { localStorage.removeItem("userToken");
+    this.user.logout().subscribe(data => { this.localStorage.removeItem("userToken");
     
     })
     this.router.navigate(['/']);

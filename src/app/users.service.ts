@@ -1,18 +1,20 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import {  Headers, RequestOptions} from '@angular/http';
-import { Observable, throwError } from 'rxjs';
-import { environment } from '../environments/environment';
+import {LOCAL_STORAGE} from '@ng-toolkit/universal';
+import {Inject, Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  token: object ={
-    token: localStorage.getItem("userToken") 
+  token: object = {
+    token: this.localStorage.getItem("userToken")
   }
   baseUrl = environment.baseUrl;
-  constructor(private http: HttpClient) { }
+
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private http: HttpClient) {
+  }
 
   register(userdata): Observable<any> {
     return this.http.post(this.baseUrl + 'auth/registration/', userdata)
@@ -21,6 +23,7 @@ export class UsersService {
   login(userdata): Observable<any> {
     return this.http.post(this.baseUrl + 'auth/login/', userdata)
   }
+
 //   public setRequestOptions(): any {
 //     let headerOptions: any = {'Content-Type': 'application/json'};
 //     headerOptions['Authorization'] = 'Bearer '+this.token_string;
@@ -33,57 +36,68 @@ export class UsersService {
 
 
   logged() {
-      this.token['token'] = localStorage.getItem("userToken")
-      return this.http.post(this.baseUrl + 'auth/verify/' , this.token)
+    this.token['token'] = this.localStorage.getItem("userToken")
+    return this.http.post(this.baseUrl + 'auth/verify/', this.token)
   }
 
   logout(): Observable<any> {
-    this.token['token'] = localStorage.getItem("userToken")
-    return this.http.post(this.baseUrl + 'auth/logout/',this.token)
+    this.token['token'] = this.localStorage.getItem("userToken")
+    return this.http.post(this.baseUrl + 'auth/logout/', this.token)
   }
 
-  getUserData(){
+  getUserData() {
     const headers = new HttpHeaders()
-    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
-    .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + 'auth/user/' ,{
-      headers: headers});
+      .append('Authorization', 'Bearer ' + this.localStorage.getItem("userToken"))
+      .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + 'auth/user/', {
+      headers: headers
+    });
   }
 
-  getUserproduct(){
+  getUserproduct() {
     const headers = new HttpHeaders()
-    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
-    .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + 'api/v1/user/product/' ,{
-      headers: headers});
+      .append('Authorization', 'Bearer ' + this.localStorage.getItem("userToken"))
+      .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + 'api/v1/user/product/', {
+      headers: headers
+    });
   }
 
-  getFactor(cartId){
+  getFactor(cartId) {
     const headers = new HttpHeaders()
-    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
-    .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + 'api/v1/cart/factor/'+cartId ,{
-      headers: headers});
+      .append('Authorization', 'Bearer ' + this.localStorage.getItem("userToken"))
+      .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + 'api/v1/cart/factor/' + cartId, {
+      headers: headers
+    });
   }
 
-  getDatacart(){
+  getDatacart() {
     const headers = new HttpHeaders()
-    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
-    .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + 'api/v1/cart/' ,{
-      headers: headers});
+      .append('Authorization', 'Bearer ' + this.localStorage.getItem("userToken"))
+      .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + 'api/v1/cart/', {
+      headers: headers
+    });
   }
 
   addtocart(productId) {
     const body = new HttpParams()
       .set('product', productId)
     return this.http.post(this.baseUrl + 'api/v1/cart/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
+      })
     });
   }
+
   completeCart(productId) {
-    return this.http.get(this.baseUrl + 'api/v1/cart/complete/'+productId,  {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+    return this.http.get(this.baseUrl + 'api/v1/cart/complete/' + productId, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
+      })
     });
   }
 
@@ -91,18 +105,18 @@ export class UsersService {
     const body = new HttpParams()
       .set('email', email)
     return this.http.post(this.baseUrl + 'auth/password/reset/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})
+      headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
     });
   }
 
-  resetpassConfrim(user,uid,token) {
+  resetpassConfrim(user, uid, token) {
     const body = new HttpParams()
       .set('new_password1', user.pass1)
       .set('new_password2', user.pass2)
       .set('uid', uid)
       .set('token', token)
-    return this.http.post(this.baseUrl + 'auth/password/reset/confirm/'+uid+"-"+token+"/", body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})
+    return this.http.post(this.baseUrl + 'auth/password/reset/confirm/' + uid + "-" + token + "/", body, {
+      headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
     });
   }
 
@@ -115,7 +129,10 @@ export class UsersService {
       .set('postal_code', user.postal_code)
 
     return this.http.put(this.baseUrl + 'api/v1/user/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
+      })
     });
   }
 
@@ -125,32 +142,37 @@ export class UsersService {
       .set('password_1', password.pass1)
       .set('password_2', password.pass2)
     return this.http.put(this.baseUrl + 'api/v1/user/password/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
+      })
     });
   }
 
 
-
-  updatecart(productId,n) {
+  updatecart(productId, n) {
     const body = new HttpParams()
       .set('itemId', productId)
       .set('itemCount', n)
     return this.http.put(this.baseUrl + 'api/v1/cart/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
+      })
     });
   }
 
-  
+
   deletefrombasket(productId) {
     const body = new HttpParams().set('cart', productId)
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/x-www-form-urlencoded',
-        'Authorization': 'Bearer '+ localStorage.getItem("userToken") 
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
       })
-      ,body : body
+      , body: body
     };
-    return this.http.delete(this.baseUrl + 'api/v1/cart/' ,httpOptions);
+    return this.http.delete(this.baseUrl + 'api/v1/cart/', httpOptions);
   }
 
   sendcode(code) {
@@ -159,33 +181,40 @@ export class UsersService {
       .set('chatrbazi', code.chatr)
       .set('expiration_date', code.ex_date)
       .set('explanation', code.explaintion)
-    return this.http.post(this.baseUrl + 'api/v1/user/code/' ,body, {
-      headers: new HttpHeaders( { 'Content-Type':  'application/x-www-form-urlencoded'})
-   });
+    return this.http.post(this.baseUrl + 'api/v1/user/code/', body, {
+      headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
+    });
   }
 
   verifyMobile(mobile) {
     const body = new HttpParams()
       .set('phone', mobile)
     return this.http.post(this.baseUrl + 'api/v1/sms/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
+      })
     });
   }
 
-  sendverifycode(code,mobile) {
+  sendverifycode(code, mobile) {
     const body = new HttpParams()
       .set('code_verify', code)
-    return this.http.put(this.baseUrl + 'api/v1/sms/'+mobile, body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + localStorage.getItem("userToken") })
+    return this.http.put(this.baseUrl + 'api/v1/sms/' + mobile, body, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.localStorage.getItem("userToken")
+      })
     });
   }
 
   resedsms(mobile) {
     const headers = new HttpHeaders()
-    .append('Authorization', 'Bearer '+ localStorage.getItem("userToken") )
-    .append('Content-Type', 'application/json');
-    return this.http.get(this.baseUrl + '/api/v1/sms/resend/'+mobile , {
-      headers: headers});
+      .append('Authorization', 'Bearer ' + this.localStorage.getItem("userToken"))
+      .append('Content-Type', 'application/json');
+    return this.http.get(this.baseUrl + '/api/v1/sms/resend/' + mobile, {
+      headers: headers
+    });
   }
-  
+
 }
