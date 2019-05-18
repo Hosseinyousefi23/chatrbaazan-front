@@ -14,7 +14,8 @@ declare var $: any;
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css', '../sharesCss/shared_style.css']
+  // styleUrls: ['./product-detail.component.css', '../sharesCss/shared_style.css']
+  styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
   mode = new FormControl('over');

@@ -20,7 +20,7 @@ export class OfferComponent implements OnInit {
   public mostseen: any[] = [];
   public newest: any[] = [];
   public mostDiscount: any[] = [];
-  private limit = '30';
+  private limit = '20';
 
   showDiv = false;
   @Input() cityHeader: string;
