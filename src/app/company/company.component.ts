@@ -1,5 +1,5 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
-import {Component, OnInit, Inject} from '@angular/core';
+import {LOCAL_STORAGE} from '@ng-toolkit/universal';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PageService} from '../page.service';
 import {FormControl} from '@angular/forms';
@@ -231,7 +231,7 @@ export class CompanyComponent implements OnInit {
   }
 
   infinte_list_exp() {
-    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page_exp, null, true).subscribe(param => {
+    this.data.search(null, this.Companyid, this.selectedcategory, 'expired', this.cityHeader, this.size, this.page_exp, null, true).subscribe(param => {
       if (param['count']) {
         this.expired = this.expired.concat(param['results'])
         this.next_url_exp = param.next
