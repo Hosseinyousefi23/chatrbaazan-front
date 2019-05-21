@@ -76,7 +76,7 @@
                           خرید
                         </button>
                       </a>
-                      <a *ngIf="item.is_free" href="{{item.link}}">
+                      <a *ngIf="item.is_free" target="_blank" href="{{item.link}}">
                         <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
@@ -86,7 +86,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a [routerLink]="['/app' , item.slug]">
+                    <a target="_blank" [routerLink]="['/app' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
@@ -172,7 +172,7 @@
                           خرید
                         </button>
                       </a>
-                      <a *ngIf="item.is_free" href="{{item.link}}">
+                      <a *ngIf="item.is_free" target="_blank" href="{{item.link}}">
                         <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
@@ -182,7 +182,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a [routerLink]="['/app' , item.slug]">
+                    <a target="_blank" [routerLink]="['/app' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
@@ -262,7 +262,7 @@
                           خرید
                         </button>
                       </a>
-                      <a *ngIf=" item.is_free" href="{{item.link}}">
+                      <a *ngIf=" item.is_free" target="_blank" href="{{item.link}}">
                         <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
@@ -272,7 +272,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a [routerLink]="['/app' , item.slug]">
+                    <a target="_blank" [routerLink]="['/app' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>

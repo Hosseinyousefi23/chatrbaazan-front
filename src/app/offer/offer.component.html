@@ -5,9 +5,9 @@
       <a [routerLink]="['/search',4]">
         مشاهده همه
       </a>
-      
+
     </div>
-    
+
   </div>
   <div class="offer_content">
     <mat-tab-group animationDuration="0ms" (selectedTabChange)="addeventlister()">
@@ -41,7 +41,7 @@
                   </a>
                 </div>
                 <div class="back ">
-                    
+
                   <p class="back_name" >{{item.name}}</p>
                   <div class="timer timer_{{item.id}}">
                     اعتبار تا
@@ -68,7 +68,7 @@
                           خرید
                         </button>
                       </a>
-                      <a *ngIf="item.is_free" href="{{item.link}}">
+                      <a *ngIf="item.is_free" target="_blank" href="{{item.link}}">
                         <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
@@ -78,7 +78,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a [routerLink]="['/code' , item.slug]">
+                    <a target="_blank" [routerLink]="['/code' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
@@ -160,7 +160,7 @@
                           خرید
                         </button>
                       </a>
-                      <a *ngIf="item.is_free" href="{{item.link}}">
+                      <a *ngIf="item.is_free" target="_blank" href="{{item.link}}">
                         <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
@@ -170,7 +170,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a [routerLink]="['/code' , item.slug]">
+                    <a target="_blank" [routerLink]="['/code' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
@@ -248,7 +248,7 @@
                           خرید
                         </button>
                       </a>
-                      <a *ngIf="item.is_free" href="{{item.link}}">
+                      <a *ngIf="item.is_free" target="_blank" href="{{item.link}}">
                         <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
                           لینک خرید
                         </button>
@@ -258,7 +258,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a [routerLink]="['/code' , item.slug]">
+                    <a target="_blank" [routerLink]="['/code' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
