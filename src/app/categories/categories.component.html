@@ -1,8 +1,10 @@
 <mat-sidenav-container class="example-container">
 
   <mat-sidenav #sidenav [mode]="mode.value" [fixedInViewport]="true" position="end">
-    <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
-      </button></p>
+    <p>
+      <button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+    </p>
     <div class="menu_content">
       <app-sidenav></app-sidenav>
     </div>
@@ -18,7 +20,8 @@
           <hr>
           <div class="filter_options">
             <mat-radio-group [(ngModel)]="selectedcompany">
-              <mat-radio-button *ngFor="let company of companies;" value="{{company.slug}}">{{company.name}}</mat-radio-button>
+              <mat-radio-button *ngFor="let company of companies;" value="{{company.slug}}">{{company.name}}
+              </mat-radio-button>
             </mat-radio-group>
           </div>
         </div>
@@ -35,7 +38,7 @@
 
 
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox"/>
                     <div class="card front_offer ">
                       <div class="front">
                         <a class="offer_box_link">
@@ -63,12 +66,15 @@
 
                         <p class="back_name">{{item.name}}</p>
                         <div class="timer timer_{{item.id}}">
-                          <countdown-timer (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                          <countdown-timer (zeroTrigger)="finished(item.id)"
+                                           [end]="[item.expiration_date]"></countdown-timer>
                         </div>
                         <div *ngIf="item.is_free && item.type===4" #container>
 
-                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                            [container]="container">کپی</button>
+                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                                  cbContent={{item.discount_code}}
+                                  [container]="container">کپی
+                          </button>
 
                           <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
                         </div>
@@ -144,10 +150,10 @@
 
               </div>
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-              (scrolled)="onScroll()">
-            </div>
-            <loading-spinner *ngIf="!stop_scroll">
-            </loading-spinner>
+                   (scrolled)="onScroll()">
+              </div>
+              <loading-spinner *ngIf="!stop_scroll">
+              </loading-spinner>
             </mat-tab>
 
             <mat-tab label="بیشترین تخفیف">
@@ -157,7 +163,7 @@
 
 
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox"/>
                     <div class="card front_offer ">
                       <div class="front">
                         <a class="offer_box_link">
@@ -185,12 +191,15 @@
 
                         <p class="back_name">{{item.name}}</p>
                         <div class="timer timer_{{item.id}}">
-                          <countdown-timer (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                          <countdown-timer (zeroTrigger)="finished(item.id)"
+                                           [end]="[item.expiration_date]"></countdown-timer>
                         </div>
                         <div *ngIf="item.is_free && item.type==4" #container>
 
-                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                            [container]="container">کپی</button>
+                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                                  cbContent={{item.discount_code}}
+                                  [container]="container">کپی
+                          </button>
 
                           <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -270,10 +279,10 @@
               </div>
 
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-              (scrolled)="onScroll()">
-            </div>
-            <loading-spinner *ngIf="!stop_scroll">
-            </loading-spinner>
+                   (scrolled)="onScroll()">
+              </div>
+              <loading-spinner *ngIf="!stop_scroll">
+              </loading-spinner>
             </mat-tab>
 
 
@@ -284,7 +293,7 @@
 
 
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox"/>
                     <div class="card front_offer ">
                       <div class="front">
                         <a class="offer_box_link">
@@ -312,18 +321,21 @@
 
                         <p class="back_name">{{item.name}}</p>
                         <div class="timer timer_{{item.id}}">
-                          <countdown-timer (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                          <countdown-timer (zeroTrigger)="finished(item.id)"
+                                           [end]="[item.expiration_date]"></countdown-timer>
                         </div>
                         <div *ngIf="item.is_free && item.type==4" #container>
 
-                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                            [container]="container">کپی</button>
+                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                                  cbContent={{item.discount_code}}
+                                  [container]="container">کپی
+                          </button>
 
                           <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
                         </div>
                         <div *ngIf="item.type==1">
-                          <p  class="status_pro" >وضعیت:
+                          <p class="status_pro">وضعیت:
                             <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
                             <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
                           </p>
@@ -395,10 +407,10 @@
 
               </div>
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-              (scrolled)="onScroll()">
-            </div>
-            <loading-spinner *ngIf="!stop_scroll">
-            </loading-spinner>
+                   (scrolled)="onScroll()">
+              </div>
+              <loading-spinner *ngIf="!stop_scroll">
+              </loading-spinner>
             </mat-tab>
 
           </mat-tab-group>
