@@ -14,8 +14,8 @@ declare var $: any;
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  // styleUrls: ['./product-detail.component.css', '../sharesCss/shared_style.css']
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css', '../sharesCss/shared_style.css']
+  // styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
   mode = new FormControl('over');
@@ -39,6 +39,7 @@ export class ProductDetailComponent implements OnInit {
     this.pro = {
       id: '',
       name: '',
+      category: [],
       company: [],
       city: [],
       label: [],
@@ -48,7 +49,6 @@ export class ProductDetailComponent implements OnInit {
       price: '',
       chatrbazi: ''
     };
-    this.searchoffer();
     this.route.params.subscribe(params => {
       this.slug = params['slug'];
     })
@@ -74,7 +74,7 @@ export class ProductDetailComponent implements OnInit {
           this.image_gallery.push(this.address)
 
         }
-
+        this.searchoffer();
       } else {
         this.router.navigate(['/']);
       }
@@ -145,7 +145,13 @@ export class ProductDetailComponent implements OnInit {
   }
 
   searchoffer() {
-    this.offer.search(null, null, null, 'created_at', null, '5', null, '2').subscribe((data: any) => {
+    let labels = [];
+    for (let label of this.pro.label) {
+      labels.push(label.name)
+    }
+    let joined_labels = labels.join('$');
+    if (joined_labels == '') joined_labels = 'null';
+    this.offer.search_label(joined_labels, this.pro.company[0].english_name, this.pro.category[0].english_name, null, null, '5', null, null, this.pro.id, true).subscribe((data: any) => {
       this.offers_list = data['results'];
       this.addeventlister();
     });

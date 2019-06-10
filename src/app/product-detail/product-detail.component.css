@@ -120,13 +120,21 @@
   }
 }
 
-.offers {
-  font-size: 1.5em;
-  position: relative;
-  text-align: right;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-  margin: 0.5em 1.5em;
-  padding: 1em 2em;
+/*.offers {*/
+/*font-size: 1.5em;*/
+/*position: relative;*/
+/*text-align: right;*/
+/*background-color: #ffffff;*/
+/*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);*/
+/*margin: 0.5em 1.5em;*/
+/*padding: 1em 2em;*/
+/*width: 100%;*/
+/*}*/
+
+.offer {
   width: 100%;
+  margin: 1em 2em !important;
+  font-size: 1.2em;
+  /*margin: 2em 2.2em !important;*/
+  /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2) !important;*/
 }

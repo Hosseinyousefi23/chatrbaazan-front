@@ -116,7 +116,7 @@ export class PageService {
     return result;
   }
 
-  search_label(label = null, company = null, category = null, ordering = null, city = null, limit = null, page = null, type = null) {
+  search_label(label = null, company = null, category = null, ordering = null, city = null, limit = null, page = null, type = null, exclude = null, smart = false) {
     let search_url = 'api/v1/label/' + label + '/?'
     // if (label) { search_url = search_url + 'label=' + label }
     if (company) {
@@ -139,6 +139,12 @@ export class PageService {
     }
     if (type) {
       search_url = search_url + '&type=' + type
+    }
+    if (exclude) {
+      search_url = search_url + '&exclude=' + exclude
+    }
+    if (smart) {
+      search_url = search_url + '&smart=' + smart
     }
     var result = this.http.get(this.baseUrl + search_url)
       .pipe(
