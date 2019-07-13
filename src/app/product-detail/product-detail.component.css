@@ -82,6 +82,7 @@
   border: 1px solid #e2eeee;
   border-radius: 6px 0 0 6px;
   width: 50%;
+  display: inline-block;
 }
 
 .explanation_product {
