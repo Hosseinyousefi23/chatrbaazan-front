@@ -429,14 +429,6 @@ input {
   }
 }
 
-@media (max-width: 385px) {
-  .offer .offer_box {
-    width: 90%;
-    margin: 4px;
-    /*height: 20em;*/
-  }
-}
-
 @media (device-height: 568px)
 and (device-width: 320px)
 and (-webkit-min-device-pixel-ratio: 2) {
