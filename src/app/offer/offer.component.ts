@@ -21,6 +21,7 @@ export class OfferComponent implements OnInit {
   public newest: any[] = [];
   public mostDiscount: any[] = [];
   private limit = '20';
+  private allCodes: string = "";
 
   showDiv = false;
   @Input() cityHeader: string;
@@ -68,15 +69,18 @@ export class OfferComponent implements OnInit {
       this.mostseen = data['results'];
       if (data['results'][0]) {
         this.showDiv = true
+        this.addCode(data['results']);
       }
       ;this.addeventlister();
     });
     this.offer.search(null, null, null, 'created_at', this.cityHeader, this.limit, null, '4 ').subscribe((data: any) => {
       this.newest = data['results'];
+      this.addCode(data['results']);
       this.addeventlister();
     });
     this.offer.search(null, null, null, 'topchatrbazi', this.cityHeader, this.limit, null, '4').subscribe((data: any) => {
       this.mostDiscount = data['results'];
+      this.addCode(data['results']);
       this.addeventlister();
     });
     this.addeventlister();
@@ -146,4 +150,13 @@ export class OfferComponent implements OnInit {
     this.bottomSheet.open(BottomSheetOverviewExampleSheet
       , {data: {'slug': slug}});
   }
+
+  addCode(offers) {
+    for (let i = 0; i < offers.length; i++) {
+      this.allCodes += offers[i].name + "-" + offers[i].company[0].name;
+      this.allCodes += " | ";
+    }
+  }
 }
+
+
