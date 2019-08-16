@@ -1,5 +1,5 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
-import {Component, EventEmitter, OnInit, Output, ViewChild, Inject} from '@angular/core';
+import {LOCAL_STORAGE} from '@ng-toolkit/universal';
+import {Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {PageService} from '../page.service';
 import {Cities} from '../cities';
@@ -23,12 +23,16 @@ export class HeaderComponent implements OnInit {
   selectedcity;
   selected = 'none_city';
   public cities: Cities[] = [];
+
+  @Input()
   public categories: any[] = [];
   is_more: string;
   countries = ['USA', 'Canada', 'Uk', 'kashan']
   searchTerm: FormControl = new FormControl();
   searched = <any>[];
   tagsSearched = <any>[];
+
+  @Input()
   public all_chatrbazi;
   textValue;
   show_company_threshold = 5;
@@ -43,10 +47,10 @@ export class HeaderComponent implements OnInit {
     this.data.getcities().subscribe((data: any) => {
       this.cities = data.data;
     });
-    this.data.getCategories().subscribe((data: any) => {
-      this.categories = data.data;
-      this.all_chatrbazi = data.all_chatrbazi
-    });
+    // this.data.getCategories().subscribe((data: any) => {
+    //   this.categories = data.data;
+    //   this.all_chatrbazi = data.all_chatrbazi
+    // });
     if (this.localStorage.getItem("userToken")) {
       this.user.logged().subscribe(
         data => {

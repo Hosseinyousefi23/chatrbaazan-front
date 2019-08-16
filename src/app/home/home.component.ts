@@ -1,9 +1,8 @@
-import { Component, OnInit, Type, Input } from '@angular/core';
-import { ApiService } from '../api.service';
-import { ServerResponse } from '../ServerResponse';
-import { FormControl } from '@angular/forms';
-import { PageService } from '../page.service';
-import { NgxSpinnerService } from 'ngx-spinner';
+import {Component, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {PageService} from '../page.service';
+import {NgxSpinnerService} from 'ngx-spinner';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,9 +18,13 @@ export class HomeComponent implements OnInit {
   banner1: any[] = [];
   banner2: any[] = [];
   banner3: any[] = [];
+  public categories: any[] = [];
+  public all_chatrbazi;
 
   isLoadingResults = true;
-  constructor(private data: PageService,private spinner: NgxSpinnerService) { }
+
+  constructor(private data: PageService, private spinner: NgxSpinnerService) {
+  }
 
   ngOnInit() {
     // this.api.getHomeDetails()
@@ -33,15 +36,20 @@ export class HomeComponent implements OnInit {
     //   console.log(err);
     //   this.isLoadingResults = false;
     // });
-      /** spinner starts on init */
+    /** spinner starts on init */
     this.spinner.show();
- 
+
     setTimeout(() => {
-        /** spinner ends after 5 seconds */
-        this.spinner.hide();
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
     }, 1000);
+
+    this.data.getCategories().subscribe((data: any) => {
+      this.categories = data.data;
+      this.all_chatrbazi = data.all_chatrbazi
+    });
     this.data.getbanner().subscribe((data: any) => {
-    this.slider = data.data;
+      this.slider = data.data;
       for (let i of this.slider) {
         if (!i.is_slider) {
           // if (i.location == '1') {

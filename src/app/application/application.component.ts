@@ -1,10 +1,10 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
-import { Component, OnInit, Input, EventEmitter, Output , Inject} from '@angular/core';
-import { BottomSheetOverviewExampleSheet } from '../bottom-sheet/bottom-sheet.component';
-import { PageService } from '../page.service';
-import { UsersService } from '../users.service';
-import { ToastrService } from 'ngx-toastr';
-import { MatBottomSheet } from '@angular/material';
+import {LOCAL_STORAGE} from '@ng-toolkit/universal';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {BottomSheetOverviewExampleSheet} from '../bottom-sheet/bottom-sheet.component';
+import {PageService} from '../page.service';
+import {UsersService} from '../users.service';
+import {ToastrService} from 'ngx-toastr';
+import {MatBottomSheet, MatTabChangeEvent} from '@angular/material';
 
 
 declare var $: any;
@@ -12,92 +12,154 @@ declare var $: any;
 @Component({
   selector: 'app-application',
   templateUrl: './application.component.html',
-  styleUrls: ['./application.component.css','../sharesCss/shared_style.css']
+  styleUrls: ['./application.component.css', '../sharesCss/shared_style.css']
 })
 export class ApplicationComponent implements OnInit {
 
-  public mostseen : any[] =[];
-  public newest : any[] =[];
-  public mostDiscount: any[] =[];
-  public config : object ={
+  public mostseen: any[] = [];
+  public newest: any[] = [];
+  public mostDiscount: any[] = [];
+  public config: object = {
     leftTime: 23,
-    template:'$!h!ساعت$!m!دقیقه$!s!ثانیه'
+    template: '$!h!ساعت$!m!دقیقه$!s!ثانیه'
   };
   // @Output() showCompo =new EventEmitter<boolean>();
   showDiv = false;
-  @Input() cityHeader :string;
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private offer : PageService ,private user: UsersService,private toastr: ToastrService,
-    private bottomSheet: MatBottomSheet) { }
-  ngOnInit() {
-    this.searchoffer();
+  @Input() cityHeader: string;
+
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private offer: PageService, private user: UsersService, private toastr: ToastrService,
+              private bottomSheet: MatBottomSheet) {
   }
 
-  ngOnChanges() {
-    this.searchoffer();
+  ngOnInit() {
+    this.searchoffer_newest();
   }
-  addeventlister(){
-    $(document).ready(function(){
-      $(".card").click(function(){
+
+  // ngOnChanges() {
+  //   this.searchoffer();
+  // }
+  addeventlister() {
+    $(document).ready(function () {
+      $(".card").click(function () {
         $(".card").removeClass("voted");
         $(this).addClass("voted");
-        $(".card").find(".offer_image").css("display","block")
-        $(this).find(".offer_image").css("display","none")
+        $(".card").find(".offer_image").css("display", "block")
+        $(this).find(".offer_image").css("display", "none")
 
       });
 
-      $(".back_voted").click(function(e){
-        $(".offer_image").css("display","block")
+      $(".back_voted").click(function (e) {
+        $(".offer_image").css("display", "block")
         e.stopPropagation();
         $(".card").removeClass("voted");
       });
-    
-      $(".Copy_btn").click(function(){
+
+      $(".Copy_btn").click(function () {
         $(this).text("کپی شد");
-      setTimeout( function(){ 
-        $(".Copy_btn").text("کپی")
-      }  , 500 );
+        setTimeout(function () {
+          $(".Copy_btn").text("کپی")
+        }, 500);
       })
 
     });
   }
-  searchoffer(){
-    this.offer.search(null,null,null,'favorites',this.cityHeader,'5',null,'2').subscribe((data :any) => {this.mostseen = data['results'];
-    //  if(!data['results'][0]){ this.showCompo.emit(false)}
-    if(data['results'][0]){this.showDiv =true};
-      this.addeventlister();});
-    this.offer.search(null,null,null,'created_at',this.cityHeader,'5',null,'2').subscribe((data :any) => { this.newest = data['results']; this.addeventlister();});
-    this.offer.search(null,null,null,'topchatrbazi',this.cityHeader,'5',null,'2').subscribe((data :any) => {this.mostDiscount = data['results']; this.addeventlister();});
+
+  selectTab(event: MatTabChangeEvent) {
+    if (event.index == 0) {
+      if (!this.newest) {
+        this.searchoffer_newest();
+      }
+    } else if (event.index == 1) {
+      if (this.mostDiscount.length == 0) {
+        this.searchoffer_mostDiscount();
+      }
+
+    } else if (event.index == 2) {
+      if (this.mostseen.length == 0) {
+        this.searchoffer_mostseen();
+      }
+    }
     this.addeventlister();
   }
 
-  addtocart(id){
+  searchoffer() {
+    this.offer.search(null, null, null, 'favorites', this.cityHeader, '5', null, '2').subscribe((data: any) => {
+      this.mostseen = data['results'];
+      //  if(!data['results'][0]){ this.showCompo.emit(false)}
+      if (data['results'][0]) {
+        this.showDiv = true
+      }
+      ;
+      this.addeventlister();
+    });
+    this.offer.search(null, null, null, 'created_at', this.cityHeader, '5', null, '2').subscribe((data: any) => {
+      this.newest = data['results'];
+      this.addeventlister();
+    });
+    this.offer.search(null, null, null, 'topchatrbazi', this.cityHeader, '5', null, '2').subscribe((data: any) => {
+      this.mostDiscount = data['results'];
+      this.addeventlister();
+    });
+    this.addeventlister();
+  }
+
+  searchoffer_newest() {
+    this.offer.search(null, null, null, 'created_at', this.cityHeader, '5', null, '2').subscribe((data: any) => {
+      this.newest = data['results'];
+      if (data['results'][0]) {
+        this.showDiv = true
+      }
+      this.addeventlister();
+    });
+  }
+
+  searchoffer_mostseen() {
+    this.offer.search(null, null, null, 'favorites', this.cityHeader, '5', null, '2').subscribe((data: any) => {
+      this.mostseen = data['results'];
+      //  if(!data['results'][0]){ this.showCompo.emit(false)}
+      if (data['results'][0]) {
+        this.showDiv = true
+      }
+      ;
+      this.addeventlister();
+    });
+  }
+
+  searchoffer_mostDiscount() {
+    this.offer.search(null, null, null, 'topchatrbazi', this.cityHeader, '5', null, '2').subscribe((data: any) => {
+      this.mostDiscount = data['results'];
+      this.addeventlister();
+    });
+  }
+
+  addtocart(id) {
     this.offer.sendclick_like(id).subscribe(
       data => console.log(data)
     )
-    if(this.localStorage.getItem("userToken")){
+    if (this.localStorage.getItem("userToken")) {
       this.user.addtocart(id).subscribe(
-        (data : any) => {
+        (data: any) => {
           // console.log(data)
-          if(data.count && data.count >= 0){
+          if (data.count && data.count >= 0) {
             this.toastr.success('به سبد خرید اضافه شد.')
-          }else{
+          } else {
             // #TODO Handle Error Add To Cart
           }
         }
       )
-      }else{
-        this.toastr.info('ابتدا وارد سایت شوید !!')
-      }
+    } else {
+      this.toastr.info('ابتدا وارد سایت شوید !!')
+    }
   }
 
-  sendfail(slug){
+  sendfail(slug) {
     this.toastr.error('چترتون مستدام ')
     this.offer.sendfailure(slug).subscribe(
       // data => console.log(data)
     )
   }
 
-  sendclick(product_id){
+  sendclick(product_id) {
     // this.toastr.info('آماده پرتاب')
     this.offer.sendclick_like(product_id).subscribe(
       data => console.log(data)
@@ -110,15 +172,15 @@ export class ApplicationComponent implements OnInit {
     )
   }
 
-  finished(a){
+  finished(a) {
     // $(".timer_"+a).text("منقضی شد")
-    $(".timer_"+a).html('<p style="color:red;">منقضی شد</p>')
+    $(".timer_" + a).html('<p style="color:red;">منقضی شد</p>')
   }
 
-  
+
   openBottomSheet(slug): void {
     this.bottomSheet.open(BottomSheetOverviewExampleSheet
-      ,{data:{ 'slug': slug}});
+      , {data: {'slug': slug}});
   }
 
 }

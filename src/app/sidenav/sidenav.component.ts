@@ -1,41 +1,51 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
-import { Component, OnInit, Output, EventEmitter , Inject} from '@angular/core';
-import { PageService } from '../page.service';
-import { UsersService } from '../users.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import {LOCAL_STORAGE} from '@ng-toolkit/universal';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {PageService} from '../page.service';
+import {UsersService} from '../users.service';
+import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css'],
-  providers:[PageService]
+  providers: [PageService]
 })
 export class SidenavComponent implements OnInit {
 
-  public categories: any[] = [];
+  @Input()
+  public categories: any[];
 
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private data: PageService, private user : UsersService,private router: Router
-    ,private toastr: ToastrService) { }
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private data: PageService, private user: UsersService, private router: Router
+    , private toastr: ToastrService) {
+  }
+
+  // loger() {
+  //   console.log(this.categories)
+  // }
 
   ngOnInit() {
-    this.data.getCategories().subscribe((data :any) => {this.categories = data.data;});
-    
+    // this.data.getCategories().subscribe((data: any) => {
+    //   this.categories = data.data;
+    // });
+    // setTimeout(this.loger, 4000);
+
   }
-  
+
 
   loggedin() {
     return this.localStorage.getItem("userToken");
   }
 
   logout() {
-    this.user.logout().subscribe(data => { this.localStorage.removeItem("userToken");
-    
+    this.user.logout().subscribe(data => {
+      this.localStorage.removeItem("userToken");
+
     })
     this.router.navigate(['/']);
   }
 
-  plaeseLogin(){
+  plaeseLogin() {
     this.toastr.info('ابتدا وارد سایت شوید !!')
   }
 

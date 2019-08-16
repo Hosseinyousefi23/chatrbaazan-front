@@ -43,7 +43,7 @@
 }
 
 .offer .offer_box {
-  min-width: 170px;
+  min-width: 100px;
   margin-top: .5em;
   position: relative;
   border-radius: 5px;
@@ -353,7 +353,7 @@ input {
 @media (max-width: 570px) {
   .offer .offer_box {
     width: 47%;
-    margin: 4px;
+    margin: 3px;
     height: 20em;
   }
 
@@ -369,7 +369,7 @@ input {
 
   .input_cupon {
     font-size: .7em;
-    width: 84px;
+    width: 80px;
   }
 
   .offer .offer_box .offer_title {
@@ -429,12 +429,20 @@ input {
   }
 }
 
+@media (max-width: 319px) {
+  .offer .offer_box {
+    width: 95%;
+    margin: 2px;
+    height: 20em;
+  }
+}
+
 @media (device-height: 568px)
 and (device-width: 320px)
 and (-webkit-min-device-pixel-ratio: 2) {
   .offer .offer_box {
-    width: 45%;
-    margin: 4px;
+    width: 48%;
+    margin: 2px;
     height: 18em;
   }
 

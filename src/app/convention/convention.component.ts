@@ -1,7 +1,7 @@
 import {LOCAL_STORAGE} from '@ng-toolkit/universal';
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {BottomSheetOverviewExampleSheet} from '../bottom-sheet/bottom-sheet.component';
-import {MatBottomSheet} from '@angular/material';
+import {MatBottomSheet, MatTabChangeEvent} from '@angular/material';
 import {PageService} from '../page.service';
 import {ToastrService} from 'ngx-toastr';
 import {UsersService} from '../users.service';
@@ -28,12 +28,12 @@ export class ConventionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchoffer();
+    this.searchoffer_newest();
   }
 
-  ngOnChanges() {
-    this.searchoffer();
-  }
+  // ngOnChanges() {
+  //   this.searchoffer();
+  // }
 
   addeventlister() {
     $(document).ready(function () {
@@ -61,6 +61,24 @@ export class ConventionComponent implements OnInit {
     });
   }
 
+  selectTab(event: MatTabChangeEvent) {
+    if (event.index == 0) {
+      if (!this.newest) {
+        this.searchoffer_newest();
+      }
+    } else if (event.index == 1) {
+      if (this.mostDiscount.length == 0) {
+        this.searchoffer_mostDiscount();
+      }
+
+    } else if (event.index == 2) {
+      if (this.mostseen.length == 0) {
+        this.searchoffer_mostseen();
+      }
+    }
+    this.addeventlister();
+  }
+
   searchoffer() {
     this.offer.search(null, null, null, 'favorites', this.cityHeader, this.limit, null, '3').subscribe((data: any) => {
       this.mostseen = data['results'];
@@ -78,6 +96,32 @@ export class ConventionComponent implements OnInit {
       this.addeventlister();
     });
     this.addeventlister();
+  }
+
+  searchoffer_newest() {
+    this.offer.search(null, null, null, 'created_at', this.cityHeader, this.limit, null, '3').subscribe((data: any) => {
+      this.newest = data['results'];
+      this.showDiv = true
+      this.addeventlister();
+    });
+  }
+
+  searchoffer_mostseen() {
+    this.offer.search(null, null, null, 'favorites', this.cityHeader, this.limit, null, '3').subscribe((data: any) => {
+      this.mostseen = data['results'];
+      if (data['results'][0]) {
+        this.showDiv = true
+      }
+      ;this.addeventlister();
+    });
+  }
+
+  searchoffer_mostDiscount() {
+    this.offer.search(null, null, null, 'topchatrbazi', this.cityHeader, this.limit, null, '3').subscribe((data: any) => {
+      this.mostDiscount = data['results'];
+      this.showDiv = true
+      this.addeventlister();
+    });
   }
 
   addtocart(id) {

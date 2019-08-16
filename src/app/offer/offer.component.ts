@@ -3,7 +3,7 @@ import {Component, Inject, Input, OnInit} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {PageService} from '../page.service';
 import {UsersService} from '../users.service';
-import {MatBottomSheet} from '@angular/material';
+import {MatBottomSheet, MatTabChangeEvent} from '@angular/material';
 import {BottomSheetOverviewExampleSheet} from '../bottom-sheet/bottom-sheet.component';
 
 //import * from 'jquery';
@@ -21,7 +21,7 @@ export class OfferComponent implements OnInit {
   public newest: any[] = [];
   public mostDiscount: any[] = [];
   private limit = '20';
-  private allCodes: string = "";
+  public allCodes: string = "";
 
   showDiv = false;
   @Input() cityHeader: string;
@@ -31,12 +31,13 @@ export class OfferComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchoffer();
+    this.searchoffer_newest();
+    this.showDiv = true
   }
 
-  ngOnChanges() {
-    this.searchoffer();
-  }
+  // ngOnChanges() {
+  //   this.searchoffer();
+  // }
 
   addeventlister() {
     $(document).ready(function () {
@@ -62,6 +63,26 @@ export class OfferComponent implements OnInit {
       })
 
     });
+
+  }
+
+
+  selectTab(event: MatTabChangeEvent) {
+    if (event.index == 0) {
+      if (!this.newest) {
+        this.searchoffer_newest();
+      }
+    } else if (event.index == 1) {
+      if (this.mostDiscount.length == 0) {
+        this.searchoffer_mostDiscount();
+      }
+
+    } else if (event.index == 2) {
+      if (this.mostseen.length == 0) {
+        this.searchoffer_mostseen();
+      }
+    }
+    this.addeventlister();
   }
 
   searchoffer() {
@@ -84,6 +105,33 @@ export class OfferComponent implements OnInit {
       this.addeventlister();
     });
     this.addeventlister();
+  }
+
+  searchoffer_newest() {
+    this.offer.search(null, null, null, 'created_at', this.cityHeader, this.limit, null, '4 ').subscribe((data: any) => {
+      this.newest = data['results'];
+      this.addCode(data['results']);
+      this.addeventlister();
+    });
+  }
+
+  searchoffer_mostseen() {
+    this.offer.search(null, null, null, 'favorites', this.cityHeader, this.limit, null, '4').subscribe((data: any) => {
+      this.mostseen = data['results'];
+      if (data['results'][0]) {
+        this.showDiv = true
+        this.addCode(data['results']);
+      }
+      ;this.addeventlister();
+    });
+  }
+
+  searchoffer_mostDiscount() {
+    this.offer.search(null, null, null, 'topchatrbazi', this.cityHeader, this.limit, null, '4').subscribe((data: any) => {
+      this.mostDiscount = data['results'];
+      this.addCode(data['results']);
+      this.addeventlister();
+    });
   }
 
   date_timestamp(d) {

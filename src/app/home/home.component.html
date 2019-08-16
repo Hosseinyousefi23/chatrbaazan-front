@@ -1,27 +1,29 @@
 <ngx-spinner class="myspiner"
-      bdColor = "rgba(51, 51, 51, 0.8)"
-      size = "large"
-      color = "#fff"
-      type = "ball-climbing-dot">
-  </ngx-spinner>
+             bdColor="rgba(51, 51, 51, 0.8)"
+             size="large"
+             color="#fff"
+             type="ball-climbing-dot">
+</ngx-spinner>
 <mat-sidenav-container class="example-container">
-   
+
   <mat-sidenav #sidenav [mode]="mode.value" [fixedInViewport]="true" position="end">
-    <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
-    </button></p>
+    <p>
+      <button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+    </p>
     <div class="menu_content">
-        <app-sidenav></app-sidenav>
-    </div>    
+      <app-sidenav [categories]=this.categories></app-sidenav>
+    </div>
   </mat-sidenav>
 
 
-  
   <mat-sidenav-content>
-      
-    <app-header (navToggle)="sidenav.toggle()"  (cityevent)="citychangedinheader($event)"></app-header>
+
+    <app-header (navToggle)="sidenav.toggle()" [categories]=this.categories [all_chatrbazi]=this.all_chatrbazi
+                (cityevent)="citychangedinheader($event)"></app-header>
     <div class="row content">
       <div class="col-md-4 col-xs-12 banner px-0">
-        <div class="banner_content" >
+        <div class="banner_content">
           <div class="banner_image" *ngIf="banner1[0]">
             <a class="banner_links" href="{{banner1[1]}}"><img src={{banner1[0]}} alt=""></a>
           </div>
@@ -44,26 +46,26 @@
 
       </a>
     </div>
-    
-  
-    <app-offer [cityHeader]="cityHeaderinhome" ></app-offer>
-    <app-convention [cityHeader]="cityHeaderinhome"  ></app-convention>
+
+
+    <app-offer [cityHeader]="cityHeaderinhome"></app-offer>
+    <app-convention [cityHeader]="cityHeaderinhome"></app-convention>
     <!-- <app-application *ngIf="showapllication" (showCompo)="showapplicationfunc($event)"></app-application> -->
-    <app-application ></app-application>
-    <app-product ></app-product>
-    <go-top-button   [animate]="true"
-    [speed]="10"
-    [acceleration]="2"
-    [scrollDistance]="300"
-    [styles]="{
+    <app-application></app-application>
+    <app-product></app-product>
+    <go-top-button [animate]="true"
+                   [speed]="10"
+                   [acceleration]="2"
+                   [scrollDistance]="300"
+                   [styles]="{
        'border-radius': '20px 20px 20px 20px',
-       
+
        'color': '#ec3e54',
        'border': '2px solid',
        'line-height': '20px'
     }">
-<i class="fa fa-arrow-up"></i>
-</go-top-button>
+      <i class="fa fa-arrow-up"></i>
+    </go-top-button>
     <app-footer></app-footer>
 
   </mat-sidenav-content>
