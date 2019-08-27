@@ -47,10 +47,14 @@ export class HeaderComponent implements OnInit {
     this.data.getcities().subscribe((data: any) => {
       this.cities = data.data;
     });
-    // this.data.getCategories().subscribe((data: any) => {
-    //   this.categories = data.data;
-    //   this.all_chatrbazi = data.all_chatrbazi
-    // });
+    console.log(this.categories);
+    if (this.categories.length == 0) {
+      console.log('categ');
+      this.data.getCategories().subscribe((data: any) => {
+        this.categories = data.data;
+        this.all_chatrbazi = data.all_chatrbazi
+      });
+    }
     if (this.localStorage.getItem("userToken")) {
       this.user.logged().subscribe(
         data => {

@@ -25,10 +25,11 @@ export class SidenavComponent implements OnInit {
   // }
 
   ngOnInit() {
-    // this.data.getCategories().subscribe((data: any) => {
-    //   this.categories = data.data;
-    // });
-    // setTimeout(this.loger, 4000);
+    if (this.categories.length == 0) {
+      this.data.getCategories().subscribe((data: any) => {
+        this.categories = data.data;
+      });
+    }
 
   }
 

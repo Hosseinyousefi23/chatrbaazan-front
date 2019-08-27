@@ -44,10 +44,10 @@ export class HomeComponent implements OnInit {
       this.spinner.hide();
     }, 1000);
 
-    this.data.getCategories().subscribe((data: any) => {
-      this.categories = data.data;
-      this.all_chatrbazi = data.all_chatrbazi
-    });
+    // this.data.getCategories().subscribe((data: any) => {
+    //   this.categories = data.data;
+    //   this.all_chatrbazi = data.all_chatrbazi
+    // });
     this.data.getbanner().subscribe((data: any) => {
       this.slider = data.data;
       for (let i of this.slider) {
