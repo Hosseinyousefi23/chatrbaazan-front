@@ -4,7 +4,7 @@ import {FormControl} from '@angular/forms';
 import {PageService} from '../page.service';
 import {Cities} from '../cities';
 import {MatDialog, MatDialogConfig, MatMenuTrigger} from "@angular/material";
-import {LoginModalComponent} from '../login-modal/login-modal.component';
+import {LoginModalComponent} from '../myauth/login-modal/login-modal.component';
 import {UsersService} from '../users.service';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';

@@ -1,6 +1,6 @@
 import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { Component, OnInit , Inject} from '@angular/core';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
@@ -68,7 +68,7 @@ export class SignupComponent implements OnInit {
           this.toastr.error(err.error['non_field_errors'][0])
         }
         this.isSignupError = true;
-        
+
       }
     );
   }

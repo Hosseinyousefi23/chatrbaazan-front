@@ -58,11 +58,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FooterComponent} from './footer/footer.component';
 import {ContactusComponent} from './contactus/contactus.component';
 import {AboutusComponent} from './aboutus/aboutus.component';
-import {LoginComponent} from './login/login.component';
-import {SignupComponent} from './signup/signup.component';
-import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {AgmCoreModule} from '@agm/core';
-import {LoginModalComponent} from './login-modal/login-modal.component';
 import {SearchComponent} from './search/search.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
@@ -86,7 +82,6 @@ import {ProductComponent} from './product/product.component';
 import {ConventionComponent} from './convention/convention.component';
 import {BottomSheetOverviewExampleSheet} from './bottom-sheet/bottom-sheet.component';
 import {ApplicationComponent} from './application/application.component';
-import {ResetpasswordconfrimComponent} from './resetpasswordconfrim/resetpasswordconfrim.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
 import {GoTopButtonModule} from 'ng2-go-top-button';
 import {SendcodeComponent} from './sendcode/sendcode.component';
@@ -97,6 +92,7 @@ import {Platform} from '@angular/cdk/platform';
 import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import {MyauthModule} from "./myauth/myauth.module";
 
 
 const MY_DATE_FORMATS = {
@@ -132,10 +128,6 @@ export class CustomDateAdapter extends NativeDateAdapter {
     FooterComponent,
     ContactusComponent,
     AboutusComponent,
-    LoginComponent,
-    SignupComponent,
-    ForgotPasswordComponent,
-    LoginModalComponent,
     SearchComponent,
     ProductDetailComponent,
     ShoppingCardComponent,
@@ -150,7 +142,6 @@ export class CustomDateAdapter extends NativeDateAdapter {
     ProductComponent,
     ConventionComponent,
     ApplicationComponent,
-    ResetpasswordconfrimComponent,
     SendcodeComponent,
     FactorComponent,
     LoadingSpinnerComponent,
@@ -211,6 +202,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     NgxCaptchaModule,
     GoTopButtonModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    MyauthModule,
 
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
@@ -219,7 +211,8 @@ export class CustomDateAdapter extends NativeDateAdapter {
     {provide: DateAdapter, useClass: CustomDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}
   ],
-  entryComponents: [LoginModalComponent, DetailModalComponent, BottomSheetOverviewExampleSheet]
+  // entryComponents: [LoginModalComponent, DetailModalComponent, BottomSheetOverviewExampleSheet]
+  entryComponents: [DetailModalComponent, BottomSheetOverviewExampleSheet]
 })
 export class AppModule {
 }

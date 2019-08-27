@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../users.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -22,7 +22,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgetpassword(){
     this.user.forgotpassword(this.myuser.email).subscribe(
-      data =>{ 
+      data =>{
         // console.log(data);
         this.toastr.info('لینک تغییر رمز عبور به ایمیل شما ارسال گردید')
         this.router.navigate(['/'])
@@ -30,7 +30,7 @@ export class ForgotPasswordComponent implements OnInit {
       err =>{
         if(err.error['email']){
           this.toastr.error('ایمیل وارد شده موجود نمی باشد.')
-        
+
       }
     }
     )

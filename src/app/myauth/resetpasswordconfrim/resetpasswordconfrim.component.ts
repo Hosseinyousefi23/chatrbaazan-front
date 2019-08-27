@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../users.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -34,7 +34,7 @@ export class ResetpasswordconfrimComponent implements OnInit {
     this.token = this.token.replace(token_split[0]+"-","")
     console.log(token_split)
     this.user.resetpassConfrim(this.myuser,token_split[0],this.token).subscribe(
-      data =>{ 
+      data =>{
         console.log(data);
         this.toastr.info('رمز عبور با موفقیت تغییر یافت')
         this.router.navigate(['/'])
