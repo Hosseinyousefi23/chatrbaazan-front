@@ -1,4 +1,4 @@
-<!-- 
+<!--
   <ul class="navbar-nav">
     <li class="nav-item">
 
@@ -36,8 +36,8 @@
               <button type="button" class="btn basket_btn btn-sm " (click)="plaeseLogin()" [routerLink]="['/basket']">سبد خرید</button>
               <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/sendcode']">ارسال کد</button>
             </div>
-        <button type="button" class="btn btn-success btn-sm btn_sm" [routerLink]="['/login']">ورود</button>
-        <button type="button" class="btn btn-danger btn-sm btn_sm" [routerLink]="['/signup']">ثبت نام!</button>
+        <button type="button" class="btn btn-success btn-sm btn_sm" [routerLink]="['/auth/login']">ورود</button>
+        <button type="button" class="btn btn-danger btn-sm btn_sm" [routerLink]="['/auth/signup']">ثبت نام!</button>
       </div>
       <div class="profile-userbuttons" *ngIf="loggedin()">
         <div>
@@ -50,7 +50,7 @@
       <!-- END SIDEBAR BUTTONS -->
       <div class="navbar_loc">
       <ul class="navbar-nav">
-          <div  class="div_nav" *ngFor="let category of categories" >  
+          <div  class="div_nav" *ngFor="let category of categories" >
               <li class="nav-item nav-loc" >
                   <a class="nav-link" [routerLink]="['/category' , category.slug]">
                       {{category.name}}
@@ -65,4 +65,3 @@
         </ul>
       </div>
     </div>
-  

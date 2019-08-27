@@ -2,7 +2,7 @@ import {LOCAL_STORAGE} from '@ng-toolkit/universal';
 import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef} from "@angular/material";
 import {FormGroup} from '@angular/forms';
-import {UsersService} from '../../users.service';
+import {UsersService} from '../users.service';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
@@ -44,12 +44,12 @@ export class LoginModalComponent implements OnInit {
   }
 
   signup() {
-    this.router.navigate(['/signup'])
+    this.router.navigate(['/auth/signup'])
     this.close();
   }
 
   forgetpassword() {
-    this.router.navigate(['/forgetpassword'])
+    this.router.navigate(['/auth/forgetpassword'])
     this.close();
   }
 

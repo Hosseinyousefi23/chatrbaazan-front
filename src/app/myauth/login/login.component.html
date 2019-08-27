@@ -14,29 +14,29 @@
       <mat-form-field class="example-full-width">
         <input type="password" matInput [(ngModel)] = "user.password" placeholder="رمزعبور" name="password">
       </mat-form-field>
-      
+
 
       <!-- <input type="password"  [(ngModel)] = "user.password" placeholder="رمز عبور" required="required" /> -->
-      <p><a routerLink="/forgetpassword">رمز عبور خود را فراموش کرده ام</a></p>
+      <p><a routerLink="/auth/forgetpassword">رمز عبور خود را فراموش کرده ام</a></p>
 
       <button mat-raised-button  type="submit" class="btn btn-primary btn-block btn-large">ورود</button>
-      
+
       <!-- <p *ngIf="isLoginerror">
           رمز عبور یاایمیل اشتباه است
         </p> -->
-      <p>کاربر جدید هستید؟ <a routerLink="/signup">
+      <p>کاربر جدید هستید؟ <a routerLink="/auth/signup">
           ثبت‌نام در چتربازان
         </a>
         <a [routerLink]="['']" >
-          
+
           بازگشت به صفحه اصلی
-        
+
       </a>
       </p>
-        
-    
-        
+
+
+
       </form>
-      
+
   </div>
 </div>

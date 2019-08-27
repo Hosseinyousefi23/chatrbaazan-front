@@ -1,141 +1,141 @@
 <div class="header">
-    <div class="topheader row">
-        <div class="logo col-2">
-            <a [routerLink]="['/']">
-                <img src='assets/image/chatrbaazan-logo.png'>
-            </a>
-        </div>
-        <div class="search_bar col-lg-6 col-xs-12 row">
-            <div class="col-lg-3 countryForm_bar ">
+  <div class="topheader row">
+    <div class="logo col-2">
+      <a [routerLink]="['/']">
+        <img src='assets/image/chatrbaazan-logo.png'>
+      </a>
+    </div>
+    <div class="search_bar col-lg-6 col-xs-12 row">
+      <div class="col-lg-3 countryForm_bar ">
 
-                <!-- <form [formGroup]="countryForm"> -->
-                <!-- <select class="city_btn btn"  (change)="CityChange($event.target.value)" value="شهرها">
-                  <option selected="selected">شهرها</option>
+        <!-- <form [formGroup]="countryForm"> -->
+        <!-- <select class="city_btn btn"  (change)="CityChange($event.target.value)" value="شهرها">
+          <option selected="selected">شهرها</option>
 
-                  <option [value]="country.id" *ngFor="let country of cities">{{country.name}}</option>
-                </select> -->
-                <!-- </form> -->
-                <mat-form-field>
-                    <mat-select [(value)]="selected" (selectionChange)="CityChange(selected)">
-                        <mat-option value="none_city">شهرها</mat-option>
-                        <mat-option [value]="country.id" *ngFor="let country of cities">
-                            {{country.name}}
-                        </mat-option>
+          <option [value]="country.id" *ngFor="let country of cities">{{country.name}}</option>
+        </select> -->
+        <!-- </form> -->
+        <mat-form-field>
+          <mat-select [(value)]="selected" (selectionChange)="CityChange(selected)">
+            <mat-option value="none_city">شهرها</mat-option>
+            <mat-option [value]="country.id" *ngFor="let country of cities">
+              {{country.name}}
+            </mat-option>
 
-                    </mat-select>
-                </mat-form-field>
-
-
-                <!-- <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option [value]="city" *ngFor="let city of cities" >{{city.name}}</mat-option>
-                  </mat-autocomplete> -->
+          </mat-select>
+        </mat-form-field>
 
 
-            </div>
+        <!-- <mat-autocomplete #auto="matAutocomplete">
+            <mat-option [value]="city" *ngFor="let city of cities" >{{city.name}}</mat-option>
+          </mat-autocomplete> -->
 
 
-            <div class="col-lg-9 col-xs-12">
-                <div class="input-group mb-3">
-                    <form (ngSubmit)="formsubmit(null,1)">
-                        <!-- <mat-form-field class="container"> -->
-                        <button class="btn search_btn" type="button" (click)="formsubmit(null,1)">
-                            <i class="fa fa-search " aria-hidden="true"></i>
-                        </button>
-                        <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
-                               [formControl]="searchTerm" [matAutocomplete]="auto">
-                        <span *ngIf="searchTerm.value" (click)="clear_input()" class="trash_input">
+      </div>
+
+
+      <div class="col-lg-9 col-xs-12">
+        <div class="input-group mb-3">
+          <form (ngSubmit)="formsubmit(null,1)">
+            <!-- <mat-form-field class="container"> -->
+            <button class="btn search_btn" type="button" (click)="formsubmit(null,1)">
+              <i class="fa fa-search " aria-hidden="true"></i>
+            </button>
+            <input type="text" class="search_input form-control " placeholder="جستجوی کد تخفیف ، شرکت‎ها "
+                   [formControl]="searchTerm" [matAutocomplete]="auto">
+            <span *ngIf="searchTerm.value" (click)="clear_input()" class="trash_input">
               <i class="fa fa-trash"></i>
             </span>
 
 
-                        <mat-autocomplete #auto="matAutocomplete">
-                            <div class="row search_div">
-                                <div class="col-6 search_result">
-                                    <mat-option (onSelectionChange)="formsubmit(search.slug,2)"
-                                                *ngFor="let search of searched"
-                                                [value]="search.name">
-                                        <div (click)="formsubmit(search.slug,2)">
-                                            <img src="{{search.image}}" class="search_image" alt="">
-                                            {{ search.name }}
-                                        </div>
-                                    </mat-option>
-                                </div>
-
-                                <div class="col-6 search_result">
-                                    <mat-option (onSelectionChange)="formsubmit(search.name,3)"
-                                                *ngFor="let search of tagsSearched"
-                                                [value]="search.name">
-                                        <div (click)="formsubmit(search.name,3)">
-                                            #{{ search.name }}
-                                        </div>
-                                    </mat-option>
-                                </div>
-                            </div>
-                        </mat-autocomplete>
-
-                        <!-- </mat-form-field> -->
-                    </form>
+            <mat-autocomplete #auto="matAutocomplete">
+              <div class="row search_div">
+                <div class="col-6 search_result">
+                  <mat-option (onSelectionChange)="formsubmit(search.slug,2)"
+                              *ngFor="let search of searched"
+                              [value]="search.name">
+                    <div (click)="formsubmit(search.slug,2)">
+                      <img src="{{search.image}}" class="search_image" alt="">
+                      {{ search.name }}
+                    </div>
+                  </mat-option>
                 </div>
-            </div>
 
+                <div class="col-6 search_result">
+                  <mat-option (onSelectionChange)="formsubmit(search.name,3)"
+                              *ngFor="let search of tagsSearched"
+                              [value]="search.name">
+                    <div (click)="formsubmit(search.name,3)">
+                      #{{ search.name }}
+                    </div>
+                  </mat-option>
+                </div>
+              </div>
+            </mat-autocomplete>
+
+            <!-- </mat-form-field> -->
+          </form>
         </div>
-        <div class="col-4 sum_charbaz">
-            <p>
+      </div>
+
+    </div>
+    <div class="col-4 sum_charbaz">
+      <p>
         <span *ngIf="!loggedin()">
           <a class="link" [routerLink]="['/basket']" (click)="plaeseLogin()"> <i class="fa fa-shopping-basket"
                                                                                  aria-hidden="true"></i></a>
           <a class="link" (click)="openDialog()">ورود</a>
           /
-          <a class="link" [routerLink]="['/signup']">عضویت</a>
+          <a class="link" [routerLink]="['/auth/signup/']">عضویت</a>
         </span>
-                <span *ngIf="loggedin()">
+        <span *ngIf="loggedin()">
           <a class="link" [routerLink]="['/basket']"> <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
           <a class="link" [routerLink]="['/profile']">حساب کاربری</a>
           /
           <a class="link" (click)="logout()">خروج</a>
         </span>
-                <span class="sum_charbaz_content" style="color: red;font-weight: 700;">
+        <span class="sum_charbaz_content" style="color: red;font-weight: 700;">
           مجموع چتربازی‌ها :
           {{all_chatrbazi | number:'3.0'}}
         </span>
-            </p>
-        </div>
+      </p>
     </div>
-    <p class="toggler">
-        <button mat-button (click)="navOpen()"><i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
-        <a (click)="navOpen()">
-            دسته بندی ها
-        </a>
-    </p>
-    <div class="menu">
-        <ul>
+  </div>
+  <p class="toggler">
+    <button mat-button (click)="navOpen()"><i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+    <a (click)="navOpen()">
+      دسته بندی ها
+    </a>
+  </p>
+  <div class="menu">
+    <ul>
 
-            <li class="dropdown" (mouseenter)="adjust_position($event)" (mouseleave)="deadjust_position($event)"
-                *ngFor="let category of categories">
+      <li class="dropdown" (mouseenter)="adjust_position($event)" (mouseleave)="deadjust_position($event)"
+          *ngFor="let category of categories">
         <span (click)="link_click(category.slug)">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
             {{category.name}}
           </a>
         </span>
 
-                <div *ngIf="category.company" id={{category.slug}} (mouseleave)="show_more('')"
-                     class="dropdown-menu{{is_more==category.slug? ' full-dropdown-menu' : ''}}"
-                     aria-labelledby="navbarDropdownMenuLink">
-                    <a
-                            *ngFor="let comp of (is_more!=category.slug?category.company.slice(0,show_company_threshold) : category.company)"
-                            [routerLink]="['/company',comp.slug]"
-                            routerLinkActive="router-link-active"
-                            class="company_links">
-                        <img src="{{comp.image}}" style="height: 32px;width: 32px;">
-                        {{comp.name}}
-                    </a>
-                    <a (click)="show_more(category.slug)" class="show-more"
-                       *ngIf="is_more!= category.slug && category.company.length > show_company_threshold"><img
-                            class="plus-icon"
-                            src="assets/image/plus-big-512.png"/><span class="more">بیشتر</span></a>
-                </div>
-            </li>
-        </ul>
-    </div>
+        <div *ngIf="category.company" id={{category.slug}} (mouseleave)="show_more('')"
+             class="dropdown-menu{{is_more==category.slug? ' full-dropdown-menu' : ''}}"
+             aria-labelledby="navbarDropdownMenuLink">
+          <a
+            *ngFor="let comp of (is_more!=category.slug?category.company.slice(0,show_company_threshold) : category.company)"
+            [routerLink]="['/company',comp.slug]"
+            routerLinkActive="router-link-active"
+            class="company_links">
+            <img src="{{comp.image}}" style="height: 32px;width: 32px;">
+            {{comp.name}}
+          </a>
+          <a (click)="show_more(category.slug)" class="show-more"
+             *ngIf="is_more!= category.slug && category.company.length > show_company_threshold"><img
+            class="plus-icon"
+            src="assets/image/plus-big-512.png"/><span class="more">بیشتر</span></a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

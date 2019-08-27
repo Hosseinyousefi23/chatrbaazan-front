@@ -92,7 +92,7 @@ import {Platform} from '@angular/cdk/platform';
 import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
-import {MyauthModule} from "./myauth/myauth.module";
+import {LoginModalComponent} from "./login-modal/login-modal.component";
 
 
 const MY_DATE_FORMATS = {
@@ -135,6 +135,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     JalaliPipe,
     Page404Component,
     CategoriesComponent,
+    LoginModalComponent,
     CompanyComponent,
     UserprofileComponent,
     DetailModalComponent,
@@ -202,7 +203,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     NgxCaptchaModule,
     GoTopButtonModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    MyauthModule,
+    // MyauthModule,
 
   ],
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
@@ -212,7 +213,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}
   ],
   // entryComponents: [LoginModalComponent, DetailModalComponent, BottomSheetOverviewExampleSheet]
-  entryComponents: [DetailModalComponent, BottomSheetOverviewExampleSheet]
+  entryComponents: [LoginModalComponent, DetailModalComponent, BottomSheetOverviewExampleSheet]
 })
 export class AppModule {
 }
