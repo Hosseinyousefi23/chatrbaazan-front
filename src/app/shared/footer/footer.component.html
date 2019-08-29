@@ -1,0 +1,76 @@
+<div class="footer_text">
+  ما سعی می‌کنیم شما کمترین هزینه و بیشترین سود را داشته باشی.
+  هر لحظه بهترین و محبوب ترین پیشنهادات و کد های تخفیف در <span  class="footer_text_link"><a routerLink="/">چتربازان</a></span> قرار می‌گیرد.
+  پس <span class="footer_text_link"><a routerLink="/" >چترباز</a></span> شو و <span class="footer_text_link"><a routerLink="/">چتر</a></span> تخفیفتو پهن کن و خرجتو کم کن.
+</div>
+
+<div class="footer">
+  <div class="footer_content list_box">
+    <div class="footer_inner_content">
+      <div class="footer_logo">
+        <img class="logo" src="assets/image/chatrbaazan-logo.png">
+        <!-- <span class="social_network">
+            <a href="#">
+              <img src="" alt="">
+            </a>
+          </span> -->
+      </div>
+
+        <ul>
+          <li><a routerLink="/">صفحه اصلی </a></li>
+          <li><a routerLink="/info/contact">تماس با ما </a></li>
+          <li><a routerLink="/info/about">درباره ما </a></li>
+          <li><a href="https://blog.chatrbaazan.ir/">بلاگ</a></li>
+        </ul>
+    </div>
+  </div>
+  <hr class=" line">
+  <div class="row">
+    <div class="col-md-6">
+      <p class="email_sen">از جدیدترین چتربازی‌ها باخبر شوید</p>
+      <form class="example-form" (ngSubmit)="send_email()">
+
+         <!-- <mat-form-field class="example-full-width">
+          <input   name="email" class="input_email" matInput [(ngModel)] = "email.email" >
+          <mat-placeholder class="placeholder">ایمیل خود را وارد کنید</mat-placeholder>
+        </mat-form-field> -->
+        <div class="row">
+          <div >
+              <input type="text" name="email" [(ngModel)] = "email" class="input_email" placeholder="ایمیل خود را وارد کنید">
+              <button type="submit" class="send_btn_email"  mat-raised-button color="basic">ارسال</button>
+          </div>
+
+        </div>
+
+        <!-- <mat-form-field class="example-full-width">
+            <input matInput class="input_email " [(ngModel)] = "email.email" placeholder="ایمیل" name="email">
+          </mat-form-field> -->
+
+
+
+      </form>
+    </div>
+    <div class="col-md-6"><p>enemad</p></div>
+  </div>
+  <hr class=" line">
+  <div class="text_footer">
+    کلیه حقوق این وبسایت متعلق به چتربازان بوده و هرگونه استفاده از محتویات آن غیر مجاز است.
+  </div>
+  <div class="social_network">
+    <a class="social_network_links" href="https://www.instagram.com/chatrbaazan">
+      <i class="social_network_images fa fa-instagram" aria-hidden="true"></i>
+    </a>
+    <a class="social_network_links" href="https://t.me/chatrbaazan">
+      <i class="social_network_images fa fa-telegram" aria-hidden="true"></i>
+    </a>
+    <a class="social_network_links" href="https://twitter.com/chatrbaazan">
+      <i class="social_network_images fa fa-twitter-square" aria-hidden="true"></i>
+    </a>
+    <a class="social_network_links" href="https://sapp.ir/chatrbaazan">
+      <img class="social_network_images" src="assets/image/sorush.png" alt="">
+    </a>
+    <a class="social_network_links" href="https://ble.im/chatrbaazan">
+      <img class="social_network_images" src="assets/image/bale.png" alt="">
+    </a>
+  </div>
+</div>

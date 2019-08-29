@@ -2,7 +2,7 @@
   <div class="offer_header row">
     <div class="col-7 title"> محصولات </div>
     <div class="col-5 see_all">
-      <a [routerLink]="['/search',1]">
+      <a [routerLink]="['/info/search',1]">
         مشاهده همه
       </a>
 
@@ -32,7 +32,7 @@
                     </div>
                     <div class="offer_company">
                       <span class="offer_companies" *ngFor="let i of item.company;">
-                        <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                        <a [routerLink]="['/info/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
                     <a class="btn offer_btn" ngbButton>
@@ -98,7 +98,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a target="_blank" [routerLink]="['/product' , item.slug]">
+                    <a target="_blank" [routerLink]="['/info/product' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
@@ -143,7 +143,7 @@
                     </div>
                     <div class="offer_company">
                       <span class="offer_companies" *ngFor="let i of item.company;">
-                        <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                        <a [routerLink]="['/info/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
                     <a class="btn offer_btn" ngbButton>
@@ -211,7 +211,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a target="_blank" [routerLink]="['/product' , item.slug]">
+                    <a target="_blank" [routerLink]="['/info/product' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
@@ -253,7 +253,7 @@
                     </div>
                     <div class="offer_company">
                       <span class="offer_companies" *ngFor="let i of item.company;">
-                        <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                        <a [routerLink]="['/info/company' , i.slug]">{{i.name}}</a>
                       </span>
                     </div>
                     <a class="btn offer_btn" ngbButton>
@@ -319,7 +319,7 @@
                       اشتراک گذاری
                     </button>
 
-                    <a target="_blank" [routerLink]="['/product' , item.slug]">
+                    <a target="_blank" [routerLink]="['/info/product' , item.slug]">
                       <button class="btn btn-primary btn_sm">
                         توضیح بیشتر
                       </button>
