@@ -44,10 +44,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InfoRoutingModule} from './info-routing.module';
 import {AboutusComponent} from "./aboutus/aboutus.component";
 import {CategoriesComponent} from "./categories/categories.component";
-import {CompanyComponent} from "./company/company.component";
 import {ContactusComponent} from "./contactus/contactus.component";
 import {FactorComponent} from "./factor/factor.component";
-import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {SearchComponent} from "./search/search.component";
 import {SendcodeComponent} from "./sendcode/sendcode.component";
 import {ShoppingCardComponent} from "./shopping-card/shopping-card.component";
@@ -63,7 +61,6 @@ import {GoTopButtonModule} from "ng2-go-top-button";
 import {ServiceWorkerModule} from "@angular/service-worker";
 import {environment} from "../../environments/environment";
 import {SharedModule} from "../shared/shared.module";
-import {LoadingSpinnerComponent} from "./loading-spinner/loading-spinner.component";
 import {AgmCoreModule} from "@agm/core";
 import * as moment from 'jalali-moment';
 import {NgxGalleryModule} from "ngx-gallery";
@@ -95,15 +92,12 @@ export class CustomDateAdapter extends NativeDateAdapter {
   declarations: [
     AboutusComponent,
     CategoriesComponent,
-    CompanyComponent,
     ContactusComponent,
     FactorComponent,
-    ProductDetailComponent,
     SearchComponent,
     SendcodeComponent,
     ShoppingCardComponent,
     UserprofileComponent,
-    LoadingSpinnerComponent,
 
   ],
   imports: [

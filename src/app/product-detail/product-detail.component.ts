@@ -2,19 +2,19 @@ import {LOCAL_STORAGE} from '@ng-toolkit/universal';
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {PageService} from '../../page.service';
+import {PageService} from '../page.service';
 import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
-import {UsersService} from '../../users.service';
+import {UsersService} from '../users.service';
 import {ToastrService} from 'ngx-toastr';
 import {MatBottomSheet} from '@angular/material';
-import {BottomSheetOverviewExampleSheet} from "../../bottom-sheet/bottom-sheet.component";
+import {BottomSheetOverviewExampleSheet} from "../bottom-sheet/bottom-sheet.component";
 
 declare var $: any;
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css', '../../sharesCss/shared_style.css']
+  styleUrls: ['./product-detail.component.css', '../sharesCss/shared_style.css']
   // styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {

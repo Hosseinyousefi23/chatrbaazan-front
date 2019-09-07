@@ -23,7 +23,7 @@
               <div class="product_name">{{i.product.name}}</div>
               <div class="producr_company">
                 <span *ngFor="let c of i.product.company;">
-                  <a [routerLink]="['/info/company' , c.slug]"> {{c.name}}</a>
+                  <a [routerLink]="['/company' , c.slug]"> {{c.name}}</a>
                 </span>
               </div>
               <!-- {{i.product.price}} -->

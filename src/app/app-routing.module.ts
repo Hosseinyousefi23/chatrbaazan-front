@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {Page404Component} from './page404/page404.component';
+import {ProductDetailComponent} from "./product-detail/product-detail.component";
+import {CompanyComponent} from "./company/company.component";
 
 
 const routes: Routes = [
@@ -59,26 +61,26 @@ const routes: Routes = [
   //   path: 'category/:slug',
   //   component: CategoriesComponent
   // },
-  // {
-  //   path: 'company/:slug',
-  //   component: CompanyComponent
-  // },
-  // {
-  //   path: 'product/:slug',
-  //   component: ProductDetailComponent
-  // },
-  // {
-  //   path: 'app/:slug',
-  //   component: ProductDetailComponent
-  // },
-  // {
-  //   path: 'offer/:slug',
-  //   component: ProductDetailComponent
-  // },
-  // {
-  //   path: 'code/:slug',
-  //   component: ProductDetailComponent
-  // },
+  {
+    path: 'company/:slug',
+    component: CompanyComponent
+  },
+  {
+    path: 'product/:slug',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'app/:slug',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'offer/:slug',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'code/:slug',
+    component: ProductDetailComponent
+  },
   // {
   //   path: 'cart/factor/:id',
   //   component: FactorComponent

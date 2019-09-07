@@ -78,6 +78,8 @@ import {Platform} from '@angular/cdk/platform';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {SharedModule} from "./shared/shared.module";
+import {ProductDetailComponent} from "./product-detail/product-detail.component";
+import {CompanyComponent} from "./company/company.component";
 
 
 const MY_DATE_FORMATS = {
@@ -109,12 +111,14 @@ export class CustomDateAdapter extends NativeDateAdapter {
     HomeComponent,
     CarouselComponent,
     OfferComponent,
+    CompanyComponent,
     Page404Component,
     DetailModalComponent,
     BottomSheetOverviewExampleSheet,
     ProductComponent,
     ConventionComponent,
     ApplicationComponent,
+    ProductDetailComponent,
 
   ],
   imports: [

@@ -1,20 +1,20 @@
 import {LOCAL_STORAGE} from '@ng-toolkit/universal';
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {PageService} from '../../page.service';
+import {PageService} from '../page.service';
 import {FormControl} from '@angular/forms';
 import {MatBottomSheet, MatDialog, MatDialogConfig} from '@angular/material';
-import {DetailModalComponent} from '../../detail-modal/detail-modal.component';
+import {DetailModalComponent} from '../detail-modal/detail-modal.component';
 import {ToastrService} from 'ngx-toastr';
-import {BottomSheetOverviewExampleSheet} from '../../bottom-sheet/bottom-sheet.component';
-import {UsersService} from '../../users.service';
+import {BottomSheetOverviewExampleSheet} from '../bottom-sheet/bottom-sheet.component';
+import {UsersService} from '../users.service';
 
 declare var $: any;
 
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
-  styleUrls: ['../../sharesCss/shared_style.css', './company.component.css']
+  styleUrls: ['../sharesCss/shared_style.css', './company.component.css']
 })
 export class CompanyComponent implements OnInit {
 

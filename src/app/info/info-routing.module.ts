@@ -5,8 +5,6 @@ import {AboutusComponent} from "./aboutus/aboutus.component";
 import {SearchComponent} from "./search/search.component";
 import {SendcodeComponent} from "./sendcode/sendcode.component";
 import {CategoriesComponent} from "./categories/categories.component";
-import {CompanyComponent} from "./company/company.component";
-import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {FactorComponent} from "./factor/factor.component";
 import {ShoppingCardComponent} from "./shopping-card/shopping-card.component";
 import {AuthGuard} from "../auth.guard";
@@ -37,26 +35,26 @@ const routes: Routes = [
     path: 'category/:slug',
     component: CategoriesComponent
   },
-  {
-    path: 'company/:slug',
-    component: CompanyComponent
-  },
-  {
-    path: 'product/:slug',
-    component: ProductDetailComponent
-  },
-  {
-    path: 'app/:slug',
-    component: ProductDetailComponent
-  },
-  {
-    path: 'offer/:slug',
-    component: ProductDetailComponent
-  },
-  {
-    path: 'code/:slug',
-    component: ProductDetailComponent
-  },
+  // {
+  //   path: 'company/:slug',
+  //   component: CompanyComponent
+  // },
+  // {
+  //   path: 'product/:slug',
+  //   component: ProductDetailComponent
+  // },
+  // {
+  //   path: 'app/:slug',
+  //   component: ProductDetailComponent
+  // },
+  // {
+  //   path: 'offer/:slug',
+  //   component: ProductDetailComponent
+  // },
+  // {
+  //   path: 'code/:slug',
+  //   component: ProductDetailComponent
+  // },
   {
     path: 'cart/factor/:id',
     component: FactorComponent

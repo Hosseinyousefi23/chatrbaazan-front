@@ -31,7 +31,7 @@
 
         <div class="col-12">
               <div class="modal_input">
-            <button mat-raised-button color="" [routerLink]="['/info/product' , pro.slug]" (click)="close()" class="btn_sm">جزئیات
+            <button mat-raised-button color="" [routerLink]="['/product' , pro.slug]" (click)="close()" class="btn_sm">جزئیات
               بیشتر</button>
             <button *ngIf="!pro.is_free"mat-raised-button color="primary" (click)="addtocart(pro.id)" class=" btn_sm mat-raised-button">افزودن
               به سبد</button>
@@ -48,7 +48,7 @@
   </div>
   <!-- </div> -->
   <!-- <span  *ngFor="let i of pro.company;">
-          <a [routerLink]="['/info/company' , i.slug]"> {{i.name}}</a>
+          <a [routerLink]="['/company' , i.slug]"> {{i.name}}</a>
 
         </span> -->
 

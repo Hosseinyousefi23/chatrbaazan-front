@@ -147,7 +147,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/info/search'], {queryParams: {search: this.searchTerm.value}})
     }
     if (type == 2) {
-      this.router.navigate(['/info/company', search])
+      this.router.navigate(['/company', search])
     }
     if (this.searchTerm.value, type == 3) {
       console.log(search);

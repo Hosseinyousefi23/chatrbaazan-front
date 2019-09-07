@@ -124,7 +124,7 @@
              aria-labelledby="navbarDropdownMenuLink">
           <a
             *ngFor="let comp of (is_more!=category.slug?category.company.slice(0,show_company_threshold) : category.company)"
-            [routerLink]="['/info/company',comp.slug]"
+            [routerLink]="['/company',comp.slug]"
             routerLinkActive="router-link-active"
             class="company_links">
             <img src="{{comp.image}}" style="height: 32px;width: 32px;">

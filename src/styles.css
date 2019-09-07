@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "iranyekan";
-  font-display: fallback;
+  font-display: swap;
   src: url('./assets/fonts/iranyekanweblight.woff') format('woff'),
   url('./assets/fonts/iranyekanweblight.ttf') format('ttf'),
   url('./assets/fonts/iranyekanweblight.woff2') format('woff2'),
