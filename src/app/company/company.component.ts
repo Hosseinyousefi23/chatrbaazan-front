@@ -1,5 +1,5 @@
 import {LOCAL_STORAGE} from '@ng-toolkit/universal';
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PageService} from '../page.service';
 import {FormControl} from '@angular/forms';
@@ -8,6 +8,7 @@ import {DetailModalComponent} from '../detail-modal/detail-modal.component';
 import {ToastrService} from 'ngx-toastr';
 import {BottomSheetOverviewExampleSheet} from '../bottom-sheet/bottom-sheet.component';
 import {UsersService} from '../users.service';
+import {Title} from "@angular/platform-browser";
 
 declare var $: any;
 
@@ -16,10 +17,10 @@ declare var $: any;
   templateUrl: './company.component.html',
   styleUrls: ['../sharesCss/shared_style.css', './company.component.css']
 })
-export class CompanyComponent implements OnInit {
+export class CompanyComponent implements OnInit, OnDestroy {
 
   constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: ActivatedRoute, private router: Router, private data: PageService, private user: UsersService, private dialog: MatDialog, private toastr: ToastrService,
-              private bottomSheet: MatBottomSheet) {
+              private bottomSheet: MatBottomSheet, private titleService: Title) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     }
@@ -66,6 +67,7 @@ export class CompanyComponent implements OnInit {
 
       this.pro = param.results;
       this.companyinfo = param['dataCompany']
+      this.titleService.setTitle("کد تخفیف " + this.companyinfo.name + " | " + "چتربازان");
       this.next_url_pro = param.next
       this.categories = []
       for (let i of param.results) {
@@ -101,6 +103,10 @@ export class CompanyComponent implements OnInit {
       //   this.router.navigate(['/']);
       // }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.titleService.setTitle("اشتراک گذاری کد تخفیف و کوپن فروشگاه ها خدمات آنلاین | چتربازان");
   }
 
   addeventlister() {

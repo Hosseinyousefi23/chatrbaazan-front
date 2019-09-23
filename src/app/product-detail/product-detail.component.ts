@@ -1,5 +1,5 @@
 import {LOCAL_STORAGE} from '@ng-toolkit/universal';
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PageService} from '../page.service';
@@ -8,6 +8,7 @@ import {UsersService} from '../users.service';
 import {ToastrService} from 'ngx-toastr';
 import {MatBottomSheet} from '@angular/material';
 import {BottomSheetOverviewExampleSheet} from "../bottom-sheet/bottom-sheet.component";
+import {Title} from "@angular/platform-browser";
 
 declare var $: any;
 
@@ -17,7 +18,7 @@ declare var $: any;
   styleUrls: ['./product-detail.component.css', '../sharesCss/shared_style.css']
   // styleUrls: ['./product-detail.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit, OnDestroy {
   mode = new FormControl('over');
   pro;
   galleryOptions: NgxGalleryOptions[];
@@ -32,7 +33,8 @@ export class ProductDetailComponent implements OnInit {
   //   template: '$!h!ساعت$!m!دقیقه$!s!ثانیه'
   // };
 
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: ActivatedRoute, private offer: PageService, private router: Router, private service: PageService, private user: UsersService, private toastr: ToastrService, private bottomSheet: MatBottomSheet) {
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: ActivatedRoute, private offer: PageService, private router: Router, private service: PageService, private user: UsersService, private toastr: ToastrService,
+              private bottomSheet: MatBottomSheet, private titleService: Title) {
   }
 
   ngOnInit() {
@@ -55,6 +57,7 @@ export class ProductDetailComponent implements OnInit {
     this.service.getproductByslug(this.slug).subscribe(param => {
       if (param['data']) {
         this.pro = param['data']
+        this.titleService.setTitle(this.pro.name + " | " + this.pro.company[0].name);
         if (this.pro['image']) {
           this.address = {small: this.pro['image'], medium: this.pro['image'], big: this.pro['image']};
           this.image_gallery.push(this.address)
@@ -116,6 +119,10 @@ export class ProductDetailComponent implements OnInit {
     // }
     // ]
     // console.log(this.galleryImages)
+  }
+
+  ngOnDestroy(): void {
+    this.titleService.setTitle("اشتراک گذاری کد تخفیف و کوپن فروشگاه ها خدمات آنلاین | چتربازان");
   }
 
   addeventlister() {

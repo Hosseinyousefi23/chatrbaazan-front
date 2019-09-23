@@ -260,6 +260,7 @@ input {
 
 .input_cupon {
   /*font-size: 1.7vw;*/
+  background-color: white;
   color: #000000;
   display: inline;
   width: 200px;

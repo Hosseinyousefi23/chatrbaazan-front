@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 import {PageService} from '../../page.service';
@@ -6,6 +6,7 @@ import {MatBottomSheet, MatDialog, MatDialogConfig} from '@angular/material';
 import {DetailModalComponent} from '../../detail-modal/detail-modal.component';
 import {ToastrService} from 'ngx-toastr';
 import {BottomSheetOverviewExampleSheet} from '../../bottom-sheet/bottom-sheet.component';
+import {Title} from "@angular/platform-browser";
 
 declare var $: any;
 
@@ -14,7 +15,7 @@ declare var $: any;
   templateUrl: './search.component.html',
   styleUrls: ['../../sharesCss/shared_style.css', './search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
   pro: any[] = [];
   searched: string;
   searchedLabel: string;
@@ -34,7 +35,7 @@ export class SearchComponent implements OnInit {
   mode = new FormControl('over');
 
   constructor(private router: Router, private route: ActivatedRoute, private data: PageService, private dialog: MatDialog,
-              private toastr: ToastrService, private bottomSheet: MatBottomSheet) {
+              private toastr: ToastrService, private bottomSheet: MatBottomSheet, private titleService: Title) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
       }
@@ -57,6 +58,11 @@ export class SearchComponent implements OnInit {
     })
     this.searched = this.route.snapshot.queryParams['search']
     this.searchedLabel = this.route.snapshot.queryParams['label']
+    if (!this.searched && this.type == 4) {
+      this.titleService.setTitle("همه کدهای تخفیف فعال");
+    } else {
+      this.titleService.setTitle("اشتراک گذاری کد تخفیف و کوپن فروشگاه ها خدمات آنلاین | چتربازان");
+    }
     // console.log(this.searched)
     // console.log(this.searchedLabel)
     if (this.searched || this.type) {
@@ -124,6 +130,10 @@ export class SearchComponent implements OnInit {
     }
 
 
+  }
+
+  ngOnDestroy(): void {
+    this.titleService.setTitle("اشتراک گذاری کد تخفیف و کوپن فروشگاه ها خدمات آنلاین | چتربازان");
   }
 
   addeventlister() {
