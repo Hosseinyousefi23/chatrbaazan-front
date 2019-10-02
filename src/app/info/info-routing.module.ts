@@ -4,7 +4,6 @@ import {ContactusComponent} from "./contactus/contactus.component";
 import {AboutusComponent} from "./aboutus/aboutus.component";
 import {SearchComponent} from "./search/search.component";
 import {SendcodeComponent} from "./sendcode/sendcode.component";
-import {CategoriesComponent} from "./categories/categories.component";
 import {FactorComponent} from "./factor/factor.component";
 import {ShoppingCardComponent} from "./shopping-card/shopping-card.component";
 import {AuthGuard} from "../auth.guard";
@@ -31,10 +30,10 @@ const routes: Routes = [
     path: 'search/:type',
     component: SearchComponent
   },
-  {
-    path: 'category/:slug',
-    component: CategoriesComponent
-  },
+  // {
+  //   path: 'category/:slug',
+  //   component: CategoriesComponent
+  // },
   // {
   //   path: 'company/:slug',
   //   component: CompanyComponent

@@ -25,7 +25,7 @@ export class SidenavComponent implements OnInit {
   // }
 
   ngOnInit() {
-    if (this.categories.length == 0) {
+    if (!this.categories || this.categories.length == 0) {
       this.data.getCategories().subscribe((data: any) => {
         this.categories = data.data;
       });

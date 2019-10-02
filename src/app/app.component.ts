@@ -33,6 +33,13 @@ export class AppComponent implements OnInit {
   constructor(private swUpdate: SwUpdate, private router: Router) {
   }
 
+  onActivate(event) {
+    window.scroll(0, 0);
+    console.log("scroll to top");
+    //or document.body.scrollTop = 0;
+    //or document.querySelector('body').scrollTo(0,0)
+  }
+
   //site : https://stackoverflow.com/questions/37655898/tracking-google-analytics-page-views-in-angular2
   // ngOnInit() {
   //   this.router.events.pipe(distinctUntilChanged((previous: any, current: any) => {

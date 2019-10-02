@@ -158,7 +158,7 @@ export class HeaderComponent implements OnInit {
 
   link_click(slug) {
     console.log(slug)
-    this.router.navigate(['/info/category', slug])
+    this.router.navigate(['/category', slug])
   }
 
   plaeseLogin() {

@@ -1,7 +1,47 @@
-*{
-    text-align: center;
+* {
+  text-align: center;
 }
-.content{
-    margin-top: 10em;
-    min-height: 27.1em;
+
+.content {
+  margin-top: 10em;
+  min-height: 27.1em;
 }
+
+.return {
+  background-color: #ec2b54;
+  border-color: #ec2b54;
+  margin-top: 30px;
+}
+
+.return:hover {
+  background-color: #d3123c;
+}
+
+.offer_div {
+  margin-top: 30px;
+}
+
+.offer {
+  /*font-size: 0.85em;*/
+  margin: 0 10px 0 10px;
+  /*border-color: #ec2b54;*/
+  color: #007bff;
+}
+
+.offer:hover {
+  /*border-color: #007bff;*/
+  /*background-color: transparent;*/
+  color: #004a99;
+  /*background-color: #eee;*/
+}
+
+/*.offer:focus {*/
+/*background-color: transparent;*/
+/*border-color: transparent;*/
+/*}*/
+
+/*.offer:active{*/
+/*background-color: transparent;*/
+/*border-color: transparent;*/
+/*}*/
+

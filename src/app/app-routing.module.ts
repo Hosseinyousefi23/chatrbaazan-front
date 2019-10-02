@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {Page404Component} from './page404/page404.component';
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {CompanyComponent} from "./company/company.component";
+import {CategoriesComponent} from "./categories/categories.component";
 
 
 const routes: Routes = [
@@ -57,10 +58,10 @@ const routes: Routes = [
   //   path: 'search/:type',
   //   component: SearchComponent
   // },
-  // {
-  //   path: 'category/:slug',
-  //   component: CategoriesComponent
-  // },
+  {
+    path: 'category/:slug',
+    component: CategoriesComponent
+  },
   {
     path: 'company/:slug',
     component: CompanyComponent

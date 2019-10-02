@@ -80,6 +80,7 @@ import {environment} from '../environments/environment';
 import {SharedModule} from "./shared/shared.module";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {CompanyComponent} from "./company/company.component";
+import {CategoriesComponent} from "./categories/categories.component";
 
 
 const MY_DATE_FORMATS = {
@@ -119,7 +120,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     ConventionComponent,
     ApplicationComponent,
     ProductDetailComponent,
-
+    CategoriesComponent,
   ],
   imports: [
     CommonModule,

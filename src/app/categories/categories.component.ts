@@ -3,9 +3,9 @@ import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {FormControl} from '@angular/forms';
 import {MatBottomSheet, MatDialog, MatDialogConfig} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
-import {PageService} from "../../page.service";
-import {DetailModalComponent} from "../../detail-modal/detail-modal.component";
-import {BottomSheetOverviewExampleSheet} from "../../bottom-sheet/bottom-sheet.component";
+import {PageService} from "../page.service";
+import {DetailModalComponent} from "../detail-modal/detail-modal.component";
+import {BottomSheetOverviewExampleSheet} from "../bottom-sheet/bottom-sheet.component";
 import {Title} from "@angular/platform-browser";
 
 declare var $: any;
@@ -13,7 +13,7 @@ declare var $: any;
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['../../sharesCss/shared_style.css', './categories.component.css']
+  styleUrls: ['../sharesCss/shared_style.css', './categories.component.css']
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
   category_verbose = "";
@@ -57,7 +57,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         this.companies = []
         this.next_url = param.next
         this.category_verbose = param.category;
-        this.titleService.setTitle("کد تخفیف " + this.category_verbose);
+        this.titleService.setTitle("کد تخفیف " + this.category_verbose + " | چتربازان");
         for (let i of param.results) {
           for (let c of i.company) {
             if (!this.companies.some(temp => temp.name == c.name)) {

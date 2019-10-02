@@ -43,7 +43,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {InfoRoutingModule} from './info-routing.module';
 import {AboutusComponent} from "./aboutus/aboutus.component";
-import {CategoriesComponent} from "./categories/categories.component";
 import {ContactusComponent} from "./contactus/contactus.component";
 import {FactorComponent} from "./factor/factor.component";
 import {SearchComponent} from "./search/search.component";
@@ -91,7 +90,6 @@ export class CustomDateAdapter extends NativeDateAdapter {
 @NgModule({
   declarations: [
     AboutusComponent,
-    CategoriesComponent,
     ContactusComponent,
     FactorComponent,
     SearchComponent,

@@ -14,54 +14,60 @@
     </li>
   </ul> -->
 
-  <div class="profile-sidebar">
-      <!-- SIDEBAR USERPIC -->
-      <div class="profile-userpic" *ngIf="loggedin()">
-        <img src="assets/image/paratrooper.png" class="img-responsive" alt="">
-      </div>
-      <!-- END SIDEBAR USERPIC -->
-      <!-- SIDEBAR USER TITLE -->
-      <!-- <div class="profile-usertitle" *ngIf="user.logged()">
-        <div class="profile-usertitle-name">
-          ممد چتر باز
-        </div>
-        <div class="profile-usertitle-job">
-          ادمین چتربازا
-        </div>
-      </div> -->
-      <!-- END SIDEBAR USER TITLE -->
-      <!-- SIDEBAR BUTTONS -->
-      <div class="profile-userbuttons" *ngIf="!loggedin()">
-          <div>
-              <button type="button" class="btn basket_btn btn-sm " (click)="plaeseLogin()" [routerLink]="['/info/basket']">سبد خرید</button>
-              <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/info/sendcode']">ارسال کد</button>
-            </div>
-        <button type="button" class="btn btn-success btn-sm btn_sm" [routerLink]="['/auth/login']">ورود</button>
-        <button type="button" class="btn btn-danger btn-sm btn_sm" [routerLink]="['/auth/signup']">ثبت نام!</button>
-      </div>
-      <div class="profile-userbuttons" *ngIf="loggedin()">
-        <div>
-          <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/info/basket']">سبد خرید</button>
-          <button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/info/sendcode']">ارسال کد</button>
-        </div>
-          <button type="button" class="btn btn-success btn_sm"  [routerLink]="['/info/profile']">پروفایل</button>
-          <button type="button" class="btn btn-danger btn_sm " (click)="logout()" >خروج</button>
-        </div>
-      <!-- END SIDEBAR BUTTONS -->
-      <div class="navbar_loc">
-      <ul class="navbar-nav">
-          <div  class="div_nav" *ngFor="let category of categories" >
-              <li class="nav-item nav-loc" >
-                  <a class="nav-link" [routerLink]="['/info/category' , category.slug]">
-                      {{category.name}}
-                  </a>
-                </li>
-        </div>
-        <div class="div_nav">
-            <!-- <li class="nav-item nav-loc">
-              <a class="nav-link" href="#">Link 1</a>
-            </li> -->
-        </div>
-        </ul>
-      </div>
+<div class="profile-sidebar">
+  <!-- SIDEBAR USERPIC -->
+  <div class="profile-userpic" *ngIf="loggedin()">
+    <img src="assets/image/paratrooper.png" class="img-responsive" alt="">
+  </div>
+  <!-- END SIDEBAR USERPIC -->
+  <!-- SIDEBAR USER TITLE -->
+  <!-- <div class="profile-usertitle" *ngIf="user.logged()">
+    <div class="profile-usertitle-name">
+      ممد چتر باز
     </div>
+    <div class="profile-usertitle-job">
+      ادمین چتربازا
+    </div>
+  </div> -->
+  <!-- END SIDEBAR USER TITLE -->
+  <!-- SIDEBAR BUTTONS -->
+
+
+  <!-- END SIDEBAR BUTTONS -->
+  <div class="navbar_loc">
+    <ul class="navbar-nav">
+      <div class="div_nav" *ngFor="let category of categories">
+        <a class="nav-link" [routerLink]="['/category' , category.slug]">
+          <li class="nav-item nav-loc">
+            {{category.name}}
+          </li>
+        </a>
+
+        <hr class="horizontal_line">
+      </div>
+      <div class="div_nav">
+        <!-- <li class="nav-item nav-loc">
+          <a class="nav-link" href="#">Link 1</a>
+        </li> -->
+      </div>
+    </ul>
+  </div>
+  <div class="profile-userbuttons" *ngIf="loggedin()">
+    <div>
+      <!--<button type="button" class="btn basket_btn btn-sm "  [routerLink]="['/info/basket']">سبد خرید</button>-->
+      <button type="button" class="btn basket_btn btn-sm " [routerLink]="['/info/sendcode']">ارسال کد</button>
+    </div>
+    <button type="button" class="btn btn-success btn_sm" [routerLink]="['/info/profile']">پروفایل</button>
+    <button type="button" class="btn btn-danger btn_sm " (click)="logout()">خروج</button>
+  </div>
+  <div class="profile-userbuttons" *ngIf="!loggedin()">
+    <div>
+      <!--<button type="button" class="btn basket_btn btn-sm " (click)="plaeseLogin()" [routerLink]="['/info/basket']">سبد-->
+      <!--خرید-->
+      <!--</button>-->
+      <button type="button" class="btn basket_btn btn-sm " [routerLink]="['/info/sendcode']">ارسال کد</button>
+    </div>
+    <button type="button" class="btn btn-success btn-sm btn_sm" [routerLink]="['/auth/login']">ورود</button>
+    <button type="button" class="btn btn-danger btn-sm btn_sm" [routerLink]="['/auth/signup']">ثبت نام!</button>
+  </div>
+</div>

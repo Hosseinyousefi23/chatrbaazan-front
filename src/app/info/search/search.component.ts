@@ -59,7 +59,9 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.searched = this.route.snapshot.queryParams['search']
     this.searchedLabel = this.route.snapshot.queryParams['label']
     if (!this.searched && this.type == 4) {
-      this.titleService.setTitle("همه کدهای تخفیف فعال");
+      this.titleService.setTitle("همه کدهای تخفیف فعال | چتربازان");
+    } else if (this.searchedLabel && this.searchedLabel.length > 0) {
+      this.titleService.setTitle("کد تخفیف " + this.searchedLabel + " | چتربازان");
     } else {
       this.titleService.setTitle("اشتراک گذاری کد تخفیف و کوپن فروشگاه ها خدمات آنلاین | چتربازان");
     }
