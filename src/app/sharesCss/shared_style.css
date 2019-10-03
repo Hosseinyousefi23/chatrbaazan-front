@@ -131,6 +131,11 @@
   transform: translateX(50%);
 }
 
+.code_box {
+  margin-top: .6em;
+  /*margin-bottom: 5px;*/
+}
+
 .offer_off {
   position: absolute;
   z-index: 4;
@@ -168,9 +173,10 @@
 }
 
 .timer {
-  margin: .1em 0;
-  font-size: 1em;
+  margin: .2em 0 .4em 0;
+  font-size: 1.1em;
   font-weight: 700;
+  color: #ff337a;
 }
 
 label {
@@ -310,8 +316,8 @@ input {
   }
 
   .timer {
-    margin: .85em 0;
-    font-size: .74em;
+    margin: .5em 0;
+    font-size: 1em;
     font-weight: 700;
   }
 

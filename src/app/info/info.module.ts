@@ -35,8 +35,6 @@ import {ClipboardModule} from 'ngx-clipboard';
 
 import {ToastrModule} from 'ngx-toastr';
 
-import {CountdownTimerModule} from 'ngx-countdown-timer';
-
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -63,6 +61,7 @@ import {SharedModule} from "../shared/shared.module";
 import {AgmCoreModule} from "@agm/core";
 import * as moment from 'jalali-moment';
 import {NgxGalleryModule} from "ngx-gallery";
+import {CountdownTimerModule} from 'ngx-countdown-timer'
 
 const MY_DATE_FORMATS = {
   parse: {
@@ -129,13 +128,13 @@ export class CustomDateAdapter extends NativeDateAdapter {
     MatDatepickerModule,
     MatNativeDateModule,
     NgxGalleryModule,
+    CountdownTimerModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxMDhL_KXYIE_O7Ga8iIpqexZZfUO2ePI'
     }),
     ClipboardModule,
     ToastrModule.forRoot(),
     InfiniteScrollModule,
-    CountdownTimerModule.forRoot(),
     ShareButtonModule,
     MatTabsModule,
     MatSelectModule,

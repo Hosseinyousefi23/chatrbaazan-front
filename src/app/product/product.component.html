@@ -1,6 +1,6 @@
 <div *ngIf="showDiv" class="offer">
   <div class="offer_header row">
-    <div class="col-7 title"> محصولات </div>
+    <div class="col-7 title"> محصولات</div>
     <div class="col-5 see_all">
       <a [routerLink]="['/info/search',1]">
         مشاهده همه
@@ -16,7 +16,7 @@
           <!-- start of offer -->
           <div class="offer_box" *ngFor="let item of newest;">
             <label>
-              <input type="checkbox" />
+              <input type="checkbox"/>
               <div class="card front_offer">
                 <div class="front">
                   <a class="offer_box_link">
@@ -43,14 +43,15 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
                   </div>
-                  <div *ngIf="item.type===4 && item.is_free" #container>
+                  <div *ngIf="item.type===4 && item.is_free" class="code_box">
 
-                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                      [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                            cbContent={{item.discount_code}}
+                            [container]="container">کپی
+                    </button>
 
                     <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -127,7 +128,7 @@
 
 
             <label>
-              <input type="checkbox" />
+              <input type="checkbox"/>
               <div class="card front_offer ">
                 <div class="front">
                   <a class="offer_box_link">
@@ -154,14 +155,15 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;"  (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
                   </div>
-                  <div *ngIf="item.type===4 && item.is_free" #container>
+                  <div *ngIf="item.type===4 && item.is_free" class="code_box">
 
-                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                      [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                            cbContent={{item.discount_code}}
+                            [container]="container">کپی
+                    </button>
 
                     <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -174,7 +176,7 @@
                   </div>
 
                   <div *ngIf="!item.free || item.price">
-                    <p  class="price_p">قیمت:
+                    <p class="price_p">قیمت:
                       <span>
                         {{item.price}}
                         ریال
@@ -237,7 +239,7 @@
 
 
             <label>
-              <input type="checkbox" />
+              <input type="checkbox"/>
               <div class="card front_offer ">
                 <div class="front">
                   <a class="offer_box_link">
@@ -264,14 +266,15 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
                   </div>
-                  <div *ngIf="item.type===4 && item.is_free" #container>
+                  <div *ngIf="item.type===4 && item.is_free" class="code_box">
 
-                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                      [container]="container">کپی</button>
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                            cbContent={{item.discount_code}}
+                            [container]="container">کپی
+                    </button>
 
                     <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 

@@ -31,9 +31,10 @@ import {
 import {LoginModalComponent} from "./login-modal/login-modal.component";
 import {JalaliPipe} from "./pipe/jalali.pipe";
 import {LoadingSpinnerComponent} from "./loading-spinner/loading-spinner.component";
+import {FarsidurationPipe} from "./pipe/farsiduration.pipe";
 
 @NgModule({
-  declarations: [SidenavComponent, HeaderComponent, FooterComponent, LoginModalComponent, JalaliPipe, LoadingSpinnerComponent],
+  declarations: [SidenavComponent, HeaderComponent, FooterComponent, LoginModalComponent, JalaliPipe, LoadingSpinnerComponent, FarsidurationPipe],
   imports: [
     CommonModule,
     RouterModule,
@@ -61,7 +62,7 @@ import {LoadingSpinnerComponent} from "./loading-spinner/loading-spinner.compone
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  exports: [SidenavComponent, HeaderComponent, FooterComponent, LoginModalComponent, JalaliPipe, LoadingSpinnerComponent],
+  exports: [SidenavComponent, HeaderComponent, FooterComponent, LoginModalComponent, JalaliPipe, LoadingSpinnerComponent, FarsidurationPipe],
   entryComponents: [LoginModalComponent],
 })
 export class SharedModule {

@@ -43,11 +43,10 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" ngI>
+                    {{item.expiration_date | farsiduration}}
                   </div>
-                  <div *ngIf=" item.link===4 && item.is_free" #container>
+                  <div *ngIf=" item.link===4 && item.is_free" class="code_box">
 
                     <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
                       [container]="container">کپی</button>
@@ -142,11 +141,10 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                   {{item.expiration_date | farsiduration}}
                   </div>
-                  <div *ngIf=" item.link===4 && item.is_free" #container>
+                  <div *ngIf=" item.link===4 && item.is_free" class="code_box">
 
                     <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
                       [container]="container">کپی</button>
@@ -235,11 +233,10 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)" [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
                   </div>
-                  <div *ngIf=" item.link===4 && item.is_free" #container>
+                  <div *ngIf=" item.link===4 && item.is_free" class="code_box">
 
                     <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
                       [container]="container">کپی</button>

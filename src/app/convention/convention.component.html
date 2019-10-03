@@ -43,10 +43,8 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)"
-                                     [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
                   </div>
                   <!-- <div *ngIf="item.is_free " #container>
 
@@ -135,10 +133,8 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)"
-                                     [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
                   </div>
                   <!-- <div *ngIf="item.is_free" #container>
 
@@ -225,10 +221,8 @@
                 <div class="back ">
 
                   <p class="back_name">{{item.name}}</p>
-                  <div class="timer timer_{{item.id}}">
-                    اعتبار تا
-                    <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)"
-                                     [end]="[item.expiration_date]"></countdown-timer>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
                   </div>
                   <!-- <div *ngIf="item.is_free" #container>
 

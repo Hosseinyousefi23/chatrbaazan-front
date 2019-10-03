@@ -1,8 +1,10 @@
 <mat-sidenav-container class="example-container">
 
   <mat-sidenav #sidenav [mode]="mode.value" [fixedInViewport]="true" position="end">
-    <p><button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
-      </button></p>
+    <p>
+      <button mat-button (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+    </p>
     <div class="menu_content">
       <app-sidenav></app-sidenav>
     </div>
@@ -18,7 +20,8 @@
           <hr>
           <div class="filter_options">
             <mat-radio-group [(ngModel)]="selectedcompany">
-              <mat-radio-button *ngFor="let company of companies;" value="{{company.slug}}">{{company.name}}</mat-radio-button>
+              <mat-radio-button *ngFor="let company of companies;" value="{{company.slug}}">{{company.name}}
+              </mat-radio-button>
             </mat-radio-group>
             <!-- <a *ngFor="let company of companies;">{{company.name}}</a>  -->
           </div>
@@ -29,7 +32,8 @@
           <div class="filter_options">
             <!-- <a *ngFor="let category of categories;">{{category.name}}</a>  -->
             <mat-radio-group [(ngModel)]="selectedcategory">
-              <mat-radio-button *ngFor="let category of categories;" value="{{category.slug}}">{{category.name}}</mat-radio-button>
+              <mat-radio-button *ngFor="let category of categories;" value="{{category.slug}}">{{category.name}}
+              </mat-radio-button>
             </mat-radio-group>
 
           </div>
@@ -50,7 +54,7 @@
 
 
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox"/>
                     <div class="card front_offer ">
                       <div class="front">
                         <a class="offer_box_link">
@@ -77,15 +81,15 @@
                       <div class="back ">
 
                         <p class="back_name">{{item.name}}</p>
-                        <div class="timer timer_{{item.id}}">
-                          اعتبار تا
-                          <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)"
-                            [end]="[item.expiration_date]"></countdown-timer>
+                        <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                          {{item.expiration_date | farsiduration}}
                         </div>
-                        <div *ngIf="item.is_free && item.type==4" #container>
+                        <div *ngIf="item.is_free && item.type==4" class="code_box">
 
-                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                            [container]="container">کپی</button>
+                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                                  cbContent={{item.discount_code}}
+                                  [container]="container">کپی
+                          </button>
 
                           <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -163,7 +167,7 @@
 
               </div>
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-                (scrolled)="onScroll()">
+                   (scrolled)="onScroll()">
               </div>
               <loading-spinner *ngIf="!stop_scroll">
               </loading-spinner>
@@ -176,7 +180,7 @@
 
 
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox"/>
                     <div class="card front_offer ">
                       <div class="front">
                         <a class="offer_box_link">
@@ -203,15 +207,15 @@
                       <div class="back ">
 
                         <p class="back_name">{{item.name}}</p>
-                        <div class="timer timer_{{item.id}}">
-                          اعتبار تا
-                          <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)"
-                            [end]="[item.expiration_date]"></countdown-timer>
+                        <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                          {{item.expiration_date | farsiduration}}
                         </div>
-                        <div *ngIf="item.is_free && item.type==4" #container>
+                        <div *ngIf="item.is_free && item.type==4" class="code_box">
 
-                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                            [container]="container">کپی</button>
+                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                                  cbContent={{item.discount_code}}
+                                  [container]="container">کپی
+                          </button>
 
                           <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -289,7 +293,7 @@
 
               </div>
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-                (scrolled)="onScroll()">
+                   (scrolled)="onScroll()">
               </div>
               <loading-spinner *ngIf="!stop_scroll">
               </loading-spinner>
@@ -303,7 +307,7 @@
 
 
                   <label>
-                    <input type="checkbox" />
+                    <input type="checkbox"/>
                     <div class="card front_offer ">
                       <div class="front">
                         <a class="offer_box_link">
@@ -330,15 +334,15 @@
                       <div class="back ">
 
                         <p class="back_name">{{item.name}}</p>
-                        <div class="timer timer_{{item.id}}">
-                          اعتبار تا
-                          <countdown-timer style="color: #ec3e54;font-weight: 1000;" (zeroTrigger)="finished(item.id)"
-                            [end]="[item.expiration_date]"></countdown-timer>
+                        <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                          {{item.expiration_date | farsiduration}}
                         </div>
-                        <div *ngIf="item.is_free && item.type==4" #container>
+                        <div *ngIf="item.is_free && item.type==4" class="code_box">
 
-                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard cbContent={{item.discount_code}}
-                            [container]="container">کپی</button>
+                          <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                                  cbContent={{item.discount_code}}
+                                  [container]="container">کپی
+                          </button>
 
                           <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
 
@@ -416,7 +420,7 @@
 
               </div>
               <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-                (scrolled)="onScroll()">
+                   (scrolled)="onScroll()">
               </div>
               <loading-spinner *ngIf="!stop_scroll">
               </loading-spinner>
@@ -426,7 +430,6 @@
 
 
         </div>
-
 
 
         <div *ngIf="!pro" class="notfound">
