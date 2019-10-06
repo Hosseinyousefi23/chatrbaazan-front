@@ -1,4 +1,6 @@
 .offer {
+  height: 500px;
+  overflow-y: scroll;
   margin: 2em 0.5em;
   padding: 1.5em;
   background-color: #FFFFFF;
@@ -24,6 +26,10 @@
   -ms-transform-style: preserve-3d;
   /* -ms-transform: rotateY(0deg) */
 
+}
+
+.offer_content {
+  
 }
 
 .title {
@@ -133,7 +139,7 @@
 
 .code_box {
   margin-top: .6em;
-  /*margin-bottom: 5px;*/
+  margin-bottom: 5px;
 }
 
 .offer_off {

@@ -52,6 +52,9 @@
         <button mat-raised-button class="btn filter_btn" (click)="filterbtn()">اعمال فیلتر</button>
         <button mat-raised-button color="warn" class="btn filter_btn" (click)="filterDeletebtn()">حذف فیلتر</button>
       </div>
+      <div class="col-xs-12 col-md-8">
+        <app-infinite-loader [tabs]="this.tabs"></app-infinite-loader>
+      </div>
       <div class="offer col-xs-12 col-md-8">
         <div class="offer_content">
           <mat-tab-group animationDuration="0ms" *ngIf="pro" (selectedTabChange)="changeTab($event)">
@@ -175,9 +178,9 @@
 
               </div>
 
-              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-                   (scrolled)="onScroll()">
-              </div>
+              <!--<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"-->
+              <!--(scrolled)="onScroll()">-->
+              <!--</div>-->
               <loading-spinner *ngIf="!stop_scroll_pro">
               </loading-spinner>
 
@@ -218,7 +221,7 @@
 
                         <p class="back_name">{{item.name}}</p>
                         <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
-                         {{item.expiration_date | farsiduration}}
+                          {{item.expiration_date | farsiduration}}
                         </div>
                         <div *ngIf="item.is_free && item.type==4" class="code_box">
 
@@ -302,9 +305,9 @@
                 <!-- end of offer -->
 
               </div>
-              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-                   (scrolled)="onScroll()">
-              </div>
+              <!--<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"-->
+              <!--(scrolled)="onScroll()">-->
+              <!--</div>-->
               <loading-spinner *ngIf="!stop_scroll_pro">
               </loading-spinner>
             </mat-tab>
@@ -345,7 +348,7 @@
 
                         <p class="back_name">{{item.name}}</p>
                         <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
-                         {{item.expiration_date | farsiduration}}
+                          {{item.expiration_date | farsiduration}}
                         </div>
                         <div *ngIf="item.is_free && item.type==4" class="code_box">
 
@@ -430,9 +433,9 @@
 
               </div>
             </mat-tab>
-            <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-                 (scrolled)="onScroll()">
-            </div>
+            <!--<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"-->
+            <!--(scrolled)="onScroll()">-->
+            <!--</div>-->
             <loading-spinner *ngIf="!stop_scroll_pro">
             </loading-spinner>
 
@@ -562,9 +565,9 @@
 
               </div>
 
-              <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"
-                   (scrolled)="onScroll()">
-              </div>
+              <!--<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="2000"-->
+              <!--(scrolled)="onScroll()">-->
+              <!--</div>-->
               <loading-spinner *ngIf="!stop_scroll_exp">
               </loading-spinner>
 

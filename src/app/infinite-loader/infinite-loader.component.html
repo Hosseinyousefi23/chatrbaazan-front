@@ -1,0 +1,135 @@
+<div class="offer" infiniteScroll [infiniteScrollDistance]="10" [infiniteScrollThrottle]="2000"
+     [scrollWindow]="false" [immediateCheck]="true"
+     (scrolled)="onScroll()">
+  <div class="offer_content">
+    <mat-tab-group animationDuration="0ms" (selectedTabChange)="selectTab($event)">
+      <mat-tab *ngFor="let tab of this.tabs" label="{{tab.name}}">
+        <div class="row inner_content">
+          <!-- start of offer -->
+          <div class="offer_box" *ngFor="let item of tab.content;">
+            <label>
+              <input type="checkbox"/>
+              <div class="card front_offer ">
+                <div class="front">
+                  <a class="offer_box_link">
+                    <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
+                    <div *ngIf="item.image" class="offer_image">
+                      <img src="{{item.image}}" alt="">
+                    </div>
+                    <div *ngIf="!item.image" class="offer_image">
+                      <img src="{{item.company[0].image}}" alt="">
+                    </div>
+                    <div class="offer_title">
+                      {{item.name}}
+                    </div>
+                    <div class="offer_company">
+                            <span class="offer_companies" *ngFor="let i of item.company;">
+                              <a [routerLink]="['/company' , i.slug]">{{i.name}}</a>
+                            </span>
+                    </div>
+                    <a class="btn offer_btn" ngbButton>
+                      مشاهده
+                    </a>
+                  </a>
+                </div>
+                <div class="back ">
+
+                  <p class="back_name">{{item.name}}</p>
+                  <div class="timer timer_{{item.id}}" *ngIf="item.expiration_date">
+                    {{item.expiration_date | farsiduration}}
+                  </div>
+                  <div *ngIf="item.is_free && item.type==4" class="code_box">
+
+                    <button class="btn Copy_btn" (click)="showCopied(item.id)" ngxClipboard
+                            cbContent={{item.discount_code}}
+                            [container]="container">کپی
+                    </button>
+
+                    <input class=" btn input_cupon" type="text" disabled value="{{item.discount_code}}">
+
+                  </div>
+                  <div *ngIf="item.type==1">
+                    <p class="status_pro">وضعیت:
+                      <span style="font-weight: bold;" *ngIf="item.count>0">موجود</span>
+                      <span style="font-weight: bold;color: red;" *ngIf="item.count<=0">ناموجود</span>
+                    </p>
+                  </div>
+                  <div *ngIf=" item.type==1 &&(!item.free || item.price)">
+                    <p class="price_p">قیمت:
+                      <span>
+                              {{item.price}}
+                              ریال
+                            </span>
+                    </p>
+                  </div>
+                  <div class="btn-groups">
+                    <div>
+                      <a (click)="sendfail(item.slug)">
+                        <!--  -->
+                        <button class="btn btn-danger btn_sm">
+
+                          اعلام خرابی
+
+                        </button>
+                      </a>
+                      <a *ngIf="!item.is_free" (click)="addtocart(item.id)">
+                        <button [disabled]="item.is_free" class="btn btn-success btn_sm ">
+                          خرید
+                        </button>
+                      </a>
+                      <a *ngIf="item.is_free" target="_blank" href="{{item.link}}">
+                        <button (click)="sendclick(item.id)" class="btn btn-success btn_sm ">
+                          لینک خرید
+                        </button>
+                      </a>
+                    </div>
+                    <button (click)="openBottomSheet(item.slug)" class="btn  btn-warning btn_sm ">
+                      اشتراک گذاری
+                    </button>
+
+                    <a *ngIf="item.type == 1" target="_blank" [routerLink]="['/product' , item.slug]">
+                      <button class="btn btn-primary btn_sm">
+                        توضیح بیشتر
+                      </button>
+                    </a>
+                    <a *ngIf="item.type == 2" target="_blank" [routerLink]="['/app' , item.slug]">
+                      <button class="btn btn-primary btn_sm">
+                        توضیح بیشتر
+                      </button>
+                    </a>
+                    <a *ngIf="item.type == 3" target="_blank" [routerLink]="['/offer' , item.slug]">
+                      <button class="btn btn-primary btn_sm">
+                        توضیح بیشتر
+                      </button>
+                    </a>
+                    <a *ngIf="item.type == 4" target="_blank" [routerLink]="['/code' , item.slug]">
+                      <button class="btn btn-primary btn_sm">
+                        توضیح بیشتر
+                      </button>
+                    </a>
+                  </div>
+                  <button class="btn offer_btn back_voted">
+                    بازگشت
+                  </button>
+                </div>
+              </div>
+
+            </label>
+
+          </div>
+          <!-- end of offer -->
+        </div>
+
+        <div class="search-results">
+        </div>
+        <loading-spinner *ngIf="this.spin">
+        </loading-spinner>
+
+      </mat-tab>
+
+    </mat-tab-group>
+    <!--<div class="notfound">-->
+    <!--موردی یافت نشد-->
+    <!--</div>-->
+  </div>
+</div>
