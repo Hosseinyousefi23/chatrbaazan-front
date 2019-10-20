@@ -20,7 +20,7 @@ declare var $: any;
 })
 export class CompanyComponent implements OnInit, OnDestroy {
   company_slug = this.route.snapshot.paramMap.get("slug");
-  size = 4;
+  size = 8;
   tabs: Tab[] = [
     {
       name: "تازه ترین‎ها",
