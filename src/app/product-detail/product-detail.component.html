@@ -138,10 +138,10 @@
                         <a class="offer_box_link">
                           <span class="offer_off"> {{item.chatrbazi}}<span>چتر بازی </span></span>
                           <div *ngIf="item.image" class="offer_image">
-                            <img src="{{item.image}}" alt="">
+                            <img src="{{item.image}}" alt="کد تخفیف {{ item.company[0].name}} {{ item.company[0].english_name}}">
                           </div>
                           <div *ngIf="!item.image" class="offer_image">
-                            <img src="{{item.company[0].image}}" alt="">
+                            <img src="{{item.company[0].image}}" alt="کد تخفیف {{ item.company[0].name}} {{ item.company[0].english_name}}">
                           </div>
                           <div class="offer_title">
                             {{item.name}}

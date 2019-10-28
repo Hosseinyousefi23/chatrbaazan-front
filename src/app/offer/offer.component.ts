@@ -179,9 +179,9 @@ export class OfferComponent implements OnInit {
   showCopied(product_id) {
     // var target = event.target || event.srcElement || event.currentTarget;
     // var idAttr = target.attributes.class;
-    // console.log(event)
-    // console.log(target)
-    // console.log(idAttr)
+    // console.log(event);
+    // console.log(target);
+    // console.log(idAttr);
     this.offer.sendclick_like(product_id).subscribe(
       // data => console.log(data)
     )
