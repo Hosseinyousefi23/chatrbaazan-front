@@ -1,4 +1,6 @@
 .offer {
+  height: 500px;
+  overflow-y: auto;
   margin: 2em 0.5em;
   padding: 1.5em;
   background-color: #FFFFFF;
@@ -23,6 +25,10 @@
   -ms-transition: 0.6s;
   -ms-transform-style: preserve-3d;
   /* -ms-transform: rotateY(0deg) */
+
+}
+
+.offer_content {
 
 }
 
@@ -133,7 +139,7 @@
 
 .code_box {
   margin-top: .6em;
-  /*margin-bottom: 5px;*/
+  margin-bottom: 5px;
 }
 
 .offer_off {
@@ -261,7 +267,7 @@ input {
   font-weight: 700;
   border-radius: 5px;
   margin: .5em;
-  padding: .5em;
+  padding: .4em;
 }
 
 .input_cupon {
@@ -288,7 +294,7 @@ input {
 
 @media (max-width: 1580px) {
   .input_cupon {
-    width: 135px;
+    width: 150px;
   }
 }
 
@@ -310,10 +316,19 @@ input {
     width: 100px;
   }
 
-  .btn_sm {
-    width: 8em !important;
-    font-size: 0.6em;
-  }
+  /*.input_cupon {*/
+    /*font-size: 12px;*/
+    /*width: 130px;*/
+  /*}*/
+
+  /*.Copy_btn {*/
+    /*font-size: 12px;*/
+  /*}*/
+
+  /*.btn_sm {*/
+    /*width: 8em !important;*/
+    /*font-size: 0.6em;*/
+  /*}*/
 
   .timer {
     margin: .5em 0;

@@ -81,6 +81,7 @@ import {SharedModule} from "./shared/shared.module";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {CompanyComponent} from "./company/company.component";
 import {CategoriesComponent} from "./categories/categories.component";
+import { InfiniteLoaderComponent } from './infinite-loader/infinite-loader.component';
 
 
 const MY_DATE_FORMATS = {
@@ -121,6 +122,7 @@ export class CustomDateAdapter extends NativeDateAdapter {
     ApplicationComponent,
     ProductDetailComponent,
     CategoriesComponent,
+    InfiniteLoaderComponent,
   ],
   imports: [
     CommonModule,

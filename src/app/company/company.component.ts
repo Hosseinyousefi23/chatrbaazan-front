@@ -9,6 +9,7 @@ import {ToastrService} from 'ngx-toastr';
 import {BottomSheetOverviewExampleSheet} from '../bottom-sheet/bottom-sheet.component';
 import {UsersService} from '../users.service';
 import {Title} from "@angular/platform-browser";
+import {Tab} from "../Tab";
 
 declare var $: any;
 
@@ -18,6 +19,89 @@ declare var $: any;
   styleUrls: ['../sharesCss/shared_style.css', './company.component.css']
 })
 export class CompanyComponent implements OnInit, OnDestroy {
+  company_slug = this.route.snapshot.paramMap.get("slug");
+  size = 8;
+  tabs: Tab[] = [
+    {
+      name: "تازه ترین‎ها",
+      term: null,
+      company: this.company_slug,
+      category: null,
+      ordering: "created_at",
+      city: null,
+      limit: this.size,
+      page: 1,
+      type: null,
+      expire: false,
+      has_next: false,
+      content: []
+    },
+    {
+      name: "بیشترین تخفیف",
+      term: null,
+      company: this.company_slug,
+      category: null,
+      ordering: "topchatrbazi",
+      city: null,
+      limit: this.size,
+      page: 1,
+      type: null,
+      expire: false,
+      has_next: false,
+      content: []
+    },
+    {
+      name: "محبوب ترین‎ها",
+      term: null,
+      company: this.company_slug,
+      category: null,
+      ordering: "favorites",
+      city: null,
+      limit: this.size,
+      page: 1,
+      type: null,
+      expire: false,
+      has_next: false,
+      content: []
+    }
+  ];
+
+  expired_tab: Tab[] = [
+    {
+      name: "منقضی شده‎ها",
+      term: null,
+      company: this.company_slug,
+      category: null,
+      ordering: "expired",
+      city: null,
+      limit: this.size,
+      page: 1,
+      type: null,
+      expire: true,
+      has_next: false,
+      content: []
+    }
+  ];
+
+  pro: any[] = [];
+  expired: any[] = [];
+  selectedcategory;
+  selectedtab: string;
+  cityHeader;
+  companyinfo;
+
+
+  next_url_pro = '';
+  next_url_exp = '';
+
+  page_pro = 1;
+  page_exp = 1;
+  stop_scroll_pro = false;
+  stop_scroll_exp = false;
+
+  categories: any[] = [];
+
+  mode = new FormControl('over');
 
   constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: ActivatedRoute, private router: Router, private data: PageService, private user: UsersService, private dialog: MatDialog, private toastr: ToastrService,
               private bottomSheet: MatBottomSheet, private titleService: Title) {
@@ -32,25 +116,6 @@ export class CompanyComponent implements OnInit, OnDestroy {
     });
   }
 
-  pro: any[] = [];
-  expired: any[] = [];
-  selectedcategory;
-  selectedtab: string;
-  cityHeader;
-  companyinfo;
-
-
-  next_url_pro = '';
-  next_url_exp = '';
-  size = 4;
-  page_pro = 1;
-  page_exp = 1;
-  stop_scroll_pro = false;
-  stop_scroll_exp = false;
-
-  categories: any[] = [];
-  Companyid: any[] = [];
-  mode = new FormControl('over');
 
   ngOnInit() {
     this.companyinfo = {
@@ -59,10 +124,10 @@ export class CompanyComponent implements OnInit, OnDestroy {
       link: '',
       image: '',
     }
-    this.route.params.subscribe(params => {
-      this.Companyid = params['slug'];
-    })
-    this.data.search(null, this.Companyid, null, null, null, this.size, this.page_pro, null, this.selectedtab == 'expired').subscribe(param => {
+    // this.route.params.subscribe(params => {
+    //   this.Companyid = params['slug'];
+    // })
+    this.data.search(null, this.company_slug, null, null, null, this.size, this.page_pro, null, this.selectedtab == 'expired').subscribe(param => {
       // if (param['count']) {
 
       this.pro = param.results;
@@ -87,7 +152,7 @@ export class CompanyComponent implements OnInit, OnDestroy {
       //   this.router.navigate(['/']);
       // }
     });
-    this.data.search(null, this.Companyid, null, 'expired', null, this.size, this.page_exp, null, true).subscribe(param => {
+    this.data.search(null, this.company_slug, null, 'expired', null, this.size, this.page_exp, null, true).subscribe(param => {
       // if (param['count']) {
 
       this.expired = param.results;
@@ -177,7 +242,7 @@ export class CompanyComponent implements OnInit, OnDestroy {
   }
 
   filter() {
-    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page_pro, null, this.selectedtab == 'expired').subscribe(param => {
+    this.data.search(null, this.company_slug, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page_pro, null, this.selectedtab == 'expired').subscribe(param => {
       if (param['count']) {
         this.pro = param.results;
         this.categories = [];
@@ -212,7 +277,7 @@ export class CompanyComponent implements OnInit, OnDestroy {
   }
 
   infinte_list_pro() {
-    this.data.search(null, this.Companyid, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page_pro, null, this.selectedtab == 'expired').subscribe(param => {
+    this.data.search(null, this.company_slug, this.selectedcategory, this.selectedtab, this.cityHeader, this.size, this.page_pro, null, this.selectedtab == 'expired').subscribe(param => {
       if (param['count']) {
         console.log(param.results)
         this.pro = this.pro.concat(param['results'])
@@ -237,7 +302,7 @@ export class CompanyComponent implements OnInit, OnDestroy {
   }
 
   infinte_list_exp() {
-    this.data.search(null, this.Companyid, this.selectedcategory, 'expired', this.cityHeader, this.size, this.page_exp, null, true).subscribe(param => {
+    this.data.search(null, this.company_slug, this.selectedcategory, 'expired', this.cityHeader, this.size, this.page_exp, null, true).subscribe(param => {
       if (param['count']) {
         this.expired = this.expired.concat(param['results'])
         this.next_url_exp = param.next
