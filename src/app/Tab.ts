@@ -9,6 +9,7 @@ export class Tab {
   page: number;
   type: string;
   expire: boolean;
+  has_next: boolean;
   content: any[];
 
 }

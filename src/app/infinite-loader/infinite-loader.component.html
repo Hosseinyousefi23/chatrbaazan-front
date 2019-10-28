@@ -1,4 +1,4 @@
-<div class="offer" infiniteScroll [infiniteScrollDistance]="10" [infiniteScrollThrottle]="2000"
+<div class="offer" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="2000"
      [scrollWindow]="false" [immediateCheck]="true"
      (scrolled)="onScroll()">
   <div class="offer_content">
@@ -122,7 +122,7 @@
 
         <div class="search-results">
         </div>
-        <loading-spinner *ngIf="this.spin">
+        <loading-spinner *ngIf="tab.has_next">
         </loading-spinner>
 
       </mat-tab>

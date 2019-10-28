@@ -33,6 +33,7 @@ export class CompanyComponent implements OnInit, OnDestroy {
       page: 1,
       type: null,
       expire: false,
+      has_next: false,
       content: []
     },
     {
@@ -46,6 +47,7 @@ export class CompanyComponent implements OnInit, OnDestroy {
       page: 1,
       type: null,
       expire: false,
+      has_next: false,
       content: []
     },
     {
@@ -59,6 +61,24 @@ export class CompanyComponent implements OnInit, OnDestroy {
       page: 1,
       type: null,
       expire: false,
+      has_next: false,
+      content: []
+    }
+  ];
+
+  expired_tab: Tab[] = [
+    {
+      name: "منقضی شده‎ها",
+      term: null,
+      company: this.company_slug,
+      category: null,
+      ordering: "expired",
+      city: null,
+      limit: this.size,
+      page: 1,
+      type: null,
+      expire: true,
+      has_next: false,
       content: []
     }
   ];

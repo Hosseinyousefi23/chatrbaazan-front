@@ -20,7 +20,9 @@ export class InfiniteLoaderComponent implements OnInit {
   @Input()
   private tabs: Tab[];
   private selectedTab: number = 0;
-  public spin: boolean = false;
+
+  // public spin: boolean = false;
+
 
   constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private offer: PageService, private user: UsersService, private toastr: ToastrService, private bottomSheet: MatBottomSheet) {
   }
@@ -36,7 +38,8 @@ export class InfiniteLoaderComponent implements OnInit {
       this.tabs[i].city, this.tabs[i].limit, this.tabs[i].page, this.tabs[i].type,
       this.tabs[i].expire).subscribe((data: any) => {
       this.tabs[i].content = this.tabs[i].content.concat(data['results']);
-      this.spin = false;
+      this.tabs[i].has_next = (data['next'] != null);
+
       // this.addCode(data['results']);
       this.addeventlistener();
     });
@@ -120,9 +123,10 @@ export class InfiniteLoaderComponent implements OnInit {
 
   onScroll() {
     console.log("scrolled");
-    this.spin = true;
-    this.tabs[this.selectedTab].page += 1;
-    this.searchOffer(this.selectedTab);
+    if (this.tabs[this.selectedTab].has_next) {
+      this.tabs[this.selectedTab].page += 1;
+      this.searchOffer(this.selectedTab);
+    }
   }
 
 }
